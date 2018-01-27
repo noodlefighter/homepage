@@ -1,0 +1,19 @@
+mixin list(thepage)
+  include meta
+  each post in thepage.posts.toArray()
+    li
+      .meta
+        +meta(post)
+      if(theme.excerpt)
+        .excerpt
+          !=post.excerpt
+          
+mixin pageList(pages,c_name)
+  include meta
+  each p in pages.toArray()
+    if p.categories==c_name
+      li
+        .meta
+          +pageMeta(p)
+        .excerpt
+          !=p.excerpt

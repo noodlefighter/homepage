@@ -1,0 +1,36 @@
+mixin article(article)
+  include meta
+  +meta(article)
+  .article-content
+    if article.photos
+      .gallery
+        for photo in article.photos
+          a.gallery-img(href=url_for(photo))
+            img(src=url_for(photo))
+    != article.content
+  +comments_thread(article)
+  nav.pagination
+    include title
+    if article.prev
+      a#left-navigator(href=url_for(article.prev.path))
+        +title(article.prev)
+    +comments_switch(article)
+    if article.next
+      a#right-navigator(href=url_for(article.next.path))
+        +title(article.next)
+  if theme.mathjax
+    include mathjax
+
+mixin comments_thread(article)
+  if article.comments
+    if theme.duoshuo
+      #duoshuo_thread.comments
+    if config.disqus_shortname
+      #disqus_thread.comments
+        include disqus
+      
+mixin comments_switch(article)
+  if article.comments
+    if theme.duoshuo
+      a.comments-switch-duoshuo(href="javascript:void(0);", key=article.path, url=article.permalink, duoshuo=theme.duoshuo)
+        = __('comments')

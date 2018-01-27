@@ -1,0 +1,16 @@
+script(src=theme.cdn.jQuery + '/jquery/2.1.1/jquery.min.js')
+if theme.duoshuo
+  script(type='text/javascript').
+    var duoshuoQuery = {short_name:"!{theme.duoshuo}"}
+  script(src=theme.cdn.duoshuo + "/embed.js")
+script(src=theme.cdn.pjax + '/jquery.pjax/1.9.2/jquery.pjax.min.js')
+if theme.fancybox
+  link(rel='stylesheet', href='/fancybox/source/jquery.fancybox.css', type='text/css', media='screen')
+  script(type='text/javascript', src='/fancybox/source/jquery.fancybox.pack.js')
+  script.
+    var performFancybox = true;
+if theme.cnzz
+  div(style='display:none')
+    script(src=theme.cdn.cnzz)
+
+script(src=theme.cdn.carbon + '/js/carbon.js')

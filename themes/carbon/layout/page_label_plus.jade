@@ -1,0 +1,16 @@
+extends base
+
+block content
+  include _partial/meta
+  +pageMeta(page)
+  .article-content
+    h2
+      a(href="/label_plus")
+        ="简介"
+      a(href="/label_plus/help")
+        ="使用说明"
+      a(href="/label_plus/dl")
+        ="获取"
+      a(href="/label_plus/license")
+        ="License"
+    != page.content

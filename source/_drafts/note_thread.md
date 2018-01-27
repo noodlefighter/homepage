@@ -1,0 +1,3 @@
+http://blog.chinaunix.net/uid-26729065-id-3082025.html
+
+http://www.cnblogs.com/CareySon/archive/2012/04/14/Process-SynAndmutex.html

@@ -1,0 +1,29 @@
+extends base
+
+block content
+  include _partial/list
+  include _partial/category-list
+  ul.abstract-list
+    if page.path=='index.html'
+      hr
+      h2 Projects
+      +pageList(site.pages,'project')
+      hr
+      
+      each c in site.categories.toArray()
+        if c.path=='/作品/'
+          h2 Recent Works
+          +list(c)
+          br
+          hr
+          
+    h2 Blog
+    +categoryList()
+    +list(page)
+  nav.pagination
+    if page.prev
+      a#left-navigator(href=url_for(page.prev_link))
+        = __('newer')
+    if page.next
+      a#right-navigator(href=url_for(page.next_link))
+        = __('older')

@@ -1,0 +1,22 @@
+menu:
+  about: /about_me
+  archives: /archives
+
+banner: /noodlefighter.png
+
+excerpt: true
+repo: https://icylogic.net
+
+duoshuo: noodle
+mathjax: true
+fancybox: true
+cnzz: true
+
+cdn:
+  normalize: '//dn-staticfile.qbox.me'    
+  carbon: ''
+  duoshuo: '//static.duoshuo.com'
+  jQuery: '//dn-staticfile.qbox.me'
+  pjax: '//dn-staticfile.qbox.me'    
+  mathjax: '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+  cnzz: 'http://s4.cnzz.com/stat.php?id=5956290&web_id=5956290'

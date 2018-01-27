@@ -1,0 +1,18 @@
+mixin footer-link(name)
+  if theme.menu[name]
+    +link(__(name), url_for(theme.menu[name]))
+
+mixin link(name, url, isOut)
+  li
+    - var zn = config.language === 'zh-CN' || config.language === 'zh-TW'
+    a(class={'zn': zn, 'out-site': isOut} href=url)
+      = name
+      
+mixin external-link(name, url)
+  +link(name, url, true)
+
+ul#footer-links
+  +footer-link('about')
+  +footer-link('archives')
+  +external-link('Theme', theme.repo)
+  +external-link('Hexo', 'https://github.com/hexojs/hexo')

@@ -1,0 +1,13 @@
+mixin page-context(article)
+  include meta
+  +pageMeta(article)
+  .article-content
+    if article.photos
+      .gallery
+        for photo in article.photos
+          a.gallery-img(href=url_for(photo))
+            img(src=url_for(photo))
+    != article.content
+
+  if theme.mathjax
+    include mathjax
