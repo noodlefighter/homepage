@@ -1,11 +1,15 @@
 title: ARM BKPT指令和半主机(Semi-hosting)模式实现的研究
 description: 
-date: 
+date: 2017-08-09
 layout: post
 comments: ture
 categories:
 - 嵌入式软件
 ---
+
+今日排虫遇到了BKPT指令, 研究发现它和调试器有很大关系, 简单研究研究.
+
+<!--more-->
 
 起因
 ==============

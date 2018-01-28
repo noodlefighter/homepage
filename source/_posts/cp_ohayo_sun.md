@@ -9,13 +9,13 @@ tags:
 - 歌词 
 ---
 
-オハヨ○サンシャイン 歌词 中文翻译
+一首很萌的曲子 简单翻译了一下.
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=35253304&auto=0&height=66"></iframe>
 
-依旧是一首很萌的曲子丫
-简单翻译了一下
+<!--more-->
+
 オハヨ○サンシャイン = 早上好・Sun Shine
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=35253304&auto=0&height=66"></iframe>
 
 オハヨ○サンシャイン
 

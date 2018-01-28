@@ -9,6 +9,8 @@ categories:
 
 （working...）
 
+<!--more-->
+
 ---
 
 ## 概念

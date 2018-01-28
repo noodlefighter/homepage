@@ -1,8 +1,7 @@
-title: Osu Keyboard
+title: Nono OSU! Keyboard
 layout: page
 categories: project
 ---
-
 
 {% img /osu_keyboard/banner.jpg 250 %}
 为音乐游戏OSU而设计的机械键盘方案
@@ -11,39 +10,33 @@ Keyboard for OSU
 
 ---
 
-## 最新消息・NEWS
-v3制作资料整理中！
-
----
-
-## **Nono osu! keyboard (Nosumor v3) **
+## **Nono osu! keyboard (v3) **
 ***(当前版本・Latest Version)***
 {% img /osu_keyboard/v3_show1.jpg 400 %}
 {% img /osu_keyboard/v3_show2.jpg 400 %}
-_  
-{% post_link log_nono 工作日志/Worklog %}
+
+
+{% post_link log_nono 工作日志 %}
 
 介绍展示/Exhibition
-[中文](\osu_keyboard\v3_show.html) [English](\osu_keyboard\v3_show_en.html)
-
-详情与制作方法/How to make it
-[中文](\osu_keyboard\v3_make.html) [English](\osu_keyboard\v3_make_en.html)
-
-资料下载/Download
-{% link Github(Working!!!!) https://github.com/noodlefighter/osu-keyboard-v3 %}
+<a href="./osu_keyboard/v3_show.html" target="_blank">中文</a>
+<a href="./osu_keyboard/v3_show_en.html" target="_blank">English</a>
 
 ---
 
 ## **Noodlefighter Osu Keyboard 2.1**
 
 {% img /osu_keyboard/v2_show.jpg 400 %}
-_  
-{% post_link log_noodlekb 工作日志/Worklog %}
 
-[介绍展示/Exhibition](\osu_keyboard\v2_show.html)
+
+{% post_link log_noodlekb 工作日志 %}
+
+<a href="./osu_keyboard/v2_show.html" target="_blank">介绍展示/Exhibition</a>
 
 详情与制作方法/How to make it
-[中文](\osu_keyboard\v2_make.html) [English](\osu_keyboard\v2_make_en.html)
+<a href="./osu_keyboard/v2_make.html" target="_blank">中文</a>
+<a href="./osu_keyboard/v2_make_en.html" target="_blank">English</a>
+
 
 资料下载/Download
 {% link Github https://github.com/noodlefighter/osu-keyboard-v2 %}
@@ -67,20 +60,6 @@ _
 The idea is shared by another player a few year ago on tieba(tieba.baidu.com),even selled a serious version but it isn’t a open source project.
 To come out a solution sooner that allow a lowest budget to produce the highest quality. I decided to change my OSU! Keyboard project to be an open source project.
 Project's main purpose is to find a easy solution that everyone can easily make a good osu keyboard with low cost.
-
----
-
-### 希望项目继续下去，如何捐助
-### I hope this project to continue, how can I support this project?
-
-中国建设银行 China Construction Bank
-4367 4233 7818 0691 238
-
-支付宝 alipay
-noodlefighter#126.com (#→@)
-
-贝宝 paypal
-noodlefighter#126.com (#→@)
 
 ---
 

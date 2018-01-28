@@ -1,6 +1,6 @@
 title: Nono OSU! Keyboard v4 工作日志
 description: 
-date: 
+date: 2017-06-21
 layout: post
 comments: ture
 categories:
@@ -13,6 +13,9 @@ tags:
 
 nono 3.0版是14年夏天做的
 现在已经过去了两年 简单来个小升级吧
+nono v4的工作日志
+
+<!--more-->
 
 目标:
 =======

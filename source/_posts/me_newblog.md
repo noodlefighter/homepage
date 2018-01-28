@@ -11,6 +11,9 @@ tags:
 
 ![image](/i/me_newblog/a.jpg)
 
+<!--more-->
+
+
 开开关关过挺多博客。
 
 小时候大概初中二年生时

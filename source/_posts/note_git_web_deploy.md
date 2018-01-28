@@ -13,6 +13,9 @@ tags:
 准备要把shabao.io弄起来
 用git往web server上push来迭代挺方便的 
 参考了网上的文章还是踩了些坑 这里简要记一下步骤(服务器用的ubuntu)
+
+<!--more-->
+
 本文只是简单的应用步骤介绍 前置知识请自行古哥 "ssh密钥" "git仓库" "git hooks"等
 
 花点时间写了相关脚本放到gayhub上:

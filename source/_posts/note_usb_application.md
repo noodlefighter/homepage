@@ -9,11 +9,15 @@ tags:
 - 笔记
 ---
 
-USB学习笔记, 同时希望能帮助快速上手做USB应用开发, 整理自以下资料:
+USB学习笔记, 同时希望能帮助快速上手做USB应用开发.
+
+<!--more-->
+
+整理自以下资料:
 [Universal Serial Bus Specification Revision 2.0](http://www.usb.org/developers/docs/usb20_docs/#usb20spec)
 https://wenku.baidu.com/view/dd150ee3482fb4daa48d4b0a.html
 [USB的八个问题和答案(出处不详)](http://blog.csdn.net/ahc2013/article/details/16846101)
-[USB基础知识概论 by Crifan Li]( https://www.crifan.com/files/doc/docbook/soft_dev_basic/release/html/soft_dev_basic.html#cc_by_nc)
+[USB基础知识概论 by Crifan Li](https://www.crifan.com/files/doc/docbook/usb_basic/release/htmls/)
 [USB OTG协议基础](http://blog.csdn.net/qq_695538007/article/details/41213041)
 [OTG中的ID脚风波释疑](https://my.oschina.net/armsky/blog/15322)
 [usb设备 配置 接口 端点](https://www.cnblogs.com/darren-715/archive/2014/03/10/3591452.html)

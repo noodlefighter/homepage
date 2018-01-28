@@ -16,6 +16,9 @@ tags:
 {% endpullquote %}
 
 
+<!--more-->
+
+
 ## 写在前面
 
 [Hexo](https://hexo.io)很灵活，玩法比较多，

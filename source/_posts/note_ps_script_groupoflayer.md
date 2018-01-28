@@ -11,6 +11,8 @@ tags:
 
 有时候需要给创建的图层分组
 
+<!--more-->
+
 > https://forums.adobe.com/message/4282351
 
 先创建图层组

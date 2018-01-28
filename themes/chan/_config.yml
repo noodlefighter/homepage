@@ -1,0 +1,83 @@
+# chan theme configuration
+
+# site setting
+rss: /atom.xml
+favicon: /favicon.png
+
+# style setting
+monochrome: true
+
+# view setting
+avatar: /favicon.png
+avatarLink: /about_me
+maxContentWidth: 1000px # set the main content column's max-width property. keep it blank to unlimited the width
+copyright: # the copyright text in the footer, could be richtext
+
+# sidebar navigator structure
+# It's a list with item that is also list.
+# The item of first level list means a group of links,
+# and the item of the second level list means exactly a link.
+# A link item is an object whit two properties: 'name' for displaying and 'link' for redirecting.
+# A link starts with http/https would be rendered as a tag with 'target="_blank"' .
+# There are also some special link items representing in string: 'categories', 'tags' and 'archives'
+nav:
+  -
+    - categories # display a collapsible category list
+    - tags       # display a collapsible tag list
+    - archives   # display a collapsible archive list
+  -
+    -
+      name: 关于我
+      url: /about_me
+  -
+    -
+      name: 微博
+      url: https://weibo.com/noodlefighter
+    -
+      name: Github
+      url: https://github.com/noodlefighter
+    -
+      name: G制造
+      url: http://gmaker.io
+
+# duoshuo shortname
+# refer to http://duoshuo.com
+# If you use disqus then you should set disqus_shortname in your site config and disable duoshuo here.
+# You also need to set 'comments' to true in the front-matter
+#duoshuo: sprabbit
+
+# disqus
+
+# jiathis share id
+# refer to http://jiathis.com
+#jiathis: 1589291
+
+# open graph
+twitter: 
+google_plus:
+fb_admins:
+fb_app_id:
+
+# analytics ids
+google_analytics:
+baidu_statistics:
+cnzz_statistics: true
+
+# default creative commons
+# There are 6 kinds of combination and place 'none' to disable.
+# - by
+# - by-sa
+# - by-nd
+# - by-nc
+# - by-nc-sa
+# - by-nc-nd
+# - none
+# This setting could be overwritten in the front matter of a post.
+# More details in https://creativecommons.org
+cc: by-nc
+
+# FancyBox / PhotoSwipe
+# Although it is called fancybox, we use PhotoSwipe instead.
+# Check http://photoswipe.com
+fancybox: true    # enable fancybox/photoswipe rendering
+# photoswipe: true  # the same

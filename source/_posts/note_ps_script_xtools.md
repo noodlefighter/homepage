@@ -12,8 +12,6 @@ tags:
 - ps脚本图形界面
 ---
 
-以下为我使用xtools的界面库 为LabelPlus做的ps导入工具的截图
-{% img /i/note_ps_script_xtools/pic.jpg 600 %}
 
 制作[LabelPlus](http://noodlefighter.com/label_plus)的让我接触了ps脚本
 后来了解到有xtools这一系列工具和函数库 不禁感叹作者的用心
@@ -21,6 +19,10 @@ tags:
 所以摸索起来也花了半天时间
 现在边摸索边写个快速入门教程 以供参考
 
+<!--more-->
+
+以下为我使用xtools的界面库 为LabelPlus做的ps导入工具的截图
+{% img /i/note_ps_script_xtools/pic.jpg 600 %}
 ---
 
 ## 从ps脚本说起

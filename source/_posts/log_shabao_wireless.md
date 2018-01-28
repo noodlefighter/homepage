@@ -1,6 +1,6 @@
 title: Shabao-Wireless 无线键盘接收器 工作日志
 description: 
-date: 
+date: 2017-07-05
 layout: post
 comments: ture
 categories:
@@ -14,6 +14,9 @@ tags:
 ============
 想做个40%无线键盘 麻烦的地方是无线键盘的接收器
 tmk_core是个不错的开源库 要实现最简单的无线接收器功能 只需在它的基础上 把按键扫描部分适配上无线通讯即可
+
+<!--more-->
+
 
 大致写一下想法:
 * 使用tmk_core, 自然是GPL了, 嗯硬件也跟着GPL

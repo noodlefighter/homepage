@@ -1,5 +1,5 @@
 title: windows下的Eclipse+JLink调试 ARM裸机开发环境搭建
-date: 
+date: 2017-12-06
 layout: post
 comments: ture
 categories:
@@ -13,6 +13,8 @@ tags:
 调试起来比emblock要舒服
 用eclipse+arm-gcc+JLink的人越来越多了吧
 仅记录一下配置方法
+
+<!--more-->
 
 另外可以参考这一篇
 http://www.emb4fun.de/archive/eclipse/index.html

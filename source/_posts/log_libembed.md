@@ -11,6 +11,10 @@ tags:
 - 嵌入式
 ---
 
+已废弃
+
+<!--more-->
+
 [git传送门](https://github.com/noodlefighter/Nframe)
 
 ## 2015-08-22

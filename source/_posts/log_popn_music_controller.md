@@ -1,6 +1,6 @@
 title: 自制Pop'n Music 控制器制作资料(手台)
 description: 
-date: 
+date: 2017-10-22
 layout: post
 comments: ture
 categories:
@@ -13,7 +13,9 @@ tags:
 
 ## 台子
 
-某宝Popn手台含邮1200往上走 于是就有了自己动手做个料足好使的台子的想法
+某宝Popn手台含邮1200往上走 于是自己动手做个料足好使的台子
+
+<!--more-->
 
 ![IMG_20170930_222520.jpg](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=8023Z_OUqy0U_FNbRaoI0EeWGvni9YnlzcbRAvW5JsLGuwwjv9oWgc6SaCAvreM_1tQMA1LU_-S4OxBMTUCRxOkogdLgs4mtmXQiYZgEAMx3_sRFkkE8EVAblFNmmeNZXt8&file_name=/IMG_20170930_222520.jpg)
 

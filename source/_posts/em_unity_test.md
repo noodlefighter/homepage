@@ -10,6 +10,8 @@ categories:
 [Unity](https://github.com/ThrowTheSwitch/Unity)是一个C下的单元测试框架（Unity Test Framework），MIT开源协议。
 初衷就是为嵌入式程序单元测试编写提供便利。
 
+<!--more-->
+
 ## 单元测试
 单元测试是软件开发过程中的一种减少bug、提高代码质量的手段
 简单的说就是 编写程序的人员 逐个对最小单元（函数）编写对应的测试代码，以此验证它的输出是否符合自己的预期

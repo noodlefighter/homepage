@@ -8,9 +8,6 @@ tags:
 - 开源
 ---
 
-整理、记录一些自己觉得好玩的工程（以备不时之需
-以首字母作为排序依据
-
----   
-改放到git上了
+整理、记录一些自己觉得好玩的工程（以备不时之需 改放到git上了
 https://github.com/noodlefighter/embeded-project-collection
+

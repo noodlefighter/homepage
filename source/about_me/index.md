@@ -3,12 +3,12 @@ layout: page
 categories: 
 ---
 
-![img](/about_me/me.jpg)
+![img](/favicon.png)
 
 [Github Profile](https://github.com/noodlefighter)
 [Osu! Profile](http://osu.ppy.sh/u/2237755)
 [Weibo](http://weibo.com/noodlefighter)
- Email: Noodlefighter##gmail.com
+Email: Noodlefighter##gmail.com
 
 Noodlefighter
 Birthday: 01-08
@@ -21,16 +21,16 @@ Noodlefighter
 ---
 
 ## 工作台
-![img](/about_me/desk.jpg)
+![img](desk.jpg)
 
 ---
 
 ## 本命
-![img](/about_me/chi.jpg)
+![img](chi.jpg)
 (Chobits里的角色 ちい给人一种很可靠的感觉 好想带回家养.)
 
 ---
 
-## 。。。
+## Me
 
-![img](/about_me/real_me.jpg)
+![img](real_me.jpg)

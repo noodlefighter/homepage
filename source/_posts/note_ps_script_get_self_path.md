@@ -15,6 +15,9 @@ tags:
 关键字: 
 __ps脚本运行路径__
 __获取ps脚本当前路径__
+
+<!--more-->
+
 ---
 
 写Photoshop Script脚本时

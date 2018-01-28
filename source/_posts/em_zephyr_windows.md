@@ -1,5 +1,5 @@
 title: windows下eclipse的zephyr开发环境搭建
-date: 
+date: 2017-12-07
 layout: post
 comments: ture
 categories:
@@ -10,6 +10,8 @@ tags:
 ---
 
 ![zephyr-logo.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=dafcGlfIGBlL5VNPUAvRd2MQVCBRRvleSNE2-lA-S4_mV5hyY-OyyzRYGa5hKuPTNibdzBLhtx6WChgHyVUF1MhZL-pqXVbuO3RXCRDaVtx61g&file_name=/zephyr-logo.png)
+
+<!--more-->
 
 Zephyr是linux基金会的rtos项目([官方网站](https://www.zephyrproject.org/)), Apache License, 笔者2016年年底开始关注这个项目, 它的成长速度令人激动(羡慕).
 

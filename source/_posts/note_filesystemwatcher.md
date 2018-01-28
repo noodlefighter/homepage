@@ -1,6 +1,6 @@
 title: 解决.Net框架中FileSystemWatcher类无法产生Changed事件问题有感
 description: 
-date: 
+date: 2017-11-12
 layout: post
 comments: ture
 categories:
@@ -10,6 +10,9 @@ tags:
 ---
 
 "透过现象看本质." 
+
+
+<!--more-->
 
 ---
 

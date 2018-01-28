@@ -1,0 +1,15 @@
+<% site.pages.each(function(post){ %>
+  <% if (post.categories != 'project'){ return } %>
+  <div class="post-list">
+    <div class="post-list-item article">
+      <h4 class="article-header">
+        <%- partial('_partials/post/title', {post: post}) %>
+      </h4>
+      <div class="article-entry">
+        <% if (post.excerpt) { %>
+          <%- post.excerpt %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% }) %>

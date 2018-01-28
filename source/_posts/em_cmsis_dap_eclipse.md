@@ -8,6 +8,9 @@ categories:
 
 购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..
 这里记录win下使用eclipse+openOCD+cmsis_dap调试arm程序的配置方法 
+
+<!--more-->
+
 {% img /i/em_cmsis_dap_eclipse/00.jpg 600 %}
 
 ---

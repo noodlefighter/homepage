@@ -1,4 +1,4 @@
-title: 午餐便当收集
+title: 菜谱收集
 description: 
 date: 2016-07-30
 layout: post
@@ -6,6 +6,10 @@ comments: ture
 categories:
 - 网摘
 ---
+
+菜谱
+
+<!--more-->
 
 ## 油炸系
 ふわふわ_ハンバーグ_の作り方
