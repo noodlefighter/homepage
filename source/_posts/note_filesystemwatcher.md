@@ -43,16 +43,12 @@ watcher.Changed += new FileSystemEventHandler(watcher_Changed);
 先msdn重新看了遍 用法应该无误 而且测试了Create事件能被正常触发
 然后开始到处搜/瞎几把尝试, 无果, 直到翻到Github上.NET Core项目的一个issue: [FileSystemWatcher does not raise events for files that are opened/changed in Visual Studio](https://github.com/dotnet/corefx/issues/9462)
 提问者也用了这个类的Changed事件, 在VS中修改一个.json文本并保存, 但是事件并没有触发, 二楼回复:
-![TIM图片20171122211923.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=136f6oCPichAi7u-Vd8WsFj4ZJO__n-XgGk3wwXh21U92NXKphOHMSi98KXtTolmX8ZKAv9ja-OR1JcIGKWcLYorIPikuqXRfoY3HuaCu36I_iZCApMXdQXhN8lR8JSpYUGW&file_name=/TIM%E5%9B%BE%E7%89%8720171122211923.png)
+![i](/i/note_filesystemwatcher/1.png)
 
 看到这里 一下子清醒过来.. 直觉上总觉得Editor在用户编辑期间是把数据暂存在内存中 需要保存的时候整个写回外存储.. 
 可现实是..大文件怎么可能直接丢内存里.. 它们的做法是``建一个临时文件来存放用户编辑中的数据 用户保存时直接删掉原来的文件 然后把临时文件重命名``..
 
 比如这里 打开了一个文件, 修改后保存, 得到的记录如下:
-![TIM截图20171122213119.jpg](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=a7calQZPpnR8XJWXgL4-NPhbIrRj9RYz01rWlEZTq2KT2fFetXAGyhbe_blXxIECogRpYI_g7QX6VGaE-vrdQ89e3ZJKdbjjgrkpnPTv6zIxxNHCOio-2d2rvTfbbdz8DgUe&file_name=/TIM%E6%88%AA%E5%9B%BE20171122213119.jpg)
+![i](/i/note_filesystemwatcher/2.png)
 
 最后, 解决方案是监听Renamed事件, 问题得到解决.
-
-感想
-=======
-也就是博文的第一句话了..

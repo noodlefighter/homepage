@@ -9,17 +9,15 @@ tags:
 - zephyr
 ---
 
-![zephyr-logo.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=dafcGlfIGBlL5VNPUAvRd2MQVCBRRvleSNE2-lA-S4_mV5hyY-OyyzRYGa5hKuPTNibdzBLhtx6WChgHyVUF1MhZL-pqXVbuO3RXCRDaVtx61g&file_name=/zephyr-logo.png)
+win的Linux子系统下搭建zephyr编译环境, 在eclipse中开发.
 
 <!--more-->
 
-Zephyr是linux基金会的rtos项目([官方网站](https://www.zephyrproject.org/)), Apache License, 笔者2016年年底开始关注这个项目, 它的成长速度令人激动(羡慕).
+![zephyr-logo.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=dafcGlfIGBlL5VNPUAvRd2MQVCBRRvleSNE2-lA-S4_mV5hyY-OyyzRYGa5hKuPTNibdzBLhtx6WChgHyVUF1MhZL-pqXVbuO3RXCRDaVtx61g&file_name=/zephyr-logo.png)
 
-Zephyr使用Kconfig+Makefile(1.10.0之后改为CMake)构建, 让众多习惯在Windows下使用IDE开发的嵌入式软件工程师犯难, 尽管Guide手册中介绍了windows下使用msys2环境的方案, 但没有介绍如何与IDE联合使用.
+Zephyr是linux基金会的rtos项目([官方网站](https://www.zephyrproject.org/)), Apache License, 2016年年底我开始关注这个项目, 它的成长速度令人激动.
 
-在win10周年版之后, Windows加入了一个WSL(Windows Subsystem for Linux), 它允许在windows上直接运行ELF规范的PE文件 这大大方便了我们这些需要使用unix系工具的开发者, 文本将介绍在WSL搭建zephyr开发环境以及使用eclipse开发调试zephyr应用的方法.
-
-抛砖引玉, 如果有更好的方案希望能一起讨论(Noodlefighter#gmail.com).
+Zephyr使用Kconfig+Makefile(1.10.0之后改为CMake)构建, 在win10周年版之后, Windows加入了一个WSL(Windows Subsystem for Linux), 在WSL下搭建zephyr开发环境就像在Linux下一样方便, 习惯在win开发的人也可以用它来尝尝鲜.
 
 ---
 
@@ -40,7 +38,7 @@ cmake version 3.10.0
 
 win+R执行``winver``, 确认系统版本win10为1607之后, 如果版本未达到要求请先升级系统.
 
-![TIM截图20171206125124.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=100ceh0MIIp1YQl18CdMcWsak95B12rT94aFCylGBW4xxNtRcXJAESe3N_-4V_9KTY--qaEMS5H4tcwdmpAk0Vtf4ewqYU2Ke72sD3TNc3q0-cpDm0q8QddmwdGGbQ&file_name=/TIM%E6%88%AA%E5%9B%BE20171206125124.png)
+![img.png](/i/em_zephyr_windows/1.png)
 
 ---
 
@@ -49,7 +47,7 @@ win+R执行``winver``, 确认系统版本win10为1607之后, 如果版本未达�
 该步骤可以参考[微软的文档](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10)以及[Zephyr文档](http://docs.zephyrproject.org/getting_started/installation_win.html#using-windows-10-wsl-windows-subsystem-for-linux).
 
 进入``控制面板 - 程序 - 程序和功能 - 开启或关闭Windows功能``, 勾选``适用于Linux的Windows子系统``, 确定后WSL开启.
-![TIM截图20171206124554.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=394cg_syXP_OIyOk_HAYOjKDJY1sEgaGNdILyZpdOV2Pd7Mj6rLXj3GnTfAwXWlPEzbzOc-6GX9llQgUzh80A-752u4Stq3HQYkJxfxfhu8HjoGrTgx7FeXUYXpgcw&file_name=/TIM%E6%88%AA%E5%9B%BE20171206124554.png)
+![img.png](/i/em_zephyr_windows/2.png)
  
 进入``Microsoft Store``, 搜索``ubuntu``, 下载即可得到一个Ubuntu子系统.
 
@@ -59,7 +57,7 @@ win+R执行``winver``, 确认系统版本win10为1607之后, 如果版本未达�
 
 启动了熟悉(陌生?)的bash, 就可以把它当做ubuntu一样操作了. 
 
-![TIM截图20171206130214.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=4c6eijs-Ju58B3iQS4M2CXGyQ7KMKP6n2hDoOE3NdLsBX8ifCL2sQ3x7ycWCZv40ic0RUd3KDi2KOGF5gxOeLA1OaJ9ha4-VUi8xYN2a0xfhLJ5d_HWjTM_Bx_0wdw&file_name=/TIM%E6%88%AA%E5%9B%BE20171206130214.png)
+![img.png](/i/em_zephyr_windows/3.png)
 
 这里提供一些信息:
 * 根文件系统大致位置在 ``C:\Users\r\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_(??)\LocalState\rootfs``你可以直接在windows中浏览它, 但最好不要直接编辑它, 因为会把文件的权限弄乱, 如果不小心弄乱了权限, 请使用``chmod``命令重新设置文件权限.
@@ -259,5 +257,4 @@ P.S. 工具链在Step5搭建Eclipse开发环境时应该已经安装好了, 这�
 
 ## ``Step7 结束``
 
-笔者重度IDE依赖者, 基本都在Eclipse开发而不愿挪窝, 好处是不用改习惯.
 Zephyr是个好东西, 祝大家玩的开心.

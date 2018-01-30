@@ -62,7 +62,7 @@ https://github.com/gnu-mcu-eclipse/windows-build-tools/releases
 Build Tools主要为windows提供unix中一些构建相关的基本工具, 比如make, 它可以通过读取makefile脚本调用以上工具链来完成编译.
 
 P.S. makefile脚本可以由Eclipse的CDT插件自动生成, 也可以由autotools,cmake等更高级的构建工具生成, 一般不手工编写.
-![TIM图片20171206103429.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=a6faHID3eRRccy7LZcWd-ituj3BUSHBAhM0iXLPGDcbp6EWdm6ghl7_UJMqVrwRxcX1N6HAZ4p5lxizGYztkFTq5v2X-cd8x6FjqCN4IhqJsv4jCegZ42Kr3Zw&file_name=/TIM%E5%9B%BE%E7%89%8720171206103429.png)
+![img](./i/em_eclipse_arm/1.png)
 
 P.S.
 如果Build Tools无法在你的环境中正常工作 你可以选择使用MSYS2作为这里的Build Tools.
@@ -77,10 +77,10 @@ P.S.
 
 ### 6. 尝试编译helloworld
 新建C Project, 选择
-![TIM图片20171206104931.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=d788vTk__Tr0Ugzdxd01uKJJdtloIzukNfFmbJbSz48Jzx8lvH-JQlqEAFXpf7zKQwpZE9hAtYdFIH4inHK1ErScWd4fIjxMRQS3qCsavunDFlgV-mHHQ_Y_tw&file_name=/TIM%E5%9B%BE%E7%89%8720171206104931.png)
+![img](./i/em_eclipse_arm/2.png)
 
 菜单"Build - Build Project"编译, Console中出现以下输出则环境配置成功:
-![TIM截图20171206105912.png](http://lolipan.noodlefighter.com/index.php?user/publicLink&fid=9e60tT1NGu6fH5aX8K9OOiNdgssX-qCjM-zc3dAspRBBjKin0oKFCiGZJl-GbZEqW8O_Y_TrNxjgVmpTAMXAIixxeVmOLiqWwdxycHd5ZlfaaObA-9M5POMJSA&file_name=/TIM%E6%88%AA%E5%9B%BE20171206105912.png)
+![img](./i/em_eclipse_arm/3.png)
 
 ---
 
