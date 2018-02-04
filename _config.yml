@@ -84,3 +84,9 @@ githubEmojis:
 plantuml:
   enable: true
 
+spoiler:
+  enable: true
+
+
+
+
