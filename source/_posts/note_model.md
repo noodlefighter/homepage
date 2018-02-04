@@ -37,10 +37,29 @@ tags:
 
 ### emoji 
 
+https://github.com/crimx/hexo-filter-github-emojis
+
 https://www.webpagefx.com/tools/emoji-cheat-sheet/
 
 :cn:sometext:sparkles: :bus: :one: :one: :four: :five: :one: :four:
 
+---
+
+### uml
+
+https://github.com/oohcoder/hexo-tag-plantuml
+
+{% plantuml %}
+    Bob->Alice : hello
+{% endplantuml %}
+
+{% plantuml %}
+participant Bob
+actor Alice
+ 
+Bob -> Alice : hello
+Alice -> Bob : Is it ok?
+{% endplantuml %}
  
 ---
 

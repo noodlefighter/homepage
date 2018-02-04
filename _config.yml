@@ -80,3 +80,7 @@ githubEmojis:
     display: inline
     vertical-align: bottom
   localEmojis:
+
+plantuml:
+  enable: true
+
