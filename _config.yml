@@ -71,3 +71,12 @@ disqus_shortname: noodlefighter
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type:
+
+githubEmojis:
+  enable: true
+  className: github-emoji
+  unicode: true
+  styles:
+    display: inline
+    vertical-align: bottom
+  localEmojis:
