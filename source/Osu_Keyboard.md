@@ -4,7 +4,7 @@ categories: project
 ---
 
 {% img /osu_keyboard/banner.jpg 250 %}
-为音乐游戏OSU而设计的机械键盘方案
+为音乐游戏OSU设计的机械键盘方案
 Keyboard for OSU
 <!--more-->
 
