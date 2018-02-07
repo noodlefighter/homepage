@@ -60,7 +60,19 @@ actor Alice
 Bob -> Alice : hello
 Alice -> Bob : Is it ok?
 {% endplantuml %}
- 
+
+---
+
+### hexo-spoiler
+
+https://github.com/unnamed42/hexo-spoiler
+
+```
+{% spoiler sometext %} 
+```
+
+{% spoiler sometext %} 
+
 ---
 
 ### 图片标签
