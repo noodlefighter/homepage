@@ -31,7 +31,7 @@ https://github.com/a1ive/grub2-filemanager
 
 ## 分区、格式化
 
-用fdisk或者其他工具格式化u盘，这里就只弄了个fat32的分区：
+用fdisk或者其他工具格式化u盘：
 
 ![img](/i/note_udisk-for-repair/partition.jpg)
 
@@ -52,7 +52,7 @@ grub-install --no-floppy --root-directory=/media/r/31E4-2D04 /dev/sdb
 
 ![img](/i/note_udisk-for-repair/fm-put.jpg)
 
-三个文件分别对应x86架构下的3种启动方式: 非UEFI/EFI32/EFI64，按需选用。
+.efi是uefi引导方式用的，这里只用到.iso的。
 
 ## 配置grub2
 
@@ -63,7 +63,7 @@ grub-install --no-floppy --root-directory=/media/r/31E4-2D04 /dev/sdb
 新建文件`boot/grub/grub.cfg`:
 
 ```none
-set timeout=10
+set timeout=0
 insmod fat
 set default=0
 loadfont /boot/grub2/fonts/unicode.pf2
@@ -71,14 +71,6 @@ loadfont /boot/grub2/fonts/unicode.pf2
 menuentry 'grub2-filemanager'{    
     linux16 /boot/memdisk iso raw
     initrd16 /boot/grubfm.iso
-}
-
-menuentry 'grub2-filemanager(UEFI64)'{    
-    chainloader /boot/grubfmx64.efi
-}
-
-menuentry 'grub2-filemanager(UEFI32)'{    
-    chainloader /boot/grubfmia32.efi
 }
 
 ```
