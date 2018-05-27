@@ -9,6 +9,8 @@ tags:
 - zephyr
 ---
 
+__zephyr v1.11.0之后已经支持在win上不依赖unix工具集构建了，已经不推荐在WSL环境中开发。本文已经失效请不要参考！__
+
 win的Linux子系统下搭建zephyr编译环境, 在eclipse中开发.
 
 <!--more-->

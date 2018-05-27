@@ -49,6 +49,14 @@ https://www.webpagefx.com/tools/emoji-cheat-sheet/
 
 https://github.com/oohcoder/hexo-tag-plantuml
 
+
+说明
+http://plantuml.com/
+
+在线
+http://www.plantuml.com/plantuml/uml/
+
+
 {% plantuml %}
     Bob->Alice : hello
 {% endplantuml %}
