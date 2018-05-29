@@ -1,6 +1,7 @@
 title: linux命令/工具
 description: 
 date: 2015-7-29
+updated: 2018-5-29
 layout: post
 comments: ture
 categories:
@@ -234,3 +235,39 @@ iptables的规则是让所有的TCP包都发送到redsocks监听的端口12345�
 启动命令：sudo ./redsocks.sh start
 关闭命令：sudo ./redsocks.sh stop
 ```
+
+## 源码编译安装时，自动生成deb包方便管理
+
+使用auto-apt 和 checkinstall，具体命令如下
+```
+#安装auto-apt和checkinstallapt install auto-apt checkinstall
+#在源码目录中auto-apt run ./configure
+make
+checkinstall
+```
+
+这样会生成一个deb包，卸载和重新安装就非常方便了
+
+```
+#完全卸载 (packagename具体的名字在checkintall完成之后会有提示）
+dpkg -r packagename
+```
+
+```
+#用生成的deb包重新安装
+dpkg -i ***.deb
+```
+
+更多实用的命令
+```
+# 列出包中安装的文件位置
+dpkg -L packagename
+# 检查是否安装成功
+dpkg -l | grep packagename
+# 同上
+apt list --installed | grep packagename
+```
+作者：Kevin Li
+链接：https://www.zhihu.com/question/20092756/answer/329753869
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
