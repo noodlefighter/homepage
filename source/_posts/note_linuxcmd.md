@@ -20,13 +20,14 @@ linux工具命令笔记
 mkdir 创建目录
 cp 拷贝
 cat 输出文件内容
-ll 罗列当前目录内容
+ll 罗列当前目录内容（-h 以K,M,G单位表示文件大小）
 chmod 修改权限，常用开关-R递归，例子 chmod -R a+wr *
 mv 移动文件
 rm 删除,常用开关-f强制-r递归
 ps 查看进程 常用开关-aux
 kill 杀进程
 nohup 后台运行进程 nohup ./xx.sh >output 2>&1 &
+find /home -name "abc.txt"
 
 ## 组合
 ```
@@ -36,6 +37,8 @@ nohup 后台运行进程 nohup ./xx.sh >output 2>&1 &
 
 用../source.txt批量覆盖找到的a.txt
 find -name "a.txt"|xargs -I{} cp -f ../source.txt {}
+
+|grep 筛选
 
 ```
 
@@ -47,7 +50,7 @@ tar 解压压缩
 proxychanins 走代理的工具
 redsocks 全局代理 教程copy到后面
 nc 瑞士军刀netcat
-
+msttcorefonts 微软字体
 
 
 ## 备忘
@@ -271,3 +274,34 @@ apt list --installed | grep packagename
 链接：https://www.zhihu.com/question/20092756/answer/329753869
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## gparted
+
+图形化的分区管理工具，易用。
+
+## 动态链接库
+
+配置动态链接库目录的地方`/etc/ld.so.conf`，提示找不到库的时候修改。
+
+```none
+# 刷新动态库高速缓存，安装新库之后找不到.so文件时执行
+sudo ldconfig
+# 打印缓存中的内容
+ldconfig -p
+```
+
+## 改善字体
+
+https://stackoverflow.com/questions/17510099/ugly-fonts-in-java-applications-on-ubuntu
+
+```
+# Install both infinality and fontfix'ed JDK.
+sudo add-apt-repository ppa:no1wantdthisname/ppa
+sudo add-apt-repository ppa:no1wantdthisname/openjdk-fontfix
+sudo apt-get update
+sudo apt-get install fontconfig-infinality openjdk-7-jdk
+# Apply a font style that looks good.
+sudo /etc/fonts/infinality/infctl.sh setstyle linux
+# And reboot the system.
+sudo reboot
+```
