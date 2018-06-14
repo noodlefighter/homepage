@@ -56,6 +56,19 @@ http://plantuml.com/
 在线
 http://www.plantuml.com/plantuml/uml/
 
+```
+{% plantuml %}
+    Bob->Alice : hello
+{% endplantuml %}
+
+{% plantuml %}
+participant Bob
+actor Alice
+ 
+Bob -> Alice : hello
+Alice -> Bob : Is it ok?
+{% endplantuml %}
+```
 
 {% plantuml %}
     Bob->Alice : hello
