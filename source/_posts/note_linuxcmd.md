@@ -305,3 +305,19 @@ sudo /etc/fonts/infinality/infctl.sh setstyle linux
 # And reboot the system.
 sudo reboot
 ```
+
+## GIT
+
+```bash
+# 检出分支到本地新分支、覆盖工作区
+git checkout -f -B Crane2 remotes/origin/Crane2 --
+```
+
+## locate
+
+```
+locate(locate) 命令用来查找文件或目录。 locate命令要比find -name快得多，原因在于它不搜索具体目录，而是搜索一个数据库/var/lib/mlocate/mlocate.db 。这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天自动更新一次，
+```
+
+https://www.cnblogs.com/xqzt/p/5426666.html
+
