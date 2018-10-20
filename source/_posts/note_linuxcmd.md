@@ -32,7 +32,7 @@ find /home -name "abc.txt"
 ## 组合
 ```
 > 输出到
-& 后台运行
+& 后台运行, 如 echo abc &
 |more和|less 以q退出
 
 用../source.txt批量覆盖找到的a.txt
@@ -51,7 +51,7 @@ proxychanins 走代理的工具
 redsocks 全局代理 教程copy到后面
 nc 瑞士军刀netcat
 msttcorefonts 微软字体
-
+tree 打印树型目录结构，常用工具
 
 ## 备忘
 如果是开机马上执行的脚本，可以将脚本写到rc.local中；
@@ -321,3 +321,74 @@ locate(locate) 命令用来查找文件或目录。 locate命令要比find -name
 
 https://www.cnblogs.com/xqzt/p/5426666.html
 
+## 内核中可配置的项目
+
+`/sys/kernel`目录下是所以内核中可配置的项目
+
+## 输出个log吧
+
+```bash
+exec 2> /tmp/rc.local.log  # send stderr from rc.local to a log file  
+exec 1>&2                  # send stdout to the same log file  
+set -x                     # tell sh to display commands before execution 
+
+```
+
+## 以别的用户身份执行命令
+
+```
+su - username -c "command" 
+crontab -e -u username
+```
+
+## 守护进程管理工具Supervisor
+
+轻松管理守护进程，就算挂了也可以被拉起来。
+
+例子，`/etc/supervisor/conf.d/ss.conf`
+ 
+```none
+[program:ss-server]
+command=ss-server -c /etc/shadowsocks-libev/config.json
+directory=/home
+environment=环境变量A="";环境变量B=""
+stdout_logfile_maxbytes=20MB
+stdout_logfile=/var/log/supervisor/%(program_name)s.log
+stderr_logfile_maxbytes=20MB
+stderr_logfile=/var/log/supervisor/%(program_name)s.log
+autostart=true
+autorestart=true
+startsecs=5
+priority=1
+stopsignal=HUP
+stopasgroup=true
+killasgroup=true
+```
+
+
+
+命令
+
+```
+superviosrctl 交互式
+supervisord 守护程序
+```
+
+树莓派
+
+```
+raspi-config  便捷配置选单
+```
+
+apt解决坏依赖
+
+比如提示
+```
+The following packages have unmet dependencies:
+libpcre3-dev : Depends: libpcre3 (= 1:8.31-2ubuntu2) but 1:8.31-2ubuntu2.1 is to be installed
+```
+
+可以强制指定版本
+```
+sudo apt-get install libpcre3=1:8.31-2ubuntu2 libpcre3-dev=1:8.31-2ubuntu2
+```
