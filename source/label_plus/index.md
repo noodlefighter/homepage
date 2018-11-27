@@ -17,8 +17,8 @@ A Easy tool for comic translation. Reduce communication costs of translator. Exp
 
 ## 最新Release
 
-[Download Local](LabelPlus1.2.1.7z)
-[Download_Github](https://github.com/LabelPlus/LabelPlus/releases/download/v1.2.1/LabelPlus1.2.1.7z)
+[Download Local](LabelPlus1.2.2.7z)
+[Download_Github](https://github.com/LabelPlus/LabelPlus/releases/download/v1.2.2/LabelPlus1.2.2.7z)
 
 
 [LabelPlus Releases List](https://github.com/LabelPlus/LabelPlus/releases)

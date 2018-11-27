@@ -51,6 +51,13 @@ routine
 top-half/bottom-half
 linux中的中断上半部和下半部(中断服务程序ISR), 下半部(一些处理函数)延迟执行.
 
+key-value pairs
+键值对
+
+## 
+
+angle brackets      尖括号
+
 
 ---
 ## 其他
@@ -68,3 +75,7 @@ deferred        延迟的
 deprecate       不赞成使用（函数过期时
 algorithm       算法
 cheat sheet     小抄
+arbitrary       任意的
+potentially     可能地、潜在地
+leads to        导致
+phases          阶段

@@ -28,6 +28,9 @@ ps 查看进程 常用开关-aux
 kill 杀进程
 nohup 后台运行进程 nohup ./xx.sh >output 2>&1 &
 find /home -name "abc.txt"
+tail 查看指定文件末尾几行
+which 获取指定文件的完整路径（$PATH中的）
+shred 粉碎文件
 
 ## 组合
 ```
@@ -392,3 +395,80 @@ libpcre3-dev : Depends: libpcre3 (= 1:8.31-2ubuntu2) but 1:8.31-2ubuntu2.1 is to
 ```
 sudo apt-get install libpcre3=1:8.31-2ubuntu2 libpcre3-dev=1:8.31-2ubuntu2
 ```
+
+## 目录快速导航相关
+
+### pushd,popd命令
+
+pushd：当前目录入目录栈，并进入到指定的目录
+popd：跳转到目录栈顶部弹出的目录
+
+### bd工具
+
+https://linux.cn/article-8491-1.html
+
+https://github.com/vigneshwaranr/bd
+
+```
+bd <需要导航到的目录的前几个字母>
+
+# 比如当前目录是/d/tools/android-sdk-tools/tools/lib/x86
+# 想要导航到tools目录，输入：
+bd too
+
+# 还可以这样获取路径，比如
+ls `bd too`
+```
+
+### autojump工具
+
+https://linux.cn/article-5983-1.html
+
+工具会记录下cd过的路径，不用输入完整路径即可快速导航。
+```
+cd /etc/local/
+cd /home
+j local
+```
+
+## win下给cmd.exe赋予unix系sh补全特性的工具
+
+http://mridgers.github.io/clink/
+
+好像不怎么用得到。。毕竟win下也能用bash
+
+## pandoc生成文档
+
+https://linux.cn/article-10228-1.html
+https://linux.cn/article-10179-1.html
+比如生成ppt
+
+## here文档
+
+https://linux.cn/article-10224-1.html
+
+方便在sh脚本里将数据写入文件
+
+```
+#!/bin/bash
+OUT=/tmp/output.txt
+echo "Starting my script..."
+echo "Doing something..."
+cat <<EOF >$OUT
+  Status of backup as on $(date)
+  Backing up files $HOME and /etc/
+EOF
+echo "Starting backup using rsync..."
+```
+
+## tee 写入文件的同时输出到stdout
+
+https://linux.cn/article-9435-1.html
+
+```
+ping google.com | tee output.txt
+```
+选项
+-a 追加
+
+
