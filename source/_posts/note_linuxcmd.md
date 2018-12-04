@@ -36,7 +36,7 @@ shred 粉碎文件
 ```
 > 输出到
 & 后台运行, 如 echo abc &
-|more和|less 以q退出
+|more和|less 用管道把上一条命令导过来显示，方便查看，比如一屏看不完的时候可以用上
 
 用../source.txt批量覆盖找到的a.txt
 find -name "a.txt"|xargs -I{} cp -f ../source.txt {}
@@ -471,4 +471,11 @@ ping google.com | tee output.txt
 选项
 -a 追加
 
+## rsync同步工具
 
+```
+# 本地文件夹同步
+rsync -av <源目录> <目标目录>
+```
+
+## pkg-config
