@@ -5,3 +5,6 @@ https://blog.csdn.net/kebu12345678/article/details/77091927
 
 DTS资料：
 https://www.raspberrypi.org/documentation/configuration/device-tree.md#part4.6
+
+busybox
+https://www.ibm.com/developerworks/cn/linux/l-busybox/

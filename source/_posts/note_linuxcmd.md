@@ -31,6 +31,10 @@ find /home -name "abc.txt"
 tail 查看指定文件末尾几行
 which 获取指定文件的完整路径（$PATH中的）
 shred 粉碎文件
+tail 看文件尾部 -f参数看实时日志
+
+## 桌面软件
+https://www.freedesktop.org/wiki/Software/
 
 ## 组合
 ```
@@ -41,8 +45,8 @@ shred 粉碎文件
 用../source.txt批量覆盖找到的a.txt
 find -name "a.txt"|xargs -I{} cp -f ../source.txt {}
 
-|grep 筛选
-
+|grep 根据关键词获取到某行内容
+|awk 'NR==3 {print $1}' 获取第3行的第1个“参数”
 ```
 
 ## 工具
@@ -479,3 +483,10 @@ rsync -av <源目录> <目标目录>
 ```
 
 ## pkg-config
+https://www.cnblogs.com/chris-cp/p/3580002.html
+https://blog.csdn.net/liyuanbhu/article/details/72851068
+https://www.xuebuyuan.com/1009723.html
+交叉编译
+https://blog.csdn.net/xukai871105/article/details/37345857
+https://blog.csdn.net/mantis_1984/article/details/52847435
+https://blog.csdn.net/kl222/article/details/49705143?utm_source=blogxgwz6
