@@ -29,16 +29,37 @@ nav:
     -
       name: 关于我
       url: /about_me
-  -
     -
-      name: 微博
+      name: My Weibo
       url: https://weibo.com/noodlefighter
     -
-      name: Github
+      name: My Github
       url: https://github.com/noodlefighter
     -
-      name: G制造
+      name: GMaker Group
       url: http://gmaker.io
+  - 
+    - blogroll
+
+# blogroll
+blogroll:
+  - 
+    name: 炒鸡焦了
+    url: https://loli.la/
+  -
+    name: yukoamamiya
+    url: https://yukoamamiya.blogspot.com
+  - 
+    name: 核桃酥
+    url: https://lilis.coding.me/
+    
+  - 
+    name: 晨旭的博客
+    url: https://www.chenxublog.com/
+
+  -
+    name: 卡秋莎的小窝
+    url: https://katyusha.net/
 
 # duoshuo shortname
 # refer to http://duoshuo.com

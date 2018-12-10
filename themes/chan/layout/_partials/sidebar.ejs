@@ -46,6 +46,19 @@
                 <a href="javascript:;"><%- __('archive') %></a>
                 <%- list_archives({type: 'yearly'}) %>
               </li>
+            <% } else if (item === 'blogroll') { %>
+              <li class="category-list-container">
+                <a href="javascript:;"><%- __('blogroll') %></a>
+                <% if (theme.blogroll && theme.blogroll.length) { %>
+                  <ul class="category-list" style="display: block;">
+                    <% theme.blogroll.forEach(function(item) { %>
+                      <div class="category-list-item">
+                        <%- link_to(item.url, item.name, {external: item.url.indexOf('http') === 0}) %>
+                      </div>
+                    <% }); %>
+                  </ul>
+                <% } %>
+              </li>
             <% } else { %>
               <li>
                 <%- link_to(item.url, item.name, {external: item.url.indexOf('http') === 0}) %>
