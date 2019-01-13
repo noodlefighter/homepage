@@ -68,12 +68,20 @@ Flash breakpoints allows setting of an unlimited number of breakpoints even if t
 Flash breakpoints功能允许无数量上限的断点, 即使程序不在RAM中. 生成的命令是"monitor flash breakpoints 1"
 ```
 
+这条指令实现的就是所谓的“软件断点”。
+
+
 于是J-Link是怎么实现不限数量的断点的呢
 ================================================
 
 https://www.segger.com/products/debug-probes/j-link/technology/flash-breakpoints/
 
-(todo: )
+> How Does this Work?
+> -----------------------
+> A: Basically very simple: 
+> The J-Link software reprograms a sector of the flash to set or clear a breakpoint.
+
+好吧JLink直接写了Flash。
 
 BKPT与Semihosting(半主机模式)
 ===================================
@@ -106,6 +114,16 @@ Note
 https://community.nxp.com/message/630895
 
 (todo: )
+
+说起软件断点，那硬件断点是什么呢
+--------------------------------
+
+
+
+如CM3内核中，`arm_cortexm3_processor_trm_100165_0201_00_en.pdf`中对DWT有描述，就是可以追踪PC地址和数据地址的访问的寄存器，用它实现的断点就是硬件断点
+
+类似的还有FPB寄存器，可以对闪存地址重映射实现断点，这个应该也算硬件断点。
+
 
 ---
 

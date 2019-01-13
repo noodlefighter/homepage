@@ -1,4 +1,4 @@
-title: 常见颜色模型介绍：RGB/HSB/HSV/HSL/HLS/HSI/CMYK/YUV/Lab
+title: 常见颜色模型介绍：RGB/HSB/HSV/HSL/HLS/HSI/CMYK/YUV/Lab/YCbCr
 description: 
 date: 2018-9-2
 updated: 2018-9-2
@@ -111,6 +111,7 @@ YUV颜色模型用于PAL、NTSC和SECAM composite color video standards。
 ![img](yuv.png)
 
 ---
+以下为补充：
 
 ## Lab色彩空间
 
@@ -119,4 +120,18 @@ Lab通常指CIELAB，[详见wiki](https://zh.wikipedia.org/wiki/Lab%E8%89%B2%E5%
 * L：亮度
 * a：从绿Green到红Red，范围-128到128
 * b：从蓝Blue到黄Yellow，范围-128到128
+
+## YCbCr
+
+摘自[Wiki](https://zh.wikipedia.org/wiki/YCbCr)：
+
+> YCbCr或Y'CbCr有的时候会被写作：YCBCR或是Y'CBCR，是色彩空间的一种，通常会用于影片中的影像连续处理，或是数字摄影系统中。Y'和Y是不同的，Y就是所谓的流明（luminance），表示光的浓度且为非线性，使用伽马修正（gamma correction）编码处理。Y'为颜色的亮度（luma）成分、而CB和CR则为蓝色和红色的浓度偏移量成分。
+> Y'CbCr不是一种绝对的色彩空间，是一种针对RGB资讯所做的编码。真正的颜色显示是根据实际RGB色盘（colorant）来决定的。因此Y'CbCr所表示的值只有在标准RGB色盘或是ICC数据（ICC profile）有提供的时候才能计算。
+> YCbCr不是一种绝对色彩空间，是YUV压缩和偏移的版本。YCbCr的Y与YUV中的Y含义一致，Cb和Cr与UV同样都指色彩，Cb指蓝色色度，Cr指红色色度，在应用上很广泛，JPEG、MPEG、DVD、摄影机、数字电视等皆采此一格式。因此一般俗称的YUV大多是指YCbCr。
+
+参考：
+[色度抽样](https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BA%A6%E6%8A%BD%E6%A0%B7)
+
+[伽马校正](https://en.wikipedia.org/wiki/Gamma_correction)
+
 

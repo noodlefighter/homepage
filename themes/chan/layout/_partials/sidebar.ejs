@@ -50,7 +50,7 @@
               <li class="category-list-container">
                 <a href="javascript:;"><%- __('blogroll') %></a>
                 <% if (theme.blogroll && theme.blogroll.length) { %>
-                  <ul class="category-list" style="display: block;">
+                  <ul class="category-list">
                     <% theme.blogroll.forEach(function(item) { %>
                       <div class="category-list-item">
                         <%- link_to(item.url, item.name, {external: item.url.indexOf('http') === 0}) %>

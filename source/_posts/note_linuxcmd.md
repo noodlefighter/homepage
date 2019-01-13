@@ -20,6 +20,7 @@ linux工具命令笔记
 mkdir 创建目录
 cp 拷贝
 cat 输出文件内容
+stat 查看文件属性
 ll 罗列当前目录内容（-h 以K,M,G单位表示文件大小）
 chmod 修改权限，常用开关-R递归，例子 chmod -R a+wr *
 mv 移动文件
@@ -32,6 +33,13 @@ tail 查看指定文件末尾几行
 which 获取指定文件的完整路径（$PATH中的）
 shred 粉碎文件
 tail 看文件尾部 -f参数看实时日志
+lsusb 查看usb设备
+
+whereis 找二进制文件、其帮助文档的位置
+
+
+man 使用手册
+info 比使用手册更详细的“电子书”
 
 ## 桌面软件
 https://www.freedesktop.org/wiki/Software/
@@ -59,6 +67,7 @@ redsocks 全局代理 教程copy到后面
 nc 瑞士军刀netcat
 msttcorefonts 微软字体
 tree 打印树型目录结构，常用工具
+squid 正向、反向代理，web缓存
 
 ## 备忘
 如果是开机马上执行的脚本，可以将脚本写到rc.local中；
@@ -318,6 +327,10 @@ sudo reboot
 ```bash
 # 检出分支到本地新分支、覆盖工作区
 git checkout -f -B Crane2 remotes/origin/Crane2 --
+
+# 添加gpg签名密钥
+git config --global user.signingkey 0A46826A
+
 ```
 
 ## locate
@@ -490,3 +503,71 @@ https://www.xuebuyuan.com/1009723.html
 https://blog.csdn.net/xukai871105/article/details/37345857
 https://blog.csdn.net/mantis_1984/article/details/52847435
 https://blog.csdn.net/kl222/article/details/49705143?utm_source=blogxgwz6
+
+## du命令统计文件夹大小
+
+深度1
+```
+du --max-depth=1 -h /usr/
+```
+
+## samba文件服务配置
+
+/etc/samba/smb.conf   　　　　　　 　　　　　　　　　#samba服务的主要配置文件
+/var/log/samba         　　　　　　　　　　　　　　　　#samab服务存放日志文件
+
+
+
+## vi
+
+不带格式复制（防复制东西时格式乱掉）
+```
+:set nosi noai
+```
+
+## bash技巧
+
+```
+ctrl+u   ctrl+k   光标处往前删除/光标处往后删除
+```
+
+## gpg
+
+http://www.ruanyifeng.com/blog/2013/07/gpg.html
+
+```
+# 生成密钥
+gpg --gen-key
+
+# 罗列密钥
+gpg --list-keys
+
+# 导出
+gpg --armor --output public-key.txt --export
+gpg --armor --output private-key.txt --export-secret-keys 
+
+```
+
+## 给less加高亮显示
+
+1. 装source-highlight
+2. 修改`~/.bashrc`:
+```
+PAGER='less -X -M'
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS=' -R
+```
+3. 测试 `less -N abc.c`
+
+## 让less颜色不消失的方法
+
+https://qiita.com/mkasahara/items/60049ee20956e835738b
+
+经常要用到例如`ls |less`，但会发现怎颜色消失了
+
+```
+ls -al --color=always | less -R
+```
+
+文中提到了用expect工具包中的unbuffer能解决，但实际使用发现无效。
+

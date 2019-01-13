@@ -103,6 +103,10 @@ calc.exe mspaint.exe charmap.exe
 
 适用场景，临时改点代码。
 
+### Typora
+
+单栏Markdown编辑器
+
 ### Beyond Compare
 
 ![image](6.jpg)

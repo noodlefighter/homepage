@@ -79,3 +79,4 @@ arbitrary       任意的
 potentially     可能地、潜在地
 leads to        导致
 phases          阶段
+semantics       语义
