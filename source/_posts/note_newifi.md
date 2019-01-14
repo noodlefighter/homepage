@@ -1,21 +1,23 @@
+title: Newifi-d2路由器折腾笔记
+description: 
+date: 2019-1-14
+updated: 2019-1-14
+layout: post
+comments: true
+categories:
+- 笔记
+tags: 
+- 笔记
+- linux
+---
 
-https://github.com/coolsnowwolf/lede
+朋友推荐了个适合当开发机的路由，某宝80多元的二手，MT7621AT@880MHz，512MB DDR3，32MB Flash，ROM和RAM都够大，那就开始折腾。
 
-https://www.right.com.cn/forum/thread-341067-1-1.html
+<!--more-->
 
-https://www.right.com.cn/forum/thread-342918-1-1.html
+## 相关资料
 
-https://www.right.com.cn/forum/thread-342884-1-1.html
-
-https://www.right.com.cn/forum/thread-344381-1-1.html
-
-https://www.right.com.cn/forum/thread-161906-1-1.html
-
-别人的笔记
-https://blog.csdn.net/lhorse003/article/details/73730265
-
-
-newifi-d2折腾笔记
+感谢恩山论坛上高手们的大量资料参考，去翻热门贴子会有很多tip。
 
 ## 上手
 
@@ -30,7 +32,7 @@ newifi-d2折腾笔记
 
 好，SSH能登上了。
 
-## 然后备份到本地
+## 备份
 
 ```
 输入cat /proc/mtd  得到：
@@ -75,7 +77,45 @@ https://breed.hackpascal.net/
 
 {% asset_img boot-breed.png %}
 
+这时候已经能随便刷固件了。
 
 
+## 编译LEDE
 
+https://github.com/coolsnowwolf/lede
 
+lean大的仓库，带了不少本地化的东东，跟着README编译就好。
+
+Newifi-d2的配置：
+
+```none
+Target System (MediaTek Ralink MIPS)
+Subtarget (MT7621 based boards)
+Target Profile (Newifi D2)
+```
+
+编译过程中需要下载不少东西，根据国内的网络情况，代理是少不了的，这里用的proxychains，比如：
+
+```bash
+proxychains make -j V=s
+```
+
+编译结果如下：
+
+```none
+r@r-work ~/lede_lean/bin/targets/ramips/mt7621 $ tree -L 1
+.
+├── config.seed
+├── openwrt-ramips-mt7621-device-d-team-newifi-d2.manifest
+├── openwrt-ramips-mt7621-device-d-team-newifi-d2-rootfs.tar.gz
+├── openwrt-ramips-mt7621-d-team_newifi-d2-initramfs-kernel.bin
+├── openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin
+├── packages
+└── sha256sums
+```
+
+其中`openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin`是可以直接刷进路由的二进制文件，直接烧上，成功了：
+
+{% asset_img openwrt-status.jpg %}
+
+好了东西全了，可以按需折腾自己的应用了。
