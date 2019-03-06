@@ -34,9 +34,11 @@ which 获取指定文件的完整路径（$PATH中的）
 shred 粉碎文件
 tail 看文件尾部 -f参数看实时日志
 lsusb 查看usb设备
+file 查看文件类型（比如ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-uClibc.so.0, not stripped）
 
 whereis 找二进制文件、其帮助文档的位置
 
+hexdump 16进制查看（-C参数增加ASCII文本显示）
 
 man 使用手册
 info 比使用手册更详细的“电子书”
@@ -571,3 +573,185 @@ ls -al --color=always | less -R
 
 文中提到了用expect工具包中的unbuffer能解决，但实际使用发现无效。
 
+## automake
+
+提示缺少build-aux：
+
+```bash
+dev@develop:~/workspaces/libnl$ autoreconf
+configure.ac:51: error: required file 'build-aux/ar-lib' not found
+configure.ac:51:   'automake --add-missing' can install 'ar-lib'
+configure.ac:51: error: required file 'build-aux/compile' not found
+configure.ac:51:   'automake --add-missing' can install 'compile'
+configure.ac:73: error: required file 'build-aux/config.guess' not found
+configure.ac:73:   'automake --add-missing' can install 'config.guess'
+configure.ac:73: error: required file 'build-aux/config.sub' not found
+configure.ac:73:   'automake --add-missing' can install 'config.sub'
+configure.ac:49: error: required file 'build-aux/install-sh' not found
+configure.ac:49:   'automake --add-missing' can install 'install-sh'
+configure.ac:73: error: required file 'build-aux/ltmain.sh' not found
+configure.ac:49: error: required file 'build-aux/missing' not found
+configure.ac:49:   'automake --add-missing' can install 'missing'
+lib/Makefile.am: error: required file 'build-aux/depcomp' not found
+lib/Makefile.am:   'automake --add-missing' can install 'depcomp'
+parallel-tests: error: required file 'build-aux/test-driver' not found
+parallel-tests:   'automake --add-missing' can install 'test-driver'
+```
+
+解决方法：
+```
+automake --add-missing
+autoreconf -i
+```
+
+## 查看依赖动态库
+
+ldd命令
+```bash
+$ ldd /bin/ls
+/bin/ls: is setuid
+        libc.so.0 => /lib//libc.so.0 (0xb6e7e000)
+        ld-uClibc.so.1 => /lib/ld-uClibc.so.0 (0xb6f29000)
+
+```
+
+objdump工具
+```bash
+$ objdump -p ./sample_venc |grep NEEDED
+  NEEDED               libc.so.0
+  NEEDED               ld-uClibc.so.1
+
+```
+
+查看正在运行中的程序的依赖库：
+```bash
+$ ps -ef|grep bash
+dev      10280 10276  0 14:32 pts/0    00:00:00 -bash
+dev      11711 10280  0 16:08 pts/0    00:00:00 grep --color=auto bash
+dev@develop:~/workspaces/hi3516a/Hi3516A_SDK_V1.0.7.1/mpp/sample/venc$ pmap 10280 |head
+10280:   -bash
+0000000000400000    976K r-x-- bash
+00000000006f3000      4K r---- bash
+00000000006f4000     36K rw--- bash
+00000000006fd000     24K rw---   [ anon ]
+0000000000b84000   1816K rw---   [ anon ]
+00007fee9e033000     44K r-x-- libnss_files-2.23.so
+00007fee9e03e000   2044K ----- libnss_files-2.23.so
+00007fee9e23d000      4K r---- libnss_files-2.23.so
+00007fee9e23e000      4K rw--- libnss_files-2.23.so
+
+```
+
+## toolchains相关
+
+ar  库文件（.a）操作，比如查看、删除其中的模块（.o）
+
+
+## DHCP客户端udhcpc
+
+busybox自带个简单的dhcp client，获取到IP后会执行脚本进行配置，编辑`/usr/share/udhcpc/default.script`，记得给+x权限：
+
+```bash
+#!/bin/sh
+
+#script edited by Tim Riker <Tim@Rikers.org>
+
+[ -z "$1" ] && echo "Error: should be called from udhcpc" && exit 1
+
+RESOLV_CONF="/etc/resolv.conf"
+[ -n "$broadcast" ] && BROADCAST="broadcast $broadcast"
+[ -n "$subnet" ] && NETMASK="netmask $subnet"
+
+case "$1" in
+  deconfig)
+    /sbin/ifconfig $interface 0.0.0.0
+    ;;
+
+  renew|bound)
+    /sbin/ifconfig $interface $ip $BROADCAST $NETMASK
+
+    if [ -n "$router" ] ; then
+      echo "deleting routers"
+      while route del default gw 0.0.0.0 dev $interface ; do
+        :
+      done
+
+      for i in $router ; do
+        route add default gw $i dev $interface
+      done
+    fi
+
+    echo -n > $RESOLV_CONF
+    [ -n "$domain" ] && echo search $domain >> $RESOLV_CONF
+    for i in $dns ; do
+      echo adding dns $i
+      echo nameserver $i >> $RESOLV_CONF
+    done
+    ;;
+esac
+
+exit 0
+```
+
+执行结果：
+```
+~ # udhcpc
+udhcpc (v1.20.2) started
+Sending discover...
+Sending select for 192.168.1.68...
+Lease of 192.168.1.68 obtained, lease time 86400
+deleting routers
+route: SIOCDELRT: No such process
+adding dns 192.168.2.1
+adding dns 192.168.2.1
+~ # ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:E0:4C:36:04:71
+          inet addr:192.168.1.68  Bcast:192.168.3.255  Mask:255.255.252.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:70680 errors:0 dropped:51 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:4522321 (4.3 MiB)  TX bytes:2728 (2.6 KiB)
+```
+
+## nfs
+
+服务器配置：
+```
+# apt install nfs-kernel-server
+# vi 
+```
+
+编辑配置`/etc/exports`：
+```
+/home/dev/workspaces/hi3516a/nfs        (rw,sync,no_subtree_check)
+```
+
+尝试挂载：
+```
+mount -t nfs localhost:/home/dev/workspaces/hi3516a/nfs /mnt/nfs
+```
+
+
+## systemctl
+
+>  systemd 是 Linux 下的一款系统和服务管理器，兼容 SysV 和 LSB 的启动脚本。systemd 的特性有：支持并行化任务；同一时候採用 socket 式与 D-Bus 总线式激活服务；按需启动守护进程（daemon）。利用 Linux 的 cgroups 监视进程；支持快照和系统恢复。维护挂载点和自己主动挂载点。各服务间基于依赖关系进行精密控制
+
+systemd的人机交互接口就是systemctl，比如看nfs服务的日志：
+
+```
+$ systemctl status nfs-server.service
+```
+
+## crontab定时任务
+
+编辑配置：
+```
+crontab -e
+```
+
+内容：
+```
+# 每天02:06重启
+06 2 * * * reboot
+```

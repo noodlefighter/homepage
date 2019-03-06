@@ -68,7 +68,7 @@ WEB在线工具收藏
 
 [仿PS](http://www.uupoop.com/)
 [图像放大waifu2x](http://waifu2x.udp.jp/)
-
+[gif](https://ezgif.com/)
 
 ## 杂项
 
