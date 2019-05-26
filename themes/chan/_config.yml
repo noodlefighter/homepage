@@ -24,7 +24,7 @@ nav:
   - 
     - 
       name: 个人知识库Wiki
-      url: /wiki
+      url: http://wiki.noodlefighter.com/
   -
     - categories # display a collapsible category list
     - tags       # display a collapsible tag list
