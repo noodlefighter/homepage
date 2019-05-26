@@ -21,6 +21,10 @@ copyright: # the copyright text in the footer, could be richtext
 # A link starts with http/https would be rendered as a tag with 'target="_blank"' .
 # There are also some special link items representing in string: 'categories', 'tags' and 'archives'
 nav:
+  - 
+    - 
+      name: 个人知识库Wiki
+      url: /wiki
   -
     - categories # display a collapsible category list
     - tags       # display a collapsible tag list
