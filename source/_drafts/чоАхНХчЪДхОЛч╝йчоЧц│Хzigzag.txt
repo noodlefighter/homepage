@@ -1,3 +1,0 @@
-http://mp.weixin.qq.com/s?__biz=MzA3MDExNzcyNA==&mid=2650392086&idx=1&sn=6a2ecfe2548f121a4726d03bf23f4478&scene=19#wechat_redirect
-
-看着有趣 应该适合嵌入式应用
