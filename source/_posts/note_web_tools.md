@@ -17,10 +17,15 @@ WEB在线工具收藏
 ## 搜索
 
 [小众搜索](https://bird.so/)
+[百度网盘搜索](https://www.xiaobaipan.com/)
+
 
 ## 工程相关
 
 [CRC计算器](https://www.lammertbies.nl/comm/info/crc-calculation.html)
+[json viewer](http://jsonviewer.stack.hu/)
+[正则编辑器](https://regex101.com/)
+
 
 ## 语言类
 
@@ -40,6 +45,7 @@ WEB在线工具收藏
 
 [十分钟临时邮箱](https://10minutemail.com)
 [flv嗅探](http://www.flvcd.com/)
+[nico免梯](http://nico.vocalover.com/)
 
 ## 站长工具
 
@@ -66,7 +72,7 @@ WEB在线工具收藏
 
 ## 图像处理
 
-[仿PS](http://www.uupoop.com/)
+[临时PS](http://www.uupoop.com/)
 [图像放大waifu2x](http://waifu2x.udp.jp/)
 [gif](https://ezgif.com/)
 
