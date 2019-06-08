@@ -1,7 +1,10 @@
 # noodlefighter.com
 
+usage:
+
 ```
 cd homepage
-npm install
+./install.sh
 hexo g
 ```
+
