@@ -5,3 +5,6 @@ db.json
 node_modules/
 public/
 .deploy*/
+build/
+hexo/source/_posts/
+hexo/public
