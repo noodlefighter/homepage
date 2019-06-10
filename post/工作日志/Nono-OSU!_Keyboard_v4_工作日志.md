@@ -1,10 +1,5 @@
-title: Nono-OSU!-Keyboard-v4-工作日志
-description: 
+
 date: 2017-06-21
-layout: post
-comments: ture
-categories:
-- 工作日志
 tags: 
 - 键盘
 - 嵌入式软件
@@ -166,7 +161,6 @@ RGBLED样品测试/电阻调整
 
 {% img /i/log_nono4/170225_01.jpg 400 %}
 {% img /i/log_nono4/170225_02.jpg 400 %}
-
 
 ---
 

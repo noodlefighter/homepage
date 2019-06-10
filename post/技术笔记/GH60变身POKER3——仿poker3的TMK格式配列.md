@@ -1,7 +1,5 @@
 
 date: 2018-10-14
-categories:
-- 笔记 
 ---
 
 笔者kbt race2入坑 主要看重便携

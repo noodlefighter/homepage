@@ -1,7 +1,5 @@
 
 date: 2016-08-21
-categories:
-- 嵌入式软件
 ---
 
 购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..
