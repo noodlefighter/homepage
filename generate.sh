@@ -7,7 +7,7 @@
 set -e
 
 SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
-SOURCE_FOLDER=$SHELL_FOLDER/source
+SOURCE_FOLDER=$SHELL_FOLDER/post
 BUILD_FOLDER=$SHELL_FOLDER/build
 TARGET_FOLDER=$SHELL_FOLDER/hexo/source/_posts
 
