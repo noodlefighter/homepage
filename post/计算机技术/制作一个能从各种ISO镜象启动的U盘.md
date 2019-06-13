@@ -1,8 +1,14 @@
-
 date: 2018-02-16
 tags: 
+
 - boot
 ---
+
+```
+变更记录：
+2018-02-16 初版
+2019-06-14 改用UEFI
+```
 
 装机要用到各种工具u盘，手上只有一个u盘的时候总得费事格式化，如果直接把ISO镜象拖到U盘里按需选用就能方便很多。
 
@@ -18,59 +24,23 @@ https://github.com/a1ive/grub2-filemanager
 
 国人做的一个基于GRUB2的启动器，能启动各类Linux发行版的Live CD，也能用memdisk方式启动其他类型的ISO。
 
-![img](/i/note_udisk-for-repair/grub2filem.jpg)
+![grub2filem](_assets/制作一个能从各种ISO镜象启动的U盘/grub2filem.jpg)
 
-![img](/i/note_udisk-for-repair/grub2filem2.png)
+![grub2filem2](_assets/制作一个能从各种ISO镜象启动的U盘/grub2filem2.png)
 
-先得想办法把它启动起来，这里用grub2做bootloader。
+## 启动U盘制作方法
 
-## 分区、格式化
+这里制作UEFI引导方式的U盘。
 
-用fdisk或者其他工具格式化u盘：
+先将分区表格式为设为GUID，建EFI分区，可以用DiskGenius：
 
-![img](/i/note_udisk-for-repair/partition.jpg)
+![1560447568154](_assets/制作一个能从各种ISO镜象启动的U盘/1560447568154.png)
 
-## 安装gurb2
+快速分区功能建EFI分区：
 
-`/media/r/31E4-2D04`是分区的挂载点，`/dev/sdb`是u盘，请根据实际情况替换。
+![1560447642813](_assets/制作一个能从各种ISO镜象启动的U盘/1560447642813.png)
 
-```
-grub-install --no-floppy --root-directory=/media/r/31E4-2D04 /dev/sdb
-```
-
-![img](/i/note_udisk-for-repair/grub2install.jpg)
-
-安装好之后，根目录下多出个`boot/gurb`文件夹，此时u盘已经能做引导了，但是现在它只有一个简陋的命令行界面。
-
-## 获取grub2-filemanager
-[获取grubfm-zh_CN.7z](https://github.com/a1ive/grub2-filemanager/releases)解压到`boot`目录下。
-
-![img](/i/note_udisk-for-repair/fm-put.jpg)
-
-.efi是uefi引导方式用的，这里只用到.iso的。
-
-## 配置grub2
-
-获取用于在非UEFI下启动的memdisk（linux用户可以直接从`/usr/lib/syslinux/memdisk`复制），下载[syslinux](https://www.kernel.org/pub/linux/utils/boot/syslinux/)，提取`bios/memdisk/memdisk`文件，放到`boot`目录下。
-
-![img](/i/note_udisk-for-repair/memdisk.jpg)
-
-新建文件`boot/grub/grub.cfg`:
-
-```none
-set timeout=0
-insmod fat
-set default=0
-loadfont /boot/grub2/fonts/unicode.pf2
-
-menuentry 'grub2-filemanager'{    
-    linux16 /boot/memdisk iso raw
-    initrd16 /boot/grubfm.iso
-}
-
-```
-
-制作完成。
+[获取grubfm-zh_CN.7z](https://github.com/a1ive/grub2-filemanager/releases)，把`grubfmx64.efi`复制到`(EFI分区)/efi/boot/bootx64.efi`。完毕
 
 ## 使用方法
 
