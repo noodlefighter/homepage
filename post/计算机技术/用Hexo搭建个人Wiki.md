@@ -19,6 +19,8 @@ tags:
 
 纠结了很长一段时间，总算是组了一套找到了贴合这些需求的方案：用Hexo+Wiki模板做渲染，用文件夹组织层次结构，用Typora做Markdown编辑器，Webhook+CI服务器做自动构建、部署。
 
+<!--more-->
+
 先展示一下成品：http://wiki.noodlefighter.com/
 
 Github仓库：https://github.com/noodlefighter/wiki
