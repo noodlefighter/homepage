@@ -1,6 +1,6 @@
-
 date: 2017-12-06
 tags: 
+
 - ARM
 - eclipse
 ---
@@ -58,7 +58,7 @@ https://github.com/gnu-mcu-eclipse/windows-build-tools/releases
 Build Tools主要为windows提供unix中一些构建相关的基本工具, 比如make, 它可以通过读取makefile脚本调用以上工具链来完成编译.
 
 P.S. makefile脚本可以由Eclipse的CDT插件自动生成, 也可以由autotools,cmake等更高级的构建工具生成, 一般不手工编写.
-![img](./i/em_eclipse_arm/1.png)
+![1](_assets/windows下的Eclipse+JLink调试——ARM裸机开发环境搭建/1.png)
 
 P.S.
 如果Build Tools无法在你的环境中正常工作 你可以选择使用MSYS2作为这里的Build Tools.
@@ -73,10 +73,10 @@ P.S.
 
 ### 6. 尝试编译helloworld
 新建C Project, 选择
-![img](./i/em_eclipse_arm/2.png)
+![2](_assets/windows下的Eclipse+JLink调试——ARM裸机开发环境搭建/2.png)
 
 菜单"Build - Build Project"编译, Console中出现以下输出则环境配置成功:
-![img](./i/em_eclipse_arm/3.png)
+![3](_assets/windows下的Eclipse+JLink调试——ARM裸机开发环境搭建/3.png)
 
 ---
 

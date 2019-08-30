@@ -17,8 +17,13 @@ tags:
 <!--more-->
 
 以下为我使用xtools的界面库 为LabelPlus做的ps导入工具的截图
-{% img /i/note_ps_script_xtools/pic.jpg 600 %}
+
+![pic](_assets/ps脚本工具包xtools快速入门教程/pic.jpg)
+
+
 ---
+
+
 
 ## 从ps脚本说起
 PS脚本(Photoshop Script)给我们一个使ps自动操作的方法 
@@ -114,7 +119,8 @@ main();
 ---
 
 ## 通用界面库(GenericUI)
-{% img /i/note_ps_script_xtools/sampleui.jpg 400 %}
+![sampleui](_assets/ps脚本工具包xtools快速入门教程/sampleui.jpg)
+
 以上为SampleUI.jsx的运行结果 
 界面库可以做出这样的界面
 `创建界面-处理-执行`

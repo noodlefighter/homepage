@@ -24,7 +24,7 @@ tags:
 简单地说，RTT的工作方式就是把数据直接写到RAM上，由调试器将数据取回，所以有很好的性能表现，不会影响目标的实时性能。
 
 性能表现与类似的semihosting/swo方式对比：
-![img](/i/em_jlink_rtt/RTT_SpeedComparison.png)
+![RTT_SpeedComparison](_assets/使用JLink的RTT方式输出日志/RTT_SpeedComparison.png)
 
 ## 如何使用RTT
 ### 官方的RTT实现
@@ -43,11 +43,11 @@ SEGGER_RTT_printf(0, "printf Test: %%c,         'S' : %c.\r\n", 'S');
 JLink工具包里提供了3种客户端: RTTClient/RTTViewer/RTTLogger.
 
 RTTClient最常用也很方便用, 它会不断地尝试连接到Debugger开放的19021端口, 比如开启JLinkGDBServer或者Keil的Debugger之后它就会自动连上去, 显示channel0的数据:
-![img](/i/em_jlink_rtt/rttclient.jpg)
+![rttclient](_assets/使用JLink的RTT方式输出日志/rttclient.jpg)
 一般场合用它就足够了, 把它开着放在一边就行了, 简单又安静.
 
 RTTLogger就是个日志记录工具, 能单独连接到JLink, 把指定通道输出的数据输出到一个文件里:
-![img](/i/em_jlink_rtt/rttlogger.jpg)
+![rttlogger](_assets/使用JLink的RTT方式输出日志/rttlogger.jpg)
 
 RTTViewer只在windows下有, 它能直接连接Jlink或者像RTTClient一样加入到现有的会话(Session)中, 显示各个通道的数据.
 

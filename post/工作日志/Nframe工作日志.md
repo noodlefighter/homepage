@@ -41,7 +41,7 @@ tags:
 ## 2015-10-19
 
 完善了NFDEBUG模块 现在已经满意
-![img](\i\log_nframe\15101901.jpg)
+![15101901](_assets/Nframe工作日志/15101901.jpg)
 
 这几天断断续续地写了TASK DEBUG部分的例子
 感觉TASK模块还能做很多优化..(现在根本不能算轻量级啊喂)
@@ -105,12 +105,12 @@ FILE __stdout;
 
 NFTASK任务模块DEMO
 main函数中设定1s执行一次子程序
-![img](\i\log_nframe\15102202.jpg)
+![15102202](_assets/Nframe工作日志/15102202.jpg)
 
 NFMSG消息模块DEMO
 每隔1s发送一个消息: 一个数字
 另一个子程序接收消息 +1并显示
-![img](\i\log_nframe\15102201.jpg)
+![15102201](_assets/Nframe工作日志/15102201.jpg)
 
 接下来开始NFFSM平面状态机模块的编写.
 
@@ -131,7 +131,8 @@ NFMSG消息模块DEMO
 这样 编写程序的时候 进入退出的代码就能和消息处理的代码在一起 修改起来很方便
 
 然后这个是FSM模块DEMO效果
-![img](\i\log_nframe\15110801.jpg)
+![img](_assets/Nframe工作日志/15110801.jpg)
+
 ```
 *        用状态机模拟一把只能打2发的手枪(有这样的东西吗? 我也不知道)
 *        有3个状态: 剩余2颗子弹(b2) / 1颗(b1) / 无子弹((b0)
@@ -181,7 +182,7 @@ NFFSM模块中 也做了类似的修改 把msgType交给用户来定义.
 ## 2015-11-10
 
 完成nKEYSCAN通用部件编写 还有DEMO
-![img](\i\log_nframe\15111001.jpg)
+![img](_assets/Nframe工作日志/15111001.jpg)
 
 还加了个通用PID算法程序 相信配合NFDEBUG模块 整定PID参数时会轻松些
 
@@ -193,11 +194,11 @@ nKEYSCAN使用了大量回调函数 效率明显低了不少 但对于快速开�
 
 使用NFRAME尝试编写两层嵌套的平面状态机(手动编码实现一个简单的层次状态机..)
 外层状态机向内层传递消息, 并可以根据返回值, 判断内层是否响应了消息.
-![img](\i\log_nframe\15111201.jpg)
+![img](_assets/Nframe工作日志/15111201.jpg)
 
 内层的AppFsm是一个简单的四则计算器..
 演示
-![img](\i\log_nframe\15111202.jpg)
+![img](_assets/Nframe工作日志/15111202.jpg)
 
 编写的过程中 发现NFFSM在嵌套的时候缺少了一些必要的功能
 所以进行了这些修改:

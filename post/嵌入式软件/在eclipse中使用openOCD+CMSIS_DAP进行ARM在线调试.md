@@ -7,7 +7,7 @@ date: 2016-08-21
 
 <!--more-->
 
-{% img /i/em_cmsis_dap_eclipse/00.jpg 600 %}
+![00](_assets/在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/00.jpg)
 
 ---
 
@@ -24,7 +24,7 @@ eLinux有篇wiki供参考
 http://elinux.org/Compiling_OpenOCD_Win7
 
 笔者是直接用网友编译好的
-{% img /i/em_cmsis_dap_eclipse/01.jpg 600 %}
+![01](_assets/在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/01.jpg)
 
 ## Step.3 设置openOCD路径
 eclipse中 Window - Preferences - Run/Debug - OpenOCD
@@ -47,13 +47,16 @@ Debugger选项卡 OpenOCD Setup中的Config options设为:
 在Startup选项卡 Run/Restart Commands中 取消Pre-run/Restart.复选框
 
 这是我的配置, 仅供参考 
-{% img /i/em_cmsis_dap_eclipse/02.jpg 500 %}
-{% img /i/em_cmsis_dap_eclipse/03.jpg 500 %}
-{% img /i/em_cmsis_dap_eclipse/04.jpg 500 %}
+
+![02](_assets/在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/02.jpg)
+
+![03](_assets/在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/03.jpg)
+
+![04](_assets/在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/04.jpg)
 
 ## Step.5 尝试调试
 若成功调试则万事大吉
 若调试失败 
 请注意检查工程配置中C/C++ Build - Settings - Tool Settings - Debugging中调试等级有没有打开
 
-{% img /i/em_cmsis_dap_eclipse/05.jpg 800 %}
+![05](_assets/在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/05.jpg)

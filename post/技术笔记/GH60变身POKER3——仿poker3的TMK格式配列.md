@@ -17,7 +17,9 @@ date: 2018-10-14
 
 使用方法就不多说了 关键词"gh60配列"
 
-![image](\i\note_gh60_poker3\1.jpg)
+![1](_assets/GH60变身POKER3——仿poker3的TMK格式配列/1.jpg)
+
+![2](_assets/GH60变身POKER3——仿poker3的TMK格式配列/2.jpg)
 
 顺手贴出相关工具网址
 http://www.keyboard-layout-editor.com/

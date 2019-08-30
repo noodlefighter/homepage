@@ -41,7 +41,7 @@ v3计划 增加特性:
 ### 2014/08/04
 
 v3大致设计已经确定下来了
-{% img /i/log_nono/140804_1.jpg 400 %}
+![140804_1](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140804_1.jpg)
 
 新的pcb大致面貌 全板大概5*5
 
@@ -70,11 +70,11 @@ v3大致设计已经确定下来了
 
 画师RE;为v3键盘鼓捣了只****nono作为虚拟形象...嘛..要问为啥是这个样子的..只能说是个人喜好问题啦ww
 
-{% img /i/log_nono/140917_1.jpg 400 %}
+![140917_1](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140917_1.jpg)
 
 （开发中的设置程序界面）
 
-{% img /i/log_nono/140917_2.jpg 400 %}
+![140917_2](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140917_2.jpg)
 
 （铝壳版的试制 超级叫了设计的外壳）
 
@@ -96,21 +96,25 @@ Nosumor实现了预期功能
 在osu!吧发帖寻求测试志愿者，制作了５０只
 (相关帖子:【Nono盘】蜀黍快来领养我吧（Nono盘公测成员招募） tieba.baidu.com/p/3379722471 )
 
-{% img /i/log_nono/140406_1.jpg 400 %}
+![140406_1](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_1.jpg)
 
-{% img /i/log_nono/140406_2.jpg 400 %}
+![140406_2](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_2.jpg)
 
 #### 12月初
+
 公开测试的反响不错，开放第一批预定并制作200只
 (相关帖子: 【Nono盘】Nono盘预售贴！ tieba.baidu.com/p/3443273887)
 
-{% img /i/log_nono/140406_3.jpg 400 %}
-{% img /i/log_nono/140406_4.jpg 400 %}
+![140406_3](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_3.jpg)
+
+![140406_4](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_4.jpg)
 
 #### 开发过程
+
 时间顺序为从左到右，从上到下
-{% img /i/log_nono/140406_5.jpg 400 %}
+![140406_5](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_5.jpg)
 PCB打样五次：
+
 * 第一次 的形状是为了进行一次倾斜件的实验(也就是上面的第三张图，嗯...以失败告终，组合度太差)
 * 第二次 改回了pcb外形，丰富了下载方式（从只支持SWD，增加了串口烧录支持）
 * 第三次 改了usb口封装，由埋板mini-usb变更为贴片mirco-usb；由于设计了定制接插件，轴的焊盘也做了改变
@@ -118,11 +122,11 @@ PCB打样五次：
 * 第五次 试制50只版本，颜色改回黑色，沉金，将所有焊盘改大以适应批量手工焊接
 
 试制亚克力板子们
-{% img /i/log_nono/140406_6.jpg 400 %}
+![140406_6](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_6.jpg)
 没派上用场的试制倾斜组件
-{% img /i/log_nono/140406_7.jpg 400 %}
+![140406_7](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_7.jpg)
 背面
-{% img /i/log_nono/140406_8.jpg 400 %}
+![140406_8](_assets/Nono-OSU!_Keyboard(Nosumor)工作日志/140406_8.jpg)
 
 v3在开发工程中，前后一共进行了５次pcb打样,2面板的铝板打样.数不清次数的亚克力板打样(钱啊;w;)
 

@@ -5,7 +5,7 @@ tags:
 - 转载
 ---
 
-![image](\i\cp_little_star\little_star.jpg)
+![little_star](_assets/歌詞翻譯─Little Star／REDALiCE/little_star.jpg)
 
 原文：http://bigcoin5566.blogspot.jp/2013/12/little-starredalice.html
 

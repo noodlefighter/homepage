@@ -55,7 +55,7 @@ Architectures
 
 了解到指令和调试器的断点相关之后 顺着设置面板找到了这个"Flash breakpoints"功能:
 
-![img](/i/em_bkpt_instruct/20170726230109.jpg)
+![20170726230109](_assets/ARM BKPT指令和半主机(Semi-hosting)模式实现的研究/20170726230109.jpg)
 
 ```
 Flash breakpoints allows setting of an unlimited number of breakpoints even if the user application is not located in RAM. The generated command is 'monitor flash breakpoints 1'

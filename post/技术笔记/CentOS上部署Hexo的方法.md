@@ -115,7 +115,7 @@ nvm use 0.10
 这里推荐一个https://github.com/kalcaddle/KODExplorer
 这玩意自带一个和本地程序基本无异的编辑器，还能拖拽上传，用着挺爽。
 
-{% img /i/note_hexo/edit.jpg 400 %} 
+![edit](_assets/CentOS上部署Hexo的方法/edit.jpg)
 
 ## 写在后面
 用了Hexo，感觉自己有动力多写点东西了，这就是纯文本书写的魅力吧。

@@ -1,6 +1,6 @@
-
 date: 2017-06-21
 tags: 
+
 - 键盘
 - 嵌入式软件
 - osu!
@@ -26,14 +26,14 @@ nono v4的工作日志
 编码器:
 ---------
 随手弄了几只 从左到右 松下EVUTXCB16B/美上SIQ-02FVS3/松下EVQWKA001
-{% img /i/log_nono4/170109_01.jpg 400 %}
+![170109_01](_assets/Nono-OSU!_Keyboard_v4_工作日志/170109_01.jpg)
 左边的那只没段位感
 中间的占PCB面积小, 手感尚可
 右边的手感最好但占PCB面积过大, 备选
 
 PCB设计:
 ----------
-{% img /i/log_nono4/170109_02.jpg 400 %}
+![170109_02](_assets/Nono-OSU!_Keyboard_v4_工作日志/170109_02.jpg) 
 
 由于使用RGB轴, 为两个主按键增加了独立可控的RGBLED.
 为按键3/4/5(功能键)增加两颗可控RGB作为背景灯
@@ -45,11 +45,7 @@ PCB设计:
 
 打样板子:
 ---------
-{% img /i/log_nono4/170109_03.jpg 400 %}
-
-灯光效果:
----------
-{% img /i/log_nono4/170109_03.jpg 400 %}
+![170109_03](_assets/Nono-OSU!_Keyboard_v4_工作日志/170109_03.jpg)
 
 遇到问题:
 --------
@@ -97,6 +93,7 @@ PCB设计:
 -----> 选用一致性更好的RGBLED
 
 4.其他细微调整
+
 * 一些焊盘做得刚刚合适 会提高不良品率: 晶振/ULN2003
 * RGBLED的封装和实际购买到的正好相差了180° 有可能是封装画错了 稍后得检查
 * CherryMX接插件没在丝印层上画外形的标注 容易焊反
@@ -118,19 +115,28 @@ PCB设计:
 打样板子:
 ---------
 
-{% img /i/log_nono4/170204_01.jpg 400 %}
-{% img /i/log_nono4/170204_02.jpg 400 %}
-{% img /i/log_nono4/170204_03.jpg 400 %}
+![170204_01](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_01.jpg)
+
+![170204_02](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_02.jpg)
+
+![170204_03](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_03.jpg)
+
+
 
 灯光效果:
 ---------
 
-{% img /i/log_nono4/170204_04.jpg 400 %}
-{% img /i/log_nono4/170204_05.jpg 400 %}
-{% img /i/log_nono4/170204_06.jpg 400 %}
-{% img /i/log_nono4/170204_07.jpg 400 %}
-{% img /i/log_nono4/170204_08.jpg 400 %} 
-{% img /i/log_nono4/170204_09.jpg 400 %} 
+![170204_04](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_04.jpg)
+
+![170204_05](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_05.jpg)
+
+![170204_06](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_06.jpg)
+
+![170204_07](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_07.jpg)
+
+![170204_08](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_08.jpg)
+
+![170204_09](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_09.jpg)
 
 RGBLED样品测试/电阻调整
 --------------
@@ -139,15 +145,19 @@ RGBLED样品测试/电阻调整
 深圳光亿 0.12元一颗 / 台湾光宝 0.70元一颗
 
 搭了个简单的电路测试LED一致性 当然是从价格便宜的开始测了
-{% img /i/log_nono4/170204_10.jpg 400 %}
+![170204_10](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_10.jpg)
 
 测了三颗 一致性不错.. 就焊上板子了
 装上外壳才发现实际效果不行 光混合的效果太差 尤其是从侧偏射出时:
-{% img /i/log_nono4/170204_11.jpg 400 %}
+![170204_11](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_11.jpg)
 
 光宝 测试完一致性后就上了板子 混光均匀效果杠杠 就决定是你了:
-{% img /i/log_nono4/170204_12.jpg 400 %}
-{% img /i/log_nono4/170204_13.jpg 400 %}
+
+
+
+![170204_12](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_12.jpg)
+
+![170204_13](_assets/Nono-OSU!_Keyboard_v4_工作日志/170204_13.jpg)
 
 ---
 
@@ -159,8 +169,9 @@ RGBLED样品测试/电阻调整
 硬件版本号与版本号相同
 固件版本也从v4.0开始
 
-{% img /i/log_nono4/170225_01.jpg 400 %}
-{% img /i/log_nono4/170225_02.jpg 400 %}
+![170225_01](_assets/Nono-OSU!_Keyboard_v4_工作日志/170225_01.jpg)
+
+![170225_02](_assets/Nono-OSU!_Keyboard_v4_工作日志/170225_02.jpg)
 
 ---
 
@@ -173,14 +184,14 @@ RGBLED样品测试/电阻调整
 2. 0805LED质量似乎也不是很稳定 成品里大概有超过1%的0805LED的蓝灯有问题 表现为用万用表二极管档测压降只有0.6v, 而正常的蓝灯在1.7这样
 3. 5050LED发出的光瞎眼 主要原因是底层亚克力外壳镜面反射 如下图
 
-{% img /i/log_nono4/170621_01.png 400 %}
+![170621_01](_assets/Nono-OSU!_Keyboard_v4_工作日志/170621_01.png)
 
 换了0805led重新打样看了下效果还不错:
 pcb:
-{% img /i/log_nono4/170621_02.png 400 %}
+![170621_02](_assets/Nono-OSU!_Keyboard_v4_工作日志/170621_02.png)
 
 灯效:
-{% img /i/log_nono4/170621_03.png  400 %}
+![170621_03](_assets/Nono-OSU!_Keyboard_v4_工作日志/170621_03.png)
 
 另 版本号变更为语义化版本号
 主版本.次版本.修订版本+制造批次

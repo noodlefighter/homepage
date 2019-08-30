@@ -16,9 +16,9 @@ tags:
 * 做了个pcb作为原型
 * 通用输入框架搭了个大形，可以继续做funckb了
 
-![img](/i/log_funckeyb/2018022301.jpg)
+![2018022301](_assets/Funckb工作日志/2018022301.jpg)
 
-![img](/i/log_funckeyb/2018022302.jpg)
+![2018022302](_assets/Funckb工作日志/2018022302.jpg)
 
 ## 2017-12-01
 

@@ -30,7 +30,7 @@ tags:
 
 一开始的设计是这样的： 
 
-{% img /i/log_noodlekb/040329_1.jpg 400 %}
+![040329_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/040329_1.jpg)
 
 外壳用易加工的软木做。
 
@@ -40,13 +40,14 @@ tags:
 
 闲时自己重新布线手工做了个板子，买了个接线盒当外壳看看手感如何，结果成品效果比较差，延迟大概10ms和稳定感差（固定不好），且两键互相冲突（开源项目的程序 没改就用了），无法正常使用，图如下：
 
-{% img /i/log_noodlekb/040329_2.jpg 200 %}
+![040329_2](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/040329_2.jpg)
 
 接下来这个小工程就搁置了几个月，后来寒假看到有人用亚克力做电子制作的外壳，淘宝上找了一下似乎只要提供图纸就能加工，就自己画了个图纸：
-{% img /i/log_noodlekb/040329_3.jpg 400 %}
+![040329_3](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/040329_3.jpg)
 作好图之后想说开学再找店家加工，后来一开学就做起项目，又搁置了，现在有点空，就再画了个板子直接送厂加工，大小5x5cm足够小了，外壳之后怎么做这个板子都能用吧：
-{% img /i/log_noodlekb/040329_4.jpg 200 %}
-{% img /i/log_noodlekb/040329_5.jpg 200 %}
+![040329_4](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/040329_4.jpg)
+
+![040329_5](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/040329_5.jpg)
 
 osu这个游戏需要触发快键程短的按键，一开始想说用红轴，但是红轴的提前触发让人难掌握，所以试制时用的是茶轴。
 
@@ -60,7 +61,7 @@ osu这个游戏需要触发快键程短的按键，一开始想说用红轴，�
 
 板子到了 焊上了 程序还在调，不知道怎么修改usb设备描述才能做到同时发送两个按键按下的信息。。。
 
-{% img /i/log_noodlekb/010409_1.jpg 400 %}
+![140409_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140409_1.jpg)
 
 贴吧上有人能做到1ms延迟简直碉堡了，试着鼓捣鼓捣。。
 
@@ -68,13 +69,15 @@ osu这个游戏需要触发快键程短的按键，一开始想说用红轴，�
 
 ### 2014/04/20
 
-{% img /i/log_noodlekb/140420_1.jpg 200 %}
-{% img /i/log_noodlekb/140420_2.jpg 200 %}
-{% img /i/log_noodlekb/140420_3.jpg 200 %}
+![140420_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140420_1.jpg)
+
+![140420_2](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140420_2.jpg)
+
+![140420_3](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140420_3.jpg)
 
 亚克力外壳拿到手了，但是由于压克力板不是标准的3mm导致外壳组合性差，故重新设计(一层一层堆砌到合适的高度的设计)
 
-{% img /i/log_noodlekb/140420_4.jpg 600 %}
+![140420_4](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140420_4.jpg)
 
 
 关于程序，用的是http://symlink.dk/electro/c64key/ 的，拿起就随手改了。
@@ -97,7 +100,7 @@ http://pan.baidu.com/s/1dDinlIx
 
 外壳做出来了，效果良好。
 
-{% img /i/log_noodlekb/140513_1.jpg 200 %}
+![140513_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140513_1.jpg)
 
 玩了几天，没发现明显问题，共制作了10台，让亲友们试用。
 
@@ -111,7 +114,7 @@ http://pan.baidu.com/s/1dDinlIx
 * 突起的帽型螺钉影响手感
 * 应把外壳痛贴层放到底层之下（by本人）
 * 希望能自定键距（by超级叫了姥爷）
- 
+
 
 于是欲制作第二版，改进如下：
 
@@ -134,8 +137,9 @@ http://pan.baidu.com/s/1dDinlIx
 
 ### 05-28
 
-{% img /i/log_noodlekb/140528_1.jpg 300 %}
-{% img /i/log_noodlekb/140528_2.jpg 300 %}
+![140528_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140528_1.jpg)
+
+![140528_2](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140528_2.jpg)
 
 试验板，功能正常
 
@@ -152,13 +156,13 @@ http://pan.baidu.com/s/1dDinlIx
 
 做迷你壳是为了尝试小壳的稳定性和使方案更廉价。
 
-{% img /i/log_noodlekb/140528_3.jpg 250 %}
+![140528_3](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140528_3.jpg)
 
 改进了外壳，用2mm亚克力板，usb口更合理，支持自定义键距（牺牲了美观我觉得..）
 
 共6层 不算脚垫和螺丝 厚12mm ，esc键无键帽。
 
-{% img /i/log_noodlekb/140528_4.jpg 250 %}
+![140528_4](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140528_4.jpg)
 
 最近比较忙 ，等外壳到了再写程序把。
 
@@ -182,7 +186,7 @@ http://www.tudou.com/programs/view/pmLWTsbN1Uk/?resourceId=0_06_02_99
 
 ### 05-31
 
-{% img /i/log_noodlekb/140531_1.jpg 400 %}
+![140531_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140531_1.jpg)
 
 （请无视这只无用的手）
 
@@ -200,7 +204,7 @@ http://www.tudou.com/programs/view/pmLWTsbN1Uk/?resourceId=0_06_02_99
 
 外壳紧固件打算吸收超级叫了姥爷的方案（;w;这个算抄袭了喂!），法兰螺丝一部分高度藏在底板内。
 
-而用来连接亚克力外壳的螺丝，改用平头的{% img /i/log_noodlekb/140531_2.jpg %}，亚克力的顶面板把口开大一点，就能把螺丝头部高度缩小。
+而用来连接亚克力外壳的螺丝，改用平头的![140531_2](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140531_2.jpg)，亚克力的顶面板把口开大一点，就能把螺丝头部高度缩小。
 
 P.S.收到了骗钱盘咯感谢超级叫了姥爷！！
 
@@ -253,7 +257,7 @@ P.S.收到了骗钱盘咯感谢超级叫了姥爷！！
 
 最终设置能力如下：
 
-{% img /i/log_noodlekb/140605_1.jpg %}
+![140605_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140605_1.jpg)
 
 以及三个键同时按下：
 
@@ -319,21 +323,21 @@ JP3-JP6　　　　　未定义
 
 （按键1+按键3）+（按键2 0.5s） = 闲置背景光设置 16色
 
---- 
+---
 
 ### 06-11
 
-{% img /i/log_noodlekb/140611_1.jpg 600 %}
+![140611_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140611_1.jpg)
 
 这回外壳成本一下子提高了好多
 
 不过组装起来要简单很多了吧，
 
 试做一批 30只 卖27只这样，剩几只备用，万一有问题，还能补发。
-{% img /i/log_noodlekb/140611_2.jpg 450 %}
+![140611_2](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140611_2.jpg)
 
 到这个阶段了 重新估一次成本吧
-{% img /i/log_noodlekb/140611_3.jpg 450 %}
+![140611_3](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140611_3.jpg)
 
  
 
@@ -385,7 +389,7 @@ JP3-JP6　　　　　未定义
 
 好吧 我把日志搬来这个博客了。
 
-{% img /i/log_noodlekb/140709_1.jpg 400 %}
+![140709_1](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_1.jpg)
 
 （上图是手工痛制后的键盘）
 
@@ -482,25 +486,38 @@ pcb设置用的跳线数量过多，实际上应该把设置项都以软件来�
 总结完毕。发些图，有些可能和键盘本身没太大关联。。
 
 发货单
-{% img /i/log_noodlekb/140709_2.jpg 400 %}
+![140709_2](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_2.jpg)
 
 各种灯的效果（不得不说白色真的好瞎;w;）
-{% img /i/log_noodlekb/140709_3.jpg 200 %}
-{% img /i/log_noodlekb/140709_4.jpg 200 %}
-{% img /i/log_noodlekb/140709_5.jpg 200 %}
-{% img /i/log_noodlekb/140709_6.jpg 200 %}
-{% img /i/log_noodlekb/140709_7.jpg 200 %}
+![140709_3](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_3.jpg)
+
+![140709_4](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_4.jpg)
+
+![140709_5](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_5.jpg)
+
+![140709_6](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_6.jpg)
+
+![140709_7](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_7.jpg)
 
 过渡版本（左为大壳设计。。后被自己否定。。呜呜呜我的痛贴不能大幅面了！！！ ）以及mini版试制品
-{% img /i/log_noodlekb/140709_8.jpg 450 %}
+
+
+![140709_8](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_8.jpg)
+{% img /i/log_noodlekb/140709_9.jpg 300 %}
 
 痛贴测试
-{% img /i/log_noodlekb/140709_9.jpg 300 %}
-{% img /i/log_noodlekb/140709_10.jpg 300 %}
+
+![140709_9](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_9.jpg)
+
+
+
+![140709_10](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_10.jpg)
 
 v2.1成品 两种版本
-{% img /i/log_noodlekb/140709_11.jpg 400 %}
-{% img /i/log_noodlekb/140709_12.jpg 400 %}
+
+![140709_11](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_11.jpg)
+
+![140709_12](_assets/Noodlefighter_OSU_keyboard_v2_工作日志/140709_12.jpg)
 
 ---
 
