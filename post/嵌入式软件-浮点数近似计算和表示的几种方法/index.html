@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    浮点数近似计算和表示的几种方法
+  
+</title>
+
+<meta name="description" content="最近做IoT传感器相关的工作需要在无FPU的场合下进行一些浮点运算稍微整理一下绕开浮点数的计算和表示方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮点数近似计算和表示的几种方法">
+<meta property="og:url" content="http://noodlefighter.com/post/嵌入式软件-浮点数近似计算和表示的几种方法/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="最近做IoT传感器相关的工作需要在无FPU的场合下进行一些浮点运算稍微整理一下绕开浮点数的计算和表示方法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-29T16:25:56.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浮点数近似计算和表示的几种方法">
+<meta name="twitter:description" content="最近做IoT传感器相关的工作需要在无FPU的场合下进行一些浮点运算稍微整理一下绕开浮点数的计算和表示方法">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-嵌入式软件-浮点数近似计算和表示的几种方法" class="article article-type-post">
+  
+    <h1 class="article-header">
+      浮点数近似计算和表示的几种方法
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-09-26
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>最近做IoT传感器相关的工作<br>需要在无FPU的场合下进行一些浮点运算<br>稍微整理一下绕开浮点数的计算和表示方法</p>
+<a id="more"></a>
+<hr>
+<h2 id="计算-定点数方式"><a href="#计算-定点数方式" class="headerlink" title="计算:定点数方式"></a><strong>计算:定点数方式</strong></h2><p>最适合计算 比如DSP就是以这种方法算定点数的..</p>
+<p>相关开源库<br><a href="https://github.com/PetteriAimonen/libfixmath" target="_blank" rel="noopener">定点数学库libfixmathd</a><br><a href="https://github.com/PetteriAimonen/libfixmatrix" target="_blank" rel="noopener">定点矩阵运算libfixmatrix</a></p>
+<p>这里转一篇不错的文章 原文: <a href="http://blog.qz828.com/html/05/705-8890.html" target="_blank" rel="noopener">http://blog.qz828.com/html/05/705-8890.html</a></p>
+<hr>
+<h3 id="DSP定点小数运算"><a href="#DSP定点小数运算" class="headerlink" title="DSP定点小数运算"></a><strong>DSP定点小数运算</strong></h3><p>许多DSP芯片只支持整数运算，如果现在这些芯片上进行小数运算的话，定点小数运算应该是最佳选择了，此外即使芯片支持浮点数，定点小数运算也是最佳的速度选择。<br>在DSP 世界中，由于DSP芯片的限制,经常使用定点小数运算。所谓定点小数，实际上就是用整数来进行小数运算。下面先介绍定点小数的一些理论知识，然后以C语言为例，介绍一下定点小数运算的方法。在TI C5000 DSP系列中使用16比特为最小的储存单位，所以我们就用16比特的整数来进行定点小数运算。<br>先从整数开始，16比特的储存单位最多可以表示<code>0x0000到0xffff</code>，65536种状态，如果它表示C语言中的无符号整数的话，就是从0到 65535。如果需要表示负数的话，那么最高位就是符号位，而剩下的15位可以表示32768种状态。这里可以看出，对于计算机或者DSP芯片来说，符号并没有什么特殊的储存方式，其实是和数字一起储存的。为了使得无论是无符号数还是符号数，都可以使用同样的加法减法规则，符号数中的负数用正数的补码表示。<br>我们都知道<code>-1 + 1 =0</code>，而0x0001表示1，那么-1用什么来表示才能使得<code>-1 + 1 =0</code>呢？答案很简单：0xffff。现在就可以打开Windows的计算器，用16进制计算一下<code>0xffff+0x0001</code>，结果是0x10000。那么 <code>0x10000和0x0000</code>等价麽，我们刚才说过用16比特来表达整数，最高位的1是第17位，这一位是溢出位，在运算寄存器中没有储存这一位，所以结果是低16位，也就是0x0000。现在我们知道负数的表达方式了。举个例子：-100。首先我们需要知道100的16进制，用计算器转换一下，可以知道是0x0064，那么-100就是0x10000 - 0x0064，用计算器算一下得0xff9c。<br>还有一种简单的转换符号的方法，就是取反加一：把数x写成二进制格式，每位0变1，1变0，最后把结果加1就是-x了。<br>好，复习了整数的相关知识之后，我们进入定点小数运算环节。所谓定点小数，就是小数点的位置是固定的。我们是要用整数来表示定点小数，由于小数点的位置是固定的，所以就没有必要储存它（如果储存了小数点的位置，那就是浮点数了）。既然没有储存小数点的位置，那么计算机当然就不知道小数点的位置，所以这个小数点的位置是我们写程序的人自己需要牢记的。<br>先以10进制为例。如果我们能够计算<code>12+34=46</code>的话，当然也就能够计算<code>1.2+3.4</code> 或者 <code>0.12+0.34</code>了。所以定点小数的加减法和整数的相同，并且和小数点的位置无关。乘法就不同了。 <code>12*34=408</code>，而<code>1.2*3.4=4.08</code>。这里1.2的小数点在第1位之前，而4.08的小数点在第2位之前，小数点发生了移动。所以在做乘法的时候，需要对小数点的位置进行调整？！可是既然我们是做定点小数运算，那就说小数点的位置不能动！！怎么解决这个矛盾呢，那就是舍弃最低位。也就说<code>1.2*3.4=4.1</code>，这样我们就得到正确的定点运算的结果了。所以在做定点小数运算的时候不仅需要牢记小数点的位置，还需要记住表达定点小数的有效位数。上面这个例子中，有效位数为2，小数点之后有一位。<br>现在进入二进制。我们的定点小数用16位二进制表达，最高位是符号位，那么有效位就是15位。小数点之后可以有0 - 15位。我们把小数点之后有n位叫做Qn，例如小数点之后有12位叫做Q12格式的定点小数，而Q0就是我们所说的整数。<br>Q12 的正数的最大值是 <code>0 111 . 111111111111</code>，第一个0是符号位，后面的数都是1，那么这个数是十进制的多少呢，很好运算，就是 <code>0x7fff / 2^12 = 7.999755859375</code>。对于Qn格式的定点小数的表达的数值就它的整数值除以2^n。在计算机中还是以整数来运算，我们把它想象成实际所表达的值的时候，进行这个运算。<br>反过来把一个实际所要表达的值x转换Qn型的定点小数的时候，就是<code>x*2^n</code>了。例如 0.2的Q12型定点小数为：<code>0.2*2^12 = 819.2</code>，由于这个数要用整数储存，所以是819 即 0x0333。因为舍弃了小数部分，所以0x0333不是精确的0.2，实际上它是<code>819/2^12 =0.199951171875</code>。<br>我们用数学表达式做一下总结：<br>x表示实际的数（*一个浮点数）， q表示它的Qn型定点小数（一个整数）。<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">q</span> = (int) (x * <span class="number">2</span>^n)</span><br><span class="line"><span class="attr">x</span> = (float)q/<span class="number">2</span>^n</span><br></pre></td></tr></table></figure></p>
+<p>由以上公式我们可以很快得出定点小数的+-*/算法：<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">假设q<span class="number">1</span>，q<span class="number">2</span>，q<span class="number">3</span>表达的值分别为<span class="keyword">x</span><span class="number">1</span>，<span class="keyword">x</span><span class="number">2</span>，<span class="keyword">x</span><span class="number">3</span></span><br><span class="line">q<span class="number">3</span> = q<span class="number">1</span> + q<span class="number">2</span>   若 <span class="keyword">x</span><span class="number">3</span> = <span class="keyword">x</span><span class="number">1</span> + <span class="keyword">x</span><span class="number">2</span></span><br><span class="line">q<span class="number">3</span> = q<span class="number">1</span> - q<span class="number">2</span>   若 <span class="keyword">x</span><span class="number">3</span> = <span class="keyword">x</span><span class="number">1</span> - <span class="keyword">x</span><span class="number">2</span></span><br><span class="line">q<span class="number">3</span> = q<span class="number">1</span> * q<span class="number">2</span> / <span class="number">2</span>^n若 <span class="keyword">x</span><span class="number">3</span> = <span class="keyword">x</span><span class="number">1</span> * <span class="keyword">x</span><span class="number">2</span></span><br><span class="line">q<span class="number">3</span> = q<span class="number">1</span> * <span class="number">2</span>^n / q<span class="number">2</span>若 <span class="keyword">x</span><span class="number">3</span> = <span class="keyword">x</span><span class="number">1</span> / <span class="keyword">x</span><span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>我们看到加减法和一般的整数运算相同，而乘除法的时候，为了使得结果的小数点位不移动，对数值进行了移动。<br>用c语言来写定点小数的乘法就是：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">short</span> <span class="built_in">q1</span>,<span class="built_in">q2</span>,<span class="built_in">q3</span><span class="comment">;</span></span><br><span class="line"><span class="symbol">....</span></span><br><span class="line"><span class="symbol">q3</span>=((long <span class="built_in">q1</span>) * (long <span class="built_in">q2</span>)) &gt;&gt; n<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>由于/ 2^n和<em> 2^n可以简单的用移位来计算，所以定点小数的运算比浮点小数要快得多。下面我们用一个例子来验证一下上面的公式：<br>用Q12来计算2.1 </em> 2.2，先把2.1 2.2转换为Q12定点小数：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.1</span> * <span class="number">2</span>^<span class="number">12</span> = <span class="number">8601.6</span> = <span class="number">8602</span></span><br><span class="line"><span class="number">2.2</span> * <span class="number">2</span>^<span class="number">12</span> = <span class="number">9011.2</span> = <span class="number">9011</span></span><br><span class="line">(<span class="number">8602</span> * <span class="number">9011</span>) &gt;&gt; <span class="number">12</span> = <span class="number">18923</span></span><br></pre></td></tr></table></figure></p>
+<p>18923的实际值是<code>18923/2^12 = 4.619873046875</code> 和实际的结果4.62相差0.000126953125，对于一般的计算已经足够精确了。<br>定点小数，指小数点的位置是固定的，浮点小数指小数点的位置可以变动，这样就可以表示更大或更小的数，因为计算机里的位数是有限的，不可能无限期的.<br>在小数点后增加数字，所以只能靠移动小数点的位置来储存不同大小的数</p>
+<hr>
+<h2 id="表示法"><a href="#表示法" class="headerlink" title="表示法"></a><strong>表示法</strong></h2><h3 id="十进制浮点数表示法"><a href="#十进制浮点数表示法" class="headerlink" title="十进制浮点数表示法"></a><strong>十进制浮点数表示法</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 约定: n = value / scale  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">int32_t</span> value;</span><br><span class="line">    <span class="keyword">int32_t</span> scale;</span><br><span class="line">&#125; <span class="keyword">dfloat_t</span>; <span class="comment">/* decimal float */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">dfloat_t</span> df_0 =  &#123; <span class="number">123456000</span>, <span class="number">1e6</span> &#125;; <span class="comment">/* 1234.56000 */</span></span><br></pre></td></tr></table></figure>
+<p>表示法, 不适合计算<br>一个nmea0183 parser里用到这个结构<br>因为原始数据是”1.234”这样的字符串<br>很容易变换到这种表示法 供用户进一步处理</p>
+<h3 id="整数-小数表示法"><a href="#整数-小数表示法" class="headerlink" title="整数+小数表示法"></a><strong>整数+小数表示法</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 约定: n = integer + decimal*1e6  */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">int32_t</span> integer;</span><br><span class="line">    <span class="keyword">int32_t</span> decimal;</span><br><span class="line">&#125; <span class="keyword">ffloat_t</span>; <span class="comment">/* fixed float */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ffloat_t</span> n0 = &#123; <span class="number">1234</span>, <span class="number">56000</span> &#125;; <span class="comment">/* 1234.56000 */</span></span><br></pre></td></tr></table></figure>
+<p>不适合计算<br>很适合显示 像这样<code>printf(&quot;%d.%06d&quot;, n0.integer, n0.decimal);</code></p>
+<p>zephyr的sensor subsystem用到这种表示法:<br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> ak8975_convert(<span class="keyword">struct</span> sensor_value *<span class="keyword">val</span>, int16_t sample,</span><br><span class="line">			   uint8_t adjustment)</span><br><span class="line">&#123;</span><br><span class="line">	int32_t conv_val;</span><br><span class="line"></span><br><span class="line">	conv_val = sample * AK8975_MICRO_GAUSS_PER_BIT *</span><br><span class="line">		   ((uint16_t)adjustment + <span class="number">128</span>) / <span class="number">256</span>;</span><br><span class="line">	<span class="keyword">val</span>-&gt;<span class="class"><span class="keyword">type</span> </span>= SENSOR_VALUE_TYPE_INT_PLUS_MICRO;</span><br><span class="line">	<span class="keyword">val</span>-&gt;val1 = conv_val / <span class="number">1000000</span>;</span><br><span class="line">	<span class="keyword">val</span>-&gt;val2 = conv_val % <span class="number">1000000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>

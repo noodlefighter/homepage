@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    《UNIX环境高级编程》读书笔记
+  
+</title>
+
+<meta name="description" content="《UNIX环境高级编程 第3版》补漏笔记，只记录自己在意的知识。(Working)">
+<meta name="keywords" content="笔记,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《UNIX环境高级编程》读书笔记">
+<meta property="og:url" content="http://noodlefighter.com/post/技术笔记-《UNIX环境高级编程》读书笔记/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="《UNIX环境高级编程 第3版》补漏笔记，只记录自己在意的知识。(Working)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-29T16:25:56.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《UNIX环境高级编程》读书笔记">
+<meta name="twitter:description" content="《UNIX环境高级编程 第3版》补漏笔记，只记录自己在意的知识。(Working)">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-技术笔记-《UNIX环境高级编程》读书笔记" class="article article-type-post">
+  
+    <h1 class="article-header">
+      《UNIX环境高级编程》读书笔记
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-03-18
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>《UNIX环境高级编程 第3版》补漏笔记，只记录自己在意的知识。<br>(Working)</p>
+<a id="more"></a>
+<h2 id="第一章-UNIX基础知识"><a href="#第一章-UNIX基础知识" class="headerlink" title="第一章 UNIX基础知识"></a>第一章 UNIX基础知识</h2><h3 id="1-9-信号"><a href="#1-9-信号" class="headerlink" title="1.9 信号"></a>1.9 信号</h3><p>头文件<code>signal.h</code>提供一个<code>singal</code>函数允许注册回调，信号产生时可以捕捉信号进行一些处理。<br>比如<code>SIGINT</code>由shell中按Ctrl+C产生（中断键），如果程序没捕捉这个信号，则默认的行为是退出程序，如果捕捉了就可以根据需要自行处理这个信号了。</p>
+<h3 id="1-10-时间值"><a href="#1-10-时间值" class="headerlink" title="1.10 时间值"></a>1.10 时间值</h3><p>日历时间：用<code>time_t</code>保存。<br>进程时间：用<code>clock_t</code>保存，包括时钟时间(wall clock time)、用户CPU时间、系统CPU时间。</p>
+<p>shell中获取进程时间:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/include</span><br><span class="line">$ time -p grep _POSIX_SOURCE */*.h</span><br></pre></td></tr></table></figure>
+<h3 id="1-11-系统调用和库函数"><a href="#1-11-系统调用和库函数" class="headerlink" title="1.11 系统调用和库函数"></a>1.11 系统调用和库函数</h3><p>系统调用就是系统内核空间的入口点，UNIX中以C函数定义系统调用。<br>实现方法是，在标准C库中设置一个相同名字的函数，函数用系统所要求的技术调用相应的内核服务。<br>系统调用一般只是最小接口，标准C库中丰富的函数通过调用这些系统调用来实现。</p>
+<p>&lt;unistd.h&gt;中定义大量系统调用封装（POSIX的）。</p>
+<h2 id="第二章-UNIX标准及实现"><a href="#第二章-UNIX标准及实现" class="headerlink" title="第二章 UNIX标准及实现"></a>第二章 UNIX标准及实现</h2><h3 id="2-2-UNIX标准化"><a href="#2-2-UNIX标准化" class="headerlink" title="2.2 UNIX标准化"></a>2.2 UNIX标准化</h3><p><code>ISO C</code>由C程序设计语言国际标准工作组维护，它定义了C语言的语法语义、标准库。</p>
+<p><code>POSIX</code>一开始由IEEE维护，Portable Operating System Interface，目的是提升应用程序在各种UNIX系统环境之间的可移植性，规定了POSIX兼容系统必须提供的各种服务，如pthread、异步IO等等。</p>
+<p><code>SUS</code>，Single UNIX Specification，单一UNIX规范，POSIX.1的超集。</p>
+<h3 id="2-5-限制"><a href="#2-5-限制" class="headerlink" title="2.5 限制"></a>2.5 限制</h3><p>&lt;limits.h&gt;中有各种限制，包括：</p>
+<p><code>ISO C限制</code>：典型：<code>CHAR_BIT</code>  <code>CHAR_MAX</code> <code>UINT_MAX</code>,在给定的系统中不变。</p>
+<p><code>POSIX限制</code>： <code>_POSIX_XXXX_MAX</code> 是POSIX要求的最小值。具体数值，有的在编译时可用（宏），有的需要运行时确定，通过<code>sysconf</code> <code>pathconf</code> <code>fpathconf</code>之一获取。</p>
+<h3 id="2-8-基本系统数据类型"><a href="#2-8-基本系统数据类型" class="headerlink" title="2.8 基本系统数据类型"></a>2.8 基本系统数据类型</h3><p>POSIX要求在<code>&lt;sys/types.h&gt;</code>中定义，比如下面这些：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">clock_t</span>     进程时间</span><br><span class="line"><span class="keyword">dev_t</span>       设备号</span><br><span class="line"><span class="keyword">size_t</span>      (不带符号)对象长度</span><br><span class="line"><span class="keyword">ssize_t</span>     带符号的对象长度</span><br></pre></td></tr></table></figure>
+<h2 id="第三章-文件I-O"><a href="#第三章-文件I-O" class="headerlink" title="第三章 文件I/O"></a>第三章 文件I/O</h2><p>POSIX定义在<code>&lt;unistd.h&gt;</code>中，相关函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">open        打开文件</span><br><span class="line">openat      允许用相对路径打开文件，同时是一种原子操作，fd为AT_FDCWD表示相对于工作目录</span><br><span class="line">creat       创建文件，用open代替，因为open可以实现“若文件不存在则创建文件并打开”的原子操作</span><br><span class="line">close       关闭文件</span><br><span class="line">lseek       long seek，改变当前文件偏移量，SEEK_SET/SEEK_CUR/SEEK_END分别相对与首部/当前/尾部；`lssek(fd, 0, SEEK_CUR)`返回-1说明文件无法设定偏移（比如FIFO）</span><br><span class="line">read        无缓冲读</span><br><span class="line">write       无缓冲写</span><br><span class="line">pread       原子操作，先lseek后读</span><br><span class="line">pwrite      原子操作，先lseek后写</span><br><span class="line">fcntl       设置文件属性</span><br><span class="line">sync        将修改过的块缓冲区排入队列后返回，不等待</span><br><span class="line">fsync       对指定fd的文件执行sync，等待写操作结束后返回</span><br><span class="line">fdatasync   fsync类似，但只影响数据部分，不更新文件属性</span><br><span class="line">dup         复制fd号</span><br><span class="line">dup2        复制到指定的fd号</span><br></pre></td></tr></table></figure></p>
+<p>启用<code>O_APPEND</code>标志，可以用lseek再read，但是write时会自动把offset设置到文件末尾再写。</p>
+<h3 id="3-10-文件共享"><a href="#3-10-文件共享" class="headerlink" title="3.10 文件共享"></a>3.10 文件共享</h3><p>os允许一个文件同时被几个应用程序打开，用到了共享机制：各自持有文件状态、偏移量，但使用相同的v-node/i-node包含文件所有者、长度、指向实际硬盘中数据块位置等信息。</p>
+<h3 id="3-11-原子操作"><a href="#3-11-原子操作" class="headerlink" title="3.11 原子操作"></a>3.11 原子操作</h3><ul>
+<li>打开文件时使用O_APPEND标志</li>
+<li>pread/pwrite，先lseek再操作的原子操作函数</li>
+<li>使用open实现代替先判断文件是否存在后创建文件的原子操作</li>
+</ul>
+<h3 id="3-12-dup和dup2"><a href="#3-12-dup和dup2" class="headerlink" title="3.12 dup和dup2"></a>3.12 dup和dup2</h3><p><code>dup</code>/<code>dup2</code>用于复制现有的文件描述符(fd)，后者能指定目标fd号，如果指定的fd号已经打开了文件，则先将它关闭。</p>
+<h3 id="3-14-fcntl"><a href="#3-14-fcntl" class="headerlink" title="3.14 fcntl"></a>3.14 fcntl</h3><p>POSIX定义在<code>&lt;fcntl.h&gt;</code>中，改变文件属性。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fcntl</span> <span class="params">(<span class="keyword">int</span> fd, <span class="keyword">int</span> cmd, ...)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>参数cmd对应5种功能：</p>
+<ul>
+<li>复制已有文件描述符（fd）：<code>F_DUPFD</code>，<code>F_DUPFD_CLOEXEC</code></li>
+<li>获取/设置文件描述符标志：<code>F_GETFD</code>,<code>F_SETFD</code></li>
+<li>获取/设置文件状态标志：<code>F_GETFL</code>,<code>F_SETFL</code>，其中包含访问方式（ACCMODE，比如只读、只写等等）、当前状态（<code>O_SYNC</code>等待写完成、<code>O_RSYNC</code>同步读和写）</li>
+<li>获取/设置异步I/O所有权: <code>F_GETOWN</code>,<code>F_SETOWN</code>，设置和获取接受<code>SIGIO</code>和<code>SIGURG</code>信号的进程或进程组ID（用于实现异步IO）</li>
+<li>获取/设置记录锁: <code>F_GETLK</code>,<code>F_SETLK</code>,<code>F_SETLKW</code></li>
+</ul>
+<p>dup2其实就是重定向。</p>
+<p>todo: </p>
+<ul>
+<li>不明白GETFD/SETFD用途，这里有篇文章<a href="https://www.cnblogs.com/xuyh/p/3273082.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuyh/p/3273082.html</a></li>
+</ul>
+<h3 id="3-15-ioctl"><a href="#3-15-ioctl" class="headerlink" title="3.15 ioctl"></a>3.15 ioctl</h3><p>SUS标准的扩展部分，I/O操作的杂物箱，用来进行很多杂项设备的操作，<code>&lt;sys/ioctl.h&gt;</code>。</p>
+<p>每个设备驱动程序都可以定义它自己专用的一组ioctl命令，比如终端设备。</p>
+<h3 id="3-16-dev-fd"><a href="#3-16-dev-fd" class="headerlink" title="3.16 /dev/fd"></a>3.16 /dev/fd</h3><p>不是POSIX的组成部分，目的是方便shell使用。</p>
+<p>打开<code>/dev/fd/n</code>等效为复制描述符n：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fd  = <span class="built_in">open</span>(<span class="string">"/dev/fd/0"</span>, mode);</span><br><span class="line">fd = dup(<span class="number">0</span>);</span><br><span class="line"><span class="comment">//大多数系统忽略打开时的mode，所以以上两句等效</span></span><br></pre></td></tr></table></figure>
+<p>注意Linux例外，因为实现成了文件的符号链接，所以可以更改打开属性。</p>
+<h2 id="第四章-文件和目录"><a href="#第四章-文件和目录" class="headerlink" title="第四章 文件和目录"></a>第四章 文件和目录</h2><p>相关函数在<code>&lt;sys/stat.h&gt;</code>中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">stat        根据路径获取属性</span><br><span class="line">fstat       根据fd号获取属性</span><br><span class="line">fstatat     相对路径获取属性，类比openat</span><br><span class="line">lstat       根据路径获取属性，与stat的区别在于它能察觉到符号链接文件</span><br><span class="line"></span><br><span class="line">umask       为进程设置文件模式创建屏蔽字，也就是设置open/create里的mode参数的位屏蔽（shell命令umask）</span><br><span class="line">chmod       更改文件访问权限</span><br><span class="line">fchmod      同上</span><br><span class="line">fchmodat    同上，相对路径，参数flag为AT_SYMLINK_NOFOLLOW时不跟随符号链接</span><br><span class="line"></span><br><span class="line">futimens    修改文件的访问和修改时间</span><br><span class="line">utimensat   同上</span><br><span class="line">utimes      同上（XSI扩展）</span><br><span class="line"></span><br><span class="line">mkdir       创建目录</span><br><span class="line">mkdirat     同上</span><br><span class="line">rmdir       删除目录</span><br></pre></td></tr></table></figure>
+<p>相关函数在<code>&lt;unistd.h&gt;</code>中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">access      以&quot;实际UID/GID&quot;测试文件访问权限</span><br><span class="line">faccessat   类似access，但可以使用相对fd号的路径，还可以通过flag改变行为成检查&quot;有效UID/GID&quot;访问权限</span><br><span class="line"></span><br><span class="line">chown       更改文件所有者，注意权限</span><br><span class="line">fchown      更改指定fd所有者</span><br><span class="line">fchownat    ...</span><br><span class="line">lchown      ...</span><br><span class="line"></span><br><span class="line">truncate    截断或扩展文件长度</span><br><span class="line">ftruncate   同上</span><br><span class="line"></span><br><span class="line">link        通过已存在的路径，建立新的硬链接，也就是建立目录项</span><br><span class="line">linkat      同上</span><br><span class="line"></span><br><span class="line">unlink      删除目录项</span><br><span class="line">unlinkat    同上</span><br><span class="line"></span><br><span class="line">symlink     创建符号链接</span><br><span class="line">symlinkat   同上</span><br><span class="line">readlink    读取符号链接</span><br><span class="line">readlinkat  同上</span><br><span class="line"></span><br><span class="line">chdir       改变工作目录</span><br><span class="line">fchdir      同上</span><br><span class="line">getcwd      获取当前工作目录绝对路径</span><br><span class="line"></span><br><span class="line">chroot      修改应用程序根目录，用于安全和构造一个新的根目录环境（像pyenv?），需要root权限</span><br></pre></td></tr></table></figure>
+<p>一组用于读目录的函数定义在<code>&lt;dirent.h&gt;</code>中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">opendir     打开目录</span><br><span class="line">fdopendir   通过文件描述符fd转换成目录处理函数需要的DIR结构体</span><br><span class="line">readdir     逐条读目录</span><br><span class="line">rewinddir   重置DIRP的当前位置，重头开始读目录</span><br><span class="line">closedir    关闭目录</span><br><span class="line">telldir     返回DIRP的当前位置</span><br><span class="line">seekdir     设置DIRP的当前位置</span><br></pre></td></tr></table></figure>
+<p>ISO C定义相关函数在<code>&lt;stdio.h&gt;</code>中：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">remove</span>      删除文件或目录</span><br><span class="line">rename      重命名</span><br><span class="line">renameat    同上</span><br></pre></td></tr></table></figure></p>
+<p>todo:</p>
+<ul>
+<li>读p105实现ftw的源码，以及学习&lt;ftw.h&gt;，递归降序遍历目录</li>
+</ul>
+<h3 id="4-2-函数stat-fstat-fstatat-lstat"><a href="#4-2-函数stat-fstat-fstatat-lstat" class="headerlink" title="4.2 函数stat/fstat/fstatat/lstat"></a>4.2 函数stat/fstat/fstatat/lstat</h3><p>stat结构包含文件信息：</p>
+<ul>
+<li>文件type、mode(permissions)</li>
+<li>i节点号</li>
+<li>设备号</li>
+<li>特殊文件设备号</li>
+<li>links数量</li>
+<li>拥有者uid</li>
+<li>拥有者gid</li>
+<li>普通文件的size in bytes</li>
+<li>最后访问、修改、文件状态改变的时间</li>
+<li>最佳I/O block大小(blksize_t)</li>
+<li>占用磁盘块数量</li>
+</ul>
+<p>功能类比<code>ls -ls</code>命令。</p>
+<h3 id="4-3-文件类型"><a href="#4-3-文件类型" class="headerlink" title="4.3 文件类型"></a>4.3 文件类型</h3><ul>
+<li>普通文件</li>
+<li>目录文件</li>
+<li>块特殊文件(block special file)：提供对设备（如disk）带缓冲的访问，每次访问以固定长度为单位进行</li>
+<li>字符特殊文件(character special file): 提供对设备不带缓冲的访问，每次访问长度可变。</li>
+<li>FIFO：用于进程间通信，也叫命名管道(named pipe)</li>
+<li>套接字(socket)：进程间网络通信</li>
+<li>符号链接(symbolic link): 指向另一个文件</li>
+</ul>
+<p>系统中的设备，只可能是块特殊文件或字符特殊文件。</p>
+<h3 id="4-4-“设置用户ID”和”设置组ID”"><a href="#4-4-“设置用户ID”和”设置组ID”" class="headerlink" title="4.4 “设置用户ID”和”设置组ID”"></a>4.4 “设置用户ID”和”设置组ID”</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">实际UID/实际GID             我们实际是谁</span><br><span class="line">---</span><br><span class="line">有效UID/有效GID/附属GID     用于文件访问权限检查</span><br><span class="line">---</span><br><span class="line">保存的设置UID/GID           由exec函数保存</span><br></pre></td></tr></table></figure>
+<p>进程维护着”设置用户ID”和”设置组ID”，stat结构的<code>st_uid</code>、<code>st_gid</code>的为文件拥有者的uid/gid，这两个值与进程对文件的操作权限有关。</p>
+<h3 id="4-10-粘着位"><a href="#4-10-粘着位" class="headerlink" title="4.10 粘着位"></a>4.10 粘着位</h3><p>当一个目录设置了粘着位(S_ISVTX)，需要满足其中一个条件才能重命名该目录下的文件：</p>
+<ul>
+<li>拥有此文件</li>
+<li>拥有此目录</li>
+<li>是超级用户</li>
+</ul>
+<h3 id="4-14-文件系统"><a href="#4-14-文件系统" class="headerlink" title="4.14 文件系统"></a>4.14 文件系统</h3><p>章节介绍UFS文件系统，一个柱面组中包含i节点数组、目录块和文件块；i节点是一些文件信息，指向文件块；目录块中包含文件名及i节点的编号，允许多个目录块指向同一i节点。</p>
+<p>所谓硬链接就是建立一个指向i节点的目录块。</p>
+<p>i节点会对硬链接计数，当计数为0的i节点会被清除。</p>
+<h3 id="4-15-link-linkat-unlink-unlinkat-remove"><a href="#4-15-link-linkat-unlink-unlinkat-remove" class="headerlink" title="4.15 link/linkat/unlink/unlinkat/remove"></a>4.15 link/linkat/unlink/unlinkat/remove</h3><p>link可以创建硬连接，硬链接可能导致路径形成循环。</p>
+<p>如果i节点的link计数为0，但文件被打开，它不会被立即清除，而是等文件关闭后，这一特性用于建立即使程序崩溃也能被删除的临时文件。</p>
+<h3 id="4-17-符号链接"><a href="#4-17-符号链接" class="headerlink" title="4.17 符号链接"></a>4.17 符号链接</h3><p>硬链接要求文件处于同一文件系统中，而符号链接（软链接）没这要求。<br>以路径使用操作文件的函数时，得注意符号链接的情况，有的函数会处理符号链接本身，而不是指向的文件。</p>
+<p>使用shell命令<code>ln</code>可以创建符号链接。</p>
+<h3 id="4-19-文件的时间"><a href="#4-19-文件的时间" class="headerlink" title="4.19 文件的时间"></a>4.19 文件的时间</h3><p><code>st_atim</code> 文件数据最后的访问时间，如read操作，<code>ls -u</code><br><code>st_mtim</code> 文件数据最后的修改时间，如write操作<br><code>st_ctim</code> i节点状态最后更改时间，如chmod操作, <code>ls -c</code></p>
+<h3 id="4-24-设备特殊文件"><a href="#4-24-设备特殊文件" class="headerlink" title="4.24 设备特殊文件"></a>4.24 设备特殊文件</h3><p>文件的<code>st_dev</code>是文件系统的设备号。<br>字符特殊文件和块特殊文件才有<code>st_rdev</code>，为实际设备的设备号。<br>使用<code>&lt;sys/type.h&gt;</code>提供的<code>major</code>和<code>minor</code>宏获得主次设备号。<br>主设备号标识设备驱动程序、外设板；次设备号标识特定的子设备。比如一个磁盘驱动器上的几个文件系统，主设备号相同，但次设备号不同。<br>比如，在我的linux环境下，<code>/dev/tty0</code>的dev=0/6,rdev=4/0，而<code>/dev/tty1</code>的dev=0/6,rdev=4/1。</p>
+<h2 id="第五章-标准I-O库"><a href="#第五章-标准I-O库" class="headerlink" title="第五章 标准I/O库"></a>第五章 标准I/O库</h2><p>标准I/O库是ISO C定义的，SUS对它进行了一些扩充。</p>
+<p>定义在<code>&lt;stdio.h&gt;</code>中的相关函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">setbuf      对指定fp设置或关闭缓冲</span><br><span class="line">setvbuf     同上，更精确的控制比如指定缓冲区大小和类型</span><br><span class="line">fflush      冲洗一个流，fp为NULL时冲洗所有流</span><br><span class="line"></span><br><span class="line">fopen       路径打开文件</span><br><span class="line">freopen     在指定的的流(fp)上打开指定路径的文件</span><br><span class="line">fdopen      通过fd打开流（POSIX），通常用于管道、网络通信管道</span><br><span class="line">fclose      关闭文件</span><br><span class="line"></span><br><span class="line">fmemopen    打开内存流，在内存buffer中读写，仅方便做字符串操作，因为通过NULL判断尾部</span><br><span class="line">open_memstream</span><br><span class="line">            创建面向字节的内存流，适合创建字符串，只写打开，缓冲区会自增长（所以获取缓冲区大小和地址需要先fclose或fflush）</span><br><span class="line">open_wmemstream</span><br><span class="line">            创建面向宽字节的内存流，其他同上</span><br><span class="line"></span><br><span class="line">ferror      获取错误值，否则返回0(假)</span><br><span class="line">feof        尾部时返回真</span><br><span class="line">clearerr    清除出错和文件结束标志</span><br><span class="line"></span><br><span class="line">fileno      获取指定流(fp)关联的文件描述符(fd)</span><br><span class="line"></span><br><span class="line">tmpnam      生成不同的路径字符串，最多可以调用TMP_MAX次（不建议使用因为获取字符串后再创建文件会有一个窗口期而其他程序可能先建立了同名的文件）</span><br><span class="line">tmpfile     创建一个临时文件，返回fp</span><br><span class="line"></span><br><span class="line">---------------一次一个字符</span><br><span class="line">fgetc       文件读一个字符，出错或到尾部均返回EOF</span><br><span class="line">getc        同上，但可能是宏，性能可能好一点，但应注意表达式可能被计算多次</span><br><span class="line">getchar     从stdin中读一个字符</span><br><span class="line">ungetc      将字符重新压回流的缓冲区中</span><br><span class="line">fputc       文件中写一个字符</span><br><span class="line">putc        同上</span><br><span class="line">putchar     向stdout中写一个字符</span><br><span class="line"></span><br><span class="line">---------------一次一行</span><br><span class="line">fgets       从流中读一行（保留换行符）</span><br><span class="line">gets        从stdin读一行（因为可能造成缓冲区溢出问题被弃用）</span><br><span class="line">fputs       向流写一行</span><br><span class="line">puts        向stdout写一行，会自己加上换行符（不推荐使用）</span><br><span class="line"></span><br><span class="line">---------------一次一块（二进制I/O）</span><br><span class="line">fread       读</span><br><span class="line">fwrite      向</span><br><span class="line"></span><br><span class="line">---------------定位流</span><br><span class="line">ftell       获取当前位置</span><br><span class="line">fseek       设置当前位置</span><br><span class="line">rewind      重置当前位置</span><br><span class="line">ftello      获取当前位置，类型为off_t</span><br><span class="line">fseeko      设置当前位置，类型为off_t</span><br><span class="line">fgetpos     ISO C提供的函数，引入fpos_t存放位置</span><br><span class="line">fsetpos     ISO C提供的函数，还原位置</span><br><span class="line"></span><br><span class="line">---------------格式化I/O</span><br><span class="line">printf      格式化数据写入stdout</span><br><span class="line">fprintf     格式化数据写入指定流(fp)</span><br><span class="line">dprintf     格式化数据写入指定文件描述符(dp)</span><br><span class="line">sprintf     格式化数据写入buf</span><br><span class="line">snprintf    同上，多了buf长度限制</span><br><span class="line">vprintf     printf变体</span><br><span class="line">vfprintf    fprintf变体，变参</span><br><span class="line">vdprintf    dprintf变体</span><br><span class="line">vsprintf    sprintf变体</span><br><span class="line">vsnprintf   snprintf变体</span><br><span class="line"></span><br><span class="line">scanf       从stdin格式化输入数据</span><br><span class="line">fscanf      从指定流（fp）格式化输入数据</span><br><span class="line">sscanf      从buf格式化输入数据</span><br><span class="line">vscanf      scanf变体，变参</span><br><span class="line">vfscanf     fscanf变体</span><br><span class="line">vsscanf     sscanf变体</span><br></pre></td></tr></table></figure></p>
+<p><code>&lt;stdlib.h&gt;</code>中定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdtemp     创建临时目录，成功返回目录名并修改输入的template字符串，不会自动删除目录</span><br><span class="line">mkstemp     创建临时文件，成功返回fd并修改输入的template字符串，不会自动删除文件</span><br></pre></td></tr></table></figure></p>
+<p>标准I/O效率不佳，因为一次操作涉及两次数据复制，替代：<code>快速IO: fio</code>，<code>sfio</code>，<code>储存映射文件mmap函数</code>。</p>
+<p>todo:</p>
+<ul>
+<li>发生flush的条件没看明白</li>
+<li>习题5.7答案没看</li>
+</ul>
+<h3 id="5-2-流和FILE对象"><a href="#5-2-流和FILE对象" class="headerlink" title="5.2 流和FILE对象"></a>5.2 流和FILE对象</h3><p>用标准I/O库打开一个文件时，实际上就是把一个流和文件关联了起来。</p>
+<p>使用<code>&lt;wchar.h&gt;</code>中提供的<code>fwide</code>函数可以改变流的定向(stream’s orientation)，它决定了流的宽度，用于国际字符集。</p>
+<h3 id="5-3-标准输入、标准输出、标准错误"><a href="#5-3-标准输入、标准输出、标准错误" class="headerlink" title="5.3 标准输入、标准输出、标准错误"></a>5.3 标准输入、标准输出、标准错误</h3><p><code>&lt;stdio.h&gt;</code>中定义了<code>stdin</code> <code>stdout</code> <code>stderr</code>文件指针。</p>
+<h3 id="5-4-缓冲"><a href="#5-4-缓冲" class="headerlink" title="5.4 缓冲"></a>5.4 缓冲</h3><p>标准I/O提供缓冲的目的是让程序减少调用read/write原语的次数，3种类型：</p>
+<ul>
+<li>全缓冲：填满缓冲区后才执行I/O操作</li>
+<li>行缓冲：遇到换行符执行I/O操作</li>
+<li>不缓冲</li>
+</ul>
+<h3 id="5-11-格式化I-O"><a href="#5-11-格式化I-O" class="headerlink" title="5.11 格式化I/O"></a>5.11 格式化I/O</h3><p>格式化输出format string:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">%[flags].[fldwidth][precision][lenmodifier]convtype</span><br><span class="line"></span><br><span class="line">flags:</span><br><span class="line"> &apos;      将整数按千分位分组字符</span><br><span class="line"> -      在字段内左对齐输出</span><br><span class="line"> +      总是显示带符号转换的正负号</span><br><span class="line"> (空格) 如果第一个字符不是正负号，前面加空格</span><br><span class="line"> #      指定另一种转换格式（例如，对于十六进制格式加0x前缀）</span><br><span class="line"> 0      前面补0</span><br><span class="line"> </span><br><span class="line">fldwidth:   最小字段宽度，可以是非负整数或*</span><br><span class="line"></span><br><span class="line">precision:  整型最少输出多少数字位数、浮点小数最少位数、字符串最大字节数，可以是*</span><br><span class="line"></span><br><span class="line">lenmodifier:</span><br><span class="line"> hh     char长度</span><br><span class="line"> h      short长度</span><br><span class="line"> l      long长度</span><br><span class="line"> ll     long long长度</span><br><span class="line"> j      intmax_t长度</span><br><span class="line"> z      size_t长度</span><br><span class="line"> t      ptrdiff_t长度</span><br><span class="line"> L      long double长度</span><br><span class="line"></span><br><span class="line">convtype:</span><br><span class="line"> d i    有符号十进制</span><br><span class="line"> o      无符号八进制</span><br><span class="line"> u      无符号十进制</span><br><span class="line"> x X    无符号十六进制</span><br><span class="line"> f F    双精浮点数</span><br><span class="line"> e E    指数个数双精浮点数</span><br><span class="line"> g G    根据转换后的值解释为f F e E</span><br><span class="line"> a A    十六进制指数格式双精浮点数</span><br><span class="line"> c      字符</span><br><span class="line"> s      字符串</span><br><span class="line"> p      void*指针</span><br><span class="line"> n      将目前printf输出的字符数目输出到指针所指向的int变量中</span><br><span class="line"> C      宽字符，XSI扩展，同lc</span><br><span class="line"> S      宽字符串，XSI扩展，同ls</span><br></pre></td></tr></table></figure>
+<p>格式化输出format string:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%[*][fldwidth][m][lenmodifier]convtype</span><br><span class="line"></span><br><span class="line">可选的星号:     抑制转换，按照转换说明的其余部分进行转换，但转换结果不放到参数中；也就是说读取但不保存</span><br><span class="line"></span><br><span class="line">fldwidth:       最大字符数</span><br><span class="line"></span><br><span class="line">convtpye:       和printf的差不多，以下为不一样的地方</span><br><span class="line"> [    匹配列出的字符序列，以]结束</span><br><span class="line"> [^   匹配除列出字符以外的所有字符，以]结束</span><br></pre></td></tr></table></figure></p>
+<h2 id="第十章-信号"><a href="#第十章-信号" class="headerlink" title="第十章 信号"></a>第十章 信号</h2><p>信号是软件中断，相关头文件<code>&lt;signal.h&gt;</code>，在Linux中信号编号被定义在<code>&lt;bits/signum.h&gt;</code>中：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGHUP		1	<span class="comment">/* Hangup (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGINT		2	<span class="comment">/* Interrupt (ANSI).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGQUIT		3	<span class="comment">/* Quit (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGILL		4	<span class="comment">/* Illegal instruction (ANSI).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTRAP		5	<span class="comment">/* Trace trap (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGABRT		6	<span class="comment">/* Abort (ANSI). */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGIOT		6	<span class="comment">/* IOT trap (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGBUS		7	<span class="comment">/* BUS error (4.2 BSD). */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGFPE		8	<span class="comment">/* Floating-point exception (ANSI).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGKILL		9	<span class="comment">/* Kill, unblockable (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGUSR1		10	<span class="comment">/* User-defined signal 1 (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSEGV		11	<span class="comment">/* Segmentation violation (ANSI).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGUSR2		12	<span class="comment">/* User-defined signal 2 (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPIPE		13	<span class="comment">/* Broken pipe (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGALRM		14	<span class="comment">/* Alarm clock (POSIX). */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTERM		15	<span class="comment">/* Termination (ANSI).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSTKFLT	16	<span class="comment">/* Stack fault.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGCLD		SIGCHLD	<span class="comment">/* Same as SIGCHLD (System V).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGCHLD		17	<span class="comment">/* Child status has changed (POSIX). */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGCONT		18	<span class="comment">/* Continue (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGSTOP		19	<span class="comment">/* Stop, unblockable (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTSTP		20	<span class="comment">/* Keyboard stop (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTTIN		21	<span class="comment">/* Background read from tty (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGTTOU		22	<span class="comment">/* Background write to tty (POSIX).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGURG		23	<span class="comment">/* Urgent condition on socket (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGXCPU		24	<span class="comment">/* CPU limit exceeded (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGXFSZ		25	<span class="comment">/* File size limit exceeded (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGVTALRM	26	<span class="comment">/* Virtual alarm clock (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPROF		27	<span class="comment">/* Profiling alarm clock (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGWINCH	28	<span class="comment">/* Window size change (4.3 BSD, Sun).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPOLL		SIGIO	<span class="comment">/* Pollable event occurred (System V).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGIO		29	<span class="comment">/* I/O now possible (4.2 BSD).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	SIGPWR		30	<span class="comment">/* Power failure restart (System V).  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIGSYS		31	<span class="comment">/* Bad system call.  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIGUNUSED	31</span></span><br></pre></td></tr></table></figure>
+<p>相关函数在<code>&lt;signal.h&gt;</code>中定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">signal      监听某信号，为其指定handler（语义与实现有关，跨平台时应该自行用sigaction实现其功能）</span><br><span class="line"></span><br><span class="line">sigaction   检查、修改与指定信号相关的处理handler</span><br><span class="line"></span><br><span class="line">kill        给指定pid发信号，pid为0时发送给同进程组所有进程，pid小于0发送给pid的绝对值的进程组，pid为-1时发送给所有进程</span><br><span class="line">raise       给自身发信号</span><br><span class="line">alarm       设置产生SIGALRM信号的定时器（信号默认行为是终止程序）</span><br><span class="line">pause       挂起程序直到捕捉到信号</span><br><span class="line"></span><br><span class="line">sigemptyset     初始化信号集，清空所有信号</span><br><span class="line">sigemptyfill    初始化信号集，包括所有信号</span><br><span class="line">sigaddset       信号集中加入信号</span><br><span class="line">sigdelset       信号集中除去信号</span><br><span class="line">sigismember     测试信号集中是否存在指定信号</span><br><span class="line"></span><br><span class="line">sigprocmask     设置进程的信号屏蔽字</span><br><span class="line">sigpending      检查进程中处于pending状态的信号（如被sigprocmask阻塞的信号）</span><br><span class="line">sigsuspend      先设置屏蔽字后休眠（pause）进程，用于等待信号</span><br></pre></td></tr></table></figure></p>
+<p>相关函数在<code>&lt;setjmp.h&gt;</code>中定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sigsetjmp       考虑到sig机制的setjmp</span><br><span class="line">siglongjmp      考虑到sig机制的longjmp</span><br></pre></td></tr></table></figure></p>
+<p>相关函数在<code>&lt;stdlib.h&gt;</code>中定义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abort       给自己发送一个SIGABRT信号</span><br></pre></td></tr></table></figure></p>
+<p>todo：</p>
+<ul>
+<li>10.4介绍了之前的信号如何不可靠但是没说现在是怎么解决的</li>
+<li>10.6中有longjmp和siglongjmp可重入性的讨论，没仔细看</li>
+<li>10.7没看SIGCHLD语义问题因为Linux中没这问题</li>
+<li>没看10.10中使用alarm实现sleep函数</li>
+<li>没看sigaction的用法</li>
+<li>没看abort实现</li>
+</ul>
+<h3 id="10-5-中断的系统调用"><a href="#10-5-中断的系统调用" class="headerlink" title="10.5 中断的系统调用"></a>10.5 中断的系统调用</h3><p>早期UNIX将系统调用分为低速和高速，高速不会阻塞，而阻塞期间如果来了信号，不同的UNIX实现可能有不同的表现：有的会重启动系统调用的工作，有的返回EINTR错误。这也是跨平台应用不推荐直接用signal函数的原因。（Linux默认会重新启动被中断的系统调用）</p>
+<h3 id="10-6-可重入函数"><a href="#10-6-可重入函数" class="headerlink" title="10.6 可重入函数"></a>10.6 可重入函数</h3><p>使用信号机制时应当注意其handler调用的函数的可重入性，可能会影响被打断的程序的执行，尤其注意：</p>
+<ul>
+<li>已知使用静态数据结构</li>
+<li>标准I/O很多实现不可重入</li>
+<li>malloc或free</li>
+<li>涉及到errno应先保存后恢复</li>
+</ul>
+<h3 id="10-13-函数sigpending"><a href="#10-13-函数sigpending" class="headerlink" title="10.13 函数sigpending"></a>10.13 函数sigpending</h3><p>使用sigprocmask可以屏蔽指定信号，而sigpending函数可以查看被阻塞的状态。</p>
+<p>如果解除屏蔽，阻塞的信号会投递到进程中。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>

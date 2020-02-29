@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    ps脚本工具包xtools快速入门教程
+  
+</title>
+
+<meta name="description" content="制作LabelPlus的让我接触了ps脚本后来了解到有xtools这一系列工具和函数库 不禁感叹作者的用心前人铺好了路 然而国内找不到相关资料所以摸索起来也花了半天时间现在边摸索边写个快速入门教程 以供参考">
+<meta name="keywords" content="Photoshop,Photoshop Script,xtools,ps脚本图形界面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ps脚本工具包xtools快速入门教程">
+<meta property="og:url" content="http://noodlefighter.com/post/技术笔记-ps脚本工具包xtools快速入门教程/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="制作LabelPlus的让我接触了ps脚本后来了解到有xtools这一系列工具和函数库 不禁感叹作者的用心前人铺好了路 然而国内找不到相关资料所以摸索起来也花了半天时间现在边摸索边写个快速入门教程 以供参考">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://noodlefighter.com/post/技术笔记-ps脚本工具包xtools快速入门教程/pic.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/技术笔记-ps脚本工具包xtools快速入门教程/sampleui.jpg">
+<meta property="og:updated_time" content="2020-02-29T16:25:56.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ps脚本工具包xtools快速入门教程">
+<meta name="twitter:description" content="制作LabelPlus的让我接触了ps脚本后来了解到有xtools这一系列工具和函数库 不禁感叹作者的用心前人铺好了路 然而国内找不到相关资料所以摸索起来也花了半天时间现在边摸索边写个快速入门教程 以供参考">
+<meta name="twitter:image" content="http://noodlefighter.com/post/技术笔记-ps脚本工具包xtools快速入门教程/pic.jpg">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-技术笔记-ps脚本工具包xtools快速入门教程" class="article article-type-post">
+  
+    <h1 class="article-header">
+      ps脚本工具包xtools快速入门教程
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2015-09-20
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>制作<a href="http://noodlefighter.com/label_plus">LabelPlus</a>的让我接触了ps脚本<br>后来了解到有xtools这一系列工具和函数库 不禁感叹作者的用心<br>前人铺好了路 然而国内找不到相关资料<br>所以摸索起来也花了半天时间<br>现在边摸索边写个快速入门教程 以供参考</p>
+<a id="more"></a>
+<p>以下为我使用xtools的界面库 为LabelPlus做的ps导入工具的截图</p>
+<img src="/post/技术笔记-ps脚本工具包xtools快速入门教程/pic.jpg" title="pic">
+<hr>
+<h2 id="从ps脚本说起"><a href="#从ps脚本说起" class="headerlink" title="从ps脚本说起"></a>从ps脚本说起</h2><p>PS脚本(Photoshop Script)给我们一个使ps自动操作的方法<br>能做到动作(Action)无法实现的 流程控制、参数设定<br>所以脚本要灵活得多 但是制作起来比动作更麻烦</p>
+<h2 id="要xtools有何用"><a href="#要xtools有何用" class="headerlink" title="要xtools有何用"></a>要xtools有何用</h2><p><code>xtools is a JavaScript toolkit that facilitates scripting Adobe Photoshop.</code><br>xtools是一个帮助编写Adobe Photoshop JS脚本的工具集<br><code>xtools is intended for script writers.</code><br>xtools为脚本编写者而生</p>
+<p>大概列举一下它带给我们什么好处：</p>
+<ul>
+<li>实用函数集(Stdlib) 给脚本编写提供便利</li>
+<li>通用界面库(GenericUI) 提供简单的图形化界面框架</li>
+<li>一些工具脚本(Toolkit Scripts) 比如调试工具jsh 混合工具FlattenJS</li>
+<li>相当于大量ps脚本学习例程</li>
+</ul>
+<p>以下是发布页，自备梯子<br><a href="http://ps-scripts.sourceforge.net/xtools.html" target="_blank" rel="noopener">http://ps-scripts.sourceforge.net/xtools.html</a><br>或者直接墙内度盘(xtools-2_2b1.zip):<br><a href="http://pan.baidu.com/s/1pJoY1SJ" target="_blank" rel="noopener">http://pan.baidu.com/s/1pJoY1SJ</a></p>
+<p>值得一提的是xtools是以LGPL协议发布的<br>所以基于它开发的脚本是可以用于私人用途的</p>
+<hr>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/xtools/</td>
+<td>安装程序</td>
+</tr>
+<tr>
+<td>/xtools/xapps</td>
+<td>依赖库的程序</td>
+</tr>
+<tr>
+<td>/xtools/apps</td>
+<td>已脱离库的程序</td>
+</tr>
+<tr>
+<td>/xtools/xlib</td>
+<td>xtools库</td>
+</tr>
+<tr>
+<td>/xtools/docs</td>
+<td>文档</td>
+</tr>
+<tr>
+<td>/xtools/etc</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>执行<code>Install.jsx</code><br>功能是把xtools拷贝到ps安装目录，并更改文件中一些引用路径<br>为依赖xtools函数的脚本提供运行环境</p>
+<hr>
+<h2 id="如何开始使用xtools"><a href="#如何开始使用xtools" class="headerlink" title="如何开始使用xtools"></a>如何开始使用xtools</h2><p><code>/xapps</code>和<code>/apps</code>文件夹中有大量例子、工具<br>可以在发布页以及<code>/xapps/README</code>文件的帮助下测试、阅读脚本</p>
+<p><code>/docs/</code>文件夹中的文档可以起参考作用</p>
+<p>建议通过阅他的各种Demo来熟悉xtools</p>
+<hr>
+<h2 id="实用函数集-Stdlib"><a href="#实用函数集-Stdlib" class="headerlink" title="实用函数集(Stdlib)"></a>实用函数集(Stdlib)</h2><p>用户手册：<code>/docs/Stdlib.pdf</code></p>
+<p>提供一段测试程序：获取本地<code>C:\</code>下的文件列表</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//@includepath <span class="string">"/d/Adobe Photoshop CS5 Extended 12.0.3.0/xtools"</span></span><br><span class="line">//@include <span class="string">"xlib/stdlib.js"</span></span><br><span class="line"></span><br><span class="line">function main() &#123;</span><br><span class="line">  <span class="built_in">var</span> fs = Stdlib.getFiles(<span class="string">"/c/"</span>, <span class="string">"*"</span>);</span><br><span class="line">  <span class="built_in">var</span> <span class="built_in">text</span> = <span class="string">""</span>;</span><br><span class="line">  <span class="built_in">var</span> textUI = <span class="string">""</span>;</span><br><span class="line">  </span><br><span class="line">  for(<span class="built_in">var</span> i=<span class="number">0</span>; i&lt;fs.length; i++) &#123;</span><br><span class="line">    <span class="built_in">text</span> += <span class="string">"\r"</span> + fs[i];   </span><br><span class="line">    textUI += <span class="string">"\r"</span> + fs[i].toUIString();   </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">text</span> = <span class="string">"text:"</span> + <span class="built_in">text</span>;</span><br><span class="line">  textUI = <span class="string">"textUI:"</span> + textUI;</span><br><span class="line">  </span><br><span class="line">  alert(<span class="built_in">text</span>);</span><br><span class="line">  alert(textUI);  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">main();</span><br></pre></td></tr></table></figure>
+<p><code>//@includepath</code> 引用文件路径<br><code>//@include</code> 引用的文件<br>这些注释是为了需要发布时，能使用<code>Flatten.js</code>把文件合并起来<br>(详见见本文文末 “发布自己的脚本”)</p>
+<hr>
+<h2 id="通用界面库-GenericUI"><a href="#通用界面库-GenericUI" class="headerlink" title="通用界面库(GenericUI)"></a>通用界面库(GenericUI)</h2><img src="/post/技术笔记-ps脚本工具包xtools快速入门教程/sampleui.jpg" title="sampleui">
+<p>以上为SampleUI.jsx的运行结果<br>界面库可以做出这样的界面<br><code>创建界面-处理-执行</code><br>用户可以继承GenericUI，然后编写这三部分的程序<br>从而完成自己所需要的功能</p>
+<p><code>/docs/GenericUI Tutorial.rtf</code>是一个快速入门手册 请先阅读 并测试程序</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p><code>/docs/GenericUI.pdf</code>提供了<code>GenericUI类</code>的信息<br>GenericUI未提供完整的用户文档 使用控件时需要参考<code>GenericUI.jsx</code>内代码</p>
+<hr>
+<h2 id="通用界面库-简单例子"><a href="#通用界面库-简单例子" class="headerlink" title="通用界面库.简单例子"></a>通用界面库.简单例子</h2><p>看本篇之前建议阅读<code>/docs/GenericUI Tutorial.rtf</code><br>这里以<code>/apps/SimpleUI.jsx</code>为例进行梳理</p>
+<h3 id="SimpleUI函数的功能"><a href="#SimpleUI函数的功能" class="headerlink" title="SimpleUI函数的功能"></a>SimpleUI函数的功能</h3><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SimpleUIOptions = <span class="function"><span class="keyword">function</span><span class="params">(obj)</span>     //配置一些默认值</span></span><br><span class="line"><span class="function"><span class="title">SimpleUI</span> =</span> <span class="function"><span class="keyword">function</span><span class="params">()</span>       //用户编写的<span class="title">GenericUI</span>子类</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">/* 三个回调函数 由<span class="title">GenericUI</span>.<span class="title">exec</span><span class="params">()</span>调用 */</span></span><br><span class="line"><span class="function"><span class="title">SimpleUI</span>.<span class="title">prototype</span>.<span class="title">createPanel</span> =</span> <span class="function"><span class="keyword">function</span><span class="params">(pnl, ini)</span> //用于创建界面元素</span></span><br><span class="line"><span class="function"><span class="title">SimpleUI</span>.<span class="title">prototype</span>.<span class="title">validatePanel</span> =</span> <span class="function"><span class="keyword">function</span><span class="params">(pnl, ini)</span> //用于预处理 返回值作为<span class="title">process</span><span class="params">(opts, doc)</span>的参数</span></span><br><span class="line"><span class="function"><span class="title">SimpleUI</span>.<span class="title">prototype</span>.<span class="title">process</span> =</span> <span class="function"><span class="keyword">function</span><span class="params">(opts, doc)</span>    //用于执行程序功能 用户程序主要写在里面</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">SimpleUI</span>.<span class="title">main</span> =</span> <span class="function"><span class="keyword">function</span><span class="params">()</span>  //入口函数 创建<span class="title">GenericUI</span>类实例 并执行其<span class="title">exec</span><span class="params">()</span>成员函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="程序入口"><a href="#程序入口" class="headerlink" title="程序入口"></a>程序入口</h3><p>创建SimpleUI实例，并使用exec()成员函数显示窗口。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SimpleUI.main = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ui = <span class="keyword">new</span> SimpleUI();      <span class="comment">//SimpleUI为GenericUI的子类</span></span><br><span class="line">  <span class="keyword">var</span> opts = &#123;&#125;; <span class="comment">// &#123;noUI: true&#125;;   //初始化参数</span></span><br><span class="line">  <span class="keyword">var</span> doc = (app.documents.length &gt; <span class="number">0</span>) ? app.activeDocument : <span class="literal">undefined</span>;    <span class="comment">//传入活动文档</span></span><br><span class="line"></span><br><span class="line">  ui.exec(opts, doc);   <span class="comment">//该函数内部将使用回调函数实现用户功能</span></span><br><span class="line">  ui.updateIniFile(&#123; uiX: ui.winX, uiY: ui.winY &#125;); <span class="comment">//将信息存入配置文件</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">SimpleUI.main();</span><br></pre></td></tr></table></figure></p>
+<h3 id="界面元素常用用法"><a href="#界面元素常用用法" class="headerlink" title="界面元素常用用法"></a>界面元素常用用法</h3><h4 id="button为例"><a href="#button为例" class="headerlink" title="button为例"></a>button为例</h4><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pnl.sourceBrowse = pnl.<span class="keyword">add</span><span class="bash">(<span class="string">'button'</span>, [xx,yy,xx+30,yy+20], <span class="string">'...'</span>);</span></span><br><span class="line">alert(pnl.sourceBrowse.text);</span><br></pre></td></tr></table></figure>
+<p>第一个参数为界面元素的类型<br>第二个参数为控件的尺寸/位置：[x坐标,y坐标,宽度,高度]<br>第三个参数,不同类型的界面元素有不同意义<br>比如这里的’…’实际上是赋给了text<br>具体要参考<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">GenericUI._widgetMap = &#123;</span><br><span class="line">  <span class="keyword">button</span>: <span class="string">'text'</span>,</span><br><span class="line">  checkbox: <span class="string">'value'</span>,</span><br><span class="line">  dropdownlist: <span class="string">'selection'</span>,</span><br><span class="line">  edittext: <span class="string">'text'</span>,</span><br><span class="line">  iconbutton: <span class="string">'icon'</span>,</span><br><span class="line">  <span class="keyword">image</span>: <span class="string">'icon'</span>,</span><br><span class="line">  listbox: <span class="string">'selection'</span>,</span><br><span class="line">  <span class="keyword">panel</span>: <span class="string">'text'</span>,</span><br><span class="line">  progressbar: <span class="string">'value'</span>,</span><br><span class="line">  radiobutton: <span class="string">'value'</span>,</span><br><span class="line">  scrollbar: <span class="string">'value'</span>,</span><br><span class="line">  slider:  <span class="string">'value'</span>,</span><br><span class="line">  statictext: <span class="string">'text'</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="listBox例子"><a href="#listBox例子" class="headerlink" title="listBox例子"></a>listBox例子</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"f"</span>];</span><br><span class="line">pnl.myListBox = pnl.<span class="keyword">add</span>(<span class="string">'listbox'</span>, [xx,yy,xx+<span class="number">150</span>,yy+<span class="number">235</span>], arr1 ,&#123;multiselect:<span class="literal">true</span>&#125;);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr2.length; i++)&#123;</span><br><span class="line">  pnl.myListBox[arr2.length] = pnl.myListBox.<span class="keyword">add</span>(<span class="string">'item'</span>, arr2[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="工具脚本-Toolkit-Scripts"><a href="#工具脚本-Toolkit-Scripts" class="headerlink" title="工具脚本(Toolkit Scripts)"></a>工具脚本(Toolkit Scripts)</h2><p>发布页、<code>/xapps/README</code>和<code>/docs</code>中已经对这些工具有足够的说明了<br>这里只简单介绍我自己常用的</p>
+<h3 id="jsh-jsx"><a href="#jsh-jsx" class="headerlink" title="jsh.jsx"></a>jsh.jsx</h3><p>辅助编写js脚本的工具<br>可以直接在解释器环境中执行脚本<br>P.S.有个bug 不能在输入框按Enter 要用Ctrl+Enter来代替</p>
+<h3 id="ActionToJavascript-jsx"><a href="#ActionToJavascript-jsx" class="headerlink" title="ActionToJavascript.jsx"></a>ActionToJavascript.jsx</h3><p>把动作转换成js脚本<br>很便利</p>
+<hr>
+<h2 id="发布自己的脚本"><a href="#发布自己的脚本" class="headerlink" title="发布自己的脚本"></a>发布自己的脚本</h2><p>使用<code>Flatten.js</code>可以将依赖xtools库的程序(比如<code>/xapps</code>中的)<br>通过处理脱离依赖</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//<span class="symbol">@include</span> <span class="string">"stdlib.js"</span></span><br></pre></td></tr></table></figure>
+<p>其实就是把类似这样的注释替换成对应文件</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Flatten.js - PS7,CS,CS2,CS3</span><br><span class="line">        This<span class="built_in"> script </span>is great as part of packaging scripts <span class="keyword">for</span> deployment. This</span><br><span class="line">        will flatten the include file hierarchy of an application<span class="built_in"> script </span>so</span><br><span class="line">        that you end up with one huge file, instead of several smaller ones.</span><br></pre></td></tr></table></figure>
+<p>以上为<code>/xapps/README</code>中内容</p>
+<p>要注意 无论自己的源脚本用什么编码 经过处理后均会变成ANSI编码</p>
+<hr>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>xtools版本2.2b1 是2014年底上传的<br>可见这个工程还在继续维护<br>在这里感谢xtools作者xbytor…为我们节省了大量开发时间.</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    Photoshop_Script_ps脚本相关资料收集
+  
+</title>
+
+<meta name="description" content="最近做Label+ 顺便把js给入了门后发现了xtools这个函数库 发现能做的事真的很多xtools提供了便利的图形界面支持 实用标准函数集等等有这些前人的积累 ps脚本就不必从零开始了">
+<meta name="keywords" content="Photoshop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Photoshop_Script_ps脚本相关资料收集">
+<meta property="og:url" content="http://noodlefighter.com/post/技术笔记-Photoshop_Script_ps脚本相关资料收集/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="最近做Label+ 顺便把js给入了门后发现了xtools这个函数库 发现能做的事真的很多xtools提供了便利的图形界面支持 实用标准函数集等等有这些前人的积累 ps脚本就不必从零开始了">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-29T16:25:56.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Photoshop_Script_ps脚本相关资料收集">
+<meta name="twitter:description" content="最近做Label+ 顺便把js给入了门后发现了xtools这个函数库 发现能做的事真的很多xtools提供了便利的图形界面支持 实用标准函数集等等有这些前人的积累 ps脚本就不必从零开始了">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-技术笔记-Photoshop_Script_ps脚本相关资料收集" class="article article-type-post">
+  
+    <h1 class="article-header">
+      Photoshop_Script_ps脚本相关资料收集
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2015-09-09
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>最近做Label+ 顺便把js给入了门<br>后发现了xtools这个函数库 发现能做的事真的很多<br>xtools提供了便利的图形界面支持 实用标准函数集等等<br>有这些前人的积累 ps脚本就不必从零开始了</p>
+<a id="more"></a>
+<p>这里还是用来堆放一些函数</p>
+<hr>
+<p>一篇不错的入门教程<br><a href="http://www.uisdc.com/introduction-to-photoshop-scripting" target="_blank" rel="noopener">http://www.uisdc.com/introduction-to-photoshop-scripting</a></p>
+<p>官方文档集<br><a href="http://www.adobe.com/devnet/photoshop/scripting.html" target="_blank" rel="noopener">http://www.adobe.com/devnet/photoshop/scripting.html</a></p>
+<p>The ExtendScript Toolkit(与平台相关的File/Folder的资料在里边)<br><a href="http://www.adobe.com/devnet/scripting/estk.html" target="_blank" rel="noopener">http://www.adobe.com/devnet/scripting/estk.html</a></p>
+<p>xtools<br><a href="http://ps-scripts.sourceforge.net/xtools.html" target="_blank" rel="noopener">http://ps-scripts.sourceforge.net/xtools.html</a></p>
+<p>我写的xtools快速入门教程<br><a href="http://noodlefighter.com/%E7%AC%94%E8%AE%B0/note_ps_script_xtools">http://noodlefighter.com/%E7%AC%94%E8%AE%B0/note_ps_script_xtools</a></p>
+<p>“这个工具类似flatten 并且可以使用ES2015的一些语法” by SPecik<br><a href="https://www.npmjs.com/package/extendscriptr" target="_blank" rel="noopener">https://www.npmjs.com/package/extendscriptr</a></p>
+<p>一个工具集 可以用于文字格式设置<br><a href="https://github.com/tajmone/Tonton-Pixel-Photoshop-Scripts" target="_blank" rel="noopener">https://github.com/tajmone/Tonton-Pixel-Photoshop-Scripts</a></p>
+<hr>
+<p>来源列表</p>
+<p><a href="https://forums.adobe.com/message/4282351" target="_blank" rel="noopener">https://forums.adobe.com/message/4282351</a></p>
+<hr>
+<h2 id="Photoshop-Script中给图层分组的方法"><a href="#Photoshop-Script中给图层分组的方法" class="headerlink" title="Photoshop Script中给图层分组的方法"></a>Photoshop Script中给图层分组的方法</h2><p>有时候需要给创建的图层分组</p>
+<blockquote>
+<p><a href="https://forums.adobe.com/message/4282351" target="_blank" rel="noopener">https://forums.adobe.com/message/4282351</a></p>
+</blockquote>
+<p>先创建图层组<br><code>var theGroup = app.activeDocument.layerSets.add()</code></p>
+<p>然后再将图层移入<br><code>myLayer.move(theGroup, ElementPlacement.PLACEATBEGINNING)</code></p>
+<h2 id="Photoshop-Script中获取jsx自己路径"><a href="#Photoshop-Script中获取jsx自己路径" class="headerlink" title="Photoshop Script中获取jsx自己路径"></a>Photoshop Script中获取jsx自己路径</h2><p>参考</p>
+<blockquote>
+<p><a href="http://qiita.com/mazgi/items/863e9083430084e82cba" target="_blank" rel="noopener">http://qiita.com/mazgi/items/863e9083430084e82cba</a></p>
+</blockquote>
+<p>关键字:<br><strong>ps脚本运行路径</strong><br><strong>获取ps脚本当前路径</strong></p>
+<hr>
+<p>写Photoshop Script脚本时<br>有时需要操作运行目录下的文件<br>这里是获取路径的方法</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="variable">$.</span>fileName);</span><br></pre></td></tr></table></figure>
+<h2 id="图层操作"><a href="#图层操作" class="headerlink" title="图层操作"></a>图层操作</h2><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//START HERE------------------------------------------</span></span><br><span class="line"><span class="comment">//For code readability</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cTID</span></span>(s)&#123;<span class="keyword">return</span> charIDToTypeID(s)&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sTID</span></span>(s)&#123;<span class="keyword">return</span> stringIDToTypeID(s)&#125;</span><br><span class="line"><span class="comment">// =============================</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openAllLayerSets</span></span>( parent )&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> setIndex=<span class="number">0</span>;setIndex&lt;parent.layerSets.length;setIndex++)&#123;</span><br><span class="line">        app.activeDocument.activeLayer = parent.layerSets[setIndex].layers[<span class="number">0</span>];</span><br><span class="line">        openAllLayerSets( parent.layerSets[setIndex]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">closeAllLayerSets</span></span>(ref) &#123;</span><br><span class="line">          <span class="keyword">var</span> layers = ref.layers;</span><br><span class="line">          <span class="keyword">var</span> len = layers.length;</span><br><span class="line">          <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i ++) &#123;</span><br><span class="line">                    <span class="keyword">var</span> layer = layers[i];</span><br><span class="line">                    <span class="keyword">if</span> (layer.typename == <span class="string">'LayerSet'</span>) &#123;closeGroup(layer); <span class="keyword">var</span> layer = layers[i]; closeAllLayerSets(layer);&#125;;</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openGroup</span></span>(layerSet) &#123;</span><br><span class="line">   <span class="keyword">var</span> m_activeLayer = activeDocument.activeLayer;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> m_Layer_Dummy01 = layerSet.artLayers.add();</span><br><span class="line">   <span class="keyword">var</span> m_Layer_Dummy02 = layerSet.artLayers.add();</span><br><span class="line">   layerSet.layers[<span class="number">1</span>].name = layerSet.layers[<span class="number">1</span>].name;</span><br><span class="line">   m_Layer_Dummy01.remove();</span><br><span class="line">   m_Layer_Dummy02.remove();</span><br><span class="line"></span><br><span class="line">   activeDocument.activeLayer = m_activeLayer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">closeGroup</span></span>(layerSet) &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Name = layerSet.name;</span><br><span class="line">   <span class="keyword">var</span> m_Opacity = layerSet.opacity;</span><br><span class="line">   <span class="keyword">var</span> m_BlendMode = layerSet.blendMode;</span><br><span class="line">   <span class="keyword">var</span> m_LinkedLayers = layerSet.linkedLayers;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> m_bHasMask = hasLayerMask();</span><br><span class="line">   <span class="keyword">if</span>(m_bHasMask) loadSelectionOfMask();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span>(layerSet.layers.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">      addLayer();</span><br><span class="line">      <span class="keyword">var</span> m_Tmp = activeDocument.activeLayer;</span><br><span class="line">      m_Tmp.name = <span class="string">"dummy - feel free to remove me"</span>;</span><br><span class="line">      activeDocument.activeLayer = layerSet;</span><br><span class="line">      ungroup();</span><br><span class="line">      addToSelection(<span class="string">"dummy - feel free to remove me"</span>);</span><br><span class="line">      groupSelected(m_Name);</span><br><span class="line"></span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      activeDocument.activeLayer = layerSet;</span><br><span class="line">      ungroup();</span><br><span class="line">      groupSelected(m_Name);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> m_Closed = activeDocument.activeLayer;</span><br><span class="line">   m_Closed.opacity = m_Opacity;</span><br><span class="line">   m_Closed.blendMode = m_BlendMode;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(x <span class="keyword">in</span> m_LinkedLayers) &#123;</span><br><span class="line">      <span class="keyword">if</span>(m_LinkedLayers[x].typename == <span class="string">"LayerSet"</span>)</span><br><span class="line">         activeDocument.activeLayer.link(m_LinkedLayers[x]);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span>(m_bHasMask) maskFromSelection();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> m_Closed;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ungroup</span></span>() &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putEnumerated( cTID( <span class="string">"Lyr "</span> ), cTID( <span class="string">"Ordn"</span> ), cTID( <span class="string">"Trgt"</span> ) );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"null"</span> ), m_Ref01 );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">      executeAction( sTID( <span class="string">"ungroupLayersEvent"</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line">   &#125; <span class="keyword">catch</span>(e) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addLayer</span></span>() &#123;</span><br><span class="line">   <span class="keyword">var</span> m_ActiveLayer          =    activeDocument.activeLayer;</span><br><span class="line">   <span class="keyword">var</span> m_NewLayer             =    activeDocument.artLayers.add();</span><br><span class="line">   m_NewLayer.move(m_ActiveLayer, ElementPlacement.PLACEBEFORE);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> m_NewLayer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasLayerMask</span></span>() &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putEnumerated( sTID( <span class="string">"layer"</span> ), cTID( <span class="string">"Ordn"</span> ), cTID( <span class="string">"Trgt"</span> ));</span><br><span class="line">   <span class="keyword">var</span> m_Dsc01= executeActionGet( m_Ref01 );</span><br><span class="line">   <span class="keyword">return</span> m_Dsc01.hasKey(cTID(<span class="string">'Usrs'</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activateLayerMask</span></span>() &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putEnumerated( cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"Msk "</span> ) );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"null"</span> ), m_Ref01 );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">      executeAction( cTID( <span class="string">"slct"</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line">   &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">      <span class="keyword">var</span> m_TmpAlpha = <span class="keyword">new</span> <span class="type">TemporaryAlpha</span>();</span><br><span class="line"></span><br><span class="line">      maskFromSelection();</span><br><span class="line">      activateLayerMask();</span><br><span class="line"></span><br><span class="line">      m_TmpAlpha.consume();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deleteMask</span></span>(makeSelection) &#123;</span><br><span class="line">   <span class="keyword">if</span>(makeSelection) &#123;</span><br><span class="line">      loadSelectionOfMask();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putEnumerated( cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"Ordn"</span> ), cTID( <span class="string">"Trgt"</span> ) );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"null"</span> ), m_Ref01 );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">      executeAction( cTID( <span class="string">"Dlt "</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line">   &#125; <span class="keyword">catch</span>(e) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectLayerMask</span></span>() &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   m_Ref01.putEnumerated(cTID(<span class="string">"Chnl"</span>), cTID(<span class="string">"Chnl"</span>), cTID(<span class="string">"Msk "</span>));</span><br><span class="line">   m_Dsc01.putReference(cTID(<span class="string">"null"</span>), m_Ref01);</span><br><span class="line">   m_Dsc01.putBoolean(cTID(<span class="string">"MkVs"</span>), <span class="literal">false</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">      executeAction(cTID(<span class="string">"slct"</span>), m_Dsc01, DialogModes.NO );</span><br><span class="line">   &#125; <span class="keyword">catch</span>(e) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadSelectionOfMask</span></span>() &#123;</span><br><span class="line">   selectLayerMask();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putProperty( cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"fsel"</span> ) );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"null"</span> ), m_Ref01 );</span><br><span class="line">   <span class="keyword">var</span> m_Ref02 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref02.putEnumerated( cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"Ordn"</span> ), cTID( <span class="string">"Trgt"</span> ) );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"T   "</span> ), m_Ref02 );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">      executeAction( cTID( <span class="string">"setd"</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line">   &#125; <span class="keyword">catch</span>(e) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maskFromSelection</span></span>() &#123;</span><br><span class="line">   <span class="keyword">if</span>(!hasLayerMask()) &#123;</span><br><span class="line">      <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">      m_Dsc01.putClass( cTID( <span class="string">"Nw  "</span> ), cTID( <span class="string">"Chnl"</span> ) );</span><br><span class="line">      <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">      m_Ref01.putEnumerated( cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"Chnl"</span> ), cTID( <span class="string">"Msk "</span> ) );</span><br><span class="line">      m_Dsc01.putReference( cTID( <span class="string">"At  "</span> ), m_Ref01 );</span><br><span class="line">      m_Dsc01.putEnumerated( cTID( <span class="string">"Usng"</span> ), cTID( <span class="string">"UsrM"</span> ), cTID( <span class="string">"RvlS"</span> ) );</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         executeAction( cTID( <span class="string">"Mk  "</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line">      &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">         activeDocument.selection.selectAll();</span><br><span class="line">         maskFromSelection();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(confirm(<span class="string">"Delete existing mask?"</span>, <span class="literal">true</span>, <span class="string">"Warning"</span>)) &#123;</span><br><span class="line">         activateLayerMask();</span><br><span class="line">         deleteMask();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">groupSelected</span></span>(name) &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putClass( sTID( <span class="string">"layerSection"</span> ) );</span><br><span class="line">   m_Dsc01.putReference(  cTID( <span class="string">"null"</span> ), m_Ref01 );</span><br><span class="line">   <span class="keyword">var</span> m_Ref02 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref02.putEnumerated( cTID( <span class="string">"Lyr "</span> ), cTID( <span class="string">"Ordn"</span> ), cTID( <span class="string">"Trgt"</span> ) );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"From"</span> ), m_Ref02 );</span><br><span class="line">   <span class="keyword">var</span> m_Dsc02 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   m_Dsc02.putString( cTID( <span class="string">"Nm  "</span> ), name);</span><br><span class="line">   m_Dsc01.putObject( cTID( <span class="string">"Usng"</span> ), sTID( <span class="string">"layerSection"</span> ), m_Dsc02 );</span><br><span class="line">   executeAction( cTID( <span class="string">"Mk  "</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> activeDocument.activeLayer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addToSelection</span></span>(layerName) &#123;</span><br><span class="line">   <span class="keyword">var</span> m_Dsc01 = <span class="keyword">new</span> <span class="type">ActionDescriptor</span>();</span><br><span class="line">   <span class="keyword">var</span> m_Ref01 = <span class="keyword">new</span> <span class="type">ActionReference</span>();</span><br><span class="line">   m_Ref01.putName( cTID( <span class="string">"Lyr "</span> ), layerName );</span><br><span class="line">   m_Dsc01.putReference( cTID( <span class="string">"null"</span> ), m_Ref01 );</span><br><span class="line">   m_Dsc01.putEnumerated( sTID( <span class="string">"selectionModifier"</span> ), sTID( <span class="string">"selectionModifierType"</span> ), sTID( <span class="string">"addToSelection"</span> ) );</span><br><span class="line">   m_Dsc01.putBoolean( cTID( <span class="string">"MkVs"</span> ), <span class="literal">false</span> );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">      executeAction( cTID( <span class="string">"slct"</span> ), m_Dsc01, DialogModes.NO );</span><br><span class="line">   &#125; <span class="keyword">catch</span>(e) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TemporaryAlpha</span></span>() &#123;</span><br><span class="line">   activeDocument.selection.store((<span class="built_in">this</span>.alpha = activeDocument.channels.add()));</span><br><span class="line">   activeDocument.selection.deselect();</span><br><span class="line"></span><br><span class="line">   <span class="built_in">this</span>.consume = <span class="function"><span class="keyword">function</span></span>() &#123;</span><br><span class="line">      activeDocument.selection.load(<span class="built_in">this</span>.alpha);</span><br><span class="line">      <span class="built_in">this</span>.alpha.remove();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// The main function</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//openGroup(activeDocument.activeLayer);</span></span><br><span class="line"><span class="comment">//openAllLayerSets( app.activeDocument );</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//closeGroup(activeDocument.activeLayer);</span></span><br><span class="line"><span class="comment">//closeAllLayerSets( app.activeDocument );</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//END HERE-----------------------------------------------</span></span><br></pre></td></tr></table></figure>
+<p>使用例子<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//START HERE-----------------------------------------------</span></span><br><span class="line"><span class="built_in">var</span> doc = app.activeDocument;</span><br><span class="line"><span class="built_in">var</span> theLayer = activeDocument.activeLayer;</span><br><span class="line"><span class="built_in">var</span> theParent = theLayer.<span class="keyword">parent</span>;</span><br><span class="line">doc.activeLayer = theParent;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">// =======================================================</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// The main function</span></span><br><span class="line"><span class="comment">//@include "LayerSetSupport.jsx"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (activeDocument.activeLayer.typename == <span class="string">'LayerSet'</span>)</span><br><span class="line"> </span><br><span class="line">&#123;app.activeDocument.suspendHistory(<span class="string">'closeGroup'</span>,<span class="string">'closeGroup</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">(activeDocument.activeLayer)'</span>);&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//END HERE-----------------------------------------------</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    双拼加辅助码——低成本提升中文输入体验
+  
+</title>
+
+<meta name="description" content="好的输入体验应该是流畅、有节奏的，双拼+形码辅助是一种低成本提升中文输入体验的方法，适合人群：  已经比较熟悉键盘，但输入速度难进一步提升的人 厌烦了拼音输入法的重码，不想废眼睛废时间选字 痛恨某些输入法的广告，想转其他输入法但又不想降低输入体验的人">
+<meta name="keywords" content="输入法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双拼加辅助码——低成本提升中文输入体验">
+<meta property="og:url" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="好的输入体验应该是流畅、有节奏的，双拼+形码辅助是一种低成本提升中文输入体验的方法，适合人群：  已经比较熟悉键盘，但输入速度难进一步提升的人 厌烦了拼音输入法的重码，不想废眼睛废时间选字 痛恨某些输入法的广告，想转其他输入法但又不想降低输入体验的人">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/sample.gif">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/wb.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/sougou_zhengju.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff1.gif">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff2.gif">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff3.gif">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff4.gif">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/example_hao.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/h.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word2.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word_diff_sougou.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word3.png">
+<meta property="og:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xxqx.png">
+<meta property="og:updated_time" content="2020-02-29T16:25:56.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="双拼加辅助码——低成本提升中文输入体验">
+<meta name="twitter:description" content="好的输入体验应该是流畅、有节奏的，双拼+形码辅助是一种低成本提升中文输入体验的方法，适合人群：  已经比较熟悉键盘，但输入速度难进一步提升的人 厌烦了拼音输入法的重码，不想废眼睛废时间选字 痛恨某些输入法的广告，想转其他输入法但又不想降低输入体验的人">
+<meta name="twitter:image" content="http://noodlefighter.com/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/sample.gif">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-计算机技术-双拼加辅助码——低成本提升中文输入体验" class="article article-type-post">
+  
+    <h1 class="article-header">
+      双拼加辅助码——低成本提升中文输入体验
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-03-06
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>好的输入体验应该是流畅、有节奏的，双拼+形码辅助是一种低成本提升中文输入体验的方法，适合人群：</p>
+<ul>
+<li>已经比较熟悉键盘，但输入速度难进一步提升的人</li>
+<li>厌烦了拼音输入法的重码，不想废眼睛废时间选字</li>
+<li>痛恨某些输入法的广告，想转其他输入法但又不想降低输入体验的人</li>
+</ul>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/sample.gif" title="sample">
+<a id="more"></a>
+<h2 id="中文输入法的历史"><a href="#中文输入法的历史" class="headerlink" title="中文输入法的历史"></a>中文输入法的历史</h2><p>早期输入法，因为计算机的机能限制，是无法使用大词库的。<br>拼音输入的联想功能很差，词库小，更不用说智能整句输入了，效率很差，这时候想要高效率输入就得用五笔之类的短编码输入法。</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/wb.png" title="五笔助记表">
+<p>后来计算机性能强了，输入法不再受机能限制了，拼音输入法有了大词库，加上联想功能大大减少了选重的麻烦，超低的门槛——仅需懂拼音就能打字，拼音输入法可以说统一了中文输入法市场。</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/sougou_zhengju.png" title="搜狗拼音整句输入演示">
+<p>原来的各种短编码输入法变成了少数的人工具，五笔、郑码这种全形码，虽然能通过一定练习获得比较高的输入效率，但因为学习难度大，渐渐淡出新一代人的视野。</p>
+<p>当形码还大行其道时，双拼加形的输入方式的也开始露脸，鼻祖大概是1989年发布的自然码，这里引用维基百科对它的介绍：</p>
+<blockquote>
+<p>音形码输入法是编码方式以拼音（通常为拼音首字母或双拼）加上汉字笔画（偏旁或字根）辅助的输入法，因易学、智能且接近形码的少重码体验等特点而受到部分用户的欢迎，较好的平衡了拼音输入法重码多、输入效率低，而形码输入法学习较困难的情况。</p>
+</blockquote>
+<h2 id="理解选重对输入的影响"><a href="#理解选重对输入的影响" class="headerlink" title="理解选重对输入的影响"></a>理解选重对输入的影响</h2><p>当今的拼音输入法能“猜”你想要输入的内容，把可能性最高的放到第一候选项，全拼中可以这样打：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff1.gif" title="diff1">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nimamahannihuijiachifan（空格）-&gt;你妈妈喊你回家吃饭</span><br><span class="line">（击键24）</span><br></pre></td></tr></table></figure>
+<p>双拼中可以这样打（小鹤双拼方案）：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff2.gif" title="diff2">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nimamahjnihvjxiifj（空格）-&gt;你妈妈喊你回家吃饭</span><br><span class="line">（击键20）</span><br></pre></td></tr></table></figure>
+<p>可见码长缩短，原理很简单，把超过1个英文字母的声母、韵母分别编码某个按键上，举个直观的例子，打“闯天下”，全拼<code>chuangtianxia</code>，双拼<code>iltmxx</code>，其中<code>i=ch</code>、<code>l=uang</code>、<code>m=ian</code>、<code>x=ia</code>。</p>
+<p>从全拼到双拼能提高不少体验，降低手指的疲劳度、一定程度上提升打字速度。但它本质上和全拼相同，不能减少重码。</p>
+<p>加上形辅之后，就要这样打（小鹤音形方案）：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff3.gif" title="diff3">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n（空格）mama（空格）hjk（空格）n（空格）hvjx（空格）iifj（空格）-&gt;你妈妈喊你回家吃饭</span><br><span class="line">（击键23）</span><br></pre></td></tr></table></figure>
+<p>可以发现输入这句时击键数会多于纯双拼，但实际上辅助码减少了重码，在更多时候能减少选重的时间开销（其实这就很能体现纯双拼在日常聊天时的表现），<code>n</code>对应的汉字只可能是<code>你</code>，<code>mama</code>对应的词也只可能是<code>妈妈</code>，省去了大量选重的时间。</p>
+<p>比如下面用双拼和双拼加形辅同打一段话，可以看到后者几乎无需选重：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/diff4.gif" title="diff4">
+<h2 id="简单介绍小鹤音形"><a href="#简单介绍小鹤音形" class="headerlink" title="简单介绍小鹤音形"></a>简单介绍小鹤音形</h2><h3 id="打单字"><a href="#打单字" class="headerlink" title="打单字"></a>打单字</h3><p>打单字时，以“毫”为例：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/example_hao.png" title="小鹤音形中的“毫”">
+<p>大部分单字可以用1、2、3级简码打出：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/h.png" title="h">
+<h3 id="打词语"><a href="#打词语" class="headerlink" title="打词语"></a>打词语</h3><p>打词语时，小鹤双拼使用很小的词库，例如<code>vidc</code>（全拼是zhi’dao），只能打出“指导”（请无视截图里2、3候选，那是我的辅助提示）：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word.png" title="xhup_word">
+<p>而更常见的“知道”、“直到”，则被编码在了<code>vd</code>中：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word2.png" title="xhup_word2">
+<p>像这样的词被称为“二简词”，有很多这样仅用两个按键就能打出的词，提高了挺多效率。</p>
+<p>看到这里该明白了吧，牺牲了词库量，换来了基本无需选重的效果，我们再来看看一个“zhidao”在搜狗里有多少重码：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word_diff_sougou.png" title="xhup_word_diff_sougou">
+<p>其他例子：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xhup_word3.png" title="xhup_word3">
+<h2 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h2><p>很久之前试过五笔，没坚持下来，败在了适应过程中，打字太慢所以经常在拼音和五笔间切换。</p>
+<p>学习拼音输入法应该是最快的，但因选重后期速度提升得付出很大努力；学习形码的过程应该是比较长，但后期容易达到比较高的速度；而双拼加辅助码比较容易学习，后期也能达到比较高的速度。练习时间和打字速度的关系大概是这样：</p>
+<img src="/post/计算机技术-双拼加辅助码——低成本提升中文输入体验/xxqx.png" title="xxqx">
+<p>一个全拼用户，转双拼的成本是很小的，比如我自己，从全拼转双拼只用了大约3周，就恢复到了原来使用全拼时的速度。</p>
+<p>一个双拼用户，转双拼加辅助码方案的成本也是相对小，我原先使用智能abc双拼方案，后转到小鹤音形，大概花了20天练习，就恢复到了原来双拼打简单文章的速度，大概是每分钟90-100左右。</p>
+<h2 id="入坑指南"><a href="#入坑指南" class="headerlink" title="入坑指南"></a>入坑指南</h2><h3 id="只是想试试双拼"><a href="#只是想试试双拼" class="headerlink" title="只是想试试双拼"></a>只是想试试双拼</h3><p>如果的只想试试双拼，继续使用高准确度的搜狗输入法大概是最优选择，在设置里启用双拼功能即可。（还是无法摆脱恶心的广告）</p>
+<p>只管练习就是了，挑简单的文章来打，不怎么用选重的那种。</p>
+<h3 id="入坑小鹤音形"><a href="#入坑小鹤音形" class="headerlink" title="入坑小鹤音形"></a>入坑小鹤音形</h3><p>恭喜你可以摆脱某狗的广告骚扰了。</p>
+<p>方案在<a href="https://www.flypy.com" target="_blank" rel="noopener">官网</a>上有详细介绍，入门教程可以去<a href="http://tieba.baidu.com/f?kw=小鹤双拼" target="_blank" rel="noopener">小鹤双拼贴吧</a>。</p>
+<p>小鹤音形官方提供有windows/android/ios的输入法软件。</p>
+<p>需要在其他平台下使用小鹤音形方案，可以使用<a href="https://rime.im/" target="_blank" rel="noopener">Rime</a>，自行导入输入法码表，不同平台可以使用同一份配置文件，<a href="https://github.com/noodlefighter/rime-config" target="_blank" rel="noopener">这里我自用的配置</a>。</p>
+<p>看教程入门后，一开始可以找简单的文章打，遇到不会打的字去<a href="http://www.xhup.club/" target="_blank" rel="noopener">小鹤查形</a>查询。</p>
+<p>有一定熟练度后，可以尝试打500常见字、二简词表等专项练习，此外还可以去打打佛经（手动滑稽）。</p>
+<h2 id="神叨叨几句，输入是个自动地过程"><a href="#神叨叨几句，输入是个自动地过程" class="headerlink" title="神叨叨几句，输入是个自动地过程"></a>神叨叨几句，输入是个自动地过程</h2><p>有人觉得双拼、辅助码很“别扭”，比较常见的理由是——脑子里响起的字的声音，你却要我输入一些别的东西，甚至还要先想那字怎么写，反人类啊。</p>
+<p>这里试着解除这样的顾虑，我认为熟练的输入是“自动地”完成的，即输入过程并不需要表层意识参与。</p>
+<p>比如打“强”字，对于一个全拼使用者，打字的过程并不是：想要输入“强”-&gt;想到读音qiang2-&gt;想出拼音韵母q和声母iang的声音-&gt;想出应拼音字母-&gt;想出字母在键盘的位置-&gt;移动手指去敲击qiang。<br>而是：想要输入“强”-&gt;移动手指去敲击。即中间的过程是“自动地”。</p>
+<p>学习新的输入法的过程中的大量练习，强化的就是这个“自动地”中间过程，建立起字与手指敲打方式的关系，对于不同的中文输入法，输入时都是“想输入某字-&gt;移动手指去敲击”。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>
