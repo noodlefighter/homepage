@@ -8,7 +8,7 @@ subtitle: ——蠢战士
 description: 开坑不填是生活中一大乐趣.
 author: Noodlefighter
 language: zh-CN
-timezone: 
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -31,7 +31,8 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
+external_link: # Open external links in new tab
+  enable: true
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
