@@ -5,6 +5,7 @@ tags:
 
 ---
 
+简单用jetson nano跑起官方demo，在[官方的视频教程](https://www.youtube.com/watch?v=QXIwdsyK7Rw&list=PL5B692fm6--uQRRDTPsJDp4o0xbzkoyf8&index=9)中有更详细的说明。
 
 <!--more-->
 
@@ -18,8 +19,6 @@ tags:
 
 - 解决国内糟糕网络问题的代理经验
 - 一些unix命令行使用经验
-
-在[官方的视频教程](https://www.youtube.com/watch?v=QXIwdsyK7Rw&list=PL5B692fm6--uQRRDTPsJDp4o0xbzkoyf8&index=9)里有详细说明，
 
 ## 环境布置
 
