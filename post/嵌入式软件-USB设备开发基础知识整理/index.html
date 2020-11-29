@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -13,37 +13,37 @@
 </title>
 
 <meta name="description" content="USB学习笔记, 同时希望能帮助快速上手做USB应用开发.">
-<meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="USB设备开发基础知识整理">
-<meta property="og:url" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/index.html">
+<meta property="og:url" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="USB学习笔记, 同时希望能帮助快速上手做USB应用开发.">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/02.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/01.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/06.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/04.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/03.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/05.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/07.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/08.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/09.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/10.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/13.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/14.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/14.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/18.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/15.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/16.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/12.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/11.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/19.jpg">
-<meta property="og:updated_time" content="2020-11-27T14:50:28.097Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/02.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/01.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/06.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/04.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/03.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/05.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/07.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/08.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/09.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/10.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/13.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/14.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/14.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/18.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/15.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/16.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/12.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/11.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/19.jpg">
+<meta property="article:published_time" content="2018-01-12T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-29T10:40:12.791Z">
+<meta property="article:author" content="Noodlefighter">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="USB设备开发基础知识整理">
-<meta name="twitter:description" content="USB学习笔记, 同时希望能帮助快速上手做USB应用开发.">
-<meta name="twitter:image" content="http://noodlefighter.com/post/嵌入式软件-USB设备开发基础知识整理/02.jpg">
+<meta name="twitter:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/02.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -53,7 +53,10 @@
   <link rel="icon" href="/favicon.png">
 
 
+
 <link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
 <link rel="stylesheet" href="/styles/main.css">
 
 
@@ -61,8 +64,45 @@
 
 
 
+
+<style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
-<body class="monochrome">
+<body
+  
+    class="monochrome"
+  
+  >
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
@@ -117,21 +157,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">文章分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用笔记/">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/" rel="tag">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/" rel="tag">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/" rel="tag">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/" rel="tag">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/" rel="tag">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/" rel="tag">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/" rel="tag">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/" rel="tag">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/" rel="tag">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/" rel="tag">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/" rel="tag">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps%E8%84%9A%E6%9C%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="tag">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/" rel="tag">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/" rel="tag">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%BE%8B/" rel="tag">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="tag">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E8%BD%A6/" rel="tag">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="tag">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E4%BF%AE/" rel="tag">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E5%8A%9B%E6%91%86/" rel="tag">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -141,7 +181,7 @@
           
             
               <li>
-                <a href="/about_me" title="关于我">关于我</a>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
               </li>
             
           
@@ -159,7 +199,7 @@
           
             
               <li>
-                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+                <a href="http://gmaker.io/" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
               </li>
             
           
@@ -178,7 +218,7 @@
                       </div>
                     
                       <div class="category-list-item">
-                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                        <a href="https://yukoamamiya.blogspot.com/" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
                       </div>
                     
                       <div class="category-list-item">
@@ -225,12 +265,18 @@
   <div class="article-entry">
     <p>USB学习笔记, 同时希望能帮助快速上手做USB应用开发.</p>
 <a id="more"></a>
-<p>整理自以下资料:<br><a href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec" target="_blank" rel="noopener">Universal Serial Bus Specification Revision 2.0</a><br><a href="https://wenku.baidu.com/view/dd150ee3482fb4daa48d4b0a.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/dd150ee3482fb4daa48d4b0a.html</a><br><a href="http://blog.csdn.net/ahc2013/article/details/16846101" target="_blank" rel="noopener">USB的八个问题和答案(出处不详)</a><br><a href="https://www.crifan.com/files/doc/docbook/usb_basic/release/htmls/" target="_blank" rel="noopener">USB基础知识概论 by Crifan Li</a><br><a href="http://blog.csdn.net/qq_695538007/article/details/41213041" target="_blank" rel="noopener">USB OTG协议基础</a><br><a href="https://my.oschina.net/armsky/blog/15322" target="_blank" rel="noopener">OTG中的ID脚风波释疑</a><br><a href="https://www.cnblogs.com/darren-715/archive/2014/03/10/3591452.html" target="_blank" rel="noopener">usb设备 配置 接口 端点</a><br><a href="https://en.wikipedia.org/wiki/USB" target="_blank" rel="noopener">wiki</a></p>
+
+<p>整理自以下资料:<br><a target="_blank" rel="noopener" href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec">Universal Serial Bus Specification Revision 2.0</a><br><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/dd150ee3482fb4daa48d4b0a.html">https://wenku.baidu.com/view/dd150ee3482fb4daa48d4b0a.html</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/ahc2013/article/details/16846101">USB的八个问题和答案(出处不详)</a><br><a target="_blank" rel="noopener" href="https://www.crifan.com/files/doc/docbook/usb_basic/release/htmls/">USB基础知识概论 by Crifan Li</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/qq_695538007/article/details/41213041">USB OTG协议基础</a><br><a target="_blank" rel="noopener" href="https://my.oschina.net/armsky/blog/15322">OTG中的ID脚风波释疑</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/darren-715/archive/2014/03/10/3591452.html">usb设备 配置 接口 端点</a><br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/USB">wiki</a></p>
 <hr>
-<h2 id="什么是USB"><a href="#什么是USB" class="headerlink" title="什么是USB"></a>什么是USB</h2><h3 id="从接口讲起"><a href="#从接口讲起" class="headerlink" title="从接口讲起"></a>从接口讲起</h3><p>对于终端用户来说，对USB最直观的认识就是USB的接口插头，看图：<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/02.jpg" width="02"></p>
+<h2 id="什么是USB"><a href="#什么是USB" class="headerlink" title="什么是USB"></a>什么是USB</h2><h3 id="从接口讲起"><a href="#从接口讲起" class="headerlink" title="从接口讲起"></a>从接口讲起</h3><p>对于终端用户来说，对USB最直观的认识就是USB的接口插头，看图：</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/02.jpg" class="" title="02.jpg">
+
 <p>现时间点大家最熟悉的几种USB插头莫过于USB2.0的TypeA、Mini-B、Micro-B；最近开始频繁露脸的USB3.0的TypeA、TypeC。</p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>USB是Universal Serial Bus的缩写，中文译为通用串行总线，USB出现之前，计算机领域中的接口太多太繁杂，USB出现之后减少了接口的种类，总的来说就是设计出了一个万能的接口，各种外设都能用同一种接口，所以才冠以“通用（是Universal）”为名。<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/01.jpg" width="01"></p>
-<h3 id="USB线缆"><a href="#USB线缆" class="headerlink" title="USB线缆"></a>USB线缆</h3><img src="/post/嵌入式软件-USB设备开发基础知识整理/06.jpg" width="06">
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>USB是Universal Serial Bus的缩写，中文译为通用串行总线，USB出现之前，计算机领域中的接口太多太繁杂，USB出现之后减少了接口的种类，总的来说就是设计出了一个万能的接口，各种外设都能用同一种接口，所以才冠以“通用（是Universal）”为名。</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/01.jpg" class="" title="01.jpg">
+
+<h3 id="USB线缆"><a href="#USB线缆" class="headerlink" title="USB线缆"></a>USB线缆</h3><img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/06.jpg" class="" title="06.jpg">
+
 <h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
 <li>通用串行总线</li>
 <li>非对称式总线(Host drive), 就是说任何一次通讯传输都是由主机(host)发起的</li>
@@ -239,75 +285,98 @@
 <li>支持多种速度的设备: 低速(Low Speed), 全速(Full Speed), 高速(High Speed), 还有USB3.0之后的SuperSpeed</li>
 <li>可以对设备供电(也可以设备自供电)</li>
 </ul>
-<h3 id="传输速度"><a href="#传输速度" class="headerlink" title="传输速度"></a>传输速度</h3><p>维基百科图:<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/04.jpg" width="04"></p>
-<h3 id="版本历史"><a href="#版本历史" class="headerlink" title="版本历史"></a>版本历史</h3><p>维基百科图:<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/03.jpg" width="03"></p>
+<h3 id="传输速度"><a href="#传输速度" class="headerlink" title="传输速度"></a>传输速度</h3><p>维基百科图:</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/04.jpg" class="" title="04.jpg">
+
+<h3 id="版本历史"><a href="#版本历史" class="headerlink" title="版本历史"></a>版本历史</h3><p>维基百科图:</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/03.jpg" class="" title="03.jpg">
+
 <hr>
 <h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><h3 id="USB-Host-USB主机"><a href="#USB-Host-USB主机" class="headerlink" title="USB Host(USB主机)"></a>USB Host(USB主机)</h3><p>主机就是USB总线中作主设备角色的设备, 负责管理USB总线中的数据传输及端口管理.<br>比如一个U盘(USB大容量储存设备)和PC通讯, PC在这里就是USB Host.</p>
 <h3 id="USB-Device"><a href="#USB-Device" class="headerlink" title="USB Device"></a>USB Device</h3><p>USB Device就是在USB总线中作从设备角色的设备</p>
-<h3 id="USB-Hub"><a href="#USB-Hub" class="headerlink" title="USB Hub"></a>USB Hub</h3><p>它的实现也就是USB扩展坞啦<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/05.jpg" width="05"></p>
+<h3 id="USB-Hub"><a href="#USB-Hub" class="headerlink" title="USB Hub"></a>USB Hub</h3><p>它的实现也就是USB扩展坞啦</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/05.jpg" class="" title="05.jpg">
+
 <ul>
 <li>USB Hub可以将一个USB口转换为多个</li>
 <li>USB Host带有Root Hub</li>
 <li>USB Hub对于上游而言是一个USB Device, 对于下游而言扮演USB Host, 所以USB设备本身不知道自己连接在Hub还是Root Hub上</li>
 </ul>
 <hr>
-<h2 id="USB系统架构"><a href="#USB系统架构" class="headerlink" title="USB系统架构"></a>USB系统架构</h2><img src="/post/嵌入式软件-USB设备开发基础知识整理/07.jpg" width="07">
-<h3 id="USB-Bus-Interface-Layer"><a href="#USB-Bus-Interface-Layer" class="headerlink" title="USB Bus Interface Layer"></a>USB Bus Interface Layer</h3><p>该层为硬件设备连接. <a href="https://www.crifan.com/files/doc/docbook/usb_basic/release/html/usb_basic.html#usb_related_hw" target="_blank" rel="noopener">USB相关的基础知识 - USB相关的硬件</a>中有更详细的介绍.<br>Host侧, USB Host Controller(USB主控制器)是Host的具体硬件实现, 如上文所说, 它负责USB总线中的数据传输及端口管理. 具体到摸得着的东西就是PC主板上与USB端口直接相连, 挂在PCI总线上, windows的设备管理器里可以看到这里有3个USB主控制器, 2个EHCI（USB 2.0），1个XHCI（USB 3.0）:<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/08.jpg" title="08.jpg"><br>Device侧, USB Bus Interface可以认为是USB Devvice Controller(USB设备控制器).</p>
+<h2 id="USB系统架构"><a href="#USB系统架构" class="headerlink" title="USB系统架构"></a>USB系统架构</h2><img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/07.jpg" class="" title="07.jpg">
+<h3 id="USB-Bus-Interface-Layer"><a href="#USB-Bus-Interface-Layer" class="headerlink" title="USB Bus Interface Layer"></a>USB Bus Interface Layer</h3><p>该层为硬件设备连接. <a target="_blank" rel="noopener" href="https://www.crifan.com/files/doc/docbook/usb_basic/release/html/usb_basic.html#usb_related_hw">USB相关的基础知识 - USB相关的硬件</a>中有更详细的介绍.<br>Host侧, USB Host Controller(USB主控制器)是Host的具体硬件实现, 如上文所说, 它负责USB总线中的数据传输及端口管理. 具体到摸得着的东西就是PC主板上与USB端口直接相连, 挂在PCI总线上, windows的设备管理器里可以看到这里有3个USB主控制器, 2个EHCI（USB 2.0），1个XHCI（USB 3.0）:</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/08.jpg" class="" title="08.jpg">
+<p>Device侧, USB Bus Interface可以认为是USB Devvice Controller(USB设备控制器).</p>
 <h3 id="USB-Device-Layer"><a href="#USB-Device-Layer" class="headerlink" title="USB Device Layer"></a>USB Device Layer</h3><p>该层可以理解为USB总线的驱动层, 有关USB通讯的部分由这一层实现, 为上层提供服务.</p>
 <h3 id="Function-Layer"><a href="#Function-Layer" class="headerlink" title="Function Layer"></a>Function Layer</h3><p>Function也就是除了Hub以外的Device, 它为整个系统提供了某些具体能力, 比如U盘为系统提供储存设备.<br>Host侧, Client SW(客户软件)具体就是对应Device提供的Function的驱动, 不论是Linux下, 还是Windows下，都已经实现了常见的驱动了, 所以一般来说, 很少需要驱动开发者再去写驱动.<br>Device侧, Function则实现了具体的功能, 这部分通常由软件实现.<br>比如一个U盘(USB大容量储存设备)接入USB系统后, Client SW为操作系统提供访问储存设备的能力, 而Function则实现了操作存储器件的功能比如在NandFlash芯片上读写数据.</p>
 <hr>
 <h2 id="通讯机制"><a href="#通讯机制" class="headerlink" title="通讯机制"></a>通讯机制</h2><p>搞USB开发, 我们关心的是Function Layer层通讯: 设备上Function通过Interface, 经由Endpoint与Client SW通讯.</p>
-<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><img src="/post/嵌入式软件-USB设备开发基础知识整理/09.jpg" title="09.jpg">
+<h3 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h3><img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/09.jpg" class="" title="09.jpg">
 <p>看上面的架构图, 可知一个Function里可以有多个Interface, 比如一个键盘可以和摄像头做在一起, 用两个Interface实现.</p>
-<h3 id="Pipe-管道-Endpoint-端点"><a href="#Pipe-管道-Endpoint-端点" class="headerlink" title="Pipe(管道)/Endpoint(端点)"></a>Pipe(管道)/Endpoint(端点)</h3><img src="/post/嵌入式软件-USB设备开发基础知识整理/10.jpg" title="10.jpg">
+<h3 id="Pipe-管道-Endpoint-端点"><a href="#Pipe-管道-Endpoint-端点" class="headerlink" title="Pipe(管道)/Endpoint(端点)"></a>Pipe(管道)/Endpoint(端点)</h3><img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/10.jpg" class="" title="10.jpg">
+
 <p>端点是Device中的概念, 有点像Socket通讯中的Port(端口), 用于区分USB总线中当的数据是哪个Interface的, 一个Interface可能使用了多个Endpoint. 端点是有方向的, 可以是IN(Device-&gt;Host)或者OUT(Host-&gt;Device). 端点可以理解成Deivce上的一个由USB Device管理的缓冲区, 数据到达后通知上层Interface来处理.</p>
 <p>管道表示主机与端点间的通讯, 是Host和Endpoint间抽象的传输通道, 可以理解为USB地址(枚举时确定的地址)+EP编号构成, 由Host侧的System Drvier维护EP信息以便上层与Device通讯. 我们可以把端点和管道当做同一个东西.</p>
 <p>USB通讯实际上就是端点通讯，在Host看来每一个Device就是一堆端点, Host通过端点与设备进行通信，以使用设备的功能。每一个端点都有它的属性，比如传输方式(Transfers, 后面会讲)、总线访问频率、带宽、端点号和数据包的最大容量等。一个USB端点只能在一个方向承载数据，或者从主机到设备（称为输出端点），或者从设备到主机（称为输入端点），因此端点可看作一个单向的管道。</p>
-<h3 id="Packet-包-和-事务-Transaction"><a href="#Packet-包-和-事务-Transaction" class="headerlink" title="Packet (包) 和 事务(Transaction)"></a>Packet (包) 和 事务(Transaction)</h3><img src="/post/嵌入式软件-USB设备开发基础知识整理/13.jpg" title="13.jpg">
-<p>包是在Pipe上传输的数据(包是由”域”组成的, 它是USB数据的最小单位, 这里不讨论). </p>
+<h3 id="Packet-包-和-事务-Transaction"><a href="#Packet-包-和-事务-Transaction" class="headerlink" title="Packet (包) 和 事务(Transaction)"></a>Packet (包) 和 事务(Transaction)</h3><img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/13.jpg" class="" title="13.jpg">
+
+<p>包是在Pipe上传输的数据(包是由”域”组成的, 它是USB数据的最小单位, 这里不讨论).</p>
 <p>Transaction翻译成”事务”, 我理解为”一次通讯过程”, 分别有IN事务、OUT事务和SETUP事务三大事务, 每种事务通常由Token(令牌包)、Data(数据包)、Handshake(握手包)三个阶段构成，这里用阶段的意思是因为这些包的发送是有一定的先后顺序的:</p>
 <ol>
 <li>先由主机发出Token, 指定数据包的目标/来源(指定具体地址上的某Endpoint);</li>
 <li>Data为数据, IN事务时由设备</li>
 <li>Handshake用来表示传输是否成功.</li>
 </ol>
-<img src="/post/嵌入式软件-USB设备开发基础知识整理/14.jpg" title="14.jpg">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/14.jpg" class="" title="14.jpg">
+
 <p>上图就是典型的事务: 主机发Token–数据包–握手包–结束</p>
 <p>USB是主从式总线, 所以所有事务都是由主机发送的Token开始, 任一时刻USB系统中仅有一个包在传输.</p>
-<h3 id="传输-Transfers"><a href="#传输-Transfers" class="headerlink" title="传输 (Transfers)"></a>传输 (Transfers)</h3><p>传输由事务构成, Endpoint的传输方式可以是以下四种中的其中一种.<br>这部分内容涉及到较多细节, 深入了解可查阅<a href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec" target="_blank" rel="noopener">协议手册</a>的8.5章.</p>
-<h4 id="Control-Transfers-控制传输"><a href="#Control-Transfers-控制传输" class="headerlink" title="Control Transfers (控制传输)"></a>Control Transfers (控制传输)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Control data is used by the USB System Software to configure </span><br><span class="line">devices when they are first attached.  Otherdriver software </span><br><span class="line">can choose to use control transfers in implementation-specific </span><br><span class="line">ways. Data delivery is lossless.</span><br></pre></td></tr></table></figure>
-<p>USB总线保证这种方式下数据不会丢失. 用于Device插入后配置/获取设备信息, 设备也可以自定用途, 比如用于查询设备状态. </p>
+<h3 id="传输-Transfers"><a href="#传输-Transfers" class="headerlink" title="传输 (Transfers)"></a>传输 (Transfers)</h3><p>传输由事务构成, Endpoint的传输方式可以是以下四种中的其中一种.<br>这部分内容涉及到较多细节, 深入了解可查阅<a target="_blank" rel="noopener" href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec">协议手册</a>的8.5章.</p>
+<h4 id="Control-Transfers-控制传输"><a href="#Control-Transfers-控制传输" class="headerlink" title="Control Transfers (控制传输)"></a>Control Transfers (控制传输)</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Control data is used by the USB System Software to configure</span><br><span class="line">devices when they are first attached.  Otherdriver software</span><br><span class="line">can choose to use control transfers in implementation-specific</span><br><span class="line">ways. Data delivery is lossless.</span><br></pre></td></tr></tbody></table></figure>
+<p>USB总线保证这种方式下数据不会丢失. 用于Device插入后配置/获取设备信息, 设备也可以自定用途, 比如用于查询设备状态.</p>
 <p>SETUP事务图示:</p>
-<img src="/post/嵌入式软件-USB设备开发基础知识整理/14.jpg" title="14.jpg">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/14.jpg" class="" title="14.jpg">
+
 <p>控制传输的Read/Write序列, 读写操作由一串有序的事务组成:</p>
-<img src="/post/嵌入式软件-USB设备开发基础知识整理/18.jpg" title="18.jpg">
-<h4 id="Bulk-Transfers-块传输"><a href="#Bulk-Transfers-块传输" class="headerlink" title="Bulk Transfers (块传输)"></a>Bulk Transfers (块传输)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Bulk data typically consists of larger amounts of data, </span><br><span class="line">such as that used for printers or scanners. Bulk data is </span><br><span class="line">sequential. Reliable exchange of data is ensured at the </span><br><span class="line">hardware level by using error detection in hardware and </span><br><span class="line">invoking a limited number of retries in hardware. Also, </span><br><span class="line">the bandwidth taken up by bulk data can vary, depending on other bus activities.</span><br></pre></td></tr></table></figure>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/18.jpg" class="" title="18.jpg">
+
+<h4 id="Bulk-Transfers-块传输"><a href="#Bulk-Transfers-块传输" class="headerlink" title="Bulk Transfers (块传输)"></a>Bulk Transfers (块传输)</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Bulk data typically consists of larger amounts of data,</span><br><span class="line">such as that used for printers or scanners. Bulk data is</span><br><span class="line">sequential. Reliable exchange of data is ensured at the</span><br><span class="line">hardware level by using error detection in hardware and</span><br><span class="line">invoking a limited number of retries in hardware. Also,</span><br><span class="line">the bandwidth taken up by bulk data can vary, depending on other bus activities.</span><br></pre></td></tr></tbody></table></figure>
+
 <p>用于可靠传输大量数据, 单次允许传输更多的数据(所以在Device中它们端点的缓存区会更大), 保证数据的正确性但不保证实时性(取决于总线的繁忙程度).<br>如打印机/扫描仪.</p>
-<img src="/post/嵌入式软件-USB设备开发基础知识整理/15.jpg" title="15.jpg">
-<h4 id="Interrupt-Transfers-中断传输"><a href="#Interrupt-Transfers-中断传输" class="headerlink" title="Interrupt Transfers (中断传输)"></a>Interrupt Transfers (中断传输)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A limited-latency transfer to or from a device is referred to</span><br><span class="line">as interrupt data. Such data may be presented for transfer by </span><br><span class="line">a device at any time and is delivered by the USB at a rate no </span><br><span class="line">slower than is specified by the device.</span><br></pre></td></tr></table></figure>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/15.jpg" class="" title="15.jpg">
+
+<h4 id="Interrupt-Transfers-中断传输"><a href="#Interrupt-Transfers-中断传输" class="headerlink" title="Interrupt Transfers (中断传输)"></a>Interrupt Transfers (中断传输)</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A limited-latency transfer to or from a device is referred to</span><br><span class="line">as interrupt data. Such data may be presented for transfer by</span><br><span class="line">a device at any time and is delivered by the USB at a rate no</span><br><span class="line">slower than is specified by the device.</span><br></pre></td></tr></tbody></table></figure>
+
 <p>用于少量数据的低延迟传输, Host以不低于Device指定的频率向设备发令牌请求数据, 也可以由Host向Device发送数据.<br>比如键盘/鼠标/游戏控制器就用这种方式来传输.<br>通常不用来传送大量数据.</p>
-<img src="/post/嵌入式软件-USB设备开发基础知识整理/16.jpg" title="16.jpg">
-<h4 id="Isochronous-Transfers-同步传输"><a href="#Isochronous-Transfers-同步传输" class="headerlink" title="Isochronous Transfers (同步传输)"></a>Isochronous Transfers (同步传输)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Isochronous data is continuous and real-time in creation, </span><br><span class="line">delivery, and consumption. Timing-related information is </span><br><span class="line">implied by the steady rate at which isochronous data is </span><br><span class="line">received and transferred. Isochronous data must be delivered </span><br><span class="line">at the rate received to maintain its timing. In addition to </span><br><span class="line">delivery rate, isochronous data may also be sensitive to </span><br><span class="line">delivery delays. For isochronous pipes, the bandwidth required </span><br><span class="line">is typically based upon the sampling characteristics of the </span><br><span class="line">associated function. The latency required is related to the </span><br><span class="line">buffering available at each endpoint.</span><br></pre></td></tr></table></figure>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/16.jpg" class="" title="16.jpg">
+
+<h4 id="Isochronous-Transfers-同步传输"><a href="#Isochronous-Transfers-同步传输" class="headerlink" title="Isochronous Transfers (同步传输)"></a>Isochronous Transfers (同步传输)</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Isochronous data is continuous and real-time in creation,</span><br><span class="line">delivery, and consumption. Timing-related information is</span><br><span class="line">implied by the steady rate at which isochronous data is</span><br><span class="line">received and transferred. Isochronous data must be delivered</span><br><span class="line">at the rate received to maintain its timing. In addition to</span><br><span class="line">delivery rate, isochronous data may also be sensitive to</span><br><span class="line">delivery delays. For isochronous pipes, the bandwidth required</span><br><span class="line">is typically based upon the sampling characteristics of the</span><br><span class="line">associated function. The latency required is related to the</span><br><span class="line">buffering available at each endpoint.</span><br></pre></td></tr></tbody></table></figure>
+
 <p>用于传输大量数据, 不要求可靠性但要求实时性. 类似中断传输, 同步传输也是由Host周期访问设备, 只是同步传输不能保证数据成功传输.<br>适用于音频和视频设备, 如麦克风/摄像头.</p>
 <hr>
 <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><p>为了能让最常用的设备普及和提高兼容性, USB组织定义了很多标准Class, 比如HID(人体输入设备), Mass Storage(大容量储存设备), 这些设备接入Host上一般不需要额外的驱动, 因为已经预置了通用的驱动, 做USB应用很多时候都是在某个Class上做开发.<br>Device的厂商也可以在Class的基础上做一些定义(当然这时候就要在Host上做专门的驱动了).<br>另外Class下也会有Sub Class, 比如HID下还分鼠标键盘等.</p>
-<p><a href="http://www.usb.org/developers/docs/devclass_docs/" target="_blank" rel="noopener">USB接口设备Class文档</a>可以找到各Class的文档</p>
+<p><a target="_blank" rel="noopener" href="http://www.usb.org/developers/docs/devclass_docs/">USB接口设备Class文档</a>可以找到各Class的文档</p>
 <hr>
 <h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>既然USB是种通用串行口, 插入USB设备到主机之后, 主机又怎么知道插入的是什么设备(USB版本? PID/VID? 端点数量和传输能力如何?), 实现了什么功能呢(有哪些Function/Interface?), 把这些信息弄清楚的过程叫做枚举.</p>
-<p>该部分内容对应<a href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec" target="_blank" rel="noopener">协议手册</a>的第9章.</p>
+<p>该部分内容对应<a target="_blank" rel="noopener" href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec">协议手册</a>的第9章.</p>
 <h3 id="设备状态"><a href="#设备状态" class="headerlink" title="设备状态"></a>设备状态</h3><p>设备状态图如下, 枚举就是从Attached状态转换到Configured状态的过程:</p>
-<img src="/post/嵌入式软件-USB设备开发基础知识整理/12.jpg" title="12.jpg">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/12.jpg" class="" title="12.jpg">
+
 <p>1、接入态（Attached）：设备接入主机后，主机通过检测信号线上的电平变化来发现设备的接入；</p>
 <p>2、供电态（Powered）：就是给设备供电，分为设备接入时的默认供电值，配置阶段后的供电值（按数据中要求的最大值，可通过编程设置）</p>
 <p>3、缺省态（Default）：USB在被配置之前，通过缺省地址0与主机进行通信；</p>
 <p>4、地址态（Address）：经过了配置，USB设备被复位后，就可以按主机分配给它的唯一地址来与主机通信，这种状态就是地址态；</p>
 <p>5、配置态（Configured）：通过各种标准的USB请求命令来获取设备的各种信息，并对设备的某此信息进行改变或设置。</p>
 <p>6、挂起态（Suspended）：总线供电设备在3ms内没有总线操作，即USB总线处于空闲状态的话，该设备就要自动进入挂起状态，在进入挂起状态后，总的电流功耗不超过280UA。</p>
-<h3 id="端点0"><a href="#端点0" class="headerlink" title="端点0"></a>端点0</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">All USB devices are required to implement a default control method </span><br><span class="line">that uses both the input and output endpoints with endpoint number </span><br><span class="line">zero. The USB System Software uses this default control method </span><br><span class="line">to initialize and generically manipulate the logical device </span><br><span class="line">(e.g., to configure the logical device) as the Default Control </span><br><span class="line">Pipe (see Section 5.3.2).</span><br></pre></td></tr></table></figure>
-<p>所有USB设备需要实现一个默认的控制方式, 它就是既能输入也能输出的端点0, Host通过这端点0获取设备的描述、配置、状态，对设备进行设置。 </p>
-<p>端点0在Device上电后就默认存在, 这是STM32HAL库中重置USBD的代码, 可见对EP0_IN和EP0_OUT进行了配置:<br><img src="/post/嵌入式软件-USB设备开发基础知识整理/11.jpg" title="11.jpg"></p>
+<h3 id="端点0"><a href="#端点0" class="headerlink" title="端点0"></a>端点0</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">All USB devices are required to implement a default control method</span><br><span class="line">that uses both the input and output endpoints with endpoint number</span><br><span class="line">zero. The USB System Software uses this default control method</span><br><span class="line">to initialize and generically manipulate the logical device</span><br><span class="line">(e.g., to configure the logical device) as the Default Control</span><br><span class="line">Pipe (see Section 5.3.2).</span><br></pre></td></tr></tbody></table></figure>
+
+<p>所有USB设备需要实现一个默认的控制方式, 它就是既能输入也能输出的端点0, Host通过这端点0获取设备的描述、配置、状态，对设备进行设置。</p>
+<p>端点0在Device上电后就默认存在, 这是STM32HAL库中重置USBD的代码, 可见对EP0_IN和EP0_OUT进行了配置:</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/11.jpg" class="" title="11.jpg">
+
 <p>可见, 端点0实际上是IN/OUT两个端点, 以控制传输(Control Transfers)的方式通讯.</p>
-<h3 id="Generic-USB-Device-Operations-通用USB设备操作-USB-Device-Requests-USB设备请求-Standard-Device-Requests-标准设备请求"><a href="#Generic-USB-Device-Operations-通用USB设备操作-USB-Device-Requests-USB设备请求-Standard-Device-Requests-标准设备请求" class="headerlink" title="Generic USB Device Operations(通用USB设备操作) / USB Device Requests(USB设备请求) / Standard Device Requests(标准设备请求)"></a>Generic USB Device Operations(通用USB设备操作) / USB Device Requests(USB设备请求) / Standard Device Requests(标准设备请求)</h3><img src="/post/嵌入式软件-USB设备开发基础知识整理/19.jpg" title="19.jpg">
+<h3 id="Generic-USB-Device-Operations-通用USB设备操作-USB-Device-Requests-USB设备请求-Standard-Device-Requests-标准设备请求"><a href="#Generic-USB-Device-Operations-通用USB设备操作-USB-Device-Requests-USB设备请求-Standard-Device-Requests-标准设备请求" class="headerlink" title="Generic USB Device Operations(通用USB设备操作) / USB Device Requests(USB设备请求) / Standard Device Requests(标准设备请求)"></a>Generic USB Device Operations(通用USB设备操作) / USB Device Requests(USB设备请求) / Standard Device Requests(标准设备请求)</h3><img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-USB%E8%AE%BE%E5%A4%87%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/19.jpg" class="" title="19.jpg">
+
 <p>通过端点0, Host可以使用一些”默认的控制方式”完成一些基本的操作, 每个Device都要实现这些操作, 这就是”通用USB设备操作”.</p>
 <p>阅读bmRequestType定义可知, “USB设备请求”允许Host通过端点0使用控制传输方式向USB设备发出请求, 这些请求可以是”标准设备请求”/“Class求”/“设备制造商自定义请求”.</p>
 <p>“标准设备请求”是”通用USB设备操作”的具体实现, 它规定了一些命令比如”Set Descriptor”(获取描述符)/“Set Configuration”(设置配置索引), 使用这些命令可以完成枚举过程(但不仅用于枚举).</p>
@@ -319,7 +388,7 @@
 <li>端点(Endpoint)描述符, 描述非0端点的属性，包括输入/输出方向、端点号和端点容量。需注意的是端点描述符是作为配置描述符的一部分来返回给主机的，而不能直接通过控制传输中的<code>Get_Descriptor</code>或<code>Set_Descriptor</code>来访问;</li>
 <li>字符串(String)描述符, 用于存放一些字符串, 其他描述符可以用索引号来引用其中的字符串</li>
 </ul>
-<p>各类描述符的具体定义请参考<a href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec" target="_blank" rel="noopener">USB2.0协议手册9.6章</a>及其他资料.</p>
+<p>各类描述符的具体定义请参考<a target="_blank" rel="noopener" href="http://www.usb.org/developers/docs/usb20_docs/#usb20spec">USB2.0协议手册9.6章</a>及其他资料.</p>
 <h3 id="配置描述符集合"><a href="#配置描述符集合" class="headerlink" title="配置描述符集合"></a>配置描述符集合</h3><p>主机获取配置描述符时, 接口描述符/端点描述符/等等相关的描述符附着在它后面一同提交.</p>
 <p>梳理一下Endpoint/Interface/Configuration间的关系:</p>
 <ul>
@@ -327,17 +396,19 @@
 <li>一个Configuration可以有多个Interface (多个Interface的设备称为组合设备Composite Device)</li>
 <li>一个Interface可以使用多个Endpoint(也可以不使用端点)</li>
 </ul>
-<p>假设一个配置集合包含2个Interface, 均为XXX Class, 每个Interface两个Endpoint, 那么它大概是这个样子:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">配置描述符(<span class="attribute">bNumInterfaces</span>=2)</span><br><span class="line">接口描述符(<span class="attribute">bInterfaceClass</span>=XXX, <span class="attribute">bNumEndpoints</span>=2)</span><br><span class="line">XXXClass描述符</span><br><span class="line">端点描述符</span><br><span class="line">端点描述符</span><br><span class="line">接口描述符(<span class="attribute">bInterfaceClass</span>=XXX, <span class="attribute">bNumEndpoints</span>=2)</span><br><span class="line">XXXClass描述符</span><br><span class="line">端点描述符</span><br><span class="line">端点描述符</span><br></pre></td></tr></table></figure></p>
-<h3 id="枚举过程"><a href="#枚举过程" class="headerlink" title="枚举过程"></a>枚举过程</h3><p>这部分在<a href="https://www.crifan.com/files/doc/docbook/usb_basic/release/html/usb_basic.html#emulation" target="_blank" rel="noopener">USB基础知识概论的4.4章</a>中讲得很清楚了, 这里为了防死链复制一份<a href="./i/note_usb_application/usb_basic.pdf">pdf</a>.</p>
+<p>假设一个配置集合包含2个Interface, 均为XXX Class, 每个Interface两个Endpoint, 那么它大概是这个样子:</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">配置描述符(<span class="attribute">bNumInterfaces</span>=2)</span><br><span class="line">接口描述符(<span class="attribute">bInterfaceClass</span>=XXX, <span class="attribute">bNumEndpoints</span>=2)</span><br><span class="line">XXXClass描述符</span><br><span class="line">端点描述符</span><br><span class="line">端点描述符</span><br><span class="line">接口描述符(<span class="attribute">bInterfaceClass</span>=XXX, <span class="attribute">bNumEndpoints</span>=2)</span><br><span class="line">XXXClass描述符</span><br><span class="line">端点描述符</span><br><span class="line">端点描述符</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="枚举过程"><a href="#枚举过程" class="headerlink" title="枚举过程"></a>枚举过程</h3><p>这部分在<a target="_blank" rel="noopener" href="https://www.crifan.com/files/doc/docbook/usb_basic/release/html/usb_basic.html#emulation">USB基础知识概论的4.4章</a>中讲得很清楚了, 这里为了防死链复制一份<a href="./i/note_usb_application/usb_basic.pdf">pdf</a>.</p>
 <hr>
 <h2 id="其他资料和工具"><a href="#其他资料和工具" class="headerlink" title="其他资料和工具"></a>其他资料和工具</h2><h4 id="协议文档"><a href="#协议文档" class="headerlink" title="协议文档"></a>协议文档</h4><p>对于工程师来说, 文档永远是你最值得信任的伙伴(除了文档还太新没几个勘误表的时候..).</p>
-<h4 id="lt-圈圈教你玩USB-gt"><a href="#lt-圈圈教你玩USB-gt" class="headerlink" title="&lt;圈圈教你玩USB&gt;"></a>&lt;圈圈教你玩USB&gt;</h4><p>这本书很大白话, 实现了HID鼠标/HID键盘/CDC串口/MIDI设备/U盘/自定义设备和驱动开发, 推荐.</p>
-<h4 id="USBTreeView"><a href="#USBTreeView" class="headerlink" title="USBTreeView"></a>USBTreeView</h4><p><a href="http://www.uwe-sieber.de/usbtreeview_e.html" target="_blank" rel="noopener">官网</a></p>
+<h4 id="lt-圈圈教你玩USB-gt"><a href="#lt-圈圈教你玩USB-gt" class="headerlink" title="<圈圈教你玩USB>"></a>&lt;圈圈教你玩USB&gt;</h4><p>这本书很大白话, 实现了HID鼠标/HID键盘/CDC串口/MIDI设备/U盘/自定义设备和驱动开发, 推荐.</p>
+<h4 id="USBTreeView"><a href="#USBTreeView" class="headerlink" title="USBTreeView"></a>USBTreeView</h4><p><a target="_blank" rel="noopener" href="http://www.uwe-sieber.de/usbtreeview_e.html">官网</a></p>
 <p>免费/开源软件, 显示USB设备树形结构, 显示设备连接信息/描述符, 枚举时调试比较方便.</p>
-<h4 id="BusHound"><a href="#BusHound" class="headerlink" title="BusHound"></a>BusHound</h4><p><a href="http://perisoft.net/bushound/" target="_blank" rel="noopener">官网</a></p>
+<h4 id="BusHound"><a href="#BusHound" class="headerlink" title="BusHound"></a>BusHound</h4><p><a target="_blank" rel="noopener" href="http://perisoft.net/bushound/">官网</a></p>
 <p>强力的调试工具, 能抓USB包, 免费版只能捕获最多32条数据, 每条数据最多8字节, 完整版价格400刀每用户.</p>
-<h4 id="USBlyzer"><a href="#USBlyzer" class="headerlink" title="USBlyzer"></a>USBlyzer</h4><p><a href="http://www.usblyzer.com/" target="_blank" rel="noopener">官网</a><br>付费软件, 看起来很强大, 没实际用过.</p>
-<h4 id="USB论坛提供的工具"><a href="#USB论坛提供的工具" class="headerlink" title="USB论坛提供的工具"></a>USB论坛提供的工具</h4><p><a href="http://www.usb.org/developers/tools/" target="_blank" rel="noopener">USB3.0工具</a><br><a href="http://www.usb.org/developers/tools/usb20_tools/" target="_blank" rel="noopener">USB2.0工具</a></p>
+<h4 id="USBlyzer"><a href="#USBlyzer" class="headerlink" title="USBlyzer"></a>USBlyzer</h4><p><a target="_blank" rel="noopener" href="http://www.usblyzer.com/">官网</a><br>付费软件, 看起来很强大, 没实际用过.</p>
+<h4 id="USB论坛提供的工具"><a href="#USB论坛提供的工具" class="headerlink" title="USB论坛提供的工具"></a>USB论坛提供的工具</h4><p><a target="_blank" rel="noopener" href="http://www.usb.org/developers/tools/">USB3.0工具</a><br><a target="_blank" rel="noopener" href="http://www.usb.org/developers/tools/usb20_tools/">USB2.0工具</a></p>
 
   </div>
   <footer class="article-footer">
@@ -378,7 +449,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 
 
@@ -395,10 +466,16 @@
       
     </div>
   </div>
-  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
-  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
 
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -462,12 +539,20 @@
     </div>
   </div>
 
-  <script src="/PhotoSwipe/photoswipe.js"></script>
-  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
 
 
 <script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
 <script src="/scripts/main.js"></script>
+
 
   
 <div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>

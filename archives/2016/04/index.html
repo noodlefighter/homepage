@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -18,10 +18,9 @@
 <meta property="og:url" content="http://noodlefighter.com/archives/2016/04/index.html">
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="开坑不填是生活中一大乐趣.">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Noodlefighter&#39;s HP">
-<meta name="twitter:description" content="开坑不填是生活中一大乐趣.">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -31,7 +30,10 @@
   <link rel="icon" href="/favicon.png">
 
 
+
 <link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
 <link rel="stylesheet" href="/styles/main.css">
 
 
@@ -39,8 +41,45 @@
 
 
 
+
+<style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
-<body class="monochrome">
+<body
+  
+    class="monochrome"
+  
+  >
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
@@ -95,21 +134,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">文章分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用笔记/">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/" rel="tag">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/" rel="tag">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/" rel="tag">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/" rel="tag">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/" rel="tag">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/" rel="tag">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/" rel="tag">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/" rel="tag">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/" rel="tag">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/" rel="tag">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/" rel="tag">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps%E8%84%9A%E6%9C%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="tag">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/" rel="tag">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/" rel="tag">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%BE%8B/" rel="tag">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="tag">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E8%BD%A6/" rel="tag">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="tag">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E4%BF%AE/" rel="tag">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E5%8A%9B%E6%91%86/" rel="tag">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -119,7 +158,7 @@
           
             
               <li>
-                <a href="/about_me" title="关于我">关于我</a>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
               </li>
             
           
@@ -137,7 +176,7 @@
           
             
               <li>
-                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+                <a href="http://gmaker.io/" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
               </li>
             
           
@@ -156,7 +195,7 @@
                       </div>
                     
                       <div class="category-list-item">
-                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                        <a href="https://yukoamamiya.blogspot.com/" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
                       </div>
                     
                       <div class="category-list-item">
@@ -203,7 +242,7 @@
 
     <div class="post-list-item article">
       <h4 class="article-header">
-        <a href="/post/嵌入式软件-嵌入式软件开发学习路线/">
+        <a href="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" >
   嵌入式软件开发学习路线
 </a>
 
@@ -211,13 +250,13 @@
       
 
       <div class="article-info">
-        <a href="/post/嵌入式软件-嵌入式软件开发学习路线/"><span class="article-date">
+        <a href="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><span class="article-date">
   2016-04-03
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/嵌入式软件/">嵌入式软件</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a></li></ul>
 	</span>
 
 
@@ -228,7 +267,7 @@
         
           <p>在这个领域学习过程中碰了不少壁<br>大学里的三年里 笔者也只能算是刚入门<br>这篇文章会随着我自己的学习不断地更新<br>这是我觉得比较好的学习路线 希望初学者能少走弯路<br>如有说得不对的地方 还请帮忙指正，谢谢</p>
           <p>
-            <a href="/post/嵌入式软件-嵌入式软件开发学习路线/">
+            <a href="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">
               阅读全文
             </a>
           </p>
@@ -252,12 +291,18 @@
       
         </div>
       
-    </section></div>
+    </div>
   </div>
-  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
-  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
 
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -321,16 +366,24 @@
     </div>
   </div>
 
-  <script src="/PhotoSwipe/photoswipe.js"></script>
-  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
 
 
 <script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
 <script src="/scripts/main.js"></script>
+
 
   
 <div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
 
 
-</div></body>
+</body>
 </html>

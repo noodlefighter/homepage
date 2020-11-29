@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,21 +15,21 @@
 <meta name="description" content="购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..这里记录win下使用eclipse+openOCD+cmsis_dap调试arm程序的配置方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试">
-<meta property="og:url" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/index.html">
+<meta property="og:url" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/index.html">
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..这里记录win下使用eclipse+openOCD+cmsis_dap调试arm程序的配置方法">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/00.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/01.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/02.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/03.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/04.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/05.jpg">
-<meta property="og:updated_time" content="2020-11-27T14:50:28.097Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/00.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/01.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/02.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/03.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/04.jpg">
+<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/05.jpg">
+<meta property="article:published_time" content="2016-08-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-29T10:40:12.791Z">
+<meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试">
-<meta name="twitter:description" content="购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..这里记录win下使用eclipse+openOCD+cmsis_dap调试arm程序的配置方法">
-<meta name="twitter:image" content="http://noodlefighter.com/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/00.jpg">
+<meta name="twitter:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/00.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -39,7 +39,10 @@
   <link rel="icon" href="/favicon.png">
 
 
+
 <link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
 <link rel="stylesheet" href="/styles/main.css">
 
 
@@ -47,8 +50,45 @@
 
 
 
+
+<style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
-<body class="monochrome">
+<body
+  
+    class="monochrome"
+  
+  >
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
@@ -103,21 +143,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">文章分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用笔记/">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/" rel="tag">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/" rel="tag">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/" rel="tag">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/" rel="tag">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/" rel="tag">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/" rel="tag">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/" rel="tag">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/" rel="tag">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/" rel="tag">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/" rel="tag">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/" rel="tag">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps%E8%84%9A%E6%9C%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="tag">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/" rel="tag">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/" rel="tag">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%BE%8B/" rel="tag">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="tag">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E8%BD%A6/" rel="tag">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="tag">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E4%BF%AE/" rel="tag">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E5%8A%9B%E6%91%86/" rel="tag">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -127,7 +167,7 @@
           
             
               <li>
-                <a href="/about_me" title="关于我">关于我</a>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
               </li>
             
           
@@ -145,7 +185,7 @@
           
             
               <li>
-                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+                <a href="http://gmaker.io/" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
               </li>
             
           
@@ -164,7 +204,7 @@
                       </div>
                     
                       <div class="category-list-item">
-                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                        <a href="https://yukoamamiya.blogspot.com/" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
                       </div>
                     
                       <div class="category-list-item">
@@ -209,28 +249,38 @@
 
   </div>
   <div class="article-entry">
-    <p>购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..<br>这里记录win下使用eclipse+openOCD+cmsis_dap调试arm程序的配置方法 </p>
+    <p>购入CMSIS-DAP仿真器 摸索摸索（抛弃盗版Jlink的日子要来了..<br>这里记录win下使用eclipse+openOCD+cmsis_dap调试arm程序的配置方法</p>
 <a id="more"></a>
-<img src="/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/00.jpg" width="00">
+
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/00.jpg" class="" title="00.jpg">
+
 <hr>
 <h2 id="Step-0-准备原料"><a href="#Step-0-准备原料" class="headerlink" title="Step.0 准备原料"></a>Step.0 准备原料</h2><ul>
 <li>CMSIS-DAP标准的仿真器</li>
-<li><a href="https://sourceforge.net/projects/openocd/files/openocd/0.9.0/" target="_blank" rel="noopener">openOCD</a></li>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/openocd/files/openocd/0.9.0/">openOCD</a></li>
 </ul>
 <h2 id="Step-1-安装eclipse-gnuarmeclipse插件"><a href="#Step-1-安装eclipse-gnuarmeclipse插件" class="headerlink" title="Step.1 安装eclipse+gnuarmeclipse插件"></a>Step.1 安装eclipse+gnuarmeclipse插件</h2><p>请参考之前的<a href="http://noodlefighter.com/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/em_eclipse_arm/">这一篇文章</a>的前半部分</p>
-<h2 id="Step-2-编译openOCD"><a href="#Step-2-编译openOCD" class="headerlink" title="Step.2 编译openOCD"></a>Step.2 编译openOCD</h2><p>eLinux有篇wiki供参考<br><a href="http://elinux.org/Compiling_OpenOCD_Win7" target="_blank" rel="noopener">http://elinux.org/Compiling_OpenOCD_Win7</a></p>
-<p>笔者是直接用网友编译好的<br><img src="/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/01.jpg" width="01"></p>
-<h2 id="Step-3-设置openOCD路径"><a href="#Step-3-设置openOCD路径" class="headerlink" title="Step.3 设置openOCD路径"></a>Step.3 设置openOCD路径</h2><p>eclipse中 Window - Preferences - Run/Debug - OpenOCD<br>填入文件名和路径 例如:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Executable</span>: <span class="selector-tag">openocd-0</span><span class="selector-class">.8</span><span class="selector-class">.0</span><span class="selector-class">.exe</span></span><br><span class="line"><span class="selector-tag">Folder</span>: <span class="selector-tag">A</span>:\<span class="selector-tag">cli_tools</span>\<span class="selector-tag">openocd-0</span><span class="selector-class">.8</span><span class="selector-class">.0</span>\<span class="selector-tag">bin</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Step-4-调试设置"><a href="#Step-4-调试设置" class="headerlink" title="Step.4 调试设置"></a>Step.4 调试设置</h2><p>进入Debug Configurations 双击”GDB OpenOCD Debugging”创建新的debug设置 </p>
-<p>Debugger选项卡 OpenOCD Setup中的Config options设为:<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-f <span class="variable">$&#123;openocd_path&#125;</span><span class="regexp">/../</span>scripts<span class="regexp">/interface/</span>cmsis-dap.cfg  -f <span class="variable">$&#123;openocd_path&#125;</span><span class="regexp">/../</span>scripts<span class="regexp">/target/</span>stm32f1x.cfg</span><br></pre></td></tr></table></figure></p>
+<h2 id="Step-2-编译openOCD"><a href="#Step-2-编译openOCD" class="headerlink" title="Step.2 编译openOCD"></a>Step.2 编译openOCD</h2><p>eLinux有篇wiki供参考<br><a target="_blank" rel="noopener" href="http://elinux.org/Compiling_OpenOCD_Win7">http://elinux.org/Compiling_OpenOCD_Win7</a></p>
+<p>笔者是直接用网友编译好的</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/01.jpg" class="" title="01.jpg">
+
+<h2 id="Step-3-设置openOCD路径"><a href="#Step-3-设置openOCD路径" class="headerlink" title="Step.3 设置openOCD路径"></a>Step.3 设置openOCD路径</h2><p>eclipse中 Window - Preferences - Run/Debug - OpenOCD<br>填入文件名和路径 例如:</p>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Executable</span>: openocd-<span class="number">0</span>.<span class="number">8</span>.<span class="number">0</span>.exe</span><br><span class="line"><span class="attribute">Folder</span>: A:\cli_tools\openocd-<span class="number">0</span>.<span class="number">8</span>.<span class="number">0</span>\bin</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Step-4-调试设置"><a href="#Step-4-调试设置" class="headerlink" title="Step.4 调试设置"></a>Step.4 调试设置</h2><p>进入Debug Configurations 双击”GDB OpenOCD Debugging”创建新的debug设置</p>
+<p>Debugger选项卡 OpenOCD Setup中的Config options设为:</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-f <span class="variable">${openocd_path}</span><span class="regexp">/../</span>scripts<span class="regexp">/interface/</span>cmsis-dap.cfg  -f <span class="variable">${openocd_path}</span><span class="regexp">/../</span>scripts<span class="regexp">/target/</span>stm32f1x.cfg</span><br></pre></td></tr></tbody></table></figure>
 <p>这里得根据openOCD的目录结构来稍微改一下 总之得把调试器和目标配置cfg文件用上(这里以stm32f1x为例)<br>可以先自己在命令行中试试</p>
 <p>在Startup选项卡 Run/Restart Commands中 取消Pre-run/Restart.复选框</p>
-<p>这是我的配置, 仅供参考 </p>
-<img src="/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/02.jpg" width="02">
-<img src="/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/03.jpg" width="03">
-<img src="/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/04.jpg" width="04">
+<p>这是我的配置, 仅供参考</p>
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/02.jpg" class="" title="02.jpg">
+
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/03.jpg" class="" title="03.jpg">
+
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/04.jpg" class="" title="04.jpg">
+
 <h2 id="Step-5-尝试调试"><a href="#Step-5-尝试调试" class="headerlink" title="Step.5 尝试调试"></a>Step.5 尝试调试</h2><p>若成功调试则万事大吉<br>若调试失败<br>请注意检查工程配置中C/C++ Build - Settings - Tool Settings - Debugging中调试等级有没有打开</p>
-<img src="/post/嵌入式软件-在eclipse中使用openOCD+CMSIS_DAP进行ARM在线调试/05.jpg" width="05">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E5%9C%A8eclipse%E4%B8%AD%E4%BD%BF%E7%94%A8openOCD+CMSIS_DAP%E8%BF%9B%E8%A1%8CARM%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95/05.jpg" class="" title="05.jpg">
 
   </div>
   <footer class="article-footer">
@@ -271,7 +321,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 
 
@@ -288,10 +338,16 @@
       
     </div>
   </div>
-  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
-  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
 
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -355,12 +411,20 @@
     </div>
   </div>
 
-  <script src="/PhotoSwipe/photoswipe.js"></script>
-  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
 
 
 <script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
 <script src="/scripts/main.js"></script>
+
 
   
 <div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -12,13 +12,13 @@
   
 </title>
 
-<meta name="description" content="介绍 造价: 约45RMB 樱桃MX系列机械按键 扫描频率1000Hz 实测传输延迟：6-10ms 三个键均可设置成预置的按键（ESC/F1/F2/F8/F12/space/enter，zx zc as ad PageUp/down 上下 左右） 可变色LED作为手速指示器 闲置15sec，可变色LED变为闲置背景色，背景色可方便的设置 4个可设置的按键灯工作状态（一直亮/一直灭/按下时点亮/按">
+<meta name="description" content="介绍 造价: 约45RMB 樱桃MX系列机械按键 扫描频率1000Hz 实测传输延迟：6-10ms 三个键均可设置成预置的按键（ESC&#x2F;F1&#x2F;F2&#x2F;F8&#x2F;F12&#x2F;space&#x2F;enter，zx zc as ad PageUp&#x2F;down 上下 左右） 可变色LED作为手速指示器 闲置15sec，可变色LED变为闲置背景色，背景色可方便的设置 4个可设置的按键灯工作状态（一直亮&#x2F;一直灭&#x2F;按下时点亮&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nooldefighter osu Keyboard v2.1 制作方法">
 <meta property="og:url" content="http://noodlefighter.com/osu_keyboard/v2_make.html">
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
-<meta property="og:description" content="介绍 造价: 约45RMB 樱桃MX系列机械按键 扫描频率1000Hz 实测传输延迟：6-10ms 三个键均可设置成预置的按键（ESC/F1/F2/F8/F12/space/enter，zx zc as ad PageUp/down 上下 左右） 可变色LED作为手速指示器 闲置15sec，可变色LED变为闲置背景色，背景色可方便的设置 4个可设置的按键灯工作状态（一直亮/一直灭/按下时点亮/按">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="介绍 造价: 约45RMB 樱桃MX系列机械按键 扫描频率1000Hz 实测传输延迟：6-10ms 三个键均可设置成预置的按键（ESC&#x2F;F1&#x2F;F2&#x2F;F8&#x2F;F12&#x2F;space&#x2F;enter，zx zc as ad PageUp&#x2F;down 上下 左右） 可变色LED作为手速指示器 闲置15sec，可变色LED变为闲置背景色，背景色可方便的设置 4个可设置的按键灯工作状态（一直亮&#x2F;一直灭&#x2F;按下时点亮&#x2F;">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://noodlefighter.com/osu_keyboard/v2_make/v2.jpg">
 <meta property="og:image" content="http://noodlefighter.com/osu_keyboard/v2_make/material1.jpg">
 <meta property="og:image" content="http://noodlefighter.com/osu_keyboard/v2_make/material2.jpg">
@@ -37,10 +37,10 @@
 <meta property="og:image" content="http://noodlefighter.com/osu_keyboard/v2_make/assemble_post_method.jpg">
 <meta property="og:image" content="http://noodlefighter.com/osu_keyboard/v2_make/beautiful1.jpg">
 <meta property="og:image" content="http://noodlefighter.com/osu_keyboard/v2_make/beautiful2.jpg">
-<meta property="og:updated_time" content="2020-11-27T14:50:13.345Z">
+<meta property="article:published_time" content="2020-11-29T10:39:57.022Z">
+<meta property="article:modified_time" content="2020-11-29T10:39:57.022Z">
+<meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nooldefighter osu Keyboard v2.1 制作方法">
-<meta name="twitter:description" content="介绍 造价: 约45RMB 樱桃MX系列机械按键 扫描频率1000Hz 实测传输延迟：6-10ms 三个键均可设置成预置的按键（ESC/F1/F2/F8/F12/space/enter，zx zc as ad PageUp/down 上下 左右） 可变色LED作为手速指示器 闲置15sec，可变色LED变为闲置背景色，背景色可方便的设置 4个可设置的按键灯工作状态（一直亮/一直灭/按下时点亮/按">
 <meta name="twitter:image" content="http://noodlefighter.com/osu_keyboard/v2_make/v2.jpg">
 
 
@@ -51,7 +51,10 @@
   <link rel="icon" href="/favicon.png">
 
 
+
 <link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
 <link rel="stylesheet" href="/styles/main.css">
 
 
@@ -59,8 +62,45 @@
 
 
 
+
+<style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
-<body class="monochrome">
+<body
+  
+    class="monochrome"
+  
+  >
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
@@ -115,21 +155,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">文章分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/作品/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/嵌入式软件/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/工作日志/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/技术笔记/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/碎碎念/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/网摘/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/计算机技术/">计算机技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/非技术笔记/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps脚本图形界面/">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单片机/">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实例/">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式/">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/嵌入式软件/">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/应用笔记/">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能小车/">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/歌词/">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电子/">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/色彩空间/">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/装修/">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/调试/">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/输入法/">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/键盘/">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音游/">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风力摆/">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/麻将/">麻将</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/" rel="tag">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/" rel="tag">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/" rel="tag">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/" rel="tag">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/" rel="tag">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/" rel="tag">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/" rel="tag">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/" rel="tag">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/" rel="tag">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/" rel="tag">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/" rel="tag">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps%E8%84%9A%E6%9C%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="tag">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/" rel="tag">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/" rel="tag">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%BE%8B/" rel="tag">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="tag">应用笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E8%BD%A6/" rel="tag">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="tag">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E4%BF%AE/" rel="tag">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E5%8A%9B%E6%91%86/" rel="tag">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -139,7 +179,7 @@
           
             
               <li>
-                <a href="/about_me" title="关于我">关于我</a>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
               </li>
             
           
@@ -157,7 +197,7 @@
           
             
               <li>
-                <a href="http://gmaker.io" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+                <a href="http://gmaker.io/" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
               </li>
             
           
@@ -176,7 +216,7 @@
                       </div>
                     
                       <div class="category-list-item">
-                        <a href="https://yukoamamiya.blogspot.com" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                        <a href="https://yukoamamiya.blogspot.com/" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
                       </div>
                     
                       <div class="category-list-item">
@@ -206,7 +246,7 @@
       
         <div style="max-width: 1000px">
       
-          <article id="page-undefined" class="article article-type-page">
+          <article id="page-" class="article article-type-page">
   
     <h1 class="article-header">
       Nooldefighter osu Keyboard v2.1 制作方法
@@ -216,12 +256,13 @@
 
   <div class="article-info">
     <span class="article-date">
-  2020-11-27
+  2020-11-29
 </span>
 
   </div>
   <div class="article-entry">
-    <img src="/osu_keyboard/v2_make/v2.jpg" width="600">
+    <img src="/osu_keyboard/v2_make/v2.jpg" class="" width="600">
+
 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
 <li>造价: 约45RMB</li>
 <li>樱桃MX系列机械按键</li>
@@ -232,9 +273,10 @@
 <li>闲置15sec，可变色LED变为闲置背景色，背景色可方便的设置</li>
 <li>4个可设置的按键灯工作状态（一直亮/一直灭/按下时点亮/按下时熄灭）</li>
 </ul>
-<h1 id="制作材料、所需工具清单"><a href="#制作材料、所需工具清单" class="headerlink" title="制作材料、所需工具清单"></a>制作材料、所需工具清单</h1><img src="/osu_keyboard/v2_make/material1.jpg" width="500">
-<img src="/osu_keyboard/v2_make/material2.jpg" width="500">
-<img src="/osu_keyboard/v2_make/material3.jpg" width="500">
+<h1 id="制作材料、所需工具清单"><a href="#制作材料、所需工具清单" class="headerlink" title="制作材料、所需工具清单"></a>制作材料、所需工具清单</h1><img src="/osu_keyboard/v2_make/material1.jpg" class="" width="500">
+<img src="/osu_keyboard/v2_make/material2.jpg" class="" width="500">
+<img src="/osu_keyboard/v2_make/material3.jpg" class="" width="500">
+
 <h2 id="电子元件"><a href="#电子元件" class="headerlink" title="电子元件"></a>电子元件</h2><table>
 <thead>
 <tr>
@@ -245,8 +287,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>PCB</td>
 <td>5*5cm</td>
 <td>/</td>
@@ -358,8 +399,7 @@
 <td>1</td>
 <td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="外壳相关"><a href="#外壳相关" class="headerlink" title="外壳相关"></a>外壳相关</h2><table>
 <thead>
 <tr>
@@ -369,33 +409,12 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><img src="/osu_keyboard/v2_make/material4.jpg" width="60"></td>
-<td>screw M3*12mm</td>
-<td>4</td>
-<td>螺丝 固定外壳</td>
-</tr>
-<tr>
-<td><img src="/osu_keyboard/v2_make/material5.jpg" width="60"></td>
-<td>nut M3</td>
-<td>4</td>
-<td>普通螺母 固定外壳</td>
-</tr>
-<tr>
-<td><img src="/osu_keyboard/v2_make/material6.jpg" width="60"></td>
-<td>screw M3*10mm</td>
-<td>4</td>
-<td>螺丝 固定pcb</td>
-</tr>
-<tr>
-<td><img src="/osu_keyboard/v2_make/material7.jpg" width="60"></td>
-<td>Non-slip nuts M3</td>
-<td>4</td>
-<td>防滑螺母 固定pcb</td>
-</tr>
-</tbody>
 </table>
+<img src="/osu_keyboard/v2_make/material4.jpg" class="" width="60">|screw M3*12mm|4|螺丝 固定外壳
+<img src="/osu_keyboard/v2_make/material5.jpg" class="" width="60">|nut M3|4|普通螺母 固定外壳
+<img src="/osu_keyboard/v2_make/material6.jpg" class="" width="60">|screw M3*10mm|4|螺丝 固定pcb
+<img src="/osu_keyboard/v2_make/material7.jpg" class="" width="60">|Non-slip nuts M3|4|防滑螺母 固定pcb
+
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
 <thead>
 <tr>
@@ -404,8 +423,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>cherry mx switch keycap R3</td>
 <td>2</td>
 <td>樱桃轴键帽，R3高度</td>
@@ -420,8 +438,7 @@
 <td>1</td>
 <td>防滑硅胶垫 带背胶 粘贴于底部用于防滑</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="必要的工具"><a href="#必要的工具" class="headerlink" title="必要的工具"></a>必要的工具</h2><table>
 <thead>
 <tr>
@@ -430,8 +447,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>AtmelISP</td>
 <td>1</td>
 <td>烧录程序用</td>
@@ -446,14 +462,15 @@
 <td>1</td>
 <td>钳子 装防滑螺母时需要用到</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <hr>
-<img src="/osu_keyboard/v2_make/pcb1.jpg" width="600">
-<img src="/osu_keyboard/v2_make/pcb2.jpg" width="600">
-<h1 id="关于PCB"><a href="#关于PCB" class="headerlink" title="关于PCB"></a>关于PCB</h1><p>键盘usb通讯部分的实现方法是使用V-USB开源库（<a href="http://www.obdev.at/products/vusb/）。" target="_blank" rel="noopener">http://www.obdev.at/products/vusb/）。</a><br>这里提供Altium Designer 10的pcb文件（”PCB\OSUpcb.PcbDoc”）以及生成好的GERBER文件(“PCB\GERBER\”)<br>你需要联系pcb厂商生产该电路板。<br>元件清单在“制作材料、所需工具清单”中。</p>
+<img src="/osu_keyboard/v2_make/pcb1.jpg" class="" width="600">
+<img src="/osu_keyboard/v2_make/pcb2.jpg" class="" width="600">
+
+<h1 id="关于PCB"><a href="#关于PCB" class="headerlink" title="关于PCB"></a>关于PCB</h1><p>键盘usb通讯部分的实现方法是使用V-USB开源库（<a target="_blank" rel="noopener" href="http://www.obdev.at/products/vusb/%EF%BC%89%E3%80%82">http://www.obdev.at/products/vusb/）。</a><br>这里提供Altium Designer 10的pcb文件（”PCB\OSUpcb.PcbDoc”）以及生成好的GERBER文件(“PCB\GERBER")<br>你需要联系pcb厂商生产该电路板。<br>元件清单在“制作材料、所需工具清单”中。</p>
 <hr>
-<img src="/osu_keyboard/v2_make/shell.jpg" width="600">
+<img src="/osu_keyboard/v2_make/shell.jpg" class="" width="600">
+
 <h1 id="关于外壳"><a href="#关于外壳" class="headerlink" title="关于外壳"></a>关于外壳</h1><p>外壳由亚克力板激光切割制成，请将矢量图文件（”Shell\standard.dwg”,AutoCAD2000文件，文件中图形单位为mm）送交工厂。<br>注意：图样需要分别使用3mm/2mm厚压克力板雕刻，请注意矢量图里的标注。<br>P.S.关于mini外壳（”Shell\mini.dwg”）:这个类型的外壳在这个版本尚未完善，外壳强度不高，请谨慎使用。</p>
 <hr>
 <h1 id="其他的材料"><a href="#其他的材料" class="headerlink" title="其他的材料"></a>其他的材料</h1><ol>
@@ -465,8 +482,12 @@
 <li>从旧键盘上拆下樱桃按键</li>
 </ul>
 <hr>
-<img src="/osu_keyboard/v2_make/burn1.jpg" width="350">
-<p>(atmelISP)<br><img src="/osu_keyboard/v2_make/burn2.jpg" width="350"><br>（Fuse）<br><img src="/osu_keyboard/v2_make/burn3.jpg" width="350"><br>（ISP Define）</p>
+<img src="/osu_keyboard/v2_make/burn1.jpg" class="" width="350">
+<p>(atmelISP)</p>
+<img src="/osu_keyboard/v2_make/burn2.jpg" class="" width="350">
+<p>（Fuse）</p>
+<img src="/osu_keyboard/v2_make/burn3.jpg" class="" width="350">
+<p>（ISP Define）</p>
 <h1 id="关于avr芯片上的程序"><a href="#关于avr芯片上的程序" class="headerlink" title="关于avr芯片上的程序"></a>关于avr芯片上的程序</h1><p>编译好的hex文件：”Prog\m48key.hex”<br>ISP口为精简的6PIN ISP，请参考图“ISP Define”<br>熔丝位设置：</p>
 <ul>
 <li>CKDIV8=1</li>
@@ -475,17 +496,19 @@
 </ul>
 <p>P.S.这个程序参照了一个叫C64 Keyboard的开源键盘.向原作者致敬！</p>
 <hr>
-<h1 id="组装方法"><a href="#组装方法" class="headerlink" title="组装方法"></a>组装方法</h1><img src="/osu_keyboard/v2_make/assemble_chs.jpg" width="600">
+<h1 id="组装方法"><a href="#组装方法" class="headerlink" title="组装方法"></a>组装方法</h1><img src="/osu_keyboard/v2_make/assemble_chs.jpg" class="" width="600">
+
 <p>组装可参考工程包里的“assemble_chs_eng.doc”（中/英文）</p>
-<p>也参考组装演示视频（中文字幕） <a href="http://www.tudou.com/programs/view/sbXESmsUZPg" target="_blank" rel="noopener">http://www.tudou.com/programs/view/sbXESmsUZPg</a></p>
+<p>也参考组装演示视频（中文字幕） <a target="_blank" rel="noopener" href="http://www.tudou.com/programs/view/sbXESmsUZPg">http://www.tudou.com/programs/view/sbXESmsUZPg</a></p>
 <ul>
-<li>以下为硅胶防滑垫贴的推荐贴法<img src="/osu_keyboard/v2_make/assemble_post_method.jpg">
+<li>以下为硅胶防滑垫贴的推荐贴法<img src="/osu_keyboard/v2_make/assemble_post_method.jpg" class="">
+
 </li>
 </ul>
 <hr>
 <h1 id="设置说明"><a href="#设置说明" class="headerlink" title="设置说明"></a>设置说明</h1><h1 id="直接设置项目"><a href="#直接设置项目" class="headerlink" title="直接设置项目"></a>直接设置项目</h1><p>设置保存在键盘内部，不会由于断电或更换电脑而消失。<br>设置过程中，为方便查看效果，需要使用一个免费工具Keyboard Test Utility.<br>上方两颗键为“BT1 BT2”，将下方一颗键称为“BT3”，长按的意思为“按下0.5sec”</p>
 <p>BT3设置方法——先同时按下BT1 BT2，再长按BT3<br>BT1/2设置方法——先同时按下BT2 BT3，再长按BT1<br>闲置时背景光设置方法——先同时按下BT1 BT3，再长按BT2</p>
-<p>可参考视频(中文字幕) <a href="http://www.tudou.com/programs/view/mSUck6N8cYk" target="_blank" rel="noopener">http://www.tudou.com/programs/view/mSUck6N8cYk</a></p>
+<p>可参考视频(中文字幕) <a target="_blank" rel="noopener" href="http://www.tudou.com/programs/view/mSUck6N8cYk">http://www.tudou.com/programs/view/mSUck6N8cYk</a></p>
 <h1 id="PCB上设置项目"><a href="#PCB上设置项目" class="headerlink" title="PCB上设置项目"></a>PCB上设置项目</h1><p>JP（pcb跳线）两端接通为1，断开为0.</p>
 <table>
 <thead>
@@ -495,8 +518,7 @@
 <th>按键光</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>0</td>
 <td>常暗，按下变亮（默认）</td>
@@ -516,12 +538,12 @@
 <td>1</td>
 <td>不亮</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>注意<br>关于按键灯的安装方向：从pcb顶端来看，LED正极（长脚）应该在左手边，焊接led前请先烧程序测试，测试led是否正常工作。</p>
 <hr>
-<h1 id="美化方式"><a href="#美化方式" class="headerlink" title="美化方式"></a>美化方式</h1><img src="/osu_keyboard/v2_make/beautiful1.jpg" width="300">
-<img src="/osu_keyboard/v2_make/beautiful2.jpg" width="300">
+<h1 id="美化方式"><a href="#美化方式" class="headerlink" title="美化方式"></a>美化方式</h1><img src="/osu_keyboard/v2_make/beautiful1.jpg" class="" width="300">
+<img src="/osu_keyboard/v2_make/beautiful2.jpg" class="" width="300">
+
 <p>透明的亚克力板很单调吧，这里推荐2种美化方案：</p>
 <ol>
 <li>使用彩色亚克力板</li>
@@ -567,7 +589,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 
 
@@ -584,10 +606,16 @@
       
     </div>
   </div>
-  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
-  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
 
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -651,12 +679,20 @@
     </div>
   </div>
 
-  <script src="/PhotoSwipe/photoswipe.js"></script>
-  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
 
 
 <script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
 <script src="/scripts/main.js"></script>
+
 
   
 <div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>

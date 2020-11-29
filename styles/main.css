@@ -629,14 +629,14 @@ body {
 .article-entry pre,
 .article-entry .highlight {
   background: #fff;
-  margin: 0 -20px;
+  margin: 0;
   padding: 15px 20px;
   border-style: solid;
   border-color: #ddd;
-  border-width: 1px 0;
+  border-width: 1px;
   overflow: auto;
   color: #4d4d4c;
-  line-height: 22.400000000000002px;
+  line-height: 1.6em;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -684,13 +684,13 @@ body {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 22.400000000000002px;
+  height: 1.6em;
 }
 .article-entry .gist {
-  margin: 0 -20px;
+  margin: 0;
   border-style: solid;
   border-color: #ddd;
-  border-width: 1px 0;
+  border-width: 1px;
   background: #fff;
   padding: 15px 20px 15px 0;
 }
