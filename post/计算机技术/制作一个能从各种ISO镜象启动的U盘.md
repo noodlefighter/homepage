@@ -1,5 +1,5 @@
 date: 2018-02-16
-tags: 
+tags:
 
 - boot
 ---
@@ -34,11 +34,11 @@ https://github.com/a1ive/grub2-filemanager
 
 先将分区表格式为设为GUID，建EFI分区，可以用DiskGenius：
 
-![1560447568154](_assets/制作一个能从各种ISO镜象启动的U盘/1560447568154.png)
+![1560447568154.png](_assets/制作一个能从各种ISO镜象启动的U盘/1560447568154.png)
 
 快速分区功能建EFI分区：
 
-![1560447642813](_assets/制作一个能从各种ISO镜象启动的U盘/1560447642813.png)
+![1560447642813.png](_assets/制作一个能从各种ISO镜象启动的U盘/1560447642813.png)
 
 [获取grubfm-zh_CN.7z](https://github.com/a1ive/grub2-filemanager/releases)，把`grubfmx64.efi`复制到`(EFI分区)/efi/boot/bootx64.efi`。完毕
 

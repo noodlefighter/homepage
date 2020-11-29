@@ -1,6 +1,6 @@
 
 date: 2018-1-12
-tags: 
+tags:
 - 笔记
 ---
 
@@ -23,16 +23,16 @@ https://wenku.baidu.com/view/dd150ee3482fb4daa48d4b0a.html
 ## 什么是USB
 ### 从接口讲起
 对于终端用户来说，对USB最直观的认识就是USB的接口插头，看图：
-![02](_assets/USB设备开发基础知识整理/02.jpg)
+![02.jpg](_assets/USB设备开发基础知识整理/02.jpg)
 
 现时间点大家最熟悉的几种USB插头莫过于USB2.0的TypeA、Mini-B、Micro-B；最近开始频繁露脸的USB3.0的TypeA、TypeC。
 
 ### 定义
 USB是Universal Serial Bus的缩写，中文译为通用串行总线，USB出现之前，计算机领域中的接口太多太繁杂，USB出现之后减少了接口的种类，总的来说就是设计出了一个万能的接口，各种外设都能用同一种接口，所以才冠以“通用（是Universal）”为名。
-![01](_assets/USB设备开发基础知识整理/01.jpg)
+![01.jpg](_assets/USB设备开发基础知识整理/01.jpg)
 
 ### USB线缆
-![06](_assets/USB设备开发基础知识整理/06.jpg)
+![06.jpg](_assets/USB设备开发基础知识整理/06.jpg)
 
 ### 特性
 * 通用串行总线
@@ -44,17 +44,17 @@ USB是Universal Serial Bus的缩写，中文译为通用串行总线，USB出现
 
 ### 传输速度
 维基百科图:
-![04](_assets/USB设备开发基础知识整理/04.jpg)
+![04.jpg](_assets/USB设备开发基础知识整理/04.jpg)
 
 ### 版本历史
 维基百科图:
-![03](_assets/USB设备开发基础知识整理/03.jpg)
+![03.jpg](_assets/USB设备开发基础知识整理/03.jpg)
 
 ---
 
 ## 角色
 ### USB Host(USB主机)
-主机就是USB总线中作主设备角色的设备, 负责管理USB总线中的数据传输及端口管理. 
+主机就是USB总线中作主设备角色的设备, 负责管理USB总线中的数据传输及端口管理.
 比如一个U盘(USB大容量储存设备)和PC通讯, PC在这里就是USB Host.
 
 ### USB Device
@@ -62,7 +62,7 @@ USB Device就是在USB总线中作从设备角色的设备
 
 ### USB Hub
 它的实现也就是USB扩展坞啦
-![05](_assets/USB设备开发基础知识整理/05.jpg)
+![05.jpg](_assets/USB设备开发基础知识整理/05.jpg)
 
 * USB Hub可以将一个USB口转换为多个
 * USB Host带有Root Hub
@@ -71,10 +71,10 @@ USB Device就是在USB总线中作从设备角色的设备
 ---
 
 ## USB系统架构
-![07](_assets/USB设备开发基础知识整理/07.jpg)
+![07.jpg](_assets/USB设备开发基础知识整理/07.jpg)
 ### USB Bus Interface Layer
 该层为硬件设备连接. [USB相关的基础知识 - USB相关的硬件](https://www.crifan.com/files/doc/docbook/usb_basic/release/html/usb_basic.html#usb_related_hw)中有更详细的介绍.
-Host侧, USB Host Controller(USB主控制器)是Host的具体硬件实现, 如上文所说, 它负责USB总线中的数据传输及端口管理. 具体到摸得着的东西就是PC主板上与USB端口直接相连, 挂在PCI总线上, windows的设备管理器里可以看到这里有3个USB主控制器, 2个EHCI（USB 2.0），1个XHCI（USB 3.0）: 
+Host侧, USB Host Controller(USB主控制器)是Host的具体硬件实现, 如上文所说, 它负责USB总线中的数据传输及端口管理. 具体到摸得着的东西就是PC主板上与USB端口直接相连, 挂在PCI总线上, windows的设备管理器里可以看到这里有3个USB主控制器, 2个EHCI（USB 2.0），1个XHCI（USB 3.0）:
 ![08.jpg](_assets/USB设备开发基础知识整理/08.jpg)
 Device侧, USB Bus Interface可以认为是USB Devvice Controller(USB设备控制器).
 
@@ -110,7 +110,7 @@ USB通讯实际上就是端点通讯，在Host看来每一个Device就是一堆�
 
 ![13.jpg](_assets/USB设备开发基础知识整理/13.jpg)
 
-包是在Pipe上传输的数据(包是由"域"组成的, 它是USB数据的最小单位, 这里不讨论). 
+包是在Pipe上传输的数据(包是由"域"组成的, 它是USB数据的最小单位, 这里不讨论).
 
 Transaction翻译成"事务", 我理解为"一次通讯过程", 分别有IN事务、OUT事务和SETUP事务三大事务, 每种事务通常由Token(令牌包)、Data(数据包)、Handshake(握手包)三个阶段构成，这里用阶段的意思是因为这些包的发送是有一定的先后顺序的:
 
@@ -131,12 +131,12 @@ USB是主从式总线, 所以所有事务都是由主机发送的Token开始, �
 #### Control Transfers (控制传输)
 
 ```none
-Control data is used by the USB System Software to configure 
-devices when they are first attached.  Otherdriver software 
-can choose to use control transfers in implementation-specific 
+Control data is used by the USB System Software to configure
+devices when they are first attached.  Otherdriver software
+can choose to use control transfers in implementation-specific
 ways. Data delivery is lossless.
 ```
-USB总线保证这种方式下数据不会丢失. 用于Device插入后配置/获取设备信息, 设备也可以自定用途, 比如用于查询设备状态. 
+USB总线保证这种方式下数据不会丢失. 用于Device插入后配置/获取设备信息, 设备也可以自定用途, 比如用于查询设备状态.
 
 SETUP事务图示:
 
@@ -149,15 +149,15 @@ SETUP事务图示:
 #### Bulk Transfers (块传输)
 
 ```none
-Bulk data typically consists of larger amounts of data, 
-such as that used for printers or scanners. Bulk data is 
-sequential. Reliable exchange of data is ensured at the 
-hardware level by using error detection in hardware and 
-invoking a limited number of retries in hardware. Also, 
+Bulk data typically consists of larger amounts of data,
+such as that used for printers or scanners. Bulk data is
+sequential. Reliable exchange of data is ensured at the
+hardware level by using error detection in hardware and
+invoking a limited number of retries in hardware. Also,
 the bandwidth taken up by bulk data can vary, depending on other bus activities.
 ```
 
-用于可靠传输大量数据, 单次允许传输更多的数据(所以在Device中它们端点的缓存区会更大), 保证数据的正确性但不保证实时性(取决于总线的繁忙程度). 
+用于可靠传输大量数据, 单次允许传输更多的数据(所以在Device中它们端点的缓存区会更大), 保证数据的正确性但不保证实时性(取决于总线的繁忙程度).
 如打印机/扫描仪.
 
 ![15.jpg](_assets/USB设备开发基础知识整理/15.jpg)
@@ -166,13 +166,13 @@ the bandwidth taken up by bulk data can vary, depending on other bus activities.
 
 ```none
 A limited-latency transfer to or from a device is referred to
-as interrupt data. Such data may be presented for transfer by 
-a device at any time and is delivered by the USB at a rate no 
+as interrupt data. Such data may be presented for transfer by
+a device at any time and is delivered by the USB at a rate no
 slower than is specified by the device.
 ```
 
 用于少量数据的低延迟传输, Host以不低于Device指定的频率向设备发令牌请求数据, 也可以由Host向Device发送数据.
-比如键盘/鼠标/游戏控制器就用这种方式来传输. 
+比如键盘/鼠标/游戏控制器就用这种方式来传输.
 通常不用来传送大量数据.
 
 ![16.jpg](_assets/USB设备开发基础知识整理/16.jpg)
@@ -180,19 +180,19 @@ slower than is specified by the device.
 #### Isochronous Transfers (同步传输)
 
 ```none
-Isochronous data is continuous and real-time in creation, 
-delivery, and consumption. Timing-related information is 
-implied by the steady rate at which isochronous data is 
-received and transferred. Isochronous data must be delivered 
-at the rate received to maintain its timing. In addition to 
-delivery rate, isochronous data may also be sensitive to 
-delivery delays. For isochronous pipes, the bandwidth required 
-is typically based upon the sampling characteristics of the 
-associated function. The latency required is related to the 
+Isochronous data is continuous and real-time in creation,
+delivery, and consumption. Timing-related information is
+implied by the steady rate at which isochronous data is
+received and transferred. Isochronous data must be delivered
+at the rate received to maintain its timing. In addition to
+delivery rate, isochronous data may also be sensitive to
+delivery delays. For isochronous pipes, the bandwidth required
+is typically based upon the sampling characteristics of the
+associated function. The latency required is related to the
 buffering available at each endpoint.
 ```
 
-用于传输大量数据, 不要求可靠性但要求实时性. 类似中断传输, 同步传输也是由Host周期访问设备, 只是同步传输不能保证数据成功传输. 
+用于传输大量数据, 不要求可靠性但要求实时性. 类似中断传输, 同步传输也是由Host周期访问设备, 只是同步传输不能保证数据成功传输.
 适用于音频和视频设备, 如麦克风/摄像头.
 
 ---
@@ -232,15 +232,15 @@ Device的厂商也可以在Class的基础上做一些定义(当然这时候就�
 ### 端点0
 
 ```none
-All USB devices are required to implement a default control method 
-that uses both the input and output endpoints with endpoint number 
-zero. The USB System Software uses this default control method 
-to initialize and generically manipulate the logical device 
-(e.g., to configure the logical device) as the Default Control 
+All USB devices are required to implement a default control method
+that uses both the input and output endpoints with endpoint number
+zero. The USB System Software uses this default control method
+to initialize and generically manipulate the logical device
+(e.g., to configure the logical device) as the Default Control
 Pipe (see Section 5.3.2).
 ```
 
-所有USB设备需要实现一个默认的控制方式, 它就是既能输入也能输出的端点0, Host通过这端点0获取设备的描述、配置、状态，对设备进行设置。 
+所有USB设备需要实现一个默认的控制方式, 它就是既能输入也能输出的端点0, Host通过这端点0获取设备的描述、配置、状态，对设备进行设置。
 
 端点0在Device上电后就默认存在, 这是STM32HAL库中重置USBD的代码, 可见对EP0_IN和EP0_OUT进行了配置:
 ![11.jpg](_assets/USB设备开发基础知识整理/11.jpg)

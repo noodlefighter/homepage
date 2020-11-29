@@ -11,9 +11,9 @@ date: 2017-08-09
 
 今日排虫遇到了这个BKPT指令
 调试点对点无线通讯 然而只有一台J-Link调试器 所以需要在两台目标板间不断切换
-插拔插拔 
+插拔插拔
 问题突然就来了 一板子跑着跑着就死掉了
-于是重新接上调试器 想查看它死在了哪里 
+于是重新接上调试器 想查看它死在了哪里
 发现程序停在了一个曾经下过断点的位置
 对应的指令为
 
@@ -21,7 +21,7 @@ date: 2017-08-09
 BKPT 0x0000
 ```
 
-经过各种调查研究 发现它和调试器的"Flash breakpoints"功能有关,先给出结论: 
+经过各种调查研究 发现它和调试器的"Flash breakpoints"功能有关,先给出结论:
 J-Link的这个Flash breakpoints功能是通过BKPT指令实现的, 使能一个Flash断点, 调试器就在对应的目标程序地址的指令改写成BKPT, 踩到该指令后程序停止运行, 用户继续运行时将指令还原, 恢复现场继续运行.
 
 这里记录一下探索过程和BKPT相关知识
@@ -44,7 +44,7 @@ Usage
     The BKPT instruction causes the processor to enter Debug state. Debug tools can use this to investigate system state when the instruction at a particular address is reached.
     In both ARM state and Thumb state, imm is ignored by the ARM hardware. However, a debugger can use it to store additional information about the breakpoint.
     BKPT is an unconditional instruction. It must not have a condition code in ARM code. In Thumb code, the BKPT instruction does not require a condition code suffix because BKPT always executes irrespective of its condition code suffix.
-    
+
 Architectures
     This ARM instruction is available in ARMv5T and above.
     This 16-bit Thumb instruction is available in ARMv5T and above.
@@ -55,7 +55,7 @@ Architectures
 
 了解到指令和调试器的断点相关之后 顺着设置面板找到了这个"Flash breakpoints"功能:
 
-![20170726230109](_assets/ARM BKPT指令和半主机(Semi-hosting)模式实现的研究/20170726230109.jpg)
+![20170726230109.jpg](_assets/ARM BKPT指令和半主机(Semi-hosting)模式实现的研究/20170726230109.jpg)
 
 ```
 Flash breakpoints allows setting of an unlimited number of breakpoints even if the user application is not located in RAM. The generated command is 'monitor flash breakpoints 1'
@@ -73,7 +73,7 @@ https://www.segger.com/products/debug-probes/j-link/technology/flash-breakpoints
 
 > How Does this Work?
 > -----------------------
-> A: Basically very simple: 
+> A: Basically very simple:
 > The J-Link software reprograms a sector of the flash to set or clear a breakpoint.
 
 好吧JLink直接写了Flash。
@@ -82,7 +82,7 @@ BKPT与Semihosting(半主机模式)
 ===================================
 
 在[Cortex-M3的手册](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0552a/BABHCHGB.html#)中还多了个Note:
-``` 
+```
     ARM does not recommend the use of the BKPT instruction with an immediate value set to 0xAB for any purpose other than Semi-hosting.
 ```
 

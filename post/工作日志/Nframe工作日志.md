@@ -1,6 +1,6 @@
 
 date: 2015-08-22
-tags: 
+tags:
 - 工具
 - windows
 - 嵌入式
@@ -15,7 +15,7 @@ tags:
 ## 2015-08-22
 
 先编写了MSG/TASK部分.
-本来没有自己做内存模块的想法, 但是用堆内存还是担心申请不到的情况, 
+本来没有自己做内存模块的想法, 但是用堆内存还是担心申请不到的情况,
 还是先获取大片内存然后自己管理比较妥当, 所以增加了内存管理模块.
 
 ---
@@ -41,13 +41,13 @@ tags:
 ## 2015-10-19
 
 完善了NFDEBUG模块 现在已经满意
-![15101901](_assets/Nframe工作日志/15101901.jpg)
+![15101901.jpg](_assets/Nframe工作日志/15101901.jpg)
 
 这几天断断续续地写了TASK DEBUG部分的例子
 感觉TASK模块还能做很多优化..(现在根本不能算轻量级啊喂)
 
 这里记录一下MSG模块的设计思路吧:
-我希望模块能帮用户维护一个"消息队列", 
+我希望模块能帮用户维护一个"消息队列",
 这个队列在主循环中被逐条处理,
 
 用户可以定义自己的"消息点", 消息点可以有多个"消息处理者"
@@ -57,10 +57,10 @@ tags:
 没有多线程,为什么还要这样的机制?
 我认为这样的好处是: 可以将消息队列作为平面状态机模块的队列,
 
-把MSG模块重写了 原本脑抽 消息点都用了动态申请内存.... 
+把MSG模块重写了 原本脑抽 消息点都用了动态申请内存....
 砍掉之后代码少得多了
 现在写了demo 运行不正常 发现问题还是在malloc上 莫名其妙会HardFault_Handler..
-因为MSG模块会对用户的msg拷贝一次 所以动态申请内存无法避免 
+因为MSG模块会对用户的msg拷贝一次 所以动态申请内存无法避免
 看来得自己弄片内存来管理 或者这部分功能强制使用NFMEM模块..= =
 
 ---
@@ -75,19 +75,19 @@ http://blog.chinaunix.net/uid-16839253-id-2860462.html
 现在加上了这段代码 能在不用microLib之下进入mian函数 但是malloc的问题依旧
 看来得看看RealView编译器的手册
 ```
-//#pragma import(__use_no_semihosting) 
-_sys_exit(int x) 
-{ 
-x = x; 
-} 
-struct __FILE 
-{ 
-int handle; 
-/* Whatever you require here. If the only file you are using is */ 
-/* standard output using printf() for debugging, no file handling */ 
-/* is required. */ 
-}; 
-/* FILE is typedef’ d in stdio.h. */ 
+//#pragma import(__use_no_semihosting)
+_sys_exit(int x)
+{
+x = x;
+}
+struct __FILE
+{
+int handle;
+/* Whatever you require here. If the only file you are using is */
+/* standard output using printf() for debugging, no file handling */
+/* is required. */
+};
+/* FILE is typedef’ d in stdio.h. */
 FILE __stdout;
 //FILE __stdin;
 ```
@@ -105,12 +105,12 @@ FILE __stdout;
 
 NFTASK任务模块DEMO
 main函数中设定1s执行一次子程序
-![15102202](_assets/Nframe工作日志/15102202.jpg)
+![15102202.jpg](_assets/Nframe工作日志/15102202.jpg)
 
 NFMSG消息模块DEMO
 每隔1s发送一个消息: 一个数字
 另一个子程序接收消息 +1并显示
-![15102201](_assets/Nframe工作日志/15102201.jpg)
+![15102201.jpg](_assets/Nframe工作日志/15102201.jpg)
 
 接下来开始NFFSM平面状态机模块的编写.
 
@@ -123,7 +123,7 @@ NFMSG消息模块DEMO
 即使用函数指针表示状态 函数本身就是消息处理程序
 根据用户自定的消息类型 在函数内部完成分发
 
-好处大大滴有 不同状态间的程序段相对独立 
+好处大大滴有 不同状态间的程序段相对独立
 又不像使用switch嵌套实现的FSM那样 代码乱七八糟不能直视
 在函数首部定义static变量 利于对照 嗯很方便!
 
@@ -166,7 +166,7 @@ NFDEBUG_CommandDef NFDEBUG_CommandList[] =
 
 ```
 
-现在更改为 只需要在用户程序中 这里使用了一个宏定义NFDEBUG_COMMAND_LIST(n) 
+现在更改为 只需要在用户程序中 这里使用了一个宏定义NFDEBUG_COMMAND_LIST(n)
 ```
 /**< \brief DEBUG命令配置 */
 NFDEBUG_COMMAND_LIST(1)

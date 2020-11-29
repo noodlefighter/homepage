@@ -1,5 +1,5 @@
 date: 2019-6-11
-tags: 
+tags:
 
 - golang
 - git
@@ -55,13 +55,13 @@ $ tree
 - Content type选`application/json`
 - 设定你的Secret
 
-![1559964306663](_assets/快速搭建github的webhook服务器/1559964306663.png)
+![1559964306663.png](_assets/快速搭建github的webhook服务器/1559964306663.png)
 
 当程序收到来自`noodlefighter/wiki`仓库的`push`事件时，执行的是`./noodlefighter/wiki/push.sh`脚本——所以添加新仓库的支持只需添加对应的脚本文件。
 
 这演示的脚本是我调用hexo生成静态页，测试效果：
 
-![1560221329746](_assets/快速搭建github的webhook服务器/1560221329746.png)
+![1560221329746.png](_assets/快速搭建github的webhook服务器/1560221329746.png)
 
 ## 后菜
 
@@ -95,10 +95,10 @@ environment=PATH=%(ENV_PATH)s
 
 进入`supervisorctl`，输入`reload`，再输入`status`查看运行状态：
 
-![1560269494604](_assets/快速搭建github的webhook服务器/1560269494604.png)
+![1560269494604.png](_assets/快速搭建github的webhook服务器/1560269494604.png)
 
 使用`tail -f /var/log/supervisor/githook.log`可以即时查看追加命令，方便调试：
 
-![1560269611443](_assets/快速搭建github的webhook服务器/1560269611443.png)
+![1560269611443.png](_assets/快速搭建github的webhook服务器/1560269611443.png)
 
 配置完成之后，服务器不管怎么重启，Webhook服务器都会继续工作啦。

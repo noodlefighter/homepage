@@ -6,7 +6,7 @@ date: 2018-10-14
 
 后来入了poker3 非常喜欢它的初始键位设计和alt+space将右下角的四个键变成方向键的功能
 
-然而由于它的钢板和浇铸外壳 poker3虽小巧但重量感人 
+然而由于它的钢板和浇铸外壳 poker3虽小巧但重量感人
 于是笔者下定决心入一块GH60再把配列改成类似poker3的方案
 琢磨了一个晚上终于弄好了poker3配列 现在将他分享出来
 
@@ -19,11 +19,11 @@ date: 2018-10-14
 
 
 
-![1](_assets/GH60变身POKER3——仿poker3的TMK格式配列/1.jpg)
+![1.jpg](_assets/GH60变身POKER3——仿poker3的TMK格式配列/1.jpg)
 
 
 
-![2](_assets/GH60变身POKER3——仿poker3的TMK格式配列/2.jpg)
+![2.jpg](_assets/GH60变身POKER3——仿poker3的TMK格式配列/2.jpg)
 
 
 
