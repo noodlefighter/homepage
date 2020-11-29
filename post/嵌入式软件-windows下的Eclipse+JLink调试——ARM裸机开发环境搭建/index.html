@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/2.png">
 <meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/3.png">
 <meta property="article:published_time" content="2017-12-06T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-29T10:40:12.791Z">
+<meta property="article:modified_time" content="2020-11-29T10:40:45.697Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="ARM">
 <meta property="article:tag" content="eclipse">
@@ -265,17 +265,17 @@ p.spoiler {
 <h3 id="4-windows下的Build-tools安装"><a href="#4-windows下的Build-tools安装" class="headerlink" title="4. windows下的Build tools安装"></a>4. windows下的Build tools安装</h3><p><a target="_blank" rel="noopener" href="https://github.com/gnu-mcu-eclipse/windows-build-tools/releases">https://github.com/gnu-mcu-eclipse/windows-build-tools/releases</a></p>
 <p>Build Tools主要为windows提供unix中一些构建相关的基本工具, 比如make, 它可以通过读取makefile脚本调用以上工具链来完成编译.</p>
 <p>P.S. makefile脚本可以由Eclipse的CDT插件自动生成, 也可以由autotools,cmake等更高级的构建工具生成, 一般不手工编写.</p>
-<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/1.png" class="" width="1">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/1.png" class="" title="1.png">
 
 <p>P.S.<br>如果Build Tools无法在你的环境中正常工作 你可以选择使用MSYS2作为这里的Build Tools.</p>
 <h3 id="5-Eclipse中的设置"><a href="#5-Eclipse中的设置" class="headerlink" title="5. Eclipse中的设置"></a>5. Eclipse中的设置</h3><p>菜单<code>Windows - Preferences</code>进入设置.</p>
 <p><code>MCU - Global Build Tools Path</code>填入之前安装好的Build Tools路径<br><code>MCU - Global ARM Toolchains Path</code>填入之前安装好的工具链路径</p>
 <p>到这里应该可以正常编译了</p>
 <h3 id="6-尝试编译helloworld"><a href="#6-尝试编译helloworld" class="headerlink" title="6. 尝试编译helloworld"></a>6. 尝试编译helloworld</h3><p>新建C Project, 选择</p>
-<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/2.png" class="" width="2">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/2.png" class="" title="2.png">
 
 <p>菜单”Build - Build Project”编译, Console中出现以下输出则环境配置成功:</p>
-<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/3.png" class="" width="3">
+<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-windows%E4%B8%8B%E7%9A%84Eclipse+JLink%E8%B0%83%E8%AF%95%E2%80%94%E2%80%94ARM%E8%A3%B8%E6%9C%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/3.png" class="" title="3.png">
 
 <hr>
 <h2 id="Jlink调试"><a href="#Jlink调试" class="headerlink" title="Jlink调试"></a>Jlink调试</h2><h3 id="1-安装jlink软件包"><a href="#1-安装jlink软件包" class="headerlink" title="1. 安装jlink软件包"></a>1. 安装jlink软件包</h3><p><a target="_blank" rel="noopener" href="https://www.segger.com/jlink-software.html">https://www.segger.com/jlink-software.html</a><br><code>J-Link Software and Documentation Pack</code>中下载新版驱动<br>有时候新版本驱动无法很好地和eclipse中调试插件共同工作, 可以尝试使用稍旧的版本.</p>
