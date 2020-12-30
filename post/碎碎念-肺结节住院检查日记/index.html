@@ -8,27 +8,22 @@
 
 <title>
   
-    使用JLink的RTT方式输出日志
+    肺结节住院检查日记
   
 </title>
 
-<meta name="description" content="使用JLink调试器, 可以通过RTT(Real-Time Transfer)方式输出log, 不增加引脚占用而且速度很快.">
+<meta name="description" content="体检ct胸部平扫，在右肺查出了一处“实性结节，9x12mm，密度不高。住院检查，记录一下。 反正住院无聊，记流水账，可能对后来的人有帮助，大概。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用JLink的RTT方式输出日志">
-<meta property="og:url" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:title" content="肺结节住院检查日记">
+<meta property="og:url" content="http://noodlefighter.com/post/%E7%A2%8E%E7%A2%8E%E5%BF%B5-%E8%82%BA%E7%BB%93%E8%8A%82%E4%BD%8F%E9%99%A2%E6%A3%80%E6%9F%A5%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
-<meta property="og:description" content="使用JLink调试器, 可以通过RTT(Real-Time Transfer)方式输出log, 不增加引脚占用而且速度很快.">
+<meta property="og:description" content="体检ct胸部平扫，在右肺查出了一处“实性结节，9x12mm，密度不高。住院检查，记录一下。 反正住院无聊，记流水账，可能对后来的人有帮助，大概。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/RTT_SpeedComparison.png">
-<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/rttclient.jpg">
-<meta property="og:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/rttlogger.jpg">
-<meta property="article:published_time" content="2018-02-03T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-30T13:52:28.917Z">
+<meta property="article:published_time" content="2020-12-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-30T13:52:28.941Z">
 <meta property="article:author" content="Noodlefighter">
-<meta property="article:tag" content="JLink">
-<meta property="article:tag" content="调试">
+<meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/RTT_SpeedComparison.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -233,50 +228,96 @@ p.spoiler {
       
         <div style="max-width: 1000px">
       
-          <article id="post-嵌入式软件-使用JLink的RTT方式输出日志" class="article article-type-post">
+          <article id="post-碎碎念-肺结节住院检查日记" class="article article-type-post">
   
     <h1 class="article-header">
-      使用JLink的RTT方式输出日志
+      肺结节住院检查日记
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-02-03
+  2020-12-30
 </span>
 
   </div>
   <div class="article-entry">
-    <p>使用JLink调试器, 可以通过RTT(Real-Time Transfer)方式输出log, 不增加引脚占用而且速度很快.</p>
+    <p>体检ct胸部平扫，在右肺查出了一处“实性结节，9x12mm，密度不高。住院检查，记录一下。</p>
+<p>反正住院无聊，记流水账，可能对后来的人有帮助，大概。</p>
 <a id="more"></a>
 
-<hr>
-<h2 id="只是为了打印一些日志"><a href="#只是为了打印一些日志" class="headerlink" title="只是为了打印一些日志"></a>只是为了打印一些日志</h2><p>嵌入式软件工程师拿到一个新的硬件平台，一般要做的第一件事就是把异步串口调通，适配一下libc以便接下来的工作中能用printf打印点log帮助调试。<br>然而现在硬件变得复杂，要折腾个串口驱动也不见得容易，ARM提供了一些方法能让芯片通过SWO脚通讯, 但是需要增加一个引脚, CM0内核也不支持.<br>如果你手头的调试器是JLink，要打印点log就简单多了，使用RTT方式可以直接实现, 无需增加新引脚, 也不对目标芯片的内核作要求。</p>
-<p>官方的介绍在<a target="_blank" rel="noopener" href="https://www.segger.com/products/debug-probes/j-link/technology/real-time-transfer/about-real-time-transfer/">这里</a>，JLink的用户手册UM08001里有相同的内容。</p>
-<h2 id="RTT做了什么"><a href="#RTT做了什么" class="headerlink" title="RTT做了什么"></a>RTT做了什么</h2><p>简单地说，RTT的工作方式就是把数据直接写到RAM上，由调试器将数据取回，所以有很好的性能表现，不会影响目标的实时性能。</p>
-<p>性能表现与类似的semihosting/swo方式对比：</p>
-<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/RTT_SpeedComparison.png" class="" title="RTT_SpeedComparison">
 
-<h2 id="如何使用RTT"><a href="#如何使用RTT" class="headerlink" title="如何使用RTT"></a>如何使用RTT</h2><h3 id="官方的RTT实现"><a href="#官方的RTT实现" class="headerlink" title="官方的RTT实现"></a>官方的RTT实现</h3><p>官方提供了RTT的实现，它在JLink工具包的<code>Samples\RTT</code>目录下，里面也有使用使用例程，执行<code>SEGGER_RTT_Init()</code>初始化之后就可以使用其他API了(不初始化似乎也没问题, 但是注释里写了如果程序在RAM里就必须初始化)。<br>RTT可以有多个输入输出通道，最大通道数可以在Conf头文件里配置，其中channel0是默认通道。<br>基本上<code>SEGGER_RTT_printf()</code>这条API就够用了, 比如以往通道0输出字符串：</p>
-<figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">SEGGER_RTT_printf</span>(<span class="number">0</span>, <span class="string">"printf Test: %%c,         'S' : %c.\r\n"</span>, <span class="string">'S'</span>);</span><br></pre></td></tr></tbody></table></figure>
 
-<p>当目标片上执行了这一句，在host上的客户端里就能看到相应的输出了。</p>
-<h3 id="选用合适的客户端"><a href="#选用合适的客户端" class="headerlink" title="选用合适的客户端"></a>选用合适的客户端</h3><p>JLink工具包里提供了3种客户端: RTTClient/RTTViewer/RTTLogger.</p>
-<p>RTTClient最常用也很方便用, 它会不断地尝试连接到Debugger开放的19021端口, 比如开启JLinkGDBServer或者Keil的Debugger之后它就会自动连上去, 显示channel0的数据:</p>
-<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/rttclient.jpg" class="" title="rttclient">
-<p>一般场合用它就足够了, 把它开着放在一边就行了, 简单又安静.</p>
-<p>RTTLogger就是个日志记录工具, 能单独连接到JLink, 把指定通道输出的数据输出到一个文件里:</p>
-<img src="/post/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6-%E4%BD%BF%E7%94%A8JLink%E7%9A%84RTT%E6%96%B9%E5%BC%8F%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97/rttlogger.jpg" class="" title="rttlogger">
-
-<p>RTTViewer只在windows下有, 它能直接连接Jlink或者像RTTClient一样加入到现有的会话(Session)中, 显示各个通道的数据.</p>
-<h3 id="适配libc以便直接使用printf"><a href="#适配libc以便直接使用printf" class="headerlink" title="适配libc以便直接使用printf"></a>适配libc以便直接使用printf</h3><p>希望调用c库的printf时候使用RTT输出吗, 这就需要实现LibC的<code>_write()</code>和<code>_write_r()</code>回调.<br>这里也不用自己来实现, Segger也帮你实现好了, 在<code>Syscall</code>目录下, 比如GCC对应<code>SEGGER_RTT_Syscalls_GCC.c</code>文件, 和自己的工程一起编译即可, 然后printf就会往RTT的channel0输出数据了 </p>
-<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><h3 id="请注意低功耗操作对RTT的影响"><a href="#请注意低功耗操作对RTT的影响" class="headerlink" title="请注意低功耗操作对RTT的影响"></a>请注意低功耗操作对RTT的影响</h3><p>要注意RTT仅能在目标片的内核运行时工作，也就是说一旦cpu halt了，RTT就会暂时罢工直到cpu重新工作，比如执行了WFI指令。<br>所以使用RTT时，请先将低功耗特性屏蔽，比如一些RTOS在cpu空转时默认会使用WFI指令以节省电能，这时候RTT就好像不工作一样。。如果没法通过一些宏开关屏蔽掉这个特性，注释掉WFI指令就能临时解决这个问题。</p>
-<p>P.S. WFI指令使内核暂停工作，直到有中断发生。（似乎WFI就是wait for interrupt）</p>
-<h3 id="丢数据的情况"><a href="#丢数据的情况" class="headerlink" title="丢数据的情况"></a>丢数据的情况</h3><p>短时间内输出的最大数据量由Conf头文件的<code>BUFFER_SIZE_UP</code>宏决定, 默认配置下爆了buffer就会丢数据, 可以简单地加大这个buffer解决.<br>这个问题也可以通过改变通道配置成<code>SEGGER_RTT_MODE_BLOCK_IF_FIFO_FULL</code> (默认是<code>SEGGER_RTT_MODE_NO_BLOCK_SKIP</code>)让buffer不够用时阻塞以保证完全输出, 但它会改变程序时序/降低实时性, 不推荐使用.</p>
-<h3 id="对系统的影响"><a href="#对系统的影响" class="headerlink" title="对系统的影响?"></a>对系统的影响?</h3><p>它很快, 基本不会影响系统实时性.</p>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">The</span> RTT implementation code uses ~<span class="number">500</span> Bytes of ROM and <span class="number">24</span> Bytes ID + <span class="number">24</span> Bytes</span><br><span class="line"><span class="attribute">per</span> channel for the control block in RAM. Each channel requires some memory for the</span><br><span class="line"><span class="attribute">buffer</span>. The recommended sizes are <span class="number">1</span> kByte for up channels and <span class="number">16</span> to <span class="number">32</span> Bytes for</span><br><span class="line"><span class="attribute">down</span> channels depending <span class="literal">on</span> the load of in- / output.</span><br></pre></td></tr></tbody></table></figure>
-<p>我们看看它对资源的占用情况: 约500byte的ROM, 1KB+的RAM. ROM需求不用说, RAM对于一些小资源片子来说比较吃紧, 可以用RTT的阻塞输出方式来用实时性能换空间.</p>
+<p>之前发生的事情，虽然可能和这次检查不相关。</p>
+<ul>
+<li>09-05 早上做了力量训练，下午又去游泳好像运动过量了，加上没注意补充水，晚上出现了一次棕色的尿，头晕恶心，大量饮水后尿变清澈，网上查了下症状可能是横纹肌溶解</li>
+<li>09-06 去附近医院的体检中心检查了血常规、尿常规、B超，除了尿检隐血有两个+以外一切正常，医生说不要紧</li>
+<li>（这之后就感觉身体很虚，特别是疲劳后心脏附近容易阵痛（停止呼吸能），不敢做运动，转做简单的有氧运动）</li>
+<li>09-17 同事带了个血压计来公司，就试了试发现自己血压偏高，于是自己买了个血压计平时监控着血压，发现早上起床之后血压一直都偏高，90/140左右</li>
+<li>11-11 因为一直感觉身体不太舒服，就做了个大体检</li>
+<li>11-19 体检结果出来了，发现了这个结节，医院能直接调出体检中心的影象，医生看了给出判断，可能是病毒、真菌感染，也可能是肿瘤，让我抽时间入院做检查，看情况可能要做肺部穿刺活检</li>
+<li>12-29 入院</li>
+</ul>
+<h2 id="12-28"><a href="#12-28" class="headerlink" title="12-28"></a>12-28</h2><p>看着网上的文章，做住院的准备：毛巾、挂毛巾的衣架（没用上，睡走廊时需要这个）、洗漱用具、水杯、内裤内衣袜子、抽纸、耳塞、眼罩（忘了带上，睡走廊很需要这个）、充电宝</p>
+<h2 id="12-29"><a href="#12-29" class="headerlink" title="12-29"></a>12-29</h2><p><strong><em>报道，住走廊</em></strong></p>
+<p>挂门诊的号，和医生说趁着元旦把检查给做了，问了下大概要住多久院，医生说正常来说1月1号就能给出诊断，但1-3号元旦放假医院是没人做手术的，如果要切除啥的是做不了的。</p>
+<p>医生给写了张“住院通知书”，拿着这纸就能来住院部报道，接待的护士会查身份证，说是要核实医保信息。签了几张告知书承诺书（比如不允许递红包的承诺书，住院管理制度啥的）。</p>
+<p>住院的科室是“呼吸及危重症科”，除了有呼吸系统病的人还能听到有其他问题的，比如一些多器官都不太行的老人，大概因为是冬天，能看到的也大多是老人。</p>
+<p>住进来的时候病房满了，只能睡加在走廊的床，运气不好还被安排在了厕所旁边，时不时会传来味道。</p>
+<p><strong><em>第一天的检查</em></strong></p>
+<p>入院后做了一堆检查，除了最基本的几个常规项目，还做了心电图、肺功能检查、增强胸部CT，还有一堆关于肿瘤的检测。</p>
+<p>最主要还是这个增强CT，目的是看结节附近有没有血管，因为是肿瘤的话周围会长出血管，所以能帮助判断是不是肿瘤。做这个之前，医生会扎个置留针在手壁上（抽血那位置），实际做的时候是由机器自动泵入药液来增强血管显影的（所以要求血管足够粗，老人+血管细的话医生会谨慎），机器扫第一次是普通CT，然后泵入药液，第二次扫描才是增强，所以说是增强CT，实际上是普通CT+增强CT。顺便这个药液是“碘帕醇注射液”，不能和“皮质类固醇药物”同时用，所以做之前医生会问有没有高血压、糖尿病来排除常见用药。</p>
+<p>喔，手腕附近还打了个针皮下的针，说是肺结核检查，三天后才能看结果。</p>
+<p><strong><em>没有年轻人的住院部</em></strong></p>
+<p>一个下午就有两个老人来让我帮助解决手机问题，一个用红米开不了抖音，在主流安卓机6GB内存的今天还用着3GB内存的手机，判断大概是内存问题，重启一下就好了；一个是之前手机坏了，想拿一个老手机顶着用，但登入不上微信，看了是要安全验证，有三个方式，回答安全问题、用之前的手机扫码、找之前的两个好友帮忙发一串验证数字到这个账号上，尝试前两个都失败了，后面让他找好友帮验证，他找了同室的病友，解决了。唔，这住院部基本都是老年人，虽然护士基本是年轻人，但她们是没空理这些老人的这种事的，忙不过来。</p>
+<p><strong><em>研究起了医保</em></strong></p>
+<p>琢磨着晚上也没什么事，是不是要问医生能不能回家住呢，然后自己先查了一下，发现医生放人回去住是承担风险的，风险在于管理医保的人会查滥用医保的情况，逻辑是这样：医保倾向于减轻住院的人员的负担，很多住院的项目都是可以全额报销的，而门诊就只能报部分；而一个不需要住院的人，住了院并且用了医保，就是滥用医保，医师是要负责的，所以医保管理人员会不定期进行检查。</p>
+<p>关于职工医保，生病前虽然知道他能省很多钱，但不知道能省这么多钱，怪不得商业医疗保险的免赔额度一般是去掉医保后的。入院第一天就做了3000元的检查，但医保不覆盖的项目只有不到1000元。</p>
+<p><strong><em>晚上值班的护士很忙</em></strong></p>
+<p>晚上尝试叫了外卖，医院没管很严能直接送到病房来。</p>
+<p>护士在大概7点交班，晚上值班的都是同龄人，但人比白天少很多，只看到了两个护士和一个值班的住院医师，听她们和病人说我们两个护士是要管七十号病人的，请体谅一下，点滴打完了先把流量调到最小。看她们真的很忙，12点前基本没停过，走路都是小跑着的，而且还得忍受患者的抱怨。</p>
+<p>天气预报晚上会转凉，温度一下子从接近20度降到5度。而且住走廊，通风不要太好，但是被子意外地厚，应该不要紧。</p>
+<h2 id="12-30"><a href="#12-30" class="headerlink" title="12-30"></a>12-30</h2><p><strong><em>没睡好</em></strong></p>
+<p>夜里2点50分，醒了，医院的被子很厚，即使是降温到了6度，穿着一条加绒外裤还是没法睡，出了点汗，可能是被热醒的，也可能是被隔壁病床吵醒的，我戴着蜡球耳塞依旧能听到他的声音。</p>
+<p>大概是因为正好过了第一个睡眠周期，异常清醒，摘了耳塞听护士和住院医生的对话，这病人是插着不知道什么管子（可能是呼吸机的管子），非常痛苦所以总是去动管子，护士找来束缚带把他绑起来了不让他动。</p>
+<p>病人不停在叫“医生医生 啊啊 好难受”，发出模糊的声音，听着呼吸就很困难还在不停地喊，看护的家人和他说“休息几分钟吧已经两点五十分了”，他说“好痛，好痛”，“哪里痛”，“一阵一阵地，一呼吸就痛”，虽然就隔着床，但听得不是很清，因为操着桂柳口音。</p>
+<p>有点惊讶自己的适应能力，才一天就听习惯了病人的呻吟，反而是心疼值班的医生和护士。</p>
+<p>唔，被子好厚，热，走廊的灯光好刺眼，加上病人在叫喊，3点半才重新睡下。</p>
+<p>本来就没好好睡，早上六点就被护士弄醒，采了几管血，大概是那几项肿瘤测试。</p>
+<p><strong><em>悠闲的早上</em></strong></p>
+<p>八点起床，去做了腹部和心脏的B超，没发现问题。做完检查也没什么事做，跑出医院，去隔壁的KFC坐了一个早上，看看动画水一水群，快到中午才打包吃的回医院。</p>
+<p>说起来回来的时候风变大了，有风的时候在室外还是挺冷的。</p>
+<p>顺手取了昨天的CT诊断，报告说和11月11日的片子没什么变化，增强CT没发现结节附近有血管，基本就排除肿瘤了。</p>
+<p><strong><em>和医生谈话</em></strong></p>
+<p>回到住院部，吃了午饭，护士和我说病房空出来了，要不要搬，我当然说要搬。</p>
+<p>这之后，负责我的住院医师就让我去办公室找她。</p>
+<p>一个大概30多的女医生，挺好看，跟我说了现在的情况和之后的检查方案。大致就是做了这么多检查，没发现是肿瘤的证据，所以基本就是细菌或者病毒感染了，由于不同原因的用药方案不一样，所以还是得做入侵式的检查。</p>
+<p>计划是明天早上先做支气管镜，就是类似胃镜一样，只不过从鼻腔进入，如果能取到样，就万事大吉，这个是无风险的；如果失败了，取样效果不理想，就要做肺部穿刺，就是依靠ct，插一根针进胸部，避开肋骨、穿透肺组织取样，最有可能遇到的风险是气胸，医生说就算中招了也是小问题，然后我签了风险告知书。</p>
+<blockquote>
+<p>医生：这个风险不用怕的，年轻人最常遇到的肺的问题就是气胸了，就算得了，插根管把气体排出来，再住院个三天就行了</p>
+<p>我：。。。</p>
+<p>医生：你有家人朋友在这边吗，有人陪同吧</p>
+<p>我：家人不在这边，一个人做不了吗</p>
+<p>医生：这两个小手术都要人陪同的</p>
+<p>我：好的，那我叫人来帮忙</p>
+<p>医生：是女朋友吗</p>
+<p>我：啊，不是，是同事</p>
+<p>医生：（笑）</p>
+<p>我：。。。（笑）</p>
+</blockquote>
+<p>只好麻烦同事第二天帮个忙了，最理想的情况是上午就能解决。</p>
+<p><strong><em>在病房里偷听外边的对话</em></strong></p>
+<p>下午终于搬进了病房，两人间，还挺宽敞，有独立卫生间，也很干净。护士帮搬完床，我就开始没事做了，在床边边和傻屌群友聊天，边看《编程珠玑》（翻译真是烂，看着很吃力，实际上也没看得下几页），病房我也没关门，能听到隔壁新入住病人和医生的谈话。</p>
+<p>医生和一个年纪挺大的男人，</p>
+<blockquote>
+<p>“你现在有收入吗”，“没有”，“原来是靠什么谋生的啊”，“就是农民工务工”，“喔，那家人在这边吗”，“没有”，“两年治疗花了多少钱”，“自费花了6000多”……</p>
+</blockquote>
+<p>医生和一对夫妇，应该是男的胃出了问题，</p>
+<blockquote>
+<p>“那你怎么转到我们医院了呢”，“县下面的医院说这个治不了，得到市里面”，“刚过来吗”，“27号过来的”，“入院手续办完了吧”，“嗯”，“那现在有收入吗”，“夫妻两个人一起上来的，现在没收入了”，“那还有小孩要养吗”，“嗯最小的那个三岁半”……</p>
+</blockquote>
+<p>同房间的病友住进来了，一个大叔，又是有女儿陪同，饭点有老婆送饭来；聊了一下，昨晚他没睡着，昨晚走廊那病人闹了一晚上没停。</p>
 
   </div>
   <footer class="article-footer">
