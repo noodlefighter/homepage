@@ -54,6 +54,17 @@ $ mkdir build && cd build
 $ cmake ..
 ```
 
+### Tips
+
+有第三方提供了源，使用方法，修改脚本内的下载链接：
+
+```
+$ sed -in-place -e 's@https://nvidia.box.com/shared/static@https://bbs.gpuworld.cn/mirror@g' tools/download-models.sh 
+$ sed -in-place -e 's@https://nvidia.box.com/shared/static@https://bbs.gpuworld.cn/mirror@g' tools/install-pytorch.sh
+```
+
+但在使用过程中，有部分包下载下来是坏（提示不是ZIp档），把部分链接手动恢复回来即可（请灵活使用`git diff`命令查看变更）
+
 ## 跑个测试DEMO
 
 要用到摄像头，这里在一台Android手机上安装了`RTSP Camera Server`当视频源，测试：
