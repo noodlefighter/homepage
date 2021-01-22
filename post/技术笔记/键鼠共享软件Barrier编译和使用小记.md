@@ -6,7 +6,9 @@ tags:
 
 ---
 
-[Barrier](https://github.com/debauchee/barrier)可以让多台桌面计算机共享同一套鼠标，从[synergy-core](https://github.com/symless/synergy-core)项目fork而来，基于QT，支持主流桌面操作系统。
+（working...）
+
+[Barrier](https://github.com/debauchee/barrier)可以让多台桌面计算机，通过网络共享同一套鼠标键盘，从[synergy-core](https://github.com/symless/synergy-core)项目fork而来，基于QT，支持主流桌面操作系统。
 
 这篇文章记录Barrier的使用方法，包括编译、安装、配置。
 
@@ -16,11 +18,28 @@ tags:
 
 如果需要安装在Windows/MacOS上，github的[release页](https://github.com/debauchee/barrier/releases)中能找到开箱即用的exe/dmg文件。
 
-如果需要安装在Linux下
+如果需要安装在Linux下，请先尝试用各平台的包管理器安装预编译好的二进制包。另外，在Barrier的Github Repo里有[包管理器列表](https://github.com/debauchee/barrier#distro-specific-packages)，比如Arch系中使用pacman命令安装：
+
+```
+$ pacman -S barrier
+```
 
 
 
 ## 配置
+
+为了使用方便，如果用于日常桌面而不是专用场景（比如自动部署一群机器给客户用），建议以Barrier的GUI作为入口，修改配置灵活方便。
+
+打开Barrier，界面很简洁：
+
+![image-20210118133913746](_assets/%E9%94%AE%E9%BC%A0%E5%85%B1%E4%BA%AB%E8%BD%AF%E4%BB%B6Barrier%E7%BC%96%E8%AF%91%E5%92%8C%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0/image-20210118133913746.png)
+
+Barrier中的角色：
+
+- Server端（1台）：插着键盘鼠标的电脑，是把输入设备分享给其他电脑的角色
+- Client（可以有多台）：使用Server键盘鼠标的电脑
+
+Server端配置：
 
 
 
