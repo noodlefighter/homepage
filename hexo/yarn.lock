@@ -915,6 +915,14 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+hexo-abbrlink@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npm.taobao.org/hexo-abbrlink/download/hexo-abbrlink-2.2.1.tgz#03a3bbf73816ed19279e97452ce617c6caf98b5a"
+  integrity sha1-A6O79zgW7RknnpdFLOYXxsr5i1o=
+  dependencies:
+    hexo-front-matter "^1.0.0"
+    hexo-fs "^3.1.0"
+
 hexo-cli@^4.0.0:
   version "4.2.0"
   resolved "https://registry.npm.taobao.org/hexo-cli/download/hexo-cli-4.2.0.tgz#74647bc72a90b9cebf04af5bc70839ab281a305d"
@@ -940,6 +948,13 @@ hexo-filter-github-emojis@^3.0.4:
     lodash "^4.17.20"
     node-fetch "^2.6.1"
     random-ua "^0.0.6"
+
+hexo-front-matter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/hexo-front-matter/download/hexo-front-matter-1.0.0.tgz?cache=0&sync_timestamp=1596018795995&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhexo-front-matter%2Fdownload%2Fhexo-front-matter-1.0.0.tgz#0b48b1c1ed143e8cb25b3b223a9037385d910655"
+  integrity sha1-C0ixwe0UPoyyWzsiOpA3OF2RBlU=
+  dependencies:
+    js-yaml "^3.13.1"
 
 hexo-front-matter@^2.0.0:
   version "2.0.0"
