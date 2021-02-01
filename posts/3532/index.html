@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    MQTT协议快速入门
+  
+</title>
+
+<meta name="description" content="MQTT是个machine-to-machine (M2M)&#x2F;&quot;Internet of Things&quot;连接协议，非常轻量的订阅&#x2F;分发传输方式。 by MQTT.org侧重对应用开发有帮助的信息，写篇学习笔记。(Working)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MQTT协议快速入门">
+<meta property="og:url" content="http://noodlefighter.com/posts/3532/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="MQTT是个machine-to-machine (M2M)&#x2F;&quot;Internet of Things&quot;连接协议，非常轻量的订阅&#x2F;分发传输方式。 by MQTT.org侧重对应用开发有帮助的信息，写篇学习笔记。(Working)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdZPjExfnWPdJQwSrBGIa9AYpFIC4YGLLY_MxtxHqEfefQ2hgskd0DUWOALWgFTYtQANCrgvh9xDRNgwV_hp9VkSq9LPAHZfFUsV-7H7Cy8kY1AumLOAndfFEzg0gW00">
+<meta property="og:image" content="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdWsf_TfryAdCrSuQtBbfAQLW5GLPQPdb20fidgwRj6pZktFLwztDBHIqDNLjLD0rgTWfM2ezsBTefSpMf6L6X6lr9Y0KYIrJbYKMYaOwJtjd_XqH_EpRHtF6jTpeNWBeXx53rOAndfFEzg0Ug0QyAet8b6zCOPw0000">
+<meta property="article:published_time" content="2018-02-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-01T16:41:35.065Z">
+<meta property="article:author" content="Noodlefighter">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="MQTT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdZPjExfnWPdJQwSrBGIa9AYpFIC4YGLLY_MxtxHqEfefQ2hgskd0DUWOALWgFTYtQANCrgvh9xDRNgwV_hp9VkSq9LPAHZfFUsV-7H7Cy8kY1AumLOAndfFEzg0gW00">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+
+<style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/" rel="tag">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/" rel="tag">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/" rel="tag">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/" rel="tag">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/" rel="tag">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/" rel="tag">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/" rel="tag">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/" rel="tag">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/" rel="tag">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/" rel="tag">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/" rel="tag">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps%E8%84%9A%E6%9C%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="tag">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/" rel="tag">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/" rel="tag">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%BE%8B/" rel="tag">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="tag">应用笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E8%BD%A6/" rel="tag">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%8C%E9%9D%A2%E8%BD%AF%E4%BB%B6/" rel="tag">桌面软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="tag">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E4%BF%AE/" rel="tag">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E5%8A%9B%E6%91%86/" rel="tag">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io/" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com/" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-嵌入式软件-MQTT协议快速入门" class="article article-type-post">
+  
+    <h1 class="article-header">
+      MQTT协议快速入门
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2018-02-21
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p><code>MQTT是个machine-to-machine (M2M)/"Internet of Things"连接协议，非常轻量的订阅/分发传输方式。</code> by <a target="_blank" rel="noopener" href="http://mqtt.org/">MQTT.org</a><br>侧重对应用开发有帮助的信息，写篇学习笔记。<br>(Working)</p>
+<a id="more"></a>
+
+<p>请注意，由于本文使用<a target="_blank" rel="noopener" href="https://github.com/mcxiaoke/mqtt">MQTT协议中文版by mcxiaoke</a>的中的部分素材，以<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0)</a>许可协议发布。</p>
+<hr>
+<h2 id="协议手册导读"><a href="#协议手册导读" class="headerlink" title="协议手册导读"></a>协议手册导读</h2><p><a target="_blank" rel="noopener" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html">http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html</a></p>
+<p>中文翻译：<br><a target="_blank" rel="noopener" href="https://mcxiaoke.gitbooks.io/mqtt-cn/content/">https://mcxiaoke.gitbooks.io/mqtt-cn/content/</a></p>
+<p>手册内容很少，只有80来页，这里抽出重要的部分帮助快速熟悉。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>MQTT是种客户端服务端订阅/分发式的传输协议。它轻量、开放、简单，并设计得易于实现。这些特性使它适合许多应用场景，例如Machine to Machine(M2M)、物联网(IoT)的小代码空间、窄带宽场合。<br>协议运行在TCP/IP或者其他提供有序的（ordered）、可靠的（lossless）、双向连接（bi-directional）的网络上。特性：</p>
+<ul>
+<li>使用订阅/分发的消息模式，提供一对多的信息分发及应用的解耦；</li>
+<li>透明传输（信息的传输与承载的内容无关）</li>
+<li>信息传输有三种服务质量等级：<ul>
+<li>“最多一次”，允许丢失（如温度传感器）；</li>
+<li>“最少一次”，保证送达但可能重复；</li>
+<li>“恰好一次”，保证送达且不允许重复（如订单系统）；</li>
+</ul>
+</li>
+<li>协议的开销小，减少网络流量；</li>
+<li>发生异常断开时，通知相关方的机制。</li>
+</ul>
+<h2 id="摘要给我们提供的信息"><a href="#摘要给我们提供的信息" class="headerlink" title="摘要给我们提供的信息"></a>摘要给我们提供的信息</h2><p>从摘要能得知MQTT提供的功能，就是实现了消息的订阅/分发，有点像控制反转“好莱坞模式”，别联系我，我来联系你。</p>
+<p>比如，读者A想看杂志社B的杂志，读者A只需要去邮局C通过“邮发代号”就能订阅到杂志，而无需与杂志社B直接联系，杂志社B也无需有谁订阅了杂志，只管发刊时通知邮局C就行了，由邮局把杂志送到读者A的家里，而像读者A这样的人可以有很多个：</p>
+<img src="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdZPjExfnWPdJQwSrBGIa9AYpFIC4YGLLY_MxtxHqEfefQ2hgskd0DUWOALWgFTYtQANCrgvh9xDRNgwV_hp9VkSq9LPAHZfFUsV-7H7Cy8kY1AumLOAndfFEzg0gW00">
+
+<p>读者A和杂志社B不知道彼此的存在，仅在邮局C通过一个“邮发代号”建立起了联系，也就是“解耦了”，A、B就像客户端，C就像管理订阅和分发的服务端：</p>
+<img src="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdWsf_TfryAdCrSuQtBbfAQLW5GLPQPdb20fidgwRj6pZktFLwztDBHIqDNLjLD0rgTWfM2ezsBTefSpMf6L6X6lr9Y0KYIrJbYKMYaOwJtjd_XqH_EpRHtF6jTpeNWBeXx53rOAndfFEzg0Ug0QyAet8b6zCOPw0000">
+
+<p>服务端的角色就像是一个中介，收到客户端发来的信息后，分发给订阅了该信息的客户端。</p>
+<h2 id="从目录读出本分细节"><a href="#从目录读出本分细节" class="headerlink" title="从目录读出本分细节"></a>从目录读出本分细节</h2><p>可以从目录中看出整体脉络。</p>
+<ul>
+<li>Chapter 1 - Introduction 介绍<ul>
+<li>1.1 Organization of MQTT MQTT的组织结构</li>
+<li>1.2 Terminology 术语</li>
+<li>1.3 Normative references 规范参考</li>
+<li>1.4 Non normative references 非规范参考</li>
+<li>1.5 Data representations 数据表示</li>
+</ul>
+</li>
+<li>Chapter 2 - MQTT Control Packet format 控制包的格式</li>
+<li><strong>Chapter 3 - MQTT Control Packets</strong> 控制包<ul>
+<li>3.1 CONNECT – Client requests a connection to a Server 连接到服务端</li>
+<li>3.2 CONNACK – Acknowledge connection request 确认连接请求</li>
+<li>3.3 PUBLISH – Publish message 发布信息</li>
+<li>3.4 PUBACK – Publish acknowledgement 发布信息确认(QoS 1)</li>
+<li>3.5 PUBREC – Publish received (QoS 2 publish received, part 1) 发布收到</li>
+<li>3.6 PUBREL – Publish release (QoS 2 publish received, part 2) 发布释放</li>
+<li>3.7 PUBCOMP – Publish complete (QoS 2 publish received, part 3) 发布完成</li>
+<li>3.8 SUBSCRIBE - Subscribe to topics 订阅主题</li>
+<li>3.9 SUBACK – Subscribe acknowledgement 订阅确认</li>
+<li>3.10 UNSUBSCRIBE – Unsubscribe from topics 取消订阅</li>
+<li>3.11 UNSUBACK – Unsubscribe acknowledgement 取消订阅确认</li>
+<li>3.12 PINGREQ – PING request PING请求</li>
+<li>3.13 PINGRESP – PING response PING回应</li>
+<li>3.14 DISCONNECT – Disconnect notification 断开连接</li>
+</ul>
+</li>
+<li><strong>Chapter 4 - Operational behavior</strong> 操作行为<ul>
+<li>4.1 Storing state 储存状态</li>
+<li>4.2 Network Connections 网络连接</li>
+<li>4.3 Quality of Service levels and protocol flows 服务质量（QoS）和协议流程</li>
+<li>4.4 Message delivery retry 信息分发重试</li>
+<li>4.5 Message receipt 信息收到</li>
+<li>4.6 Message ordering 信息顺序</li>
+<li>4.7 Topic Names and Topic Filters 主题名称和主题过滤器</li>
+<li>4.8 Handling errors 错误处理</li>
+</ul>
+</li>
+<li>Chapter 5 - Security 信息安全<ul>
+<li>5.1 Introduction 介绍</li>
+<li>5.2 MQTT solutions: security and certification MQTT解决方案：安全和认证</li>
+<li>5.3 Lightweight cryptography and constrained devices 轻量加密和受限设备</li>
+<li>5.4 Implementation notes 实现时需注意的细节</li>
+</ul>
+</li>
+<li>Chapter 6 - Using WebSocket as a network transport 基于WebSocket传输</li>
+<li>Chapter 7 - Conformance Targets 一致性目标</li>
+</ul>
+<p>第三章目录中的二级标题提示了实现细节，它列举了MQTT数据包类型，连接、发布和订阅信息、实现不同QoS（服务质量）等级的通信等操作由这些数据包。</p>
+<p>第四章“操作行为”，可以猜到这章会描述协议中各个角色的行为，也就是如何把第三章中不同格式的数据包用起来。</p>
+<p>第五六七章就是次要的内容了。</p>
+<p>可见，如果想以自顶向下的思路了解协议，就应该从一、四章开始着手。</p>
+<h2 id="第一章简介"><a href="#第一章简介" class="headerlink" title="第一章简介"></a>第一章简介</h2><p>第一章中重要的是“1.2术语”。</p>
+<h3 id="网络连接-Network-Connection"><a href="#网络连接-Network-Connection" class="headerlink" title="网络连接 Network Connection"></a>网络连接 Network Connection</h3><p>MQTT使用的底层传输协议基础设施。<br>客户端使用它连接服务端。<br>它提供有序的、可靠的、双向字节流传输。<br>例子见4.2节。</p>
+<p>应用消息 Application Message MQTT协议通过网络传输应用数据。应用消息通过MQTT传输时，它们有关联的服务质量（QoS）和主题（Topic）。</p>
+<h3 id="客户端-Client"><a href="#客户端-Client" class="headerlink" title="客户端 Client"></a>客户端 Client</h3><p>使用MQTT的程序或设备。客户端总是通过网络连接到服务端。它可以<br>发布应用消息给其它相关的客户端。<br>订阅以请求接受相关的应用消息。<br>取消订阅以移除接受应用消息的请求。<br>从服务端断开连接。</p>
+<h3 id="服务端-Server"><a href="#服务端-Server" class="headerlink" title="服务端 Server"></a>服务端 Server</h3><p>一个程序或设备，作为发送消息的客户端和请求订阅的客户端之间的中介。服务端<br>接受来自客户端的网络连接。<br>接受客户端发布的应用消息。<br>处理客户端的订阅和取消订阅请求。<br>转发应用消息给符合条件的已订阅客户端。</p>
+<h3 id="订阅-Subscription"><a href="#订阅-Subscription" class="headerlink" title="订阅 Subscription"></a>订阅 Subscription</h3><p>订阅包含一个主题过滤器（Topic Filter）和一个最大的服务质量（QoS）等级。订阅与单个会话（Session）关联。会话可以包含多于一个的订阅。会话的每个订阅都有一个不同的主题过滤器。</p>
+<h3 id="主题名-Topic-Name"><a href="#主题名-Topic-Name" class="headerlink" title="主题名 Topic Name"></a>主题名 Topic Name</h3><p>附加在应用消息上的一个标签，服务端已知且与订阅匹配。服务端发送应用消息的一个副本给每一个匹配的客户端订阅。</p>
+<h3 id="主题过滤器-Topic-Filter"><a href="#主题过滤器-Topic-Filter" class="headerlink" title="主题过滤器 Topic Filter"></a>主题过滤器 Topic Filter</h3><p>订阅中包含的一个表达式，用于表示相关的一个或多个主题。主题过滤器可以使用通配符。</p>
+<h3 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话 Session"></a>会话 Session</h3><p>客户端和服务端之间的有状态的交互。一些会话只在网络连接的情况下保持，而另一些可以跨越多个客户端、服务端间的网络连接。</p>
+<h3 id="控制报文-MQTT-Control-Packet"><a href="#控制报文-MQTT-Control-Packet" class="headerlink" title="控制报文 MQTT Control Packet"></a>控制报文 MQTT Control Packet</h3><p>通过网络连接发送的信息数据包。MQTT规范定义了十四种不同类型的控制报文，其中一个（PUBLISH报文）用于传输应用消息。</p>
+<h2 id="第四章行为"><a href="#第四章行为" class="headerlink" title="第四章行为"></a>第四章行为</h2><h3 id="储存状态"><a href="#储存状态" class="headerlink" title="储存状态"></a>储存状态</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">It is necessary for the Client and Server to store Session state in order to provide Quality of Service guarantees. </span><br><span class="line"></span><br><span class="line">The Client and Server MUST store Session state for the entire duration of the Session.</span><br><span class="line"></span><br><span class="line">A Session MUST last at least as long it has an active Network Connection.</span><br></pre></td></tr></tbody></table></figure>
+<p>“会话状态Session state”指的是什么呢？抱着疑问阅读第三章，todo：</p>
+<h3 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h3><p>MQTT协议要求基础传输层能够提供有序的、可靠的、双向传输（从客户端到服务端 和从服务端到客户端）的字节流。</p>
+<p>无连接的网络传输协议如UDP是不支持的，因为他们可能会丢失数据包或对数据包重排序。</p>
+<pre><code>非规范评注
+MQTT 3.1使用的传输层协议是 [RFC793] 定义的TCP/IP协议。下面的协议也支持：
+TLS协议 [RFC5246]
+WebSocket协议 [RFC6455]
+TCP端口8883和1883已在IANA注册，分别用于MQTT的TLS和非TLS通信。
+</code></pre>
+<h3 id="服务质量等级-QoS-和协议流程"><a href="#服务质量等级-QoS-和协议流程" class="headerlink" title="服务质量等级(QoS)和协议流程"></a>服务质量等级(QoS)和协议流程</h3>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2021 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    MacOS-Vitrualbox虚拟机安装小记
+  
+</title>
+
+<meta name="description" content="工作需要为USB设备适配MacOS，手头没mac设备，总借同事的也不是个办法，于是打算自己装个。 上github搜了一下，果然有现成的脚本，用它成功安装了MacOS虚拟机，这里记录一下过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS-Vitrualbox虚拟机安装小记">
+<meta property="og:url" content="http://noodlefighter.com/posts/8862/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="工作需要为USB设备适配MacOS，手头没mac设备，总借同事的也不是个办法，于是打算自己装个。 上github搜了一下，果然有现成的脚本，用它成功安装了MacOS虚拟机，这里记录一下过程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_13_25_36.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/image-20210118120928722.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20210118114342.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_11_30_19.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/image-20210118120627164.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_13_25_36.png">
+<meta property="article:published_time" content="2021-01-18T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-01T16:41:35.085Z">
+<meta property="article:author" content="Noodlefighter">
+<meta property="article:tag" content="应用笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/8862/_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_13_25_36.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+
+<style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM/" rel="tag">ARM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GK/" rel="tag">GK</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JLink/" rel="tag">JLink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MQTT/" rel="tag">MQTT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop/" rel="tag">Photoshop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Photoshop-Script/" rel="tag">Photoshop Script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/" rel="tag">RTOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boot/" rel="tag">boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp/" rel="tag">cpp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hex/" rel="tag">hex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/osu/" rel="tag">osu!</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popn/" rel="tag">popn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ps%E8%84%9A%E6%9C%AC%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/" rel="tag">ps脚本图形界面</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timer/" rel="tag">timer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xtools/" rel="tag">xtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E4%BE%8B/" rel="tag">实例</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="tag">应用笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E8%BD%A6/" rel="tag">智能小车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%8C%E9%9D%A2%E8%BD%AF%E4%BB%B6/" rel="tag">桌面软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="tag">色彩空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A3%85%E4%BF%AE/" rel="tag">装修</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E5%8A%9B%E6%91%86/" rel="tag">风力摆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="http://gmaker.io/" title="GMaker Group" target="_blank" rel="noopener">GMaker Group</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="category-list">
+                    
+                      <div class="category-list-item">
+                        <a href="https://loli.la/" title="炒鸡焦了" target="_blank" rel="noopener">炒鸡焦了</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yukoamamiya.blogspot.com/" title="yukoamamiya" target="_blank" rel="noopener">yukoamamiya</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="category-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-技术笔记-MacOS-Vitrualbox虚拟机安装小记" class="article article-type-post">
+  
+    <h1 class="article-header">
+      MacOS-Vitrualbox虚拟机安装小记
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2021-01-18
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>工作需要为USB设备适配MacOS，手头没mac设备，总借同事的也不是个办法，于是打算自己装个。</p>
+<p>上github搜了一下，果然有现成的脚本，用它成功安装了MacOS虚拟机，这里记录一下过程。</p>
+<p><img src="_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_13_25_36.png" alt="VirtualBox_macOS_18_01_2021_13_25_36"></p>
+<a id="more"></a>
+
+
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><figure class="highlight mipsasm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The following dependencies <span class="keyword">should </span><span class="keyword">be </span>available through a package manager:</span><br><span class="line"><span class="keyword">bash </span>coreutils gzip unzip wget xxd dmg2img virtualbox</span><br></pre></td></tr></tbody></table></figure>
+<p>根据文档先装依赖：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> sudo pacman <span class="literal">-S</span> bash coreutils gzip unzip <span class="built_in">wget</span> xxd dmg2img virtualbox</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>脚本会在当前目录下创建虚拟机文件，所以在合适的路径clone。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/myspaghetti/macos-virtualbox.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> macos-virtualbox</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./macos-guest-virtualbox.sh</span></span><br></pre></td></tr></tbody></table></figure>
+<p>这个脚本会帮自动下载镜象、在virtualbox中自动创建虚拟机，安装完成后会自动启动装好的机器。贴一下脚本输出：</p>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line">~/git/macos-virtualbox (master ✘)✹ ᐅ ./macos-guest-virtualbox.sh</span><br><span class="line"></span><br><span class="line">Push-button installer <span class="keyword">of</span> macOS on VirtualBox</span><br><span class="line"></span><br><span class="line">This script installs only <span class="keyword">open</span>-source software <span class="keyword">and</span> unmodified Apple binaries,</span><br><span class="line"><span class="keyword">and</span> requires about <span class="number">50</span>GB <span class="keyword">of</span> available storage, <span class="keyword">of</span> which <span class="number">25</span>GB are <span class="keyword">for</span> temporary</span><br><span class="line">installation files that may be deleted <span class="keyword">when</span> the script is finished.</span><br><span class="line"></span><br><span class="line">The script interacts <span class="keyword">with</span> the <span class="keyword">virtual</span> machine twice, please <span class="keyword">do</span> not interact</span><br><span class="line"><span class="keyword">with</span> the <span class="keyword">virtual</span> machine manually before the script is finished.</span><br><span class="line"></span><br><span class="line">Documentation about optional configuration, iCloud <span class="keyword">and</span> iMessage connectivity,</span><br><span class="line">resuming the script by stages, <span class="keyword">and</span> other topics can be viewed <span class="keyword">with</span> the</span><br><span class="line">following command:</span><br><span class="line"></span><br><span class="line">  ./macos-guest-virtualbox.sh documentation <span class="pattern-match">| less -<span class="constructor">R</span></span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Press</span> enter <span class="keyword">to</span> review the script configuration</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">vm<span class="constructor">_name</span>="mac<span class="constructor">OS</span>"</span></span><br><span class="line"><span class="pattern-match">mac<span class="constructor">OS_release_name</span>="<span class="constructor">Catalina</span>"    # install "<span class="constructor">HighSierra</span>" "<span class="constructor">Mojave</span>" "<span class="constructor">Catalina</span>"</span></span><br><span class="line"><span class="pattern-match">storage<span class="constructor">_size</span>=80000               # <span class="constructor">VM</span> disk image size <span class="keyword">in</span> <span class="constructor">MB</span>. minimum 22000</span></span><br><span class="line"><span class="pattern-match">storage<span class="constructor">_format</span>="vdi"             # <span class="constructor">VM</span> disk image file format, "vdi" <span class="keyword">or</span> "vmdk"</span></span><br><span class="line"><span class="pattern-match">cpu<span class="constructor">_count</span>=4                      # <span class="constructor">VM</span> <span class="constructor">CPU</span> cores, minimum 2</span></span><br><span class="line"><span class="pattern-match">memory<span class="constructor">_size</span>=4096                 # <span class="constructor">VM</span> <span class="constructor">RAM</span> <span class="keyword">in</span> <span class="constructor">MB</span>, minimum 2048</span></span><br><span class="line"><span class="pattern-match">gpu<span class="constructor">_vram</span>=128                     # <span class="constructor">VM</span> video <span class="constructor">RAM</span> <span class="keyword">in</span> <span class="constructor">MB</span>, minimum 34, maximum 128</span></span><br><span class="line"><span class="pattern-match">resolution="1280x800"            # <span class="constructor">VM</span> display resolution</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">These</span> values may be customized <span class="keyword">as</span> described <span class="keyword">in</span> the documentation.</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Press</span> enter <span class="keyword">to</span> continue, <span class="constructor">CTRL</span>-<span class="constructor">C</span> <span class="keyword">to</span> exit</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">The</span> command "<span class="constructor">VBoxManage</span> <span class="built_in">list</span> extpacks" either does not <span class="built_in">list</span> the <span class="constructor">Oracle</span> <span class="constructor">VM</span></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">VirtualBox</span> <span class="constructor">Extension</span> <span class="constructor">Pack</span>, <span class="keyword">or</span> lists one <span class="keyword">or</span> more extensions <span class="keyword">as</span> unusable.</span></span><br><span class="line"><span class="pattern-match"><span class="constructor">The</span> <span class="keyword">virtual</span> machine will be configured without <span class="constructor">USB</span> x<span class="constructor">HCI</span> controllers.</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Catalina</span> selected <span class="keyword">to</span> be downloaded <span class="keyword">and</span> installed</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">stage: prompt<span class="constructor">_delete_existing_vm</span></span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">stage: create<span class="constructor">_vm</span></span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">stage: check<span class="constructor">_default_virtual_machine</span></span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Checking</span> that <span class="constructor">VirtualBox</span> starts the <span class="keyword">virtual</span> machine without errors.</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Checking</span> that <span class="constructor">VirtualBox</span> uses hardware-supported virtualization.</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">stage: prepare<span class="constructor">_macos_installation_files</span></span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Downloading</span> <span class="constructor">Apple</span> mac<span class="constructor">OS</span> <span class="constructor">Catalina</span> software update catalog</span></span><br><span class="line"><span class="pattern-match"><span class="constructor">Catalina_sucatalog</span>                                          100%[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;</span>]   <span class="number">6.52</span>M  <span class="number">12.0</span>MB/s  用时 <span class="number">0.5</span>s</span><br><span class="line">Trying <span class="keyword">to</span> find macOS Catalina InstallAssistant download URL</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_sucatalog_00_InstallAssistantAuto</span>.</span></span>smd              <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span>  <span class="number">40.05</span>K  --.-KB/s  用时 <span class="number">0.003</span>s</span><br><span class="line">Found download URL: http:<span class="comment">//swcdn.apple.com/content/downloads/26/37/001-68446/r1dbqtmf3mtpikjnd04cq31p4jk91dceh8/</span></span><br><span class="line"></span><br><span class="line">Downloading macOS installation files from swcdn.apple.com</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_BaseSystem</span>.</span></span>chunklist                               <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span>   <span class="number">1.97</span>K  --.-KB/s  用时 <span class="number">0</span>s</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_InstallInfo</span>.</span></span>plist                                  <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span>   <span class="number">1.55</span>K  --.-KB/s  用时 <span class="number">0</span>s</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_AppleDiagnostics</span>.</span></span>dmg                               <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span>   <span class="number">3.00</span>M  <span class="number">6.77</span>MB/s  用时 <span class="number">0.4</span>s</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_AppleDiagnostics</span>.</span></span>chunklist                         <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span>     <span class="number">328</span>  --.-KB/s  用时 <span class="number">0</span>s</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_BaseSystem</span>.</span></span>dmg                                     <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span> <span class="number">475.53</span>M  <span class="number">7.31</span>MB/s  用时 <span class="number">65</span>s</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESDDmg</span>.</span></span>pkg                                    <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span>&gt;]</span><span class="number">12.2</span>MB/s  剩Catalina_Ins <span class="number">100</span>%   <span class="number">7.21</span>G  <span class="number">12.3</span>MB/s  用时 <span class="number">10</span>m <span class="number">28</span>s</span><br><span class="line"></span><br><span class="line">Splitting the several-GB <span class="module-access"><span class="module"><span class="identifier">InstallESDDmg</span>.</span></span>pkg into <span class="number">1</span>GB parts because</span><br><span class="line">VirtualBox hasn't implemented UDF/HFS VISO support yet <span class="keyword">and</span> macOS</span><br><span class="line">doesn't support ISO <span class="number">9660</span> Level <span class="number">3</span> <span class="keyword">with</span> files larger than <span class="number">2</span>GB.</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part00'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part01'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part02'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part03'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part04'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part05'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part06'</span><br><span class="line">正在创建文件 '<span class="module-access"><span class="module"><span class="identifier">Catalina_InstallESD</span>.</span></span>part07'</span><br><span class="line"></span><br><span class="line">Downloading <span class="keyword">open</span>-source APFS EFI drivers used <span class="keyword">for</span> VirtualBox <span class="number">6.0</span> <span class="keyword">and</span> <span class="number">5.2</span></span><br><span class="line">...even though VirtualBox version <span class="number">6.1</span> <span class="keyword">or</span> higher is detected.</span><br><span class="line">AppleSupport-v2.<span class="number">0.4</span>-<span class="module-access"><span class="module"><span class="identifier">RELEASE</span>.</span></span>zip                             <span class="number">100</span>%<span class="literal">[<span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span><span class="operator">==</span>=&gt;]</span>  <span class="number">42.20</span>K   <span class="number">269</span>KB/s  用时 <span class="number">0.2</span>s</span><br><span class="line">Archive:  AppleSupport-v2.<span class="number">0.4</span>-<span class="module-access"><span class="module"><span class="identifier">RELEASE</span>.</span></span>zip</span><br><span class="line">  inflating: <span class="module-access"><span class="module"><span class="identifier">ApfsDriverLoader</span>.</span></span>efi</span><br><span class="line">  inflating: <span class="module-access"><span class="module"><span class="identifier">AppleImageLoader</span>.</span></span>efi</span><br><span class="line">  inflating: <span class="module-access"><span class="module"><span class="identifier">AppleUiSupport</span>.</span></span>efi</span><br><span class="line"></span><br><span class="line">stage: create_nvram_files</span><br><span class="line"></span><br><span class="line">stage: create_macos_installation_files_viso</span><br><span class="line">Creating EFI startup script</span><br><span class="line"></span><br><span class="line">Creating VirtualBox <span class="number">6</span> <span class="keyword">virtual</span> ISO containing the</span><br><span class="line">installation files from swcdn.apple.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stage: configure_vm</span><br><span class="line"></span><br><span class="line">stage: populate_basesystem_virtual_disk</span><br><span class="line">Converting <span class="module-access"><span class="module"><span class="identifier">BaseSystem</span>.</span></span>dmg <span class="keyword">to</span> <span class="module-access"><span class="module"><span class="identifier">BaseSystem</span>.</span></span>img</span><br><span class="line"></span><br><span class="line">dmg2img v1.<span class="number">6.7</span> (c) vu1tur (<span class="keyword">to</span>@vu1tur.eu.org)</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Catalina_BaseSystem</span>.</span></span>dmg --&gt; <span class="module-access"><span class="module"><span class="identifier">Catalina_BaseSystem</span>.</span></span>img</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">decompressing:</span><br><span class="line">opening partition <span class="number">0</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">1</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">2</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">3</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">4</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">5</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">6</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line">opening partition <span class="number">7</span><span class="operator"> ...             </span><span class="number">100.00</span>%  ok</span><br><span class="line"></span><br><span class="line">Archive successfully decompressed <span class="keyword">as</span> <span class="module-access"><span class="module"><span class="identifier">Catalina_BaseSystem</span>.</span></span>img</span><br><span class="line">Converting from raw image file=<span class="string">"Catalina_BaseSystem.img"</span> <span class="keyword">to</span> file=<span class="string">"Catalina_BaseSystem.vdi"</span>...</span><br><span class="line">Creating dynamic image <span class="keyword">with</span> size <span class="number">2138558464</span> <span class="built_in">bytes</span> (<span class="number">2040</span>MB)...</span><br><span class="line"></span><br><span class="line">stage: create_bootable_installer_virtual_disk</span><br><span class="line">Creating Catalina installation media <span class="keyword">virtual</span> disk image.</span><br><span class="line"><span class="number">0</span>%...<span class="number">10</span>%...<span class="number">20</span>%...<span class="number">30</span>%...<span class="number">40</span>%...<span class="number">50</span>%...<span class="number">60</span>%...<span class="number">70</span>%...<span class="number">80</span>%...<span class="number">90</span>%...<span class="number">100</span>%</span><br><span class="line">Medium created. UUID: <span class="number">00</span>a0e882-<span class="number">771</span>d-<span class="number">4</span>a9f-b2fb-<span class="number">9</span>eebd21942dc</span><br><span class="line"></span><br><span class="line">stage: populate_bootable_installer_virtual_disk</span><br><span class="line"></span><br><span class="line">Creating VirtualBox <span class="number">6</span> <span class="keyword">virtual</span> ISO containing macOS Terminal script</span><br><span class="line"><span class="keyword">for</span> partitioning <span class="keyword">and</span> populating the bootable installer <span class="keyword">virtual</span> disk.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Starting <span class="keyword">virtual</span> machine <span class="string">"macOS"</span>.</span><br><span class="line">This should take a couple <span class="keyword">of</span> minutes. If booting fails, exit the script by</span><br><span class="line">pressing CTRL-C <span class="keyword">then</span> see the documentation <span class="keyword">for</span> information about applying</span><br><span class="line">different CPU profiles <span class="keyword">in</span> the section CPU profiles <span class="keyword">and</span> CPUID settings.</span><br><span class="line"></span><br><span class="line">Until the script completes, please <span class="keyword">do</span> not manually interact <span class="keyword">with</span></span><br><span class="line">the <span class="keyword">virtual</span> machine.</span><br><span class="line"></span><br><span class="line">Press enter <span class="keyword">when</span> the Language window is ready.^C</span><br></pre></td></tr></tbody></table></figure>
+<p>但无法启动，卡在了这里：</p>
+<p><img src="_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/image-20210118120928722.png" alt="image-20210118120928722"></p>
+<p>（进入vbox可以看到配置好的机器）：</p>
+<p><img src="_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20210118114342.png" alt="深度截图_选择区域_20210118114342"></p>
+<h2 id="修复无法启动的问题"><a href="#修复无法启动的问题" class="headerlink" title="修复无法启动的问题"></a>修复无法启动的问题</h2><p>虚拟机无法启动，脚本打印出的提示，让修改cpuid（大概是因为宿主是AMD平台的原因）：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">This should take a couple of minutes. If booting fails, <span class="keyword">exit</span> the script by</span><br><span class="line">pressing CTRL-C then see the documentation <span class="keyword">for</span> information about applying</span><br><span class="line">different CPU profiles <span class="keyword">in</span> the section CPU profiles and CPUID settings.</span><br></pre></td></tr></tbody></table></figure>
+<p>输入<code>./macos-guest-virtualbox.sh documentation |less -R</code>查文档，说：</p>
+<figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">macOS does <span class="keyword">not</span> supprort every CPU supported <span class="keyword">by</span> VirtualBox. If <span class="keyword">the</span> macOS Base</span><br><span class="line">System does <span class="keyword">not</span> boot, <span class="keyword">try</span> applying different CPU profiles <span class="built_in">to</span> <span class="keyword">the</span> virtual</span><br><span class="line">machine <span class="keyword">with</span> <span class="keyword">the</span> VBoxManage commands described below. First, <span class="keyword">while</span> <span class="keyword">the</span></span><br><span class="line">VM is powered off, <span class="built_in">set</span> <span class="keyword">the</span> guest<span class="string">'s CPU profile to the host'</span>s CPU profile, <span class="keyword">then</span></span><br><span class="line"><span class="keyword">try</span> <span class="built_in">to</span> boot <span class="keyword">the</span> virtual machine:</span><br><span class="line">    VBoxManage modifyvm <span class="string">"${vm_name}"</span> <span class="comment">--cpu-profile host</span></span><br><span class="line">    VBoxManage modifyvm <span class="string">"${vm_name}"</span> <span class="comment">--cpuidremoveall</span></span><br><span class="line">If booting fails, <span class="keyword">try</span> assigning <span class="keyword">each</span> <span class="keyword">of</span> <span class="keyword">the</span> preconfigured CPU profiles <span class="keyword">while</span></span><br><span class="line"><span class="keyword">the</span> VM is powered off <span class="keyword">with</span> <span class="keyword">the</span> following <span class="keyword">command</span>:</span><br><span class="line">    VBoxManage modifyvm <span class="string">"${vm_name}"</span> <span class="comment">--cpu-profile "${cpu_profile}"</span></span><br><span class="line">Available CPU profiles:</span><br><span class="line">  <span class="string">"Intel Xeon X5482 3.20GHz"</span>  <span class="string">"Intel Core i7-2635QM"</span>  <span class="string">"Intel Core i7-3960X"</span></span><br><span class="line">  <span class="string">"Intel Core i5-3570"</span>  <span class="string">"Intel Core i7-5600U"</span>  <span class="string">"Intel Core i7-6700K"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>安装这个提示，输入：</p>
+<figure class="highlight dsconfig"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="string">VBoxManage</span> <span class="string">modifyvm</span> <span class="string">"macOS"</span> <span class="built_in">--cpu-profile</span> <span class="string">"Intel Xeon X5482 3.20GHz"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>再启动机器，成功，看到了配置语言的界面：</p>
+<p><img src="_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_11_30_19.png" alt="VirtualBox_macOS_18_01_2021_11_30_19"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这个脚本会帮自动走完安装界面（通过操作键盘的方式），所以这里稍微修改脚本让它能顺利走下去。</p>
+<p>修改脚本，在“configure_vm”阶段末尾加上刚才针对cpuid的配置：</p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">diff --git a/macos-guest-virtualbox.sh b/macos-guest-virtualbox.sh</span></span><br><span class="line"><span class="comment">index c656069..7457bdb 100755</span></span><br><span class="line"><span class="comment">--- a/macos-guest-virtualbox.sh</span></span><br><span class="line"><span class="comment">+++ b/macos-guest-virtualbox.sh</span></span><br><span class="line"><span class="meta">@@ -673,6 +673,8 @@</span> VBoxManage setextradata "${vm_name}" \</span><br><span class="line">   "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"</span><br><span class="line"> VBoxManage setextradata "${vm_name}" \</span><br><span class="line">  "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 0</span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+VBoxManage modifyvm "${vm_name}" --cpu-profile "Intel Xeon X5482 3.20GHz"</span></span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> # Create the macOS base system virtual disk image</span><br></pre></td></tr></tbody></table></figure>
+<p>重新跑一遍脚本，问已经存在虚拟机了是不是要删掉，选择“是”：</p>
+<p><img src="_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/image-20210118120627164.png" alt="image-20210118120627164"></p>
+<p>启动成功，看到了语言配置界面，然后根据提示，在脚本上按几次回车：</p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Press enter <span class="keyword">when</span> the <span class="keyword">Language</span> <span class="keyword">window</span> <span class="keyword">is</span> ready.</span><br><span class="line"></span><br><span class="line">Press enter <span class="keyword">when</span> the macOS Utilities <span class="keyword">window</span> <span class="keyword">is</span> ready.</span><br><span class="line"></span><br><span class="line">Press enter <span class="keyword">when</span> the Terminal command prompt <span class="keyword">is</span> ready.</span><br></pre></td></tr></tbody></table></figure>
+<p>完成成功。</p>
+<p><img src="_assets/MacOS-Vitrualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85%E5%B0%8F%E8%AE%B0/VirtualBox_macOS_18_01_2021_13_25_36.png" alt="VirtualBox_macOS_18_01_2021_13_25_36"></p>
+<h2 id="遇到的问题，限制"><a href="#遇到的问题，限制" class="headerlink" title="遇到的问题，限制"></a>遇到的问题，限制</h2><ul>
+<li>无法使用摄像头，photo booth无法使用USB UVC摄像头</li>
+<li>无法安装Guest Additions（参考<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/54186352">爆栈上的回答</a>没装成功）</li>
+</ul>
+<h2 id="附上宿主环境供参考"><a href="#附上宿主环境供参考" class="headerlink" title="附上宿主环境供参考"></a>附上宿主环境供参考</h2><figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">~ ᐅ screenfetch</span><br><span class="line"></span><br><span class="line"> ██████████████████  ████████     r@r-lc</span><br><span class="line"> ██████████████████  ████████     OS: Manjaro <span class="number">20.2</span>.<span class="number">1</span> Nibia</span><br><span class="line"> ██████████████████  ████████     Kernel: x86_64 Linux <span class="number">5.4</span>.<span class="number">85</span>-<span class="number">1</span>-MANJARO</span><br><span class="line"> ██████████████████  ████████     Uptime: <span class="number">8</span>d <span class="number">20</span>h <span class="number">25</span>m</span><br><span class="line"> ████████            ████████     Packages: <span class="number">1523</span></span><br><span class="line"> ████████  ████████  ████████     Shell: zsh <span class="number">5.8</span></span><br><span class="line"> ████████  ████████  ████████     Resolution: <span class="number">1920</span>x1080</span><br><span class="line"> ████████  ████████  ████████     DE: GNOME</span><br><span class="line"> ████████  ████████  ████████     WM: i3</span><br><span class="line"> ████████  ████████  ████████     GTK Theme: Adwaita [GTK2/<span class="number">3</span>]</span><br><span class="line"> ████████  ████████  ████████     Icon Theme: Adwaita</span><br><span class="line"> ████████  ████████  ████████     Font: Cantarell <span class="number">11</span></span><br><span class="line"> ████████  ████████  ████████     Disk: <span class="number">782</span>G / <span class="number">1.1</span>T (<span class="number">77</span>%)</span><br><span class="line"> ████████  ████████  ████████     CPU: AMD Ryzen <span class="number">5</span> <span class="number">3400</span>G <span class="keyword">with</span> Radeon Vega Graphics @ <span class="number">8</span>x <span class="number">3.7</span>GHz</span><br><span class="line">                                  GPU: AMD Radeon(TM) Vega <span class="number">11</span> Graphics (RAVEN, DRM <span class="number">3.35</span>.<span class="number">0</span>, <span class="number">5.4</span>.<span class="number">85</span>-<span class="number">1</span>-MANJARO, LLVM <span class="number">11.0</span>.<span class="number">0</span>)</span><br><span class="line">                                  RAM: <span class="number">14983</span>MiB / <span class="number">30096</span>MiB</span><br><span class="line">~ ᐅ yay -Qi virtualbox</span><br><span class="line">名字           : <span class="type">virtualbox</span></span><br><span class="line">版本           : 6.1.16-3</span><br><span class="line">描述           : <span class="type">Powerful</span> x86 virtualization <span class="keyword">for</span></span><br><span class="line">                 enterprise as well as home <span class="keyword">use</span></span><br><span class="line">架构           : <span class="type">x86_64</span></span><br><span class="line">URL            : <span class="type">https</span>://virtualbox.org/</span><br><span class="line">软件许可       : <span class="type">GPL</span>  custom</span><br><span class="line">组             : 无</span><br><span class="line">提供           : 无</span><br><span class="line">依赖于         : <span class="type">glibc</span>  openssl  curl  gcc-libs  libpng</span><br><span class="line">                 python  sdl  libvpx  libxml2  procps-ng</span><br><span class="line">                 shared-mime-info  zlib  libxcursor</span><br><span class="line">                 libxinerama  libx11  libxext  libxmu</span><br><span class="line">                 libxt  opus  qt5-base  qt5-x11extras</span><br><span class="line">                 VIRTUALBOX-HOST-MODULES</span><br><span class="line">可选依赖       : <span class="type">vde2</span>: Virtual Distributed Ethernet</span><br><span class="line">                 support</span><br><span class="line">                 virtualbox-guest-iso: Guest Additions CD</span><br><span class="line">                 image</span><br><span class="line">                 virtualbox-ext-vnc: VNC server support</span><br><span class="line">                 virtualbox-sdk: Developer kit</span><br><span class="line">依赖它         : 无</span><br><span class="line">被可选依赖     : 无</span><br><span class="line">与它冲突       : <span class="type">virtualbox</span>-ose</span><br><span class="line">取代           : <span class="type">virtualbox</span>-ose</span><br><span class="line">安装后大小     : 160.99 <span class="type">MiB</span></span><br><span class="line">打包者         : <span class="type">Evangelos</span> Foutras</span><br><span class="line">                 &lt;foutrelis@archlinux.org&gt;</span><br><span class="line">编译日期       : 2020年11月10日 星期二 18时11分31秒</span><br><span class="line">安装日期       : 2021年01月18日 星期一 10时52分20秒</span><br><span class="line">安装原因       : 单独指定安装</span><br><span class="line">安装脚本       : 是</span><br><span class="line">验证者         : 数字签名</span><br></pre></td></tr></tbody></table></figure>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2021 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>
