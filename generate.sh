@@ -30,5 +30,5 @@ cp -vr $BUILD_FOLDER/* $TARGET_FOLDER
 # call hexo
 cd $SHELL_FOLDER/hexo
 yarn install
-hexo clean
-hexo g
+yarn run hexo clean
+yarn run hexo g
