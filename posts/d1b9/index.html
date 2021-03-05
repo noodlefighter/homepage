@@ -19,17 +19,17 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="之前用了一段Hexo搭的个人Wiki，随着页数越来越多，Hexo生成页面就有点吃不消了，后来尝试了MkDocs感觉很适合这个场景，除了搜索功能对中文的支持比较弱以外，表现很棒，无论是易用度、生成速度。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/20200726133847.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/20200726135853.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/20200726140239.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/d1b9/_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726133847.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/d1b9/_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726135853.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/d1b9/_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726140239.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/undefined/20200726140944.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/20200726143403.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/d1b9/_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726143403.jpg">
 <meta property="article:published_time" content="2020-07-26T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-02-09T18:24:18.067Z">
+<meta property="article:modified_time" content="2021-03-05T07:16:26.854Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/20200726133847.jpg">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/d1b9/_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726133847.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -264,18 +264,11 @@ p.spoiler {
 <p>先展示一下成品：<a target="_blank" rel="noopener" href="http://wiki.noodlefighter.com/">http://wiki.noodlefighter.com/</a></p>
 <p>Github仓库：<a target="_blank" rel="noopener" href="https://github.com/noodlefighter/wiki">https://github.com/noodlefighter/wiki</a></p>
 <p>新的方案是MkDocs+mkdocs-material主题，效果如下：</p>
-<img src="/posts/undefined/20200726133847.jpg" class="">
-
-
-
+<p><img src="_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726133847.jpg"></p>
 <p>搜索：</p>
-<img src="/posts/undefined/20200726135853.png" class="">
-
+<p><img src="_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726135853.png"></p>
 <p>以文件夹组织词条分类，每个markdown文件是一个词条：</p>
-<img src="/posts/undefined/20200726140239.png" class="">
-
-
-
+<p><img src="_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726140239.png"></p>
 <h2 id="本地环境搭建"><a href="#本地环境搭建" class="headerlink" title="本地环境搭建"></a>本地环境搭建</h2><p>安装MkDocs:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip install mkdocs mkdocs-material</span><br><span class="line">$ mkdocs --version</span><br></pre></td></tr></tbody></table></figure>
 <p>新建一个项目：</p>
@@ -297,10 +290,7 @@ p.spoiler {
 <h2 id="尝试编写第一篇Wiki"><a href="#尝试编写第一篇Wiki" class="headerlink" title="尝试编写第一篇Wiki"></a>尝试编写第一篇Wiki</h2><p>编辑文件<code>docs/Wiki测试.md</code>:</p>
 <figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 中文测试</span></span><br><span class="line">我能吞下玻璃而不伤身体</span><br><span class="line"></span><br><span class="line"><span class="section">## English Test</span></span><br><span class="line">The quick brown fox jumps over the lazy dog.</span><br><span class="line"></span><br><span class="line">!!! note20200726143403</span><br><span class="line"><span class="code">    Note测试</span></span><br><span class="line"><span class="code">    hahaha</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">!!! tip "提示"</span></span><br><span class="line"><span class="code">    提示测试</span></span><br></pre></td></tr></tbody></table></figure>
 <p>本地服务器在检测到文件更改时自动重新构建，能立即看到效果：</p>
-<img src="/posts/undefined/20200726143403.jpg" class="">
-
-
-
+<p><img src="_assets/%E7%94%A8MkDocs%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAwiki/20200726143403.jpg"></p>
 <h2 id="仍需要解决的问题：中文搜索"><a href="#仍需要解决的问题：中文搜索" class="headerlink" title="仍需要解决的问题：中文搜索"></a>仍需要解决的问题：中文搜索</h2><p>Mkdocs使用lunr.js作为静态页搜索引擎，设置成日语勉强能用，但对中文分词效果不好。</p>
 
   </div>
