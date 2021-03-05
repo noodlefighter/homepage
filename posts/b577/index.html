@@ -20,7 +20,7 @@
 <meta property="og:description" content="最近做IoT传感器相关的工作需要在无FPU的场合下进行一些浮点运算稍微整理一下绕开浮点数的计算和表示方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-09-26T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.821Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.731Z">
 <meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
 
@@ -74,7 +74,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -243,7 +243,7 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <p>最近做IoT传感器相关的工作<br>需要在无FPU的场合下进行一些浮点运算<br>稍微整理一下绕开浮点数的计算和表示方法</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <hr>
 <h2 id="计算-定点数方式"><a href="#计算-定点数方式" class="headerlink" title="计算:定点数方式"></a><strong>计算:定点数方式</strong></h2><p>最适合计算 比如DSP就是以这种方法算定点数的..</p>
@@ -266,6 +266,7 @@ p.spoiler {
 <p>不适合计算<br>很适合显示 像这样<code>printf("%d.%06d", n0.integer, n0.decimal);</code></p>
 <p>zephyr的sensor subsystem用到这种表示法:</p>
 <figure class="highlight fsharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> ak8975_convert(<span class="keyword">struct</span> sensor_value *<span class="keyword">val</span>, int16_t sample,</span><br><span class="line">			   uint8_t adjustment)</span><br><span class="line">{</span><br><span class="line">	int32_t conv_val;</span><br><span class="line"></span><br><span class="line">	conv_val = sample * AK8975_MICRO_GAUSS_PER_BIT *</span><br><span class="line">		   ((uint16_t)adjustment + <span class="number">128</span>) / <span class="number">256</span>;</span><br><span class="line">	<span class="keyword">val</span>-&gt;<span class="class"><span class="keyword">type</span> </span>= SENSOR_VALUE_TYPE_INT_PLUS_MICRO;</span><br><span class="line">	<span class="keyword">val</span>-&gt;val1 = conv_val / <span class="number">1000000</span>;</span><br><span class="line">	<span class="keyword">val</span>-&gt;val2 = conv_val % <span class="number">1000000</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 
   </div>
   <footer class="article-footer">

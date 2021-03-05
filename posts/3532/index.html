@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdZPjExfnWPdJQwSrBGIa9AYpFIC4YGLLY_MxtxHqEfefQ2hgskd0DUWOALWgFTYtQANCrgvh9xDRNgwV_hp9VkSq9LPAHZfFUsV-7H7Cy8kY1AumLOAndfFEzg0gW00">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/svg/AyalK2Z9LqZABod9prL8oInAJIx9pC_ZqdWsf_TfryAdCrSuQtBbfAQLW5GLPQPdb20fidgwRj6pZktFLwztDBHIqDNLjLD0rgTWfM2ezsBTefSpMf6L6X6lr9Y0KYIrJbYKMYaOwJtjd_XqH_EpRHtF6jTpeNWBeXx53rOAndfFEzg0Ug0QyAet8b6zCOPw0000">
 <meta property="article:published_time" content="2018-02-21T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.817Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.723Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="MQTT">
@@ -79,7 +79,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -248,7 +248,7 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <p><code>MQTT是个machine-to-machine (M2M)/"Internet of Things"连接协议，非常轻量的订阅/分发传输方式。</code> by <a target="_blank" rel="noopener" href="http://mqtt.org/">MQTT.org</a><br>侧重对应用开发有帮助的信息，写篇学习笔记。<br>(Working)</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>请注意，由于本文使用<a target="_blank" rel="noopener" href="https://github.com/mcxiaoke/mqtt">MQTT协议中文版by mcxiaoke</a>的中的部分素材，以<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0)</a>许可协议发布。</p>
 <hr>
@@ -340,6 +340,7 @@ p.spoiler {
 <h3 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话 Session"></a>会话 Session</h3><p>客户端和服务端之间的有状态的交互。一些会话只在网络连接的情况下保持，而另一些可以跨越多个客户端、服务端间的网络连接。</p>
 <h3 id="控制报文-MQTT-Control-Packet"><a href="#控制报文-MQTT-Control-Packet" class="headerlink" title="控制报文 MQTT Control Packet"></a>控制报文 MQTT Control Packet</h3><p>通过网络连接发送的信息数据包。MQTT规范定义了十四种不同类型的控制报文，其中一个（PUBLISH报文）用于传输应用消息。</p>
 <h2 id="第四章行为"><a href="#第四章行为" class="headerlink" title="第四章行为"></a>第四章行为</h2><h3 id="储存状态"><a href="#储存状态" class="headerlink" title="储存状态"></a>储存状态</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">It is necessary for the Client and Server to store Session state in order to provide Quality of Service guarantees. </span><br><span class="line"></span><br><span class="line">The Client and Server MUST store Session state for the entire duration of the Session.</span><br><span class="line"></span><br><span class="line">A Session MUST last at least as long it has an active Network Connection.</span><br></pre></td></tr></tbody></table></figure>
+
 <p>“会话状态Session state”指的是什么呢？抱着疑问阅读第三章，todo：</p>
 <h3 id="网络连接"><a href="#网络连接" class="headerlink" title="网络连接"></a>网络连接</h3><p>MQTT协议要求基础传输层能够提供有序的、可靠的、双向传输（从客户端到服务端 和从服务端到客户端）的字节流。</p>
 <p>无连接的网络传输协议如UDP是不支持的，因为他们可能会丢失数据包或对数据包重排序。</p>

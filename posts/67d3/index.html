@@ -19,17 +19,17 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="Git的Hook功能可以让仓库在某些条件触发下执行特定脚本，而各托管平台都实现了自家的Webhook功能，将这些事件通过Web API的形式向外发送事件通知，我们常用Webhook在服务器上做自动部署、持续集成等。 这里用快速搭建一个最小功能的Github Webhook Server，当有人向仓库推送东西时，服务器会自动执行设定的脚本。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/1559964306663.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/1560221329746.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/1560269494604.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/1560269611443.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/67d3/1559964306663.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/67d3/1560221329746.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/67d3/1560269494604.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/67d3/1560269611443.png">
 <meta property="article:published_time" content="2019-06-11T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.845Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.771Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="golang">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/1559964306663.png">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/67d3/1559964306663.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -81,7 +81,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -251,7 +251,7 @@ p.spoiler {
   <div class="article-entry">
     <p>Git的Hook功能可以让仓库在某些条件触发下执行特定脚本，而各托管平台都实现了自家的Webhook功能，将这些事件通过Web API的形式向外发送事件通知，我们常用Webhook在服务器上做自动部署、持续集成等。</p>
 <p>这里用快速搭建一个最小功能的Github Webhook Server，当有人向仓库推送东西时，服务器会自动执行设定的脚本。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h2><ul>
 <li>带公网IP的linux服务器一台（以使用apt的ubuntu为例）</li>
@@ -260,10 +260,13 @@ p.spoiler {
 </ul>
 <p>安装Go和我们需要的依赖：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install golang</span><br><span class="line">$ go get -u gopkg.in/go-playground/webhooks.v5</span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="烹调"><a href="#烹调" class="headerlink" title="烹调"></a>烹调</h2><p>用golang实现的服务器程序已经搭好：<a target="_blank" rel="noopener" href="https://github.com/noodlefighter/githook">https://github.com/noodlefighter/githook</a>。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:noodlefighter/githook.git</span><br></pre></td></tr></tbody></table></figure>
+
 <p>目录树是这样的，执行<code>./run_githook.sh [你设定的webhook secret]</code>就能跑起来了：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ tree</span><br><span class="line">.</span><br><span class="line">|-- githook.go</span><br><span class="line">|-- noodlefighter</span><br><span class="line">|   `-- wiki</span><br><span class="line">|       `-- push.sh</span><br><span class="line">|-- README.md</span><br><span class="line">`-- run_githook.sh</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
 <blockquote>
 <p>注意：请<strong>不要</strong>直接用<code>go run</code>命令启动程序，它会把程序构建到临时目录，程序无法找到我们想要执行的shell脚本</p>
 </blockquote>
@@ -273,23 +276,25 @@ p.spoiler {
 <li>Content type选<code>application/json</code></li>
 <li>设定你的Secret</li>
 </ul>
-<img src="/posts/undefined/1559964306663.png" class="" title="1559964306663.png">
+<img src="/posts/67d3/1559964306663.png" class="" title="1559964306663.png">
 
 <p>当程序收到来自<code>noodlefighter/wiki</code>仓库的<code>push</code>事件时，执行的是<code>./noodlefighter/wiki/push.sh</code>脚本——所以添加新仓库的支持只需添加对应的脚本文件。</p>
 <p>这演示的脚本是我调用hexo生成静态页，测试效果：</p>
-<img src="/posts/undefined/1560221329746.png" class="" title="1560221329746.png">
+<img src="/posts/67d3/1560221329746.png" class="" title="1560221329746.png">
 
 <h2 id="后菜"><a href="#后菜" class="headerlink" title="后菜"></a>后菜</h2><p>服务器的话，大概还需要做自启动、异常退出重新拉起，这里推荐supervisor。</p>
 <p>安装supervisor:</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install supervisor</span><br></pre></td></tr></tbody></table></figure>
+
 <p>写配置文件到<code>/etc/supervisor/conf.d/githook.conf</code>：</p>
 <figure class="highlight ini"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[program:githook]</span></span><br><span class="line"><span class="attr">command</span>=bash -c <span class="string">"你clone的路径/run_githook.sh 你的Secret"</span></span><br><span class="line"><span class="attr">stdout_logfile_maxbytes</span>=<span class="number">20</span>MB</span><br><span class="line"><span class="attr">stdout_logfile</span>=/var/log/supervisor/%(program_name)s.log</span><br><span class="line"><span class="attr">stderr_logfile_maxbytes</span>=<span class="number">20</span>MB</span><br><span class="line"><span class="attr">stderr_logfile</span>=/var/log/supervisor/%(program_name)s.log</span><br><span class="line"><span class="attr">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">startsecs</span>=<span class="number">5</span></span><br><span class="line"><span class="attr">priority</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">stopasgroup</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">killasgroup</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">environment</span>=PATH=%(ENV_PATH)s</span><br></pre></td></tr></tbody></table></figure>
+
 <p>根据需要修改<code>environment</code>配置，添加需要的环境变量，比如我的nodejs环境需要这样写才能正常运行<code>environment=PATH=/home/r/.nvm/versions/node/v7.7.0/bin:%(ENV_PATH)s</code>。</p>
 <p>进入<code>supervisorctl</code>，输入<code>reload</code>，再输入<code>status</code>查看运行状态：</p>
-<img src="/posts/undefined/1560269494604.png" class="" title="1560269494604.png">
+<img src="/posts/67d3/1560269494604.png" class="" title="1560269494604.png">
 
 <p>使用<code>tail -f /var/log/supervisor/githook.log</code>可以即时查看追加命令，方便调试：</p>
-<img src="/posts/undefined/1560269611443.png" class="" title="1560269611443.png">
+<img src="/posts/67d3/1560269611443.png" class="" title="1560269611443.png">
 
 <p>配置完成之后，服务器不管怎么重启，Webhook服务器都会继续工作啦。</p>
 

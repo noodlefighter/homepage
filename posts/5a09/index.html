@@ -19,16 +19,16 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="使用JLink调试器, 可以通过RTT(Real-Time Transfer)方式输出log, 不增加引脚占用而且速度很快.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/RTT_SpeedComparison.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/rttclient.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/rttlogger.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/5a09/RTT_SpeedComparison.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/5a09/rttclient.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/5a09/rttlogger.jpg">
 <meta property="article:published_time" content="2018-02-03T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.821Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.727Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="JLink">
 <meta property="article:tag" content="调试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/RTT_SpeedComparison.png">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/5a09/RTT_SpeedComparison.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -80,7 +80,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -249,24 +249,25 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <p>使用JLink调试器, 可以通过RTT(Real-Time Transfer)方式输出log, 不增加引脚占用而且速度很快.</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <hr>
 <h2 id="只是为了打印一些日志"><a href="#只是为了打印一些日志" class="headerlink" title="只是为了打印一些日志"></a>只是为了打印一些日志</h2><p>嵌入式软件工程师拿到一个新的硬件平台，一般要做的第一件事就是把异步串口调通，适配一下libc以便接下来的工作中能用printf打印点log帮助调试。<br>然而现在硬件变得复杂，要折腾个串口驱动也不见得容易，ARM提供了一些方法能让芯片通过SWO脚通讯, 但是需要增加一个引脚, CM0内核也不支持.<br>如果你手头的调试器是JLink，要打印点log就简单多了，使用RTT方式可以直接实现, 无需增加新引脚, 也不对目标芯片的内核作要求。</p>
 <p>官方的介绍在<a target="_blank" rel="noopener" href="https://www.segger.com/products/debug-probes/j-link/technology/real-time-transfer/about-real-time-transfer/">这里</a>，JLink的用户手册UM08001里有相同的内容。</p>
 <h2 id="RTT做了什么"><a href="#RTT做了什么" class="headerlink" title="RTT做了什么"></a>RTT做了什么</h2><p>简单地说，RTT的工作方式就是把数据直接写到RAM上，由调试器将数据取回，所以有很好的性能表现，不会影响目标的实时性能。</p>
 <p>性能表现与类似的semihosting/swo方式对比：</p>
-<img src="/posts/undefined/RTT_SpeedComparison.png" class="" title="RTT_SpeedComparison">
+<img src="/posts/5a09/RTT_SpeedComparison.png" class="" title="RTT_SpeedComparison">
 
 <h2 id="如何使用RTT"><a href="#如何使用RTT" class="headerlink" title="如何使用RTT"></a>如何使用RTT</h2><h3 id="官方的RTT实现"><a href="#官方的RTT实现" class="headerlink" title="官方的RTT实现"></a>官方的RTT实现</h3><p>官方提供了RTT的实现，它在JLink工具包的<code>Samples\RTT</code>目录下，里面也有使用使用例程，执行<code>SEGGER_RTT_Init()</code>初始化之后就可以使用其他API了(不初始化似乎也没问题, 但是注释里写了如果程序在RAM里就必须初始化)。<br>RTT可以有多个输入输出通道，最大通道数可以在Conf头文件里配置，其中channel0是默认通道。<br>基本上<code>SEGGER_RTT_printf()</code>这条API就够用了, 比如以往通道0输出字符串：</p>
 <figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">SEGGER_RTT_printf</span>(<span class="number">0</span>, <span class="string">"printf Test: %%c,         'S' : %c.\r\n"</span>, <span class="string">'S'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
 <p>当目标片上执行了这一句，在host上的客户端里就能看到相应的输出了。</p>
 <h3 id="选用合适的客户端"><a href="#选用合适的客户端" class="headerlink" title="选用合适的客户端"></a>选用合适的客户端</h3><p>JLink工具包里提供了3种客户端: RTTClient/RTTViewer/RTTLogger.</p>
 <p>RTTClient最常用也很方便用, 它会不断地尝试连接到Debugger开放的19021端口, 比如开启JLinkGDBServer或者Keil的Debugger之后它就会自动连上去, 显示channel0的数据:</p>
-<img src="/posts/undefined/rttclient.jpg" class="" title="rttclient">
+<img src="/posts/5a09/rttclient.jpg" class="" title="rttclient">
 <p>一般场合用它就足够了, 把它开着放在一边就行了, 简单又安静.</p>
 <p>RTTLogger就是个日志记录工具, 能单独连接到JLink, 把指定通道输出的数据输出到一个文件里:</p>
-<img src="/posts/undefined/rttlogger.jpg" class="" title="rttlogger">
+<img src="/posts/5a09/rttlogger.jpg" class="" title="rttlogger">
 
 <p>RTTViewer只在windows下有, 它能直接连接Jlink或者像RTTClient一样加入到现有的会话(Session)中, 显示各个通道的数据.</p>
 <h3 id="适配libc以便直接使用printf"><a href="#适配libc以便直接使用printf" class="headerlink" title="适配libc以便直接使用printf"></a>适配libc以便直接使用printf</h3><p>希望调用c库的printf时候使用RTT输出吗, 这就需要实现LibC的<code>_write()</code>和<code>_write_r()</code>回调.<br>这里也不用自己来实现, Segger也帮你实现好了, 在<code>Syscall</code>目录下, 比如GCC对应<code>SEGGER_RTT_Syscalls_GCC.c</code>文件, 和自己的工程一起编译即可, 然后printf就会往RTT的channel0输出数据了 </p>

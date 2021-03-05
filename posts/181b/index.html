@@ -19,16 +19,16 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="在公司用着eclipse感觉挺不错调试起来比emblock要舒服用eclipse+arm-gcc+JLink的人越来越多了吧仅记录一下配置方法">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/1.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/2.png">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/3.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/181b/1.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/181b/2.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/181b/3.png">
 <meta property="article:published_time" content="2017-12-06T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.821Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.727Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="ARM">
 <meta property="article:tag" content="eclipse">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/1.png">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/181b/1.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -80,7 +80,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -249,7 +249,7 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <p>在公司用着eclipse感觉挺不错<br>调试起来比emblock要舒服<br>用eclipse+arm-gcc+JLink的人越来越多了吧<br>仅记录一下配置方法</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>另外可以参考这一篇<br><a target="_blank" rel="noopener" href="http://www.emb4fun.de/archive/eclipse/index.html">http://www.emb4fun.de/archive/eclipse/index.html</a></p>
 <p>更新记录<br>2016/08/21 补上遗漏的”Build tools安装”部分<br>2017/12/06 gnuarmeclipse已经改名为gnumcueclipse了 而且提供了打包好的”GNU MCU Eclipse IDE for C/C++ Developers” 修改几处不严谨的说法 调试部分</p>
@@ -261,20 +261,21 @@ p.spoiler {
 <p>下载压缩包 64位系统建议选择<code>win32.x86_64</code> 32位系统选择<code>win32.x86</code> eclipse选x86或x64必须和JRE相同 否则无法运行<br>如果提示没有安装JRE 可以尝试重启及检查PATH环境变量有没有包含JRE路径</p>
 <h3 id="3-下载arm工具链-GNU-ARM-Embedded-Toolchain"><a href="#3-下载arm工具链-GNU-ARM-Embedded-Toolchain" class="headerlink" title="3. 下载arm工具链(GNU ARM Embedded Toolchain)"></a>3. 下载arm工具链(GNU ARM Embedded Toolchain)</h3><p><a target="_blank" rel="noopener" href="https://launchpad.net/gcc-arm-embedded">https://launchpad.net/gcc-arm-embedded</a><br>工具链包括编译器(gcc)/调试器(gdb)等一系列目标平台相关的工具, 以实现交叉编译.<br>这里解释一下工具链名称前缀<code>arm-none-eabi-</code>:</p>
 <figure class="highlight vbnet"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">arm:</span> ARM平台</span><br><span class="line"><span class="symbol">none:</span> 目标系统, 裸机程序开发用none</span><br><span class="line"><span class="symbol">eabi:</span> ABI是应用程序二进制接口, EABI是Embedded application <span class="keyword">binary</span> <span class="keyword">interface</span>, 是一套规范, 我们只需要知道符合eabi规范的编译器间生成的库能互相连接就足够了.</span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="4-windows下的Build-tools安装"><a href="#4-windows下的Build-tools安装" class="headerlink" title="4. windows下的Build tools安装"></a>4. windows下的Build tools安装</h3><p><a target="_blank" rel="noopener" href="https://github.com/gnu-mcu-eclipse/windows-build-tools/releases">https://github.com/gnu-mcu-eclipse/windows-build-tools/releases</a></p>
 <p>Build Tools主要为windows提供unix中一些构建相关的基本工具, 比如make, 它可以通过读取makefile脚本调用以上工具链来完成编译.</p>
 <p>P.S. makefile脚本可以由Eclipse的CDT插件自动生成, 也可以由autotools,cmake等更高级的构建工具生成, 一般不手工编写.</p>
-<img src="/posts/undefined/1.png" class="" title="1.png">
+<img src="/posts/181b/1.png" class="" title="1.png">
 
 <p>P.S.<br>如果Build Tools无法在你的环境中正常工作 你可以选择使用MSYS2作为这里的Build Tools.</p>
 <h3 id="5-Eclipse中的设置"><a href="#5-Eclipse中的设置" class="headerlink" title="5. Eclipse中的设置"></a>5. Eclipse中的设置</h3><p>菜单<code>Windows - Preferences</code>进入设置.</p>
 <p><code>MCU - Global Build Tools Path</code>填入之前安装好的Build Tools路径<br><code>MCU - Global ARM Toolchains Path</code>填入之前安装好的工具链路径</p>
 <p>到这里应该可以正常编译了</p>
 <h3 id="6-尝试编译helloworld"><a href="#6-尝试编译helloworld" class="headerlink" title="6. 尝试编译helloworld"></a>6. 尝试编译helloworld</h3><p>新建C Project, 选择</p>
-<img src="/posts/undefined/2.png" class="" title="2.png">
+<img src="/posts/181b/2.png" class="" title="2.png">
 
 <p>菜单”Build - Build Project”编译, Console中出现以下输出则环境配置成功:</p>
-<img src="/posts/undefined/3.png" class="" title="3.png">
+<img src="/posts/181b/3.png" class="" title="3.png">
 
 <hr>
 <h2 id="Jlink调试"><a href="#Jlink调试" class="headerlink" title="Jlink调试"></a>Jlink调试</h2><h3 id="1-安装jlink软件包"><a href="#1-安装jlink软件包" class="headerlink" title="1. 安装jlink软件包"></a>1. 安装jlink软件包</h3><p><a target="_blank" rel="noopener" href="https://www.segger.com/jlink-software.html">https://www.segger.com/jlink-software.html</a><br><code>J-Link Software and Documentation Pack</code>中下载新版驱动<br>有时候新版本驱动无法很好地和eclipse中调试插件共同工作, 可以尝试使用稍旧的版本.</p>

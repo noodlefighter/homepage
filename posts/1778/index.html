@@ -20,7 +20,7 @@
 <meta property="og:description" content="介绍Unity是一个C下的单元测试框架（Unity Test Framework），MIT开源协议。初衷就是为嵌入式程序单元测试编写提供便利。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-08-17T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.821Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.723Z">
 <meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
 
@@ -74,7 +74,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -243,7 +243,7 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a target="_blank" rel="noopener" href="https://github.com/ThrowTheSwitch/Unity">Unity</a>是一个C下的单元测试框架（Unity Test Framework），MIT开源协议。<br>初衷就是为嵌入式程序单元测试编写提供便利。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><p>单元测试是软件开发过程中的一种减少bug、提高代码质量的手段<br>简单的说就是 编写程序的人员 逐个对最小单元（函数）编写对应的测试代码，以此验证它的输出是否符合自己的预期<br>比如当输入信息正确时，返回值是否正确；当输入信息错误时，是否产生了相应的错误信息。</p>
 <p>它除了作为一种自测减少bug，还能带来一些好处：</p>
@@ -257,8 +257,10 @@ p.spoiler {
 </ol>
 <h2 id="Unity的风格"><a href="#Unity的风格" class="headerlink" title="Unity的风格"></a>Unity的风格</h2><p>执行测试代码</p>
 <figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static</span><br><span class="line">void <span class="constructor">__test_id_get(<span class="params">void</span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="constructor">TEST_ASSERT(0 != <span class="params">sensor_id_get</span>(<span class="string">"sensor-name"</span>)</span>);  <span class="comment">/* 正确的输入 输出不为0时正确 */</span></span><br><span class="line">    <span class="constructor">TEST_ASSERT(0 <span class="operator">==</span> <span class="params">sensor_id_get</span>(<span class="string">"000abc1234"</span>)</span>);   <span class="comment">/* 错误的输入 输出为0时正确 */</span></span><br><span class="line">    <span class="constructor">TEST_ASSERT(0 <span class="operator">==</span> <span class="params">sensor_id_get</span>(<span class="string">""</span>)</span>);             <span class="comment">/* 错误的输入 输出为0时正确 */</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void tset<span class="constructor">_run(<span class="params">void</span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="constructor">UnityBegin(<span class="params">__FILE__</span>)</span>;</span><br><span class="line">    <span class="constructor">RUN_TEST(<span class="params">__test_id_get</span>)</span>;</span><br><span class="line">    <span class="constructor">RUN_TEST(<span class="params">__test_channel</span>)</span>;</span><br><span class="line">    <span class="constructor">RUN_TEST(<span class="params">__test_attribute</span>)</span>;</span><br><span class="line">    <span class="constructor">UnityEnd()</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <p>Unity输出的调试信息</p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">../<span class="selector-tag">user_code</span>/<span class="selector-tag">test_code</span>/<span class="selector-tag">test_sensor_general</span><span class="selector-class">.c</span><span class="selector-pseudo">:179</span><span class="selector-pseudo">:__test_id_get</span><span class="selector-pseudo">:PASS</span></span><br><span class="line">../<span class="selector-tag">user_code</span>/<span class="selector-tag">test_code</span>/<span class="selector-tag">test_sensor_general</span><span class="selector-class">.c</span><span class="selector-pseudo">:180</span><span class="selector-pseudo">:__test_channel</span><span class="selector-pseudo">:PASS</span></span><br><span class="line">../<span class="selector-tag">user_code</span>/<span class="selector-tag">test_code</span>/<span class="selector-tag">test_sensor_general</span><span class="selector-class">.c</span><span class="selector-pseudo">:181</span><span class="selector-pseudo">:__test_attribute</span><span class="selector-pseudo">:PASS</span></span><br><span class="line"><span class="selector-tag">--------------------</span></span><br><span class="line">3 <span class="selector-tag">Tests</span> 0 <span class="selector-tag">Failures</span> 0 <span class="selector-tag">Ignored</span></span><br><span class="line"><span class="selector-tag">OK</span></span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="Unity使用方法"><a href="#Unity使用方法" class="headerlink" title="Unity使用方法"></a>Unity使用方法</h2><p>Unity Project的src文件夹里只有3个文件</p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">unity</span><span class="selector-class">.h</span></span><br><span class="line"><span class="selector-tag">unity</span><span class="selector-class">.c</span></span><br><span class="line"><span class="selector-tag">unity_internals</span><span class="selector-class">.h</span></span><br></pre></td></tr></tbody></table></figure>
 <p>使用时只需<code>#include "unity.h"</code>即可<br>需要注意的是Unity是单实例程序 没法一次开多个task来跑单元测试</p>

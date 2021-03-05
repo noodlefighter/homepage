@@ -19,16 +19,16 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="朋友推荐了个适合当开发机的路由，某宝80多元的二手，MT7621AT@880MHz，512MB DDR3，32MB Flash，ROM和RAM都够大，那就开始折腾。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/boot-web.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/boot-breed.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/openwrt-status.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/33ff/boot-web.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/33ff/boot-breed.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/33ff/openwrt-status.jpg">
 <meta property="article:published_time" content="2019-01-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.833Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.747Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/boot-web.jpg">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/33ff/boot-web.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -80,7 +80,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -249,17 +249,19 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <p>朋友推荐了个适合当开发机的路由，某宝80多元的二手，MT7621AT@880MHz，512MB DDR3，32MB Flash，ROM和RAM都够大，那就开始折腾。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p>感谢恩山论坛上高手们的大量资料参考，去翻热门贴子会有很多tip。</p>
 <h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><p>第一件事当然是直接SSH上去，很好connection refuse。</p>
 <p>进WEB页面设置root用户的密码，看网上有说要安装SSH的插件，但我这没法刷出在线的插件列表，只得靠搜索找到了SSH开启方法：</p>
 <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">访问http:<span class="regexp">//</span><span class="number">192.168</span>.<span class="number">99.1</span><span class="regexp">/newifi/i</span>fiwen_hss.html</span><br><span class="line">提示success说明成功</span><br></pre></td></tr></tbody></table></figure>
+
 <p>好，SSH能登上了。</p>
 <h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入cat /proc/mtd  得到：</span><br><span class="line">mtd0: <span class="number">00010000</span> <span class="number">00010000</span> <span class="string">"u-boot-env"</span></span><br><span class="line">mtd1: <span class="number">00010000</span> <span class="number">00010000</span> <span class="string">"Factory"</span></span><br><span class="line">mtd2: 01fb0000 <span class="number">00010000</span> <span class="string">"firmware"</span></span><br><span class="line">mtd3: 00146bfa <span class="number">00010000</span> <span class="string">"kernel"</span></span><br><span class="line">mtd4: 01e49406 <span class="number">00010000</span> <span class="string">"rootfs"</span></span><br><span class="line">mtd5: 00f40000 <span class="number">00010000</span> <span class="string">"rootfs_data"</span></span><br><span class="line">mtd6: <span class="number">00020000</span> <span class="number">00010000</span> <span class="string">"panic_oops"</span></span><br><span class="line">mtd7: <span class="number">00010000</span> <span class="number">00010000</span> <span class="string">"nvram"</span></span><br><span class="line"></span><br><span class="line">输入</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td0 <span class="keyword">of</span>=<span class="regexp">/tmp/u</span>-boot-env.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td1 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>Factory.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td2 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>firmware.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td3 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>kernel.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td4 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>rootfs.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td5 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>rootfs_data.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td6 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>panic_oops.bin</span><br><span class="line">dd <span class="keyword">if</span>=<span class="regexp">/dev/m</span>td7 <span class="keyword">of</span>=<span class="regexp">/tmp/</span>nvram.bin</span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="刷breed"><a href="#刷breed" class="headerlink" title="刷breed"></a>刷breed</h2><p><a target="_blank" rel="noopener" href="https://breed.hackpascal.net/">https://breed.hackpascal.net/</a></p>
 <p>下载<code>breed-mt7621-newifi-d2.bin</code>，按住复位键插入电源，进入自带的恢复模式，192.168.1.1是它的web页面：</p>
-<img src="/posts/undefined/boot-web.jpg" class="" title="boot-web">
+<img src="/posts/33ff/boot-web.jpg" class="" title="boot-web">
 
 <p>选择这个固件，恢复，会提示失败。喔嚯？<br>大概是需要所谓的解锁才能随意刷boot？</p>
 <p>上恩山论坛逛了下发现breed的作者hackpascal提供了个刷breek方法，通过加载内核模块强行刷掉boot，帖子名“新路由3 (Newifi D2) 免拆机免解锁刷 Breed 教程”。</p>
@@ -268,19 +270,22 @@ p.spoiler {
 <p>唔，不清楚如果直接用dd命令恢复会怎么样，不敢试</p>
 </blockquote>
 <p>再进入恢复模式，就能看到breed管理界面了：</p>
-<img src="/posts/undefined/boot-breed.jpg" class="" title="boot-breed">
+<img src="/posts/33ff/boot-breed.jpg" class="" title="boot-breed">
 
 <p>这时候已经能随便刷固件了。</p>
 <h2 id="编译LEDE"><a href="#编译LEDE" class="headerlink" title="编译LEDE"></a>编译LEDE</h2><p><a target="_blank" rel="noopener" href="https://github.com/coolsnowwolf/lede">https://github.com/coolsnowwolf/lede</a></p>
 <p>lean大的仓库，带了不少本地化的东东，跟着README编译就好。</p>
 <p>Newifi-d2的配置：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Target System (MediaTek Ralink MIPS)</span><br><span class="line">Subtarget (MT7621 based boards)</span><br><span class="line">Target Profile (Newifi D2)</span><br></pre></td></tr></tbody></table></figure>
+
 <p>编译过程中需要下载不少东西，根据国内的网络情况，代理是少不了的，这里用的proxychains，比如：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxychains make -j V=s</span><br></pre></td></tr></tbody></table></figure>
+
 <p>编译结果如下：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r@r-work ~/lede_lean/bin/targets/ramips/mt7621 $ tree -L 1</span><br><span class="line">.</span><br><span class="line">├── config.seed</span><br><span class="line">├── openwrt-ramips-mt7621-device-d-team-newifi-d2.manifest</span><br><span class="line">├── openwrt-ramips-mt7621-device-d-team-newifi-d2-rootfs.tar.gz</span><br><span class="line">├── openwrt-ramips-mt7621-d-team_newifi-d2-initramfs-kernel.bin</span><br><span class="line">├── openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin</span><br><span class="line">├── packages</span><br><span class="line">└── sha256sums</span><br></pre></td></tr></tbody></table></figure>
+
 <p>其中<code>openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin</code>是可以直接刷进路由的二进制文件，直接烧上，成功了：</p>
-<img src="/posts/undefined/openwrt-status.jpg" class="" title="openwrt-status">
+<img src="/posts/33ff/openwrt-status.jpg" class="" title="openwrt-status">
 
 <p>好了东西全了，可以按需折腾自己的应用了。</p>
 

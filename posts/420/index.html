@@ -19,15 +19,15 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="2017-6-21想做个40%无线键盘 麻烦的地方是无线键盘的接收器tmk_core是个不错的开源库 要实现最简单的无线接收器功能 只需在它的基础上 把按键扫描部分适配上无线通讯即可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/170625_01.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/170625_02.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/420/170625_01.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/420/170625_02.jpg">
 <meta property="article:published_time" content="2017-07-05T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.833Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.739Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="键盘">
 <meta property="article:tag" content="嵌入式软件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/170625_01.jpg">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/420/170625_01.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -79,7 +79,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -248,7 +248,7 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <h1 id="2017-6-21"><a href="#2017-6-21" class="headerlink" title="2017-6-21"></a>2017-6-21</h1><p>想做个40%无线键盘 麻烦的地方是无线键盘的接收器<br>tmk_core是个不错的开源库 要实现最简单的无线接收器功能 只需在它的基础上 把按键扫描部分适配上无线通讯即可</p>
-<a id="more"></a>
+<span id="more"></span>
 
 
 <p>大致写一下想法:</p>
@@ -262,9 +262,9 @@ p.spoiler {
 <p>托管在<a target="_blank" rel="noopener" href="https://github.com/shabao-studio/shabao-wireless-fw">github上</a> 总之今天先fork了个tmk_core.</p>
 <p>(这里被坑了.. <code>/tmk/tmk_keyboard/tmk_core</code>比<code>/tmk/tmk_core</code>新….重新fork)</p>
 <h1 id="2017-06-25"><a href="#2017-06-25" class="headerlink" title="2017-06-25"></a>2017-06-25</h1><p>编译并实际跑了一下<code>tmk_keyboard</code>里的<code>stm32_f103_onekey</code> 可以正常工作</p>
-<img src="/posts/undefined/170625_01.jpg" class="" title="170625_01">
+<img src="/posts/420/170625_01.jpg" class="" title="170625_01">
 
-<img src="/posts/undefined/170625_02.jpg" class="" title="170625_02">
+<img src="/posts/420/170625_02.jpg" class="" title="170625_02">
 
 <p>看了下TMK这套的大致实现 它把按键扫描放在了用户程序来做<br>看来只需要在这部分适配上无线就能做个无线接收器了</p>
 <p>另外发现一篇很好的跳频协议的设计参考(也是很好的入门材料吧哈哈) nRF24L01官方(Nordic)的应用手册&lt;<a target="_blank" rel="noopener" href="http://infocenter.nordicsemi.com/pdf/nan_24-10.pdf">nAN24-07: Frequency Agility Protocol for nRF24XX</a>&gt; 手册简单描述了2.4G无线键鼠如何使用跳频技术来避免工作在2.4G频段的其他设备的干扰</p>

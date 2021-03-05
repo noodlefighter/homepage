@@ -19,21 +19,21 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="已废弃">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15101901.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15102202.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15102201.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15110801.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15111001.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15111201.jpg">
-<meta property="og:image" content="http://noodlefighter.com/posts/undefined/15111202.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15101901.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15102202.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15102201.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15110801.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15111001.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15111201.jpg">
+<meta property="og:image" content="http://noodlefighter.com/posts/6d80/15111202.jpg">
 <meta property="article:published_time" content="2015-08-22T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.821Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.731Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="工具">
 <meta property="article:tag" content="windows">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/undefined/15101901.jpg">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/6d80/15101901.jpg">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -85,7 +85,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -254,7 +254,7 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <p>已废弃</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><a target="_blank" rel="noopener" href="https://github.com/noodlefighter/Nframe">git传送门</a></p>
 <h2 id="2015-08-22"><a href="#2015-08-22" class="headerlink" title="2015-08-22"></a>2015-08-22</h2><p>先编写了MSG/TASK部分.<br>本来没有自己做内存模块的想法, 但是用堆内存还是担心申请不到的情况,<br>还是先获取大片内存然后自己管理比较妥当, 所以增加了内存管理模块.</p>
@@ -265,7 +265,7 @@ p.spoiler {
 <h2 id="2015-10-15"><a href="#2015-10-15" class="headerlink" title="2015-10-15"></a>2015-10-15</h2><p>给debug模块大致写了个command解析功能, 能帮用户从字符串中提取出参数, 并调用用户的处理函数.<br>本来打算用msg机制来做传递的, 然而需要传递几个字符串(参数), 垃圾回收很难做, 只好作罢.<br>真的是一天写一百行啊..</p>
 <hr>
 <h2 id="2015-10-19"><a href="#2015-10-19" class="headerlink" title="2015-10-19"></a>2015-10-19</h2><p>完善了NFDEBUG模块 现在已经满意</p>
-<img src="/posts/undefined/15101901.jpg" class="" title="15101901.jpg">
+<img src="/posts/6d80/15101901.jpg" class="" title="15101901.jpg">
 
 <p>这几天断断续续地写了TASK DEBUG部分的例子<br>感觉TASK模块还能做很多优化..(现在根本不能算轻量级啊喂)</p>
 <p>这里记录一下MSG模块的设计思路吧:<br>我希望模块能帮用户维护一个”消息队列”,<br>这个队列在主循环中被逐条处理,</p>
@@ -276,15 +276,16 @@ p.spoiler {
 <h2 id="2015-10-21"><a href="#2015-10-21" class="headerlink" title="2015-10-21"></a>2015-10-21</h2><p>malloc工作不正常 会跳入hardfault<br>以前stm32一直用微库 现在尝试把它去掉把它去掉无法进main函数了<br>&lt;解决STM32调试,无法进入main函数的问题&gt;<br><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-16839253-id-2860462.html">http://blog.chinaunix.net/uid-16839253-id-2860462.html</a></p>
 <p>现在加上了这段代码 能在不用microLib之下进入mian函数 但是malloc的问题依旧<br>看来得看看RealView编译器的手册</p>
 <figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#pragma import(__use_no_semihosting)</span></span><br><span class="line"><span class="constructor">_sys_exit(<span class="params">int</span> <span class="params">x</span>)</span></span><br><span class="line">{</span><br><span class="line">x = x;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">struct</span> __FILE</span><br><span class="line">{</span><br><span class="line"><span class="built_in">int</span> handle;</span><br><span class="line"><span class="comment">/* Whatever you require here. If the only file you are using is */</span></span><br><span class="line"><span class="comment">/* standard output using printf() for debugging, no file handling */</span></span><br><span class="line"><span class="comment">/* is required. */</span></span><br><span class="line">};</span><br><span class="line"><span class="comment">/* FILE is typedef’ d in stdio.h. */</span></span><br><span class="line">FILE __stdout;</span><br><span class="line"><span class="comment">//FILE __stdin;</span></span><br></pre></td></tr></tbody></table></figure>
+
 <hr>
 <h2 id="2015-10-22"><a href="#2015-10-22" class="headerlink" title="2015-10-22"></a>2015-10-22</h2><p>10-21 malloc的问题是example里没有填充msgSize, 默认为一个比较大的数.</p>
 <p>现在在NFMSG中增加了一个简单的环形BUFFER,<br>要求销毁要按照创建的顺序.</p>
 <p>现在写了DEMO发现运行良好.</p>
 <p>NFTASK任务模块DEMO<br>main函数中设定1s执行一次子程序</p>
-<img src="/posts/undefined/15102202.jpg" class="" title="15102202.jpg">
+<img src="/posts/6d80/15102202.jpg" class="" title="15102202.jpg">
 
 <p>NFMSG消息模块DEMO<br>每隔1s发送一个消息: 一个数字<br>另一个子程序接收消息 +1并显示</p>
-<img src="/posts/undefined/15102201.jpg" class="" title="15102201.jpg">
+<img src="/posts/6d80/15102201.jpg" class="" title="15102201.jpg">
 
 <p>接下来开始NFFSM平面状态机模块的编写.</p>
 <hr>
@@ -292,28 +293,32 @@ p.spoiler {
 <p>好处大大滴有 不同状态间的程序段相对独立<br>又不像使用switch嵌套实现的FSM那样 代码乱七八糟不能直视<br>在函数首部定义static变量 利于对照 嗯很方便!</p>
 <p>我定义了两个特殊类型: STATE_INTO和STATE_OUT 用来表示状态进入和退出<br>这样 编写程序的时候 进入退出的代码就能和消息处理的代码在一起 修改起来很方便</p>
 <p>然后这个是FSM模块DEMO效果</p>
-<img src="/posts/undefined/15110801.jpg" class="" title="img">
+<img src="/posts/6d80/15110801.jpg" class="" title="img">
 
 <figure class="highlight jboss-cli"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*        用状态机模拟一把只能打2发的手枪<span class="params">(有这样的东西吗? 我也不知道)</span></span><br><span class="line">*        有3个状态: 剩余2颗子弹<span class="params">(b2)</span> / 1颗<span class="params">(b1)</span> / 无子弹<span class="params">((b0)</span></span><br><span class="line">*        用户向串口传入<span class="string">"shot#"</span>时, 剩有子弹时传回<span class="string">"POM!"</span>; 无子弹时传回<span class="string">"KA.."</span></span><br><span class="line">*        用户向串口传入<span class="string">"load#"</span>时, 填充子弹, 传回<span class="string">"load complete."</span></span><br><span class="line">*</span><br><span class="line">*                                               &lt;<span class="params">------------</span></span><br><span class="line">*                                              |             |</span><br><span class="line">*           b2 <span class="params">---</span><span class="params">(shot)</span><span class="params">---</span>&gt; b1 <span class="params">---</span><span class="params">(shot)</span><span class="params">---</span>&gt; b0  <span class="params">---</span><span class="params">(shot)</span><span class="params">---</span></span><br><span class="line">*           |                 |                |</span><br><span class="line">*           ^              <span class="params">(load)</span>           <span class="params">(load)</span></span><br><span class="line">*           |                 |                |</span><br><span class="line">*            <span class="params">--------</span>&lt;<span class="params">----------------</span>&lt;<span class="params">--------</span></span><br></pre></td></tr></tbody></table></figure>
+
 <p>写DEMO的时候发现NFDEBUG的命令功能还是不好用 总忘修改NFDEBUG_COMMANDLIST_SIZE<br>所以….这里做了修改工作<br>修改NFDEBUG模块中 用户命令的设置方式<br>原本的设置方式</p>
 <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/* 用户程序中 */</span></span><br><span class="line">NFDEBUG_CommandDef NFDEBUG_CommandList[] =</span><br><span class="line">{</span><br><span class="line">    {Command_test, <span class="number">5</span>, <span class="string">"test "</span>}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="regexp">/* nframe_config.h 中 */</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/**&lt; \brief DEBUG命令数量 */</span></span><br><span class="line"><span class="comment">#define NFDEBUG_COMMANDLIST_SIZE        1</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
 <p>现在更改为 只需要在用户程序中 这里使用了一个宏定义NFDEBUG_COMMAND_LIST(n)</p>
 <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/**&lt; \brief DEBUG命令配置 */</span></span><br><span class="line">NFDEBUG_COMMAND_LIST(<span class="number">1</span>)</span><br><span class="line">{</span><br><span class="line">    {Command_test, <span class="number">5</span>, <span class="string">"test "</span>}</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
 <p>NFFSM模块中 也做了类似的修改 把msgType交给用户来定义.<br>好处显而易见 不必修改nframe_config.h 用起来更方便</p>
 <hr>
 <h2 id="2015-11-10"><a href="#2015-11-10" class="headerlink" title="2015-11-10"></a>2015-11-10</h2><p>完成nKEYSCAN通用部件编写 还有DEMO</p>
-<img src="/posts/undefined/15111001.jpg" class="" title="img">
+<img src="/posts/6d80/15111001.jpg" class="" title="img">
 
 <p>还加了个通用PID算法程序 相信配合NFDEBUG模块 整定PID参数时会轻松些</p>
 <p>nKEYSCAN使用了大量回调函数 效率明显低了不少 但对于快速开发这是值得的(吗?)..<br>至少对于初学者来说, 稍微配置一下就能使用完善的程序, 还是挺方便的(其实复制粘贴更方便哈哈)<br>使用通用部件, 运行效率降低是避免不了的. 嘛..用不上至少还能给人copy是吧.</p>
 <h2 id="2015-11-12"><a href="#2015-11-12" class="headerlink" title="2015-11-12"></a>2015-11-12</h2><p>使用NFRAME尝试编写两层嵌套的平面状态机(手动编码实现一个简单的层次状态机..)<br>外层状态机向内层传递消息, 并可以根据返回值, 判断内层是否响应了消息.</p>
-<img src="/posts/undefined/15111201.jpg" class="" title="img">
+<img src="/posts/6d80/15111201.jpg" class="" title="img">
 
 <p>内层的AppFsm是一个简单的四则计算器..<br>演示</p>
-<img src="/posts/undefined/15111202.jpg" class="" title="img">
+<img src="/posts/6d80/15111202.jpg" class="" title="img">
 
 <p>编写的过程中 发现NFFSM在嵌套的时候缺少了一些必要的功能<br>所以进行了这些修改:</p>
 <figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">NFFSM_IsRunning</span>();</span><br><span class="line"><span class="selector-tag">NFFSM_DeInit</span>();</span><br><span class="line"><span class="selector-tag">NFFSM_MsgIn</span>()避免未初始化;</span><br><span class="line">状态定义增加返回值,表示是否成功处理;</span><br><span class="line"><span class="selector-tag">NFFSM_StateTran</span>()增加一个参数, 表示进入时顺带传入的参数.</span><br></pre></td></tr></tbody></table></figure>
+
 <p><strong>还有些问题待研究</strong></p>
 <ol>
 <li>消息优先级</li>

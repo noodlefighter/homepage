@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.plantuml.com/plantuml/svg/jPBR2e9048RlzodcKeKYErs8Y9LqtIlexaGBvi0wHe_VMgPYHX1ujRCpyy_txo4kEJLSNNDnqGhXJCGPtOL89PE18v6GbESeMLDHGg8DrWKXfC6K4GvKs8XnN-bSeH5M0BDec8O0_Fa2ml2bYYBnRdmFV7RuK28t4gTPFRUsecyrhAKh_CoDJbo2jBRPL98TDpWPKZRoHYQsgY_cLv3LkvEzgvtJipGyVy_PiFGBiUuG-uaGcmvnc0YnxH39duYnrusnKFQJFW00">
 <meta property="article:published_time" content="2018-06-14T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.833Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.743Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="cpp">
@@ -79,7 +79,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -255,7 +255,7 @@ p.spoiler {
 <li>Boost之类的常见库</li>
 </ul>
 <p>(Working…)</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="语言层面"><a href="#语言层面" class="headerlink" title="语言层面"></a>语言层面</h2><h3 id="对cpp的评价已经问题讨论串"><a href="#对cpp的评价已经问题讨论串" class="headerlink" title="对cpp的评价已经问题讨论串"></a>对cpp的评价已经问题讨论串</h3><blockquote>
 <p>使用 C++ 的程序员不断的强调复用性，却不断的需要重写代码。如果一段代码可以不被重写，那多半是因为对重写工程量的妥协。是的，其实我们可以用 C++ 的各种特性写出更好，更漂亮，更高效的代码。两年前的框架不那么完美，不是 C++ 语言的错，是两年前的我能力有限的缘故。但是因为需要改写的是设计框架，这意味着我们必须跟着变更已经完成的功能模块，或是加上桥接层。<br><a target="_blank" rel="noopener" href="https://blog.codingnow.com/2007/09/c_vs_cplusplus.html">https://blog.codingnow.com/2007/09/c_vs_cplusplus.html</a></p>
@@ -265,10 +265,13 @@ p.spoiler {
 </blockquote>
 <h3 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h3><p>同样的enum</p>
 <figure class="highlight objectivec"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="built_in">SKItemStatus</span> {</span><br><span class="line">    <span class="built_in">SKItemStatusSendPending</span> = <span class="number">0</span>,</span><br><span class="line">    <span class="built_in">SKItemStatusRecvPending</span>,</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
 <p>c里引用</p>
 <figure class="highlight objectivec"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="built_in">SKItemStatus</span> test = <span class="built_in">SKItemStatusSendPending</span>; </span><br><span class="line">test++; <span class="comment">//可以这么做</span></span><br></pre></td></tr></tbody></table></figure>
+
 <p>cpp里引用</p>
 <figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SKItemStatus <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">test</span>++; <span class="comment">//不能这么做,会编译报错</span></span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h3><p>这里有一篇说得很清晰易懂：<br><a target="_blank" rel="noopener" href="https://www.devbean.net/2012/05/cpp11-lambda/">https://www.devbean.net/2012/05/cpp11-lambda/</a><br>by 豆子(CC BY-ND 3.0)</p>
 <p>整篇直接转过来防失效：</p>
 <p>或许，Lambda 表达式算得上是 C++ 11 新增特性中最激动人心的一个。这个全新的特性听起来很深奥，但却是很多其他语言早已提供（比如 C#）或者即将提供（比如 Java）的。简而言之，Lambda 表达式就是用于创建匿名函数的。GCC 4.5.x 和 Microsoft Visual Studio 早已提供了对 lambda 表达式的支持。在 GCC 4.7 中，默认是不开启 C++ 11 特性的，需要添加  -std=c++11 编译参数。而 VS2010 则默认开启。</p>
@@ -312,20 +315,25 @@ p.spoiler {
 </ul>
 <h3 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h3><p>一个函数（类），根据用户需求构建产品，返回对象。</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Product* <span class="title">Factory::createProduct</span><span class="params">(<span class="built_in">string</span> proname)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> ( <span class="string">"A"</span> == proname )</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ConcreteProductA();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"B"</span> == proname)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ConcreteProductB();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span>  <span class="literal">NULL</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><p>factory类为抽象类，每新建一个产品，都需要添加对应的factory子类构建对应产品。</p>
 <p>“图说设计模式”中提到一个日志记录器的例子：使用者并不用关心自己调用的是个数据库log或是文件log，通过这个创建模式就能让Factory的子类返回正确的log对象。</p>
 <h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>以上两种工厂都只适用于同类产品的构建：比如“食品工厂”可以返回牛排、柠檬水，但我现在需要个“外卖打包工厂”，能为牛排配上刀叉、为柠檬水配上吸管，这时候就需要抽象工厂。</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 外卖打包工厂</span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">virtual</span> 食品 获取食品();</span><br><span class="line">    <span class="keyword">virtual</span> 餐具 获取餐具();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> 牛排打包工厂 :</span> 外卖打包工厂</span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> 柠檬水打包工厂 :</span> 外卖打包工厂</span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <p>有了“外卖打包工厂”，调用者无需关心什么配什么，只管调用抽象接口。</p>
 <h3 id="建造者"><a href="#建造者" class="headerlink" title="建造者"></a>建造者</h3><p>角色：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Builder：抽象建造者</span><br><span class="line">ConcreteBuilder：具体建造者</span><br><span class="line">Director：指挥者</span><br><span class="line">Product：多个产品角色</span><br></pre></td></tr></tbody></table></figure>
+
 <p>具体建造者实现了一系列构建产品的步骤：</p>
 <img src="http://www.plantuml.com/plantuml/svg/jPBR2e9048RlzodcKeKYErs8Y9LqtIlexaGBvi0wHe_VMgPYHX1ujRCpyy_txo4kEJLSNNDnqGhXJCGPtOL89PE18v6GbESeMLDHGg8DrWKXfC6K4GvKs8XnN-bSeH5M0BDec8O0_Fa2ml2bYYBnRdmFV7RuK28t4gTPFRUsecyrhAKh_CoDJbo2jBRPL98TDpWPKZRoHYQsgY_cLv3LkvEzgvtJipGyVy_PiFGBiUuG-uaGcmvnc0YnxH39duYnrusnKFQJFW00">
 
 
 <h2 id="C-标准库"><a href="#C-标准库" class="headerlink" title="C++标准库"></a>C++标准库</h2><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h2 id="Boost"><a href="#Boost" class="headerlink" title="Boost"></a>Boost</h2><h2 id="杂物堆"><a href="#杂物堆" class="headerlink" title="杂物堆"></a>杂物堆</h2><h3 id="不允许建立栈上对象"><a href="#不允许建立栈上对象" class="headerlink" title="不允许建立栈上对象"></a>不允许建立栈上对象</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yiyele/article/details/77806071">参考</a></p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>  </span></span><br><span class="line"><span class="class">{</span>  </span><br><span class="line"><span class="keyword">protected</span>:  </span><br><span class="line">     A(){}  </span><br><span class="line">     ~A(){}  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">     <span class="function"><span class="keyword">static</span> A* <span class="title">create</span><span class="params">()</span></span>{<span class="keyword">return</span> <span class="keyword">new</span> A();}  </span><br><span class="line">     <span class="function"><span class="keyword">void</span> <span class="title">destory</span><span class="params">()</span></span>{<span class="keyword">delete</span> <span class="keyword">this</span>;}  </span><br><span class="line">};  </span><br></pre></td></tr></tbody></table></figure>
+
 <h3 id="不允许建立自由存储区上的对象"><a href="#不允许建立自由存储区上的对象" class="headerlink" title="不允许建立自由存储区上的对象"></a>不允许建立自由存储区上的对象</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>  </span></span><br><span class="line"><span class="class"></span>{  </span><br><span class="line">private:  </span><br><span class="line">     <span class="keyword">void</span>* operator <span class="function"><span class="title">new</span>(<span class="params">size_t t</span>)</span>{}            </span><br><span class="line">     <span class="keyword">void</span> operator <span class="function"><span class="title">delete</span>(<span class="params"><span class="keyword">void</span>* ptr</span>)</span>{}</span><br><span class="line">public:  </span><br><span class="line">     <span class="function"><span class="title">A</span>(<span class="params"></span>)</span>{}  </span><br><span class="line">     ~<span class="function"><span class="title">A</span>(<span class="params"></span>)</span>{}  </span><br><span class="line">};  </span><br></pre></td></tr></tbody></table></figure>
+
 
   </div>
   <footer class="article-footer">

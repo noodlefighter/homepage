@@ -20,7 +20,7 @@
 <meta property="og:description" content="需求根据需要，有时候烧入芯片的程序不止一个。分两次烧入，在批量生产时难操作。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-09-02T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-05T07:16:52.821Z">
+<meta property="article:modified_time" content="2021-03-05T07:59:27.727Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="hex">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.3.0">
+}</style><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -244,11 +244,12 @@ p.spoiler {
   </div>
   <div class="article-entry">
     <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>根据需要，有时候烧入芯片的程序不止一个。<br>分两次烧入，在批量生产时难操作。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>比如，把程序分成Bootloader和Application两部分<br>就会产生两个文件Bootloader.hex和Application.hex</p>
 <p>两个文件都差不多这种感觉</p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:020000040800F2</span></span><br><span class="line"><span class="selector-pseudo">:10000000F805002021010008810D0008890B000877</span></span><br><span class="line">……</span><br><span class="line"><span class="selector-pseudo">:00000001FF</span></span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="64k以内的程序"><a href="#64k以内的程序" class="headerlink" title="64k以内的程序"></a>64k以内的程序</h2><p>都可以照着以下步骤合并</p>
 <ol>
 <li>在文本编辑器中，把第一个文件直接复制到新的文件里</li>
@@ -265,6 +266,7 @@ p.spoiler {
 <figure class="highlight x86asm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="number">0x3a</span>&gt;</span><br><span class="line">[数据长度1<span class="built_in">Byte</span>]</span><br><span class="line">[数据地址2<span class="built_in">Byte</span>]</span><br><span class="line">[数据类型1<span class="built_in">Byte</span>]</span><br><span class="line">[数据nByte]</span><br><span class="line">[校验1<span class="built_in">Byte</span>]</span><br><span class="line">&lt;<span class="number">0x0d</span>&gt;</span><br><span class="line">&lt;<span class="number">0x0a</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
 <p>Example.hex</p>
 <figure class="highlight dns"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10000000020003787</span>FE4F6D8FD75812B<span class="number">02004A02D6</span></span><br><span class="line"><span class="number">10001000008</span>FE493A3F8E493A34003F<span class="number">68001F20871</span></span><br><span class="line"><span class="number">10002000</span>DFF48029E493A3F85407240CC8C<span class="number">333C435</span></span><br><span class="line"><span class="number">10003000540</span>F4420C8834004F456800146F6DFE4A0</span><br><span class="line"><span class="number">10004000800</span>B01020408102040809000C<span class="number">2E47E0171</span></span><br><span class="line"><span class="number">100050009360</span>BCA3FF543F30E509541FFEE<span class="number">493A313</span></span><br><span class="line"><span class="number">1000600060010</span>ECF54C025E060A840B8E493A3FAF7</span><br><span class="line"><span class="number">10007000</span>E493A3F8E493A3C8C582C8CAC583CAF0B1</span><br><span class="line"><span class="number">10008000</span>A3C8C582C8CAC583CADFE9DEE780BEE432</span><br><span class="line"><span class="number">0700</span>F0001F70F31E<span class="number">80F022D7</span></span><br><span class="line"><span class="number">00000001</span>FF</span><br></pre></td></tr></tbody></table></figure>
+
 <p>面对这一大串的十六进制码，有没有头昏眼花的感觉呢？<br>别急别急，经过本文的介绍，你一定会爱上这个会让你头昏眼花的机器码的！<br>首先我们先介绍HEX文件的编码格式，举范例程序中第一行说明：</p>
 <table>
 <thead>
