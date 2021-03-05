@@ -1,6 +1,3 @@
-![xxx](test/abc.png)
-![yyyy](test/dsf/sdfs.png)
-![xxzzz](test/fdf/dsff/c.jpg)
-
-\!\[(\S*\)]\(test/(\S*)\)
-{% assert_img $2 $1 %}
+![xxx](_assets/test/abc.png)
+![yyyy](_assets/test/sdfs.png)
+![xxzzz](_assets/test/c.jpg)
