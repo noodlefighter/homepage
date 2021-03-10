@@ -1,25 +1,21 @@
 title: LabelPlus - Easy comic translation tool
-description: 
-date: 2018-01-28
+description:
+date: 2021-03-10
 categories: project
 layout: page
 
 ---
- 
+
 标号器+ 漫画翻译辅助工具. 减少翻译工作交接成本. 导出文本至ps.
 A Easy tool for comic translation. Reduce communication costs of translator. Export text to Photoshop..
 
-[Github Organization](https://github.com/LabelPlus) / [WEB在线协作版:萌翻](https://moetra.com/)
+[Github Organization](https://github.com/LabelPlus) / [WEB在线协作版:萌翻](http://moeflow.com/)
 
 <!--more-->
 
 ---
 
-## 最新Release
-
-[Download Local](LabelPlus1.2.3.7z)
-[Download_Github](https://github.com/LabelPlus/LabelPlus/releases/download/v1.2.3/LabelPlus1.2.3.7z)
-
+## 下载
 
 [LabelPlus Releases List](https://github.com/LabelPlus/LabelPlus/releases)
 [LabelPlus PS-Script Releases List](https://github.com/LabelPlus/PS-Script/releases)
@@ -28,7 +24,7 @@ A Easy tool for comic translation. Reduce communication costs of translator. Exp
 
 ## 帮助文档
 
-帮助文档托管在Gitbook上: [LabelPlus 帮助文档](https://labelplus.gitbooks.io/labelplus_help/content/)
+帮助文档托管在Gitbook上: [LabelPlus 帮助文档/Reference Documents](https://labelplus.gitbooks.io/labelplus_help/content/)
 
 ---
 
@@ -56,7 +52,7 @@ A Easy tool for comic translation. Reduce communication costs of translator. Exp
 
 `翻译`与`嵌字`步骤的工作、交接方式：
 
-__例1__. 
+__例1__.
 ![img](/label_plus/2_exp1.jpg)
 `翻译`为图片添加标号或以首字为标记来写译文.
 `嵌字`根据标记, 在图像处理软件中的对应位置粘贴译文.
@@ -78,7 +74,7 @@ __例3__.
 __存在问题__
 只适合个人翻译
 
-__使用LabelPlus__. 
+__使用LabelPlus__.
 ![img](/label_plus/1_labelplus.jpg)
 LabelPlus就是为了尽可能地消除沟通成本而生的工具, 流程变为:
 `翻译`在LabelPlus中写译文.
