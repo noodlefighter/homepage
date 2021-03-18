@@ -1,9 +1,9 @@
-
 date: 2015-7-27
 tags: 
+
 - 模板
 ---
-记录一些常用的标签
+记录一些常用的标签、用法，持续更新，作为这个blog的Markdown参考。
 <!--more-->
 摘要是这之前
 
@@ -72,7 +72,7 @@ Alice -> Bob : Is it ok?
 {% plantuml %}
 participant Bob
 actor Alice
- 
+
 Bob -> Alice : hello
 Alice -> Bob : Is it ok?
 {% endplantuml %}
@@ -94,20 +94,10 @@ https://github.com/unnamed42/hexo-spoiler
 ### 图片标签
 
 ```
-![image](/note_model/Amae_Koromo.jpg)
+![image](_assets/hexo模板和测试/test.gif)
 ```
 
-![image](/note_model/Amae_Koromo.jpg)
-
----
-
-### Image标签
-
-```
-{% img 试试 /note_model/Amae_Koromo.jpg 400 图片说明 %}
-```
-
-{% img 试试 /note_model/Amae_Koromo.jpg 400 图片说明 %}
+![image](_assets/hexo模板和测试/test.gif)
 
 ---
 
@@ -121,6 +111,29 @@ https://github.com/unnamed42/hexo-spoiler
 {% codeblock lang:c %}
 void (*pfn_dead_fun)(char n) { }
 {% endcodeblock %}
+
+---
+
+### 折叠
+
+```
+<details>
+  <summary>点击时的区域标题</summary>
+  123
+  456
+  789
+</details>
+```
+
+<details>
+  <summary>点击时的区域标题</summary>
+  <pre><code>
+  123
+  456
+  789  
+  </code></pre>
+</details>
+
 
 ---
 
@@ -179,21 +192,18 @@ ___测试___
 ---
 
 ### 引用文章资源
+
+> 这个blog做了生成脚本，转换_assets里的图片，会自动转换`![](_assets/<title>/xxx.jpg)`这样的标签成asset标签
+
 自动管理资源功能
 比如`_post/note_model.md`,对应的的资源文件夹为`_post/note_model/`
+
 ```
 {% asset_path test.gif %}
 {% asset_img test.gif 图片标题 %}
 {% asset_link test.gif 链接标题 %}
 
 {% img test.gif 100 %}
-{% img \test.gif 100 %}
-
-![image](test.gif)
-![image](\test.gif)
-
-![img](test.gif)
-![img](\test.gif)
 
 {% img {% asset_path test.gif %} 100 %}
 
@@ -203,13 +213,6 @@ ___测试___
 {% asset_link test.gif 链接标题 %}
 
 {% img test.gif 100 %}
-{% img \test.gif 100 %}
-
-![image](test.gif)
-![image](\test.gif)
-
-![img](test.gif)
-![img](\test.gif)
 
 {% img {% asset_path test.gif %} 100 %}  
 
@@ -250,3 +253,7 @@ ___测试___
 {% post_link note_model 自定的标题 %}
 
 
+
+```
+
+```
