@@ -21,8 +21,8 @@ copyright: # the copyright text in the footer, could be richtext
 # A link starts with http/https would be rendered as a tag with 'target="_blank"' .
 # There are also some special link items representing in string: 'categories', 'tags' and 'archives'
 nav:
-  - 
-    - 
+  -
+    -
       name: 个人知识库Wiki
       url: http://wiki.noodlefighter.com/
   -
@@ -39,31 +39,29 @@ nav:
     -
       name: My Github
       url: https://github.com/noodlefighter
-    -
-      name: GMaker Group
-      url: http://gmaker.io
-  - 
+  -
     - blogroll
 
 # blogroll
 blogroll:
-  - 
-    name: 炒鸡焦了
-    url: https://loli.la/
   -
-    name: yukoamamiya
+    name: kozzzx
+    url: https://www.kozzzx.com/
+  -
+    name: 雨宮優子
     url: https://yukoamamiya.blogspot.com
-  - 
+  -
     name: 挥手骑士
     url: https://yihuishou.github.io/
-    
-  - 
+  -
     name: 晨旭的博客
     url: https://www.chenxublog.com/
-
   -
     name: 卡秋莎的小窝
     url: https://katyusha.net/
+  -
+    name: 核桃
+    url: https://stgapr.github.io/
 
 # duoshuo shortname
 # refer to http://duoshuo.com
@@ -78,7 +76,7 @@ blogroll:
 #jiathis: 1589291
 
 # open graph
-twitter: 
+twitter:
 google_plus:
 fb_admins:
 fb_app_id:

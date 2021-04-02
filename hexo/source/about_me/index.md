@@ -1,23 +1,18 @@
 title: About Me
 layout: page
-categories: 
+categories:
 ---
 
 ![img](/favicon.png)
 
 [Github Profile](https://github.com/noodlefighter)
-[Osu! Profile](http://osu.ppy.sh/u/2237755)
+[OSU! Profile](http://osu.ppy.sh/u/2237755)
 [Weibo](http://weibo.com/noodlefighter)
-Email: Noodlefighter##gmail.com
+Email: noodlefighter##gmail.com
 
-Noodlefighter
+noodlefighter
 Birthday: 01-08
 Hobbies: Comic/Anime/Game/Programming/Electronic DIY
-
-Noodlefighter
-生日: 01-08
-爱好: 漫画 动画 游戏 编程 电子DIY
-
 ---
 
 ## 工作台
