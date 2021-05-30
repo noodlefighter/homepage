@@ -6,8 +6,6 @@ tags:
 
 ---
 
-（working...）
-
 [Barrier](https://github.com/debauchee/barrier)可以让多台桌面计算机，通过网络共享同一套鼠标键盘，从[synergy-core](https://github.com/symless/synergy-core)项目fork而来，基于QT，支持主流桌面操作系统。
 
 这篇文章记录Barrier的使用方法，包括编译、安装、配置。
@@ -36,18 +34,22 @@ $ pacman -S barrier
 
 Barrier中的角色：
 
-- Server端（1台）：插着键盘鼠标的电脑，是把输入设备分享给其他电脑的角色
-- Client（可以有多台）：使用Server键盘鼠标的电脑
+- Server端：插着键盘鼠标的电脑
+- Client端（可以有多台）：使用Server键盘鼠标的电脑
 
-Server端配置：
+Server端配置，是GUI所以用录了段GIF，屏幕名称需要和客户端上显示名称匹配，拖动icon可以改变屏幕的摆放位置：
 
+![server配置动画](_assets/键鼠共享软件Barrier编译和使用小记/Peek 2021-05-22 09-21.gif)
 
+Client端配置更简单了，输入Server的IP或主机名，点击“应用”即可。
+
+配置完成后点击“开始”，不出意外就能用了；如果工作不正常，进菜单中的“Show log”看看日志吧。
+
+<!--more-->
 
 ## 编译
 
-因为各大系统都有编译好的程序，大多数情况都不需要自己编译，所以这章放到了最后。
-
-笔者在Nvidia的jetson(ARMv8)平台下，软件源中没有预编译好的程序所以需要自己编译，系统是`Ubuntu 18.04.5 LTS`。
+大系统都有编译好的程序，大多数情况都不需要自己编译；笔者在Nvidia的jetson(ARMv8)平台下，软件源中没有预编译好的程序所以需要自己编译，系统是`Ubuntu 18.04.5 LTS`。
 
 先下载解压源码包（建议先github网页中的Release里找到最新的版本），执行cmake：
 
@@ -94,3 +96,15 @@ $ make -j3
 $ sudo make install
 ```
 
+## 目前遇到的问题
+
+- Windows做Server端时，在其他客户端上按Win+L会触发Windows锁屏后鼠标键盘共享失效，解决办法是不使用Windows作为Server，或者干脆屏蔽锁屏快捷键，附`disale-win+l.reg`：
+
+  ```
+  Windows Registry Editor Version 5.00
+  
+  [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System]
+  "DisableLockWorkstation"=dword:00000001
+  ```
+
+- Windows做Client端时，在软件申请权限提升时（就是弹出个那个安全提示框框），鼠标会不受控，要等待一下才重新出现在屏幕上，挺影响体验的，目前没找到解决办法
