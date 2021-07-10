@@ -23,7 +23,7 @@ tags:
 
 
 
-## 安装 fcitx5-rime
+## STEP1. 安装 fcitx5-rime
 
 推荐的输入法框架是 fcitx5，先前在 ibus 框架下尝试过，会有各种奇怪的小毛病（比如设置为“所有程序共享输入法”时，切换窗口会出现“Invalid UTF-8”这样的提示；HOME、END 键工作不正常 ... 等等），而 fcitx5 下目前体验完美。
 
@@ -39,7 +39,7 @@ $ sudo pacman -S fcitx5-rime
 
 目前（2021-07-10），`fcitx5-rime`在 [ubuntu 21.04 中已经可用](https://packages.ubuntu.com/hirsute/fcitx5-rime)，可以考虑升级系统后，直接使用 apt 安装。
 
-## 通过源码编译安装 librime
+## STEP2. 通过源码编译安装 librime
 
 为了实现顶功和aeiou键选重的特性，声笔系列码对 [librime](https://github.com/rime/librime) 进行了大量魔改，要想在 Linux 上用起，由于目前没有二进制版本，需要自己重新编译安装[魔改后的 librime](https://github.com/sbxlmdsl/librime)。
 
@@ -85,7 +85,7 @@ $ sudo make install
 
 ## 
 
-## 配置
+## STEP3. 配置
 
 重新启动 fcitx5 使新编译的 librime 生效，将声笔输入法的配置文件复制到`fcitx5-rime`的RIME配置文件路径下（`$HOME/.local/share/fcitx5/rime/`）。
 
