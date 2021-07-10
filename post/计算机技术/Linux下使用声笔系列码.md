@@ -35,7 +35,7 @@ fcitx5-rime 是 fcitx5 的插件，用以支持RIME框架；大多数发行版�
 $ sudo pacman -S fcitx5-rime
 ```
 
-***如果你使用其他 Linux 版本***:(未经实机测试实际效果，仅供参考)
+***如果你使用其他 Linux 发行版***:(未经实机测试实际效果，仅供参考)
 
 目前（2021-07-10），`fcitx5-rime`在 [ubuntu 21.04 中已经可用](https://packages.ubuntu.com/hirsute/fcitx5-rime)，可以考虑升级系统后，直接使用 apt 安装。
 
@@ -52,7 +52,7 @@ $ sudo pacman -S yay
 $ yay -S librime-sbxlm-git
 ```
 
-***如果你使用其他 Linux 版本***:(未经实机测试实际效果，仅供参考)
+***如果你使用其他 Linux 发行版***:(未经实机测试实际效果，仅供参考)
 
 那就需要自己从源码编译 librime，编译过程可以参考 [AUR包 librime-sbxlm-git](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=librime-sbxlm-git)的PKGBUILD脚本。这里以 ubuntu 为例，记录一次成功编译、安装过程：
 
@@ -87,10 +87,13 @@ $ sudo make install
 
 ## 配置
 
-安装好`fcitx5-rime`后，对应的配置文件路径在`$HOME/.local/share/fcitx5/rime/`，请将声笔输入法的配置文件复制到该目录下，关于配置文件获取、扩展包的细节请参考[官方安装说明](https://sbxlm.gitee.io/vzpz/)。
+重新启动 fcitx5 使新编译的 librime 生效，将声笔输入法的配置文件复制到`fcitx5-rime`的RIME配置文件路径下（`$HOME/.local/share/fcitx5/rime/`）。
+
+> 关于配置文件获取、扩展包的细节请参考[官方安装说明](https://sbxlm.gitee.io/vzpz/)
 
 复制好配置文件后，重新部署 RIME 即可，两种方式均可：
 
 - RIME输入法 applet icon 上点击鼠标左键 - 部署
 - `rime_deployer --build $HOME/.local/share/fcitx5/rime/`
 
+至此，声笔输入法应该可以正常使用了。
