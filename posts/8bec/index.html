@@ -8,21 +8,25 @@
 
 <title>
   
-    从微博回到博客
+    网易云音乐Linux版诸多问题解决办法
   
 </title>
 
-<meta name="description" content="这个 blog 的定位一直都是——整理后的笔记、长文章、个人项目的入口，而更零散的笔记全放在了个人知识库里。 新浪微博里的 post，更多是分享生活、随想。微博是个好平台，和网友交流很方便，也能接触到不同领域和层次的人，但也有这样那样的问题：  严肃的东西比如技术分享，通常转评赞都很低，在微博上发布意义不大，也不容易被搜索引擎抓取 一些小作品，比如做的食物，没有分类，往前查阅也不方便，还是需要">
+<meta name="description" content="官方迟迟不修bug——无法播放无损音乐、无法用输入法、DPI问题。网上各种 workaround，用的人多就是好，这里简单汇总一下，目前2021-08-02的官方最新版本是1.2.1。做了个包上传 AUR，修了无损音乐、输入法问题：netease-cloud-music-workarounds">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从微博回到博客">
-<meta property="og:url" content="http://noodlefighter.com/posts/aa33/index.html">
+<meta property="og:title" content="网易云音乐Linux版诸多问题解决办法">
+<meta property="og:url" content="http://noodlefighter.com/posts/8bec/index.html">
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
-<meta property="og:description" content="这个 blog 的定位一直都是——整理后的笔记、长文章、个人项目的入口，而更零散的笔记全放在了个人知识库里。 新浪微博里的 post，更多是分享生活、随想。微博是个好平台，和网友交流很方便，也能接触到不同领域和层次的人，但也有这样那样的问题：  严肃的东西比如技术分享，通常转评赞都很低，在微博上发布意义不大，也不容易被搜索引擎抓取 一些小作品，比如做的食物，没有分类，往前查阅也不方便，还是需要">
+<meta property="og:description" content="官方迟迟不修bug——无法播放无损音乐、无法用输入法、DPI问题。网上各种 workaround，用的人多就是好，这里简单汇总一下，目前2021-08-02的官方最新版本是1.2.1。做了个包上传 AUR，修了无损音乐、输入法问题：netease-cloud-music-workarounds">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-31T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-31T10:19:02.319Z">
+<meta property="og:image" content="http://noodlefighter.com/posts/8bec/image-20210801235251771.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8bec/image-20210801233147558.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8bec/image-20210801234109662.png">
+<meta property="article:published_time" content="2021-08-02T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-01T16:30:35.530Z">
 <meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/8bec/image-20210801235251771.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -136,7 +140,7 @@ p.spoiler {
             
               <li class="category-list-container">
                 <a href="javascript:;">文章分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/">嵌入式软件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97/">工作日志</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E7%BD%91%E6%91%98/">网摘</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/">计算机技术</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">非技术笔记</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
@@ -225,45 +229,55 @@ p.spoiler {
       
         <div style="max-width: 1000px">
       
-          <article id="post-碎碎念-从微博回到博客" class="article article-type-post">
+          <article id="post-技术笔记-网易云音乐Linux版诸多问题解决办法" class="article article-type-post">
   
     <h1 class="article-header">
-      从微博回到博客
+      网易云音乐Linux版诸多问题解决办法
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2021-07-31
+  2021-08-02
 </span>
 
   </div>
   <div class="article-entry">
-    <span id="more"></span>
+    <p>官方迟迟不修bug——无法播放无损音乐、无法用输入法、DPI问题。网上各种 workaround，用的人多就是好，这里简单汇总一下，目前2021-08-02的官方最新版本是1.2.1。<br>做了个包上传 AUR，修了无损音乐、输入法问题：<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/netease-cloud-music-workarounds/">netease-cloud-music-workarounds</a></p>
+<span id="more"></span>
 
-<p>这个 blog 的定位一直都是——整理后的笔记、长文章、个人项目的入口，而更零散的笔记全放在了<a target="_blank" rel="noopener" href="https://wiki.noodlefighter.com/">个人知识库里</a>。</p>
-<p>新浪微博里的 post，更多是分享生活、随想。微博是个好平台，和网友交流很方便，也能接触到不同领域和层次的人，但也有这样那样的问题：</p>
-<ul>
-<li>严肃的东西比如技术分享，通常转评赞都很低，在微博上发布意义不大，也不容易被搜索引擎抓取</li>
-<li>一些小作品，比如做的食物，没有分类，往前查阅也不方便，还是需要进行分类归档</li>
-<li>内容如果不归档，写多了感觉也白写，淹没在自己的“原创”时间线里</li>
-<li>内容一长就容易被限流，尤其是包含多个链接的时候</li>
-<li>环境恶化到了影响体验的程度，差的用户遇到了差的管理者，泡在微博上感觉很浮躁</li>
-</ul>
-<p>所以决定减少使用微博的时间，尽量使用 blog，既然定位发生了变化，那么 blog 也会相应地做一些调整：</p>
-<ul>
-<li>文章会变多变杂，所以需要调整文章列表的版式以方便检索、限制图片尺寸、限制摘要的篇幅（尽量一句话）</li>
-<li>增加用于放杂图的相册<ul>
-<li>“杂图册”：比如偶尔需要放出自己做的食物照片，没必要新开一篇 post，按时间排序归档也许比较好</li>
-<li>“图集”：相当于专题，比如之前的模型涂装作品，直接以文章的形式发出</li>
-</ul>
-</li>
-<li>RSS 订阅</li>
-<li>搜索功能：可能是一个输入框+按钮，直接用公共的搜索引擎</li>
-<li>爬自己的微博，把有用的信息整理出来存档在 blog</li>
-</ul>
-<p>希望网络环境能回到移动互联网普及前的样子，但也只是空想了。</p>
+<hr>
+<h2 id="解决网易云音乐Linux版无法播放无损音乐的问题"><a href="#解决网易云音乐Linux版无法播放无损音乐的问题" class="headerlink" title="解决网易云音乐Linux版无法播放无损音乐的问题"></a>解决网易云音乐Linux版无法播放无损音乐的问题</h2><p>参考<a target="_blank" rel="noopener" href="https://web.archive.org/web/20210305104641/https://blog.eh5.me/fix-ncm-flac-playing/">《解决Linux版网易云音乐无法播放无损格式(FLAC)音乐的问题》</a>：</p>
+<blockquote>
+<p>原来, Linux版网易云音乐通过调用后端api获取音频文件URL, 然后就直接交给VLC了, VLC优先通过<code>HTTP Header</code>中的<code>Content-Type</code>获取文件类型(mime-type), 再根据mime-type选择decoder; 问题就出在这里, 当音频为flac时, 上面提到的音频文件URL获取的<code>HTTP Header</code>中的<code>Content-Type</code>是<code>audio/mpeg</code>, 这是给mp3用的, flac文件正确的mime-type应该是<code>audio/flac</code>; 重现一下网易云音乐播放无损音乐的流程, 网易云音乐获取FLAC音频文件URL-&gt;VLC通过<code>Content-Type</code>获取文件类型为<code>audio/mpeg</code>-&gt;VLC选择mpeg解码器解码flac文件-&gt;VLC解码失败-&gt;网易云音乐播放失败.</p>
+</blockquote>
+<p>所以既然没法改官方的闭源软件，那就只能退一步，去魔改VLC，用了这篇文章的作者提供的 patch 重新编译 VLC 的动态库，问题果然得到了解决。</p>
+<p>博文的作者也说了，版本1.2.1之后，云音乐依赖的各种库是直接打在包里的，运行时覆盖了<code>LD_LIBRARY_PATH</code>环境变量，所以其实编译好的动态库只要复制进<code>/opt/netease/netease-cloud-music/libs/</code>路径就可以用了。</p>
+<h2 id="解决网易云音乐Linux版无法使用中文输入法的问题"><a href="#解决网易云音乐Linux版无法使用中文输入法的问题" class="headerlink" title="解决网易云音乐Linux版无法使用中文输入法的问题"></a>解决网易云音乐Linux版无法使用中文输入法的问题</h2><p>最近刚换 fcitx5，在网易云界面中无法使用，在<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/netease-cloud-music">netease-cloud-music的评论区</a>中找到了解决方法：</p>
+<img src="/posts/8bec/image-20210801235251771.png" class="" title="image-20210801235251771">
+
+<p>即删除<code>/opt/netease/netease-cloud-music/libs/libgtk-x11-2.0.so.0</code>，经过测试，我的环境下测试有效，manjaro+i3wm+fcitx5。</p>
+<h2 id="解决网易云音乐Linux版不支持高分辨率HDPI的问题"><a href="#解决网易云音乐Linux版不支持高分辨率HDPI的问题" class="headerlink" title="解决网易云音乐Linux版不支持高分辨率HDPI的问题"></a>解决网易云音乐Linux版不支持高分辨率HDPI的问题</h2><p>根据<code>netease-cloud-music</code>包的维护者<code>bruceutut</code>的留言：</p>
+<blockquote>
+<p>请自行修改 desktop 文件并加上 <code>--force-device-scale-factor=&lt;your_scale_factor&gt;</code> 来临时解决问题</p>
+</blockquote>
+<p>感觉可行的解决方法可以是：通过<code>xdpyinfo | grep -B 2 resolution</code>命令拿到DPI，再除以<code>96</code>得到倍数。但我现在还在主要工作环境还在用着低分屏，所以暂时没去试这个解决方法。</p>
+<h2 id="制作-AUR-包"><a href="#制作-AUR-包" class="headerlink" title="制作 AUR 包"></a>制作 AUR 包</h2><p>探一下 AUR 上的情况上AUR一搜，好家伙，这么多解决问题的包：</p>
+<img src="/posts/8bec/image-20210801233147558.png" class="" title="image-20210801233147558">
+
+<p>那<code>netease-cloud-music</code>这个名字看起来最正式的包为什么不包含这些 wordaround 呢？在热闹的评论区里找到了答案：</p>
+<img src="/posts/8bec/image-20210801234109662.png" class="" title="image-20210801234109662">
+
+<p>还有一个<code>-imflacfix</code>后缀的包，直接上传了编译好的 VLC的二进制文件，不太敢用，所以最后还是自己做了个包<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/netease-cloud-music-workarounds/">netease-cloud-music-workarounds</a>，暴力地从 arch 的官方仓库拖出 vlc 打 patch 编译，再提取出动态库，感兴趣自己看看 git commit 吧。</p>
+<p>如果你是 Arch 系发行版用户，可以直接用 yay 安装我制作的 AUR 包：</p>
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yay -S netease-cloud-music-workarounds</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果你信任我，也可以用我直接编译好的包（非常不建议你这么做，谁都可以在包里藏毒，我的编译环境也不能保证是安全的）：</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget --load-cookies /tmp/cookies<span class="selector-class">.txt</span> <span class="string">"https://docs.google.com/uc?export=download&amp;confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&amp;id=1M-U1MvNqpDYGrtLDZW9VeCxWkCnhuwEj' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&amp;id=1M-U1MvNqpDYGrtLDZW9VeCxWkCnhuwEj"</span> -O netease-cloud-music-<span class="number">1.2</span>.<span class="number">1</span>-<span class="number">1</span>-x86_64<span class="selector-class">.pkg</span><span class="selector-class">.tar</span><span class="selector-class">.zst</span> &amp;&amp; rm -rf /tmp/cookies.txt</span><br><span class="line">$ sudo pacman -U netease-cloud-music-<span class="number">1.2</span>.<span class="number">1</span>-<span class="number">1</span>-x86_64<span class="selector-class">.pkg</span><span class="selector-class">.tar</span>.zst</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>网易云官方是不打算理 Linux 用户了，只能这样瞎折腾 …</p>
+<p><strong><del>没有电没有音乐 桂电别停电</del></strong></p>
 
   </div>
   <footer class="article-footer">
