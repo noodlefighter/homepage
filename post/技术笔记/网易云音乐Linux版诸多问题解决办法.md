@@ -41,7 +41,7 @@ date: 2021-08-02
 
 ![image-20210801233147558](_assets/网易云音乐Linux版诸多问题解决办法/image-20210801233147558.png)
 
-那`netease-cloud-music`这个名字看起来最正式的包为什么不包含这些 wordaround 呢？在热闹的评论区里找到了答案：
+那`netease-cloud-music`这个名字看起来最正式的包为什么不包含这些 workaround 呢？在热闹的评论区里找到了答案：
 
 ![image-20210801234109662](_assets/网易云音乐Linux版诸多问题解决办法/image-20210801234109662.png)
 
