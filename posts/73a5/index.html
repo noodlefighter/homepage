@@ -20,7 +20,7 @@
 <meta property="og:description" content="“透过现象看本质.”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-11-12T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-08-01T16:54:06.327Z">
+<meta property="article:modified_time" content="2021-08-02T08:41:32.074Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
@@ -247,7 +247,7 @@ p.spoiler {
 <hr>
 <h1 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h1><p>使用C# + .Net framework 监视一个文件夹里的doc文件 文件被修改时记录文件名</p>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>使用System.IO.FileSystemWatcher类, 类描述</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">侦听文件系统更改通知，并在目录或目录中的文件发生更改时引发事件。</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">侦听文件系统更改通知，并在目录或目录中的文件发生更改时引发事件。</span><br></pre></td></tr></tbody></table></figure>
 
 <h1 id="着手尝试"><a href="#着手尝试" class="headerlink" title="着手尝试"></a>着手尝试</h1><p>测试程序</p>
 <figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileSystemWatcher watcher = <span class="keyword">new</span> <span class="constructor">FileSystemWatcher(<span class="params">path</span>, <span class="string">"*.doc"</span>)</span>;</span><br><span class="line">watcher.NotifyFilter = NotifyFilters.FileName <span class="pattern-match">| <span class="constructor">NotifyFilters</span>.<span class="constructor">LastWrite</span> | <span class="constructor">NotifyFilters</span>.<span class="constructor">Size</span>;</span></span><br><span class="line"><span class="pattern-match">watcher.<span class="constructor">Changed</span> += <span class="keyword">new</span> <span class="constructor">FileSystemEventHandler(<span class="params">watcher_Changed</span>)</span>;</span></span><br></pre></td></tr></tbody></table></figure>
