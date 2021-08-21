@@ -47,12 +47,12 @@
                 <%- list_archives({type: 'yearly'}) %>
               </li>
             <% } else if (item === 'blogroll') { %>
-              <li class="category-list-container">
+              <li class="tag-list-container">
                 <a href="javascript:;"><%- __('blogroll') %></a>
                 <% if (theme.blogroll && theme.blogroll.length) { %>
-                  <ul class="category-list">
+                  <ul class="tag-list">
                     <% theme.blogroll.forEach(function(item) { %>
-                      <div class="category-list-item">
+                      <div class="tag-list-item">
                         <%- link_to(item.url, item.name, {external: item.url.indexOf('http') === 0}) %>
                       </div>
                     <% }); %>
