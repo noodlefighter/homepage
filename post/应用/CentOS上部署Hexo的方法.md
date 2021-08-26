@@ -1,9 +1,7 @@
 
 date: 2015-7-28
 tags: 
-- hexo
-- centos
-- 博客
+- linux
 ---
 
 {% pullquote %}

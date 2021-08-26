@@ -1,9 +1,8 @@
-
 date: 2015-4-28
 tags: 
-- 单片机
+
 - 嵌入式软件
-- timer
+- 编程
 ---
 
 
@@ -41,7 +40,7 @@ TIMER(){
         default:
             break;
     }
- 
+
     time++;
     if(time >= 24) time = 0;  //到２４点后,时间归零
 }
@@ -66,13 +65,13 @@ TIMER(){
  *
  *  EditDate:    2015-04-05
 **/
- 
+
 /** Includes ------------------------------------------------------------------**/
 #include <stdlib.h>
- 
+
 //#include "stm32f10x.h"
 #include "fredivider.h"
- 
+
 /** Private typedef -----------------------------------------------------------**/
 /** Private define ------------------------------------------------------------**/
 /** Private macro -------------------------------------------------------------**/
@@ -83,21 +82,21 @@ typedef struct Item{
      uint16_t           timeLable;
      struct Item*   nextItem;
 }Item;
- 
+
 typedef Item* ItemsCollection;
- 
+
 ItemsCollection itemCollecion = NULL;
- 
+
 /** Extern variables ----------------------------------------------------------**/
 /** Private function prototypes -----------------------------------------------**/
 /** Private functions ---------------------------------------------------------**/
- 
+
 void FREDIVIDER_init(FREDIVIDER_InitTypeDef* initStruct){
     if(itemCollecion == NULL){
         //初次使用
- 
+
         itemCollecion = (Item*) malloc( sizeof(Item) );
- 
+     
         Item* newItemPtr = itemCollecion;
         newItemPtr = (Item*) malloc( sizeof(Item) );
         newItemPtr->setup = *initStruct;
@@ -117,7 +116,7 @@ void FREDIVIDER_init(FREDIVIDER_InitTypeDef* initStruct){
                 return;
             }
         }while(ptr->nextItem !=NULL);
- 
+     
         //未找到,添加新项目
         ptr->nextItem = (Item*) malloc( sizeof(Item) );
         ptr = ptr->nextItem;
@@ -125,14 +124,14 @@ void FREDIVIDER_init(FREDIVIDER_InitTypeDef* initStruct){
         ptr->timeLable = 0;
         ptr->nextItem = NULL;
     }
- 
+
 }
- 
+
 //1ms
 void FREDIVIDER_clk(void){
     if(itemCollecion == NULL) return;
     if(itemCollecion->nextItem == NULL) return;
- 
+
     Item *ptr = itemCollecion;
     do{
         ptr = ptr->nextItem;
@@ -160,40 +159,40 @@ void FREDIVIDER_clk(void){
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef _FREDIVIDER_H_
 #define _FREDIVIDER_H_
- 
+
 /* Includes ------------------------------------------------------------------*/
 /* Exported types ------------------------------------------------------------*/
- 
+
 #ifndef uint16_t
     #define uint16_t unsigned short
 #endif // uint16_t
- 
+
 #ifndef uint8_t
     #define uint8_t unsigned char
 #endif // uint8_t
+
  
- 
- 
+
 typedef void (*Clk_Function)(void);
- 
+
 typedef struct{
     Clk_Function    Clk_Function;       //想要定时执行的函数
     uint16_t        Prescaler;          //分频系数
     uint8_t         Enable;             //是否启用
 }FREDIVIDER_InitTypeDef;
- 
+
 typedef enum {FREDIVIDER_DISABLE = 0, FREDIVIDER_ENABLE = !FREDIVIDER_DISABLE} FREDIVIDER_InitTypeDef_Enable;
- 
+
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
 /* Exported variables ------------------------------------------------------- */
- 
+
 /* Exported functions ------------------------------------------------------- */
 void FREDIVIDER_clk(void);
 void FREDIVIDER_init(FREDIVIDER_InitTypeDef* initStruct);
- 
+
 #endif
- 
+
 /*****END OF FILE****/
  {% endcodeblock %}
 
@@ -205,7 +204,7 @@ __FreDriver，分频器，顾名思义，这里必然是需要提供一个时钟
     
 {% codeblock lang:c %}
 #include "fredriver.h"
- 
+
 void main()
 {
      
@@ -224,7 +223,7 @@ void main()
          }
     }
 }
- 
+
 void myprog_clk(void)    //一定要符合这个参数表和返回值
 {
     /*你自己的程序*/

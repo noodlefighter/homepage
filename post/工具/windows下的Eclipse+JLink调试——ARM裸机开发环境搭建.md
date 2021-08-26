@@ -1,8 +1,8 @@
 date: 2017-12-06
 tags:
 
-- ARM
-- eclipse
+- windows
+- 嵌入式软件
 ---
 
 在公司用着eclipse感觉挺不错

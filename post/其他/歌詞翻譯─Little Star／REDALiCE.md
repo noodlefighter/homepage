@@ -2,7 +2,6 @@
 date: 2014-7-10
 tags: 
 - 歌词
-- 转载
 ---
 
 ![little_star](_assets/歌詞翻譯─Little Star／REDALiCE/little_star.jpg)

@@ -1,7 +1,10 @@
-
 date: 2015-9-9
-tags: 
-- Photoshop
+
+tags:
+- 设计
+- 编程
+
+
 ---
 
 最近做Label+ 顺便把js给入了门

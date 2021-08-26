@@ -1,10 +1,9 @@
-
 date: 2015-09-20
-tags: 
-- Photoshop
-- Photoshop Script
-- xtools
-- ps脚本图形界面
+
+tags:
+- 设计
+- 编程
+
 ---
 
 

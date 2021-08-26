@@ -1,8 +1,7 @@
 date: 2019-6-11
 tags:
 
-- golang
-- git
+- 编程
 
 ------
 

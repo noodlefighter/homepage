@@ -2,7 +2,7 @@
 date: 2018-02-21
 tags: 
 - 笔记
-- MQTT
+- 嵌入式软件
 ---
 
 `MQTT是个machine-to-machine (M2M)/"Internet of Things"连接协议，非常轻量的订阅/分发传输方式。` by [MQTT.org](http://mqtt.org/)

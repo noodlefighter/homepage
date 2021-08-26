@@ -1,8 +1,7 @@
-
 date: 2017-03-04
 tags: 
+
 - linux
-- web
 ---
 
 准备要把shabao.io弄起来

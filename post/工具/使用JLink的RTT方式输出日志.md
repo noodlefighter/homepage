@@ -1,8 +1,7 @@
-
 date: 2018-02-03
 tags: 
-- JLink
-- 调试
+
+- 嵌入式软件
 ---
 
 使用JLink调试器, 可以通过RTT(Real-Time Transfer)方式输出log, 不增加引脚占用而且速度很快.
