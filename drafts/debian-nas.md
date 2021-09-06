@@ -177,22 +177,34 @@ exclude /lost+found/
 autosave 10
 ```
 
-SnapRAID需要定期执行sync、scrub：sync能生成校验数据；scrub执行数据擦洗。
+SnapRAID需要定期执行sync、scrub：
 
-现在可以手动运行一次`snapraid sync`生成校验，数据多的话时间会比较久。
+- sync，从data盘的数据生成奇偶校验数据，存放到partiy盘；
+- scrub，数据清洗，是提早发现硬盘问题的一种手段，默认每次检查8%的数据，看是否与奇偶校验数据匹配，如果不匹配则文件损坏，考虑可能是硬盘已经不可靠了。
 
-配置定时执行，`crontab -e`，配置文件里加入：
+现在可以手动运行一次`snapraid sync`生成校验，数据越多时间越久。
+
+配置定时执行，新建配置文件`/etc/cron.d/snapraid`：
 
 ```
-# every hours
-0 * * * * 'snapraid sync'
-# every day 4:00
-0 4 * * * 'snapraid scrub'
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+# 4:00 every day
+0 4  *  *  *  root    snapraid sync
+# 6:00 every day
+0 4  *  *  *  root    snapraid scrub
 ```
 
 
 
-### 配置mergefs3
+### 配置mergerfs
+
+虽然 snapraid 自己带有一个「Pooling」功能，能将阵列中的数据放在同一个目录树下，但毕竟原理只是创建符号链接，似乎只适合做只读的场景。所以这里使用mergerfs，它是一个fuse文件系统，能将几个盘并成一个。
 
 >  参考：https://github.com/trapexit/mergerfs
 
@@ -212,66 +224,21 @@ SnapRAID需要定期执行sync、scrub：sync能生成校验数据；scrub执行
 
 命令`mount /srv/data_dl`，再用命令`df`检查是否挂载成功。
 
-
-
-### 配置EnhanceIO
-
-用EnhanceIO加速HDD2，注意一块SSD只能加速一块HDD。
-
-EnhanceIO是一种用高速存储设备当作缓存，为后端低速存储加速的的机制，有三种模式：
-
-- Writeback： 写入时，首先会写入到Cache中，同时置元数据dirty bit，延迟写入后端设备，性能更好，但有丢数据的风险
-- Writethrough（默认） : 写入时，写到Cache中，同时将数据写入后端设备直到写完
-- Writearound : 写入时绕过Cache，直接写入后端设备，即SSD只当读缓存
-
-![flashcache-cachemodes](_assets/debian-nas/flashcache-cachemodes.png)
-
-固定内核版本，很笨但是管用的方法，把会不断更新的`linux-image-amd64`删除，内核的版本就固定下来了：
+## 配置nfs
 
 ```
-# dpkg -r linux-image-amd64
+# apt install nfs-kernel-server
+编辑配置
+# vi /etc/exports
+使配置生效
+# exportfs -afv
 ```
 
-安装eio：
+配置参考：
 
 ```
-# apt install linux-headers-`uname -r`
-# git clone https://github.com/lanconnected/EnhanceIO
-# cd EnhanceIO
-# ./Install-EIO
-# modprobe enhanceio
-# modprobe enhanceio_rand
-# modprobe enhanceio_fifo
-# modprobe enhanceio_lru
+/srv/data_dl/data_dl        *(fsid=0,rw,sync,no_subtree_check)
 ```
-
-这里`/dev/sda`是我的SSD，`/dev/sdj`是HDD2，RO模式：
-
-```
-# eio_cli create -m ro -d /dev/sdj -s /dev/sda -c eio
-```
-
-重启后检查是否配置成功：
-
-```
-# eio_cli info
-Cache Name       : eio
-Source Device    : /dev/sdj
-SSD Device       : /dev/sda
-Policy           : lru
-Mode             : Read Only
-Block Size       : 4096
-Associativity    : 256
-State            : normal
-```
-
-
-> 参考：https://wiki.archlinux.jp/index.php/EnhanceIO
->
-> ```
-># eio_cli edit -c eio -m ro
-> # eio_cli delete -c eio
->```
 
 
 
@@ -346,10 +313,6 @@ guest ok = no
 
 重启服务`systemctl restart smbd`
 
-
-
-
-
 >   beep btrfs-progs chrony collectd collectd-core cpufrequtils cron-apt dctrl-tools ethtool f2fs-tools fontconfig gdisk jfsutils jq libcpufreq0 libdatrie1 libdbi1 libf2fs-format4 libf2fs5 libfile-slurp-perl libgraphite2-3 libharfbuzz0b
 >   libhiredis0.14 libjansson4 libjavascript-minifier-xs-perl libjq1 libjs-extjs6 libjs-jquery libjs-sphinxdoc libjs-underscore libjson-perl libldb1 liblocale-po-perl liblzo2-2 libmemcached11 libmemcachedutil2 libnginx-mod-http-auth-pam
 >   libnginx-mod-http-dav-ext libnginx-mod-http-echo libnginx-mod-http-geoip libnginx-mod-http-image-filter libnginx-mod-http-subs-filter libnginx-mod-http-upstream-fair libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream
@@ -362,5 +325,77 @@ guest ok = no
 
 
 
+## 设置 UPS自动关机
+
+我的UPS没有通讯口，但也能通过简单的方式实现实现停电自动关机：定时ping一台停电就会下线的机器，ping几次都不通，就判断为停电了，执行关机。
+
+有网友已经实现了：https://github.com/ivanhao/fakeUpsShutdown
 
 
+
+
+
+
+
+<details>
+<summary>隐藏</summary>
+```
+### 配置EnhanceIO
+
+用EnhanceIO加速HDD2，注意一块SSD只能加速一块HDD。
+
+EnhanceIO是一种用高速存储设备当作缓存，为后端低速存储加速的的机制，有三种模式：
+
+- Writeback： 写入时，首先会写入到Cache中，同时置元数据dirty bit，延迟写入后端设备，性能更好，但有丢数据的风险
+- Writethrough（默认） : 写入时，写到Cache中，同时将数据写入后端设备直到写完
+- Writearound : 写入时绕过Cache，直接写入后端设备，即SSD只当读缓存
+
+![flashcache-cachemodes](_assets/debian-nas/flashcache-cachemodes.png)
+
+固定内核版本，很笨但是管用的方法，把会不断更新的`linux-image-amd64`删除，内核的版本就固定下来了：
+
+```
+# dpkg -r linux-image-amd64
+```
+
+安装eio：
+
+```
+# apt install linux-headers-`uname -r`
+# git clone https://github.com/lanconnected/EnhanceIO
+# cd EnhanceIO
+# ./Install-EIO
+# modprobe enhanceio
+# modprobe enhanceio_rand
+# modprobe enhanceio_fifo
+# modprobe enhanceio_lru
+```
+
+这里`/dev/sda`是我的SSD，`/dev/sdj`是HDD2，RO模式：
+
+```
+# eio_cli create -m ro -d /dev/sdj -s /dev/sda -c eio
+```
+
+重启后检查是否配置成功：
+
+```
+# eio_cli info
+Cache Name       : eio
+Source Device    : /dev/sdj
+SSD Device       : /dev/sda
+Policy           : lru
+Mode             : Read Only
+Block Size       : 4096
+Associativity    : 256
+State            : normal
+```
+
+
+> 参考：https://wiki.archlinux.jp/index.php/EnhanceIO
+>
+> ```
+> # eio_cli edit -c eio -m ro
+> # eio_cli delete -c eio
+> ```
+</details>

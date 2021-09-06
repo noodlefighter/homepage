@@ -8,7 +8,7 @@ tags:
 ---
 
 官方迟迟不修bug——无法播放无损音乐、无法用输入法、DPI问题。网上各种 workaround，用的人多就是好，这里简单汇总一下，目前2021-08-02的官方最新版本是1.2.1。
-做了个包上传 AUR，修了无损音乐、输入法问题：[netease-cloud-music-workarounds](https://aur.archlinux.org/packages/netease-cloud-music-workarounds/)
+做了个包上传 AUR，修了无损音乐、输入法问题：[netease-cloud-music-workarounds](https://aur.archlinux.org/packages/netease-cloud-music-workarounds/) （**更新：AUR中的netease-cloud-music已经修复了无法播放FLAC、输入法问题，这个包将被弃置、删除**）
 
 <!--more-->
 
