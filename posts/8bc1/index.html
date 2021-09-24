@@ -19,21 +19,23 @@
 <meta property="og:site_name" content="Noodlefighter&#39;s HP">
 <meta property="og:description" content="最近在完善 LabelPlus 的 Photoshop脚本 中的漫画对话框涂白功能，这功能需要获取文字附近位置的背景色，用背景色覆盖文字。 但PS中没有直接提供获取区域颜色的API，甚至没有获取像素颜色的API。经过摸索，找到了一种变通的方法——用R&#x2F;G&#x2F;B通道的直方图，获取区域大致的颜色值。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://noodlefighter.com/posts/8bc1/GIF2021-9-2422-05-54.gif">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924222305.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/2021-09-24_22-34.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924222912.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/2021-09-24_23-00.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/8bc1/GIF2021-9-2423-07-56.gif">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924232102.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/2021-09-24_23-43.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924234453.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924234734.png">
 <meta property="article:published_time" content="2021-09-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-24T16:06:34.539Z">
+<meta property="article:modified_time" content="2021-09-24T16:15:03.795Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="设计">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://noodlefighter.com/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924222305.png">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/8bc1/GIF2021-9-2422-05-54.gif">
 
 
   <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
@@ -256,7 +258,7 @@ p.spoiler {
 <span id="more"></span>
 
 <p>先演示一下这功能具体做了什么：</p>
-
+<img src="/posts/8bc1/GIF2021-9-2422-05-54.gif" class="" title="GIF">
 
 <p>手动操作就是这样，先用吸色管工具吸取文字周围的颜色，再用画笔覆盖掉文字；这功能就是为了实现涂白操作的自动化，首先就得获取颜色。</p>
 <p>LabelPlus 中，文本的坐标已经通过人工标注的方式得到了，问题是获取颜色。</p>
@@ -297,7 +299,7 @@ p.spoiler {
 <img src="/posts/8bc1/2021-09-24_23-00.png" class="" title="2021-09-24_23-00">
 
 <p>摄影中用<strong>图像直方图</strong>来判断画面是否过曝，简单地说，就是统计图中各像素点的亮度，横坐标就是从0-255的亮度值（8bit 图像下），纵坐标就是这一亮度出现的频率。</p>
-
+<img src="/posts/8bc1/GIF2021-9-2423-07-56.gif" class="" title="GIF2021-9-2423-07-56">
 
 <p>我们知道RGB色彩模型就是通过把红绿蓝光按比例混合来描述色彩，把RGB图像中的R/G/B分量做亮度统计，得到的就是<strong>颜色直方图</strong>，比如只有黑色、一大片绿色、一小片红色时，黑色(0,0,0)占了大片面积，所以R/G/B中的0有很大的频率，绿色(0,255,0)比红色(255,0,0)的区域大，所以频率更高（柱子更高）：</p>
 <img src="/posts/8bc1/QQ%E6%88%AA%E5%9B%BE20210924232102.png" class="" title="QQ截图20210924232102">
