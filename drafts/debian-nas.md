@@ -70,15 +70,36 @@
 
 关于平台功耗，电费0.6元计，每10w一年52.56 元，所以对功耗不必过分敏感，毕竟一个40w平台和20w平台，一年下来只有百元电费的区别。
 
+## 系统安装
+
+系统安装，选最新 Debian 就没错了，之前用 Debian 10 的 LiveCD 烧U盘装系统，总说光盘校验错误云云，需要手动进 Shell，而 Debian 11 的盘就修复了这问题，有一点是注意以 UEFI 启动，能少很多折腾。
+
+安装好后笔者的 Debian 版本为：
+
+```
+★ cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+```
+
 ## 系统基本配置
 
 安装debian后，安装必要包：（todo：）
 
 ```
-# apt install dnsutils
+# apt install smartmontools 
 ```
 
-配置网络，这里只有一个网卡，静态IP，`/etc/network/interfaces`中加入：
+- smartmontools：使用 S.M.A.R.T. 控制和监视存储系统，能观察到硬盘的健康状态
+
+
+
+### 配置默认账户
+
+//todo: 写sudoers，ssh登入等
+
+### （可选）安装时未成功自动配置网络的情况
+
+反正手动配置了，那就干脆在路由的DHCP设置中分配一个静态IP，配置好后，在NAS的`/etc/network/interfaces`中加入（注意用`ifconfig`看你自己网卡名字）：
 
 ```
 auto enp4s0
