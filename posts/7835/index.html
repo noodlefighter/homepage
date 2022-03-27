@@ -8,16 +8,16 @@
 
 <title>
   
-    hexo模板和测试
+    hexo&#x6A21;&#x677F;&#x548C;&#x6D4B;&#x8BD5;
   
 </title>
 
-<meta name="description" content="记录一些常用的标签、用法，持续更新，作为这个blog的Markdown参考。">
+<meta name="description" content="&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x6807;&#x7B7E;&#x3001;&#x7528;&#x6CD5;&#xFF0C;&#x6301;&#x7EED;&#x66F4;&#x65B0;&#xFF0C;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;blog&#x7684;Markdown&#x53C2;&#x8003;&#x3002;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo模板和测试">
+<meta property="og:title" content="hexo&#x6A21;&#x677F;&#x548C;&#x6D4B;&#x8BD5;">
 <meta property="og:url" content="http://noodlefighter.com/posts/7835/index.html">
-<meta property="og:site_name" content="Noodlefighter&#39;s HP">
-<meta property="og:description" content="记录一些常用的标签、用法，持续更新，作为这个blog的Markdown参考。">
+<meta property="og:site_name" content="Noodlefighter&apos;s HP">
+<meta property="og:description" content="&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x6807;&#x7B7E;&#x3001;&#x7528;&#x6CD5;&#xFF0C;&#x6301;&#x7EED;&#x66F4;&#x65B0;&#xFF0C;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;blog&#x7684;Markdown&#x53C2;&#x8003;&#x3002;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png?v8">
 <meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">
@@ -33,13 +33,13 @@
 <meta property="og:image" content="http://noodlefighter.com/posts/7835/test.gif">
 <meta property="og:image" content="http://noodlefighter.com/posts/7835/test.gif">
 <meta property="article:published_time" content="2015-07-27T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-25T07:06:58.690Z">
+<meta property="article:modified_time" content="2022-03-27T15:26:42.718Z">
 <meta property="article:author" content="Noodlefighter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png?v8">
 
 
-  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&apos;s HP" type="application/atom+xml">
 
 
 
@@ -58,66 +58,55 @@
 
 
 
-<style type="text/css">
-.spoiler {
-  display: inline-flex;
+<style type="text/css">span.spoiler {
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: grey 0px 0px 10px;
+    cursor: pointer;
+    -webkit-transition: text-shadow .5s ease;
+       -moz-transition: text-shadow .5s ease;
+            transition: text-shadow .5s ease;
 }
-p.spoiler {
-  display: flex;
+span.spoiler:hover {
+    text-shadow: grey 0px 0px 5px;
 }
-.spoiler a {
-  pointer-events: none;
+span.spoiler.revealed {
+    text-shadow: grey 0px 0px 0px;
 }
-.spoiler-blur, .spoiler-blur > * {
-  transition: text-shadow .5s ease;
-}
-.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
-  color: rgba(0, 0, 0, 0);
-  background-color: rgba(0, 0, 0, 0);
-  text-shadow: 0 0 10px grey;
-  cursor: pointer;
-}
-.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
-  text-shadow: 0 0 5px grey;
-}
-.spoiler-box, .spoiler-box > * {
-  transition: color .5s ease,
-  background-color .5s ease;
-}
-.spoiler .spoiler-box, .spoiler .spoiler-box > * {
-  color: black;
-  background-color: black;
-  text-shadow: none;
-}</style><meta name="generator" content="Hexo 5.4.0">
+</style><script type="text/javascript">window.addEventListener("load", function(){
+    var spoiler = document.getElementsByClassName("spoiler");
+    for(var i = 0; i < spoiler.length; ++i) {
+        spoiler[i].addEventListener("click", function() {
+            this.classList.toggle("revealed");
+        });
+    }
+});
+</script><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
-<body
-  
-    class="monochrome"
-  
-  >
+<body class="monochrome">
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+  <a class="title" href="/">Noodlefighter&apos;s HP</a>
 </div>
 
   <div class="main-container">
     <div class="sidebar">
   <div class="header">
-    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    <h1 class="title"><a href="/">Noodlefighter&apos;s HP</a></h1>
     
       <p class="subtitle">
-        ——蠢战士
+        &#x2014;&#x2014;&#x8822;&#x6218;&#x58EB;
       </p>
     
     <div class="info">
       <div class="content">
         
-          <div class="description">开坑不填是生活中一大乐趣.</div>
+          <div class="description">&#x5F00;&#x5751;&#x4E0D;&#x586B;&#x662F;&#x751F;&#x6D3B;&#x4E2D;&#x4E00;&#x5927;&#x4E50;&#x8DA3;.</div>
         
         
           <div class="author">Noodlefighter</div>
@@ -139,7 +128,7 @@ p.spoiler {
           
             
               <li>
-                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+                <a href="http://wiki.noodlefighter.com/" title="&#x4E2A;&#x4EBA;&#x77E5;&#x8BC6;&#x5E93;Wiki" target="_blank" rel="noopener">&#x4E2A;&#x4EBA;&#x77E5;&#x8BC6;&#x5E93;Wiki</a>
               </li>
             
           
@@ -149,22 +138,22 @@ p.spoiler {
           
             
               <li class="category-list-container">
-                <a href="javascript:;">文章分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%BA%94%E7%94%A8/">应用</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%96%B9%E6%B3%95/">方法</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%9D%82%E8%B0%88/">杂谈</a><span class="category-list-count">7</span></li></ul>
+                <a href="javascript:;">&#x6587;&#x7AE0;&#x5206;&#x7C7B;</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">&#x4F5C;&#x54C1;</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%85%B6%E4%BB%96/">&#x5176;&#x4ED6;</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E5%85%B7/">&#x5DE5;&#x5177;</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%BA%94%E7%94%A8/">&#x5E94;&#x7528;</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF/">&#x6280;&#x672F;</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%96%B9%E6%B3%95/">&#x65B9;&#x6CD5;</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%9D%82%E8%B0%88/">&#x6742;&#x8C08;</a><span class="category-list-count">7</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
-                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag">碎碎念</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6/" rel="tag">计算机软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">&#x6807;&#x7B7E;</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">&#x5D4C;&#x5165;&#x5F0F;&#x8F6F;&#x4EF6;</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">&#x5DE5;&#x5177;</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">&#x65B9;&#x6CD5;&#x8BBA;</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">&#x65E5;&#x5FD7;</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">&#x6A21;&#x578B;</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">&#x6B4C;&#x8BCD;</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">&#x7535;&#x5B50;</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag">&#x788E;&#x788E;&#x5FF5;</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">&#x7B14;&#x8BB0;</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">&#x7F16;&#x7A0B;</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6/" rel="tag">&#x8BA1;&#x7B97;&#x673A;&#x8F6F;&#x4EF6;</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">&#x8BBE;&#x8BA1;</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">&#x8F93;&#x5165;&#x6CD5;</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">&#x952E;&#x76D8;</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">&#x9EBB;&#x5C06;</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+                <a href="javascript:;">&#x5F52;&#x6863;</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -174,7 +163,7 @@ p.spoiler {
           
             
               <li>
-                <a href="/about_me" title="关于我" external="false">关于我</a>
+                <a href="/about_me" title="&#x5173;&#x4E8E;&#x6211;" external="false">&#x5173;&#x4E8E;&#x6211;</a>
               </li>
             
           
@@ -196,7 +185,7 @@ p.spoiler {
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">友情链接</a>
+                <a href="javascript:;">&#x53CB;&#x60C5;&#x94FE;&#x63A5;</a>
                 
                   <ul class="tag-list">
                     
@@ -205,27 +194,27 @@ p.spoiler {
                       </div>
                     
                       <div class="tag-list-item">
-                        <a href="https://yukoamamiya.blogspot.com/" title="雨宮優子" target="_blank" rel="noopener">雨宮優子</a>
+                        <a href="https://yukoamamiya.blogspot.com/" title="&#x96E8;&#x5BAE;&#x512A;&#x5B50;" target="_blank" rel="noopener">&#x96E8;&#x5BAE;&#x512A;&#x5B50;</a>
                       </div>
                     
                       <div class="tag-list-item">
-                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                        <a href="https://yihuishou.github.io/" title="&#x6325;&#x624B;&#x9A91;&#x58EB;" target="_blank" rel="noopener">&#x6325;&#x624B;&#x9A91;&#x58EB;</a>
                       </div>
                     
                       <div class="tag-list-item">
-                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                        <a href="https://www.chenxublog.com/" title="&#x6668;&#x65ED;&#x7684;&#x535A;&#x5BA2;" target="_blank" rel="noopener">&#x6668;&#x65ED;&#x7684;&#x535A;&#x5BA2;</a>
                       </div>
                     
                       <div class="tag-list-item">
-                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                        <a href="https://katyusha.net/" title="&#x5361;&#x79CB;&#x838E;&#x7684;&#x5C0F;&#x7A9D;" target="_blank" rel="noopener">&#x5361;&#x79CB;&#x838E;&#x7684;&#x5C0F;&#x7A9D;</a>
                       </div>
                     
                       <div class="tag-list-item">
-                        <a href="https://stgapr.github.io/" title="核桃" target="_blank" rel="noopener">核桃</a>
+                        <a href="https://stgapr.github.io/" title="&#x6838;&#x6843;" target="_blank" rel="noopener">&#x6838;&#x6843;</a>
                       </div>
                     
                       <div class="tag-list-item">
-                        <a href="https://yinyisheng.github.io/" title="生活家" target="_blank" rel="noopener">生活家</a>
+                        <a href="https://yinyisheng.github.io/" title="&#x751F;&#x6D3B;&#x5BB6;" target="_blank" rel="noopener">&#x751F;&#x6D3B;&#x5BB6;</a>
                       </div>
                     
                   </ul>
@@ -243,10 +232,10 @@ p.spoiler {
       
         <div style="max-width: 1000px">
       
-          <article id="post-其他-hexo模板和测试" class="article article-type-post">
+          <article id="post-&#x5176;&#x4ED6;-hexo&#x6A21;&#x677F;&#x548C;&#x6D4B;&#x8BD5;" class="article article-type-post">
   
     <h1 class="article-header">
-      hexo模板和测试
+      hexo&#x6A21;&#x677F;&#x548C;&#x6D4B;&#x8BD5;
     </h1>
   
   
@@ -258,22 +247,22 @@ p.spoiler {
 
   </div>
   <div class="article-entry">
-    <p>记录一些常用的标签、用法，持续更新，作为这个blog的Markdown参考。</p>
+    <p>&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x6807;&#x7B7E;&#x3001;&#x7528;&#x6CD5;&#xFF0C;&#x6301;&#x7EED;&#x66F4;&#x65B0;&#xFF0C;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;blog&#x7684;Markdown&#x53C2;&#x8003;&#x3002;</p>
 <span id="more"></span>
-<p>摘要是这之前</p>
-<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> </span><br><span class="line"><span class="attr">description:</span> </span><br><span class="line"><span class="attr">date:</span> </span><br><span class="line"><span class="attr">layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">comments:</span> <span class="string">ture</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Others</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">model</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">模板</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x6458;&#x8981;&#x662F;&#x8FD9;&#x4E4B;&#x524D;</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> </span><br><span class="line"><span class="attr">description:</span> </span><br><span class="line"><span class="attr">date:</span> </span><br><span class="line"><span class="attr">layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">comments:</span> <span class="string">ture</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Others</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">model</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&#x6A21;&#x677F;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></tbody></table></figure>
 
 
-<h1 id="Markdown测试"><a href="#Markdown测试" class="headerlink" title="Markdown测试"></a>Markdown测试</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><p>这里是正文</p>
+<h1 id="Markdown&#x6D4B;&#x8BD5;"><a href="#Markdown&#x6D4B;&#x8BD5;" class="headerlink" title="Markdown&#x6D4B;&#x8BD5;"></a>Markdown&#x6D4B;&#x8BD5;</h1><h2 id="&#x4E8C;&#x7EA7;&#x6807;&#x9898;"><a href="#&#x4E8C;&#x7EA7;&#x6807;&#x9898;" class="headerlink" title="&#x4E8C;&#x7EA7;&#x6807;&#x9898;"></a>&#x4E8C;&#x7EA7;&#x6807;&#x9898;</h2><h3 id="&#x4E09;&#x7EA7;&#x6807;&#x9898;"><a href="#&#x4E09;&#x7EA7;&#x6807;&#x9898;" class="headerlink" title="&#x4E09;&#x7EA7;&#x6807;&#x9898;"></a>&#x4E09;&#x7EA7;&#x6807;&#x9898;</h3><h4 id="&#x56DB;&#x7EA7;&#x6807;&#x9898;"><a href="#&#x56DB;&#x7EA7;&#x6807;&#x9898;" class="headerlink" title="&#x56DB;&#x7EA7;&#x6807;&#x9898;"></a>&#x56DB;&#x7EA7;&#x6807;&#x9898;</h4><p>&#x8FD9;&#x91CC;&#x662F;&#x6B63;&#x6587;</p>
 <hr>
 <h3 id="emoji"><a href="#emoji" class="headerlink" title="emoji"></a>emoji</h3><p><a target="_blank" rel="noopener" href="https://github.com/crimx/hexo-filter-github-emojis">https://github.com/crimx/hexo-filter-github-emojis</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.webpagefx.com/tools/emoji-cheat-sheet/">https://www.webpagefx.com/tools/emoji-cheat-sheet/</a></p>
-<p><span class="github-emoji" style="display:inline;vertical-align:bottom"><span>🇨🇳</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>sometext<span class="github-emoji" style="display:inline;vertical-align:bottom"><span>✨</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>🚌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f68c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>5⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0035-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>1⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>4⃣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<p><span class="github-emoji" style="display:inline;vertical-align:bottom"><span>&#x1F1E8;&#x1F1F3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span>sometext<span class="github-emoji" style="display:inline;vertical-align:bottom"><span>&#x2728;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>&#x1F68C;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f68c.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>1&#x20E3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>1&#x20E3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>4&#x20E3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>5&#x20E3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0035-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>1&#x20E3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0031-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span> <span class="github-emoji" style="display:inline;vertical-align:bottom"><span>4&#x20E3;</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/0034-20e3.png?v8" aria-hidden="true" onerror="this.parent.classList.add(&apos;github-emoji-fallback&apos;)"></span></p>
 <hr>
 <h3 id="uml"><a href="#uml" class="headerlink" title="uml"></a>uml</h3><p><a target="_blank" rel="noopener" href="https://github.com/oohcoder/hexo-tag-plantuml">https://github.com/oohcoder/hexo-tag-plantuml</a></p>
-<p>说明<br><a target="_blank" rel="noopener" href="http://plantuml.com/">http://plantuml.com/</a></p>
-<p>在线<br><a target="_blank" rel="noopener" href="http://www.plantuml.com/plantuml/uml/">http://www.plantuml.com/plantuml/uml/</a></p>
-<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">plantuml</span> %}</span><span class="xml"></span></span><br><span class="line"><span class="xml">    Bob-&gt;Alice : hello</span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">endplantuml</span> %}</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">plantuml</span> %}</span><span class="xml"></span></span><br><span class="line"><span class="xml">participant Bob</span></span><br><span class="line"><span class="xml">actor Alice</span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">Bob -&gt; Alice : hello</span></span><br><span class="line"><span class="xml">Alice -&gt; Bob : Is it ok?</span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">endplantuml</span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8BF4;&#x660E;<br><a target="_blank" rel="noopener" href="http://plantuml.com/">http://plantuml.com/</a></p>
+<p>&#x5728;&#x7EBF;<br><a target="_blank" rel="noopener" href="http://www.plantuml.com/plantuml/uml/">http://www.plantuml.com/plantuml/uml/</a></p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">plantuml</span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    Bob-&gt;Alice : hello</span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">endplantuml</span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">plantuml</span> %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">participant Bob</span></span><br><span class="line"><span class="language-xml">actor Alice</span></span><br><span class="line"><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml">Bob -&gt; Alice : hello</span></span><br><span class="line"><span class="language-xml">Alice -&gt; Bob : Is it ok?</span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">endplantuml</span> %}</span></span><br></pre></td></tr></tbody></table></figure>
 
 <img src="http://www.plantuml.com/plantuml/svg/SyfFqhLppCbCJbMmKiX8pSd91m00">
 
@@ -281,28 +270,26 @@ p.spoiler {
 
 <hr>
 <h3 id="hexo-spoiler"><a href="#hexo-spoiler" class="headerlink" title="hexo-spoiler"></a>hexo-spoiler</h3><p><a target="_blank" rel="noopener" href="https://github.com/unnamed42/hexo-spoiler">https://github.com/unnamed42/hexo-spoiler</a></p>
-<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">spoiler</span> sometext %}</span><span class="xml"> </span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">spoiler</span> sometext %}</span><span class="language-xml"> </span></span><br></pre></td></tr></tbody></table></figure>
 
-
-  <span class="spoiler" onclick="this.classList.toggle('spoiler')">
-    <span class="spoiler-blur ">sometext</span>
-  </span> 
+<span class="spoiler">sometext
+</span> 
 
 <hr>
-<h3 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">asset_img</span> test.gif image %}</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x56FE;&#x7247;&#x6807;&#x7B7E;"><a href="#&#x56FE;&#x7247;&#x6807;&#x7B7E;" class="headerlink" title="&#x56FE;&#x7247;&#x6807;&#x7B7E;"></a>&#x56FE;&#x7247;&#x6807;&#x7B7E;</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">asset_img</span> test.gif image %}</span></span><br></pre></td></tr></tbody></table></figure>
 
-<img src="/posts/7835/test.gif" class="" title="image">
-
-<hr>
-<h3 id="另一种代码块"><a href="#另一种代码块" class="headerlink" title="另一种代码块"></a>另一种代码块</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">codeblock</span> lang:c %}</span><span class="xml"></span></span><br><span class="line"><span class="xml">[rectangle setX: 10 y: 10 width: 20 height: 20];</span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">endcodeblock</span> %}</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (*pfn_dead_fun)(<span class="keyword">char</span> n) { }</span><br></pre></td></tr></tbody></table></figure>
+<img src="/posts/7835/test.gif" class title="image">
 
 <hr>
-<h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">summary</span>&gt;</span>点击时的区域标题<span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line">  123</span><br><span class="line">  456</span><br><span class="line">  789</span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x53E6;&#x4E00;&#x79CD;&#x4EE3;&#x7801;&#x5757;"><a href="#&#x53E6;&#x4E00;&#x79CD;&#x4EE3;&#x7801;&#x5757;" class="headerlink" title="&#x53E6;&#x4E00;&#x79CD;&#x4EE3;&#x7801;&#x5757;"></a>&#x53E6;&#x4E00;&#x79CD;&#x4EE3;&#x7801;&#x5757;</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">codeblock</span> lang:c %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">[rectangle setX: 10 y: 10 width: 20 height: 20];</span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">endcodeblock</span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> (*pfn_dead_fun)(<span class="type">char</span> n) { }</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="&#x6298;&#x53E0;"><a href="#&#x6298;&#x53E0;" class="headerlink" title="&#x6298;&#x53E0;"></a>&#x6298;&#x53E0;</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">summary</span>&gt;</span>&#x70B9;&#x51FB;&#x65F6;&#x7684;&#x533A;&#x57DF;&#x6807;&#x9898;<span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line">  123</span><br><span class="line">  456</span><br><span class="line">  789</span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <details>
-  <summary>点击时的区域标题</summary>
+  <summary>&#x70B9;&#x51FB;&#x65F6;&#x7684;&#x533A;&#x57DF;&#x6807;&#x9898;</summary>
   <pre><code>
   123
   456
@@ -312,51 +299,51 @@ p.spoiler {
 
 
 <hr>
-<h3 id="插入引用"><a href="#插入引用" class="headerlink" title="插入引用"></a>插入引用</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">pullquote</span> heheheh %}</span><span class="xml"></span></span><br><span class="line"><span class="xml">这里是某人的名言哦</span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">endpullquote</span> %}</span></span><br></pre></td></tr></tbody></table></figure>
-<blockquote class="pullquote hehehe"><p>这里是某人的名言哦</p>
+<h3 id="&#x63D2;&#x5165;&#x5F15;&#x7528;"><a href="#&#x63D2;&#x5165;&#x5F15;&#x7528;" class="headerlink" title="&#x63D2;&#x5165;&#x5F15;&#x7528;"></a>&#x63D2;&#x5165;&#x5F15;&#x7528;</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">pullquote</span> heheheh %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">&#x8FD9;&#x91CC;&#x662F;&#x67D0;&#x4EBA;&#x7684;&#x540D;&#x8A00;&#x54E6;</span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">endpullquote</span> %}</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote class="pullquote hehehe"><p>&#x8FD9;&#x91CC;&#x662F;&#x67D0;&#x4EBA;&#x7684;&#x540D;&#x8A00;&#x54E6;</p>
 </blockquote>
 
 <hr>
-<h3 id="着重符号"><a href="#着重符号" class="headerlink" title="着重符号"></a>着重符号</h3><figure class="highlight asciidoc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*测试*</span></span><br><span class="line"><span class="strong">**测试**</span></span><br><span class="line"><span class="strong">***测试**</span>*</span><br><span class="line"><span class="emphasis">_测试_</span></span><br><span class="line"><span class="emphasis">__测试__</span></span><br><span class="line"><span class="emphasis">___测试__</span>_</span><br></pre></td></tr></tbody></table></figure>
-<p><em>测试</em><br><strong>测试</strong><br><strong><em>测试</em></strong><br><em>测试</em><br><strong>测试</strong><br><strong><em>测试</em></strong></p>
+<h3 id="&#x7740;&#x91CD;&#x7B26;&#x53F7;"><a href="#&#x7740;&#x91CD;&#x7B26;&#x53F7;" class="headerlink" title="&#x7740;&#x91CD;&#x7B26;&#x53F7;"></a>&#x7740;&#x91CD;&#x7B26;&#x53F7;</h3><figure class="highlight asciidoc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*&#x6D4B;&#x8BD5;*</span></span><br><span class="line"><span class="strong">**&#x6D4B;&#x8BD5;**</span></span><br><span class="line"><span class="strong">***&#x6D4B;&#x8BD5;**</span>*</span><br><span class="line"><span class="emphasis">_&#x6D4B;&#x8BD5;_</span></span><br><span class="line"><span class="emphasis">__&#x6D4B;&#x8BD5;__</span></span><br><span class="line"><span class="emphasis">___&#x6D4B;&#x8BD5;__</span>_</span><br></pre></td></tr></tbody></table></figure>
+<p><em>&#x6D4B;&#x8BD5;</em><br><strong>&#x6D4B;&#x8BD5;</strong><br><strong><em>&#x6D4B;&#x8BD5;</em></strong><br><em>&#x6D4B;&#x8BD5;</em><br><strong>&#x6D4B;&#x8BD5;</strong><br><strong><em>&#x6D4B;&#x8BD5;</em></strong></p>
 <hr>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight gherkin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">表头1|<span class="string">表头2</span></span><br><span class="line"><span class="string">---</span>|<span class="string">---</span>|<span class="string">---</span></span><br><span class="line"><span class="string">内容</span>|<span class="string">内容内容内容内容内容内容</span></span><br><span class="line"><span class="string">哈哈</span>|<span class="string">呵呵呵呵</span></span><br><span class="line"><span class="string">1</span>|2</span><br><span class="line">3|<span class="string">4</span></span><br></pre></td></tr></tbody></table></figure>
-<p>表头1|表头2<br>—|—|—<br>内容|内容内容内容内容内容内容<br>哈哈|呵呵呵呵<br>1|2<br>3|4</p>
+<h3 id="&#x8868;&#x683C;"><a href="#&#x8868;&#x683C;" class="headerlink" title="&#x8868;&#x683C;"></a>&#x8868;&#x683C;</h3><figure class="highlight gherkin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x8868;&#x5934;1|<span class="string">&#x8868;&#x5934;2</span></span><br><span class="line"><span class="string">---</span>|<span class="string">---</span>|<span class="string">---</span></span><br><span class="line"><span class="string">&#x5185;&#x5BB9;</span>|<span class="string">&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;</span></span><br><span class="line"><span class="string">&#x54C8;&#x54C8;</span>|<span class="string">&#x5475;&#x5475;&#x5475;&#x5475;</span></span><br><span class="line"><span class="string">1</span>|2</span><br><span class="line">3|<span class="string">4</span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x8868;&#x5934;1|&#x8868;&#x5934;2<br>&#x2014;|&#x2014;|&#x2014;<br>&#x5185;&#x5BB9;|&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>&#x54C8;&#x54C8;|&#x5475;&#x5475;&#x5475;&#x5475;<br>1|2<br>3|4</p>
 <hr>
-<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% iframe http:<span class="regexp">//</span>noodlefighter.com/ <span class="number">400</span> <span class="number">400</span> %}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><figure class="highlight twig"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{%</span> <span class="name">if</span>rame http://noodlefighter.com/ <span class="number">400</span> <span class="number">400</span> <span class="template-tag">%}</span></span><br></pre></td></tr></tbody></table></figure>
 
-<iframe src="http://noodlefighter.com/" width="400" height="400" frameborder="0" loading="lazy" allowfullscreen=""></iframe>
+<iframe src="http://noodlefighter.com/" width="400" height="400" frameborder="0" loading="lazy" allowfullscreen></iframe>
 
 <hr>
-<h3 id="引用文章资源"><a href="#引用文章资源" class="headerlink" title="引用文章资源"></a>引用文章资源</h3><blockquote>
-<p>这个blog做了生成脚本，转换_assets里的图片，会自动转换<code>![](_assets/&lt;title&gt;/xxx.jpg)</code>这样的标签成asset标签</p>
+<h3 id="&#x5F15;&#x7528;&#x6587;&#x7AE0;&#x8D44;&#x6E90;"><a href="#&#x5F15;&#x7528;&#x6587;&#x7AE0;&#x8D44;&#x6E90;" class="headerlink" title="&#x5F15;&#x7528;&#x6587;&#x7AE0;&#x8D44;&#x6E90;"></a>&#x5F15;&#x7528;&#x6587;&#x7AE0;&#x8D44;&#x6E90;</h3><blockquote>
+<p>&#x8FD9;&#x4E2A;blog&#x505A;&#x4E86;&#x751F;&#x6210;&#x811A;&#x672C;&#xFF0C;&#x8F6C;&#x6362;_assets&#x91CC;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x8F6C;&#x6362;<code>![](_assets/&lt;title&gt;/xxx.jpg)</code>&#x8FD9;&#x6837;&#x7684;&#x6807;&#x7B7E;&#x6210;asset&#x6807;&#x7B7E;</p>
 </blockquote>
-<p>自动管理资源功能<br>比如<code>_post/note_model.md</code>,对应的的资源文件夹为<code>_post/note_model/</code></p>
-<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">asset_path</span> test.gif %}</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">asset_img</span> test.gif 图片标题 %}</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">asset_link</span> test.gif 链接标题 %}</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">img</span> test.gif 100 %}</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">{% <span class="name">img</span> {% asset_path test.gif %}</span><span class="xml"> 100 %}</span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></tbody></table></figure>
+<p>&#x81EA;&#x52A8;&#x7BA1;&#x7406;&#x8D44;&#x6E90;&#x529F;&#x80FD;<br>&#x6BD4;&#x5982;<code>_post/note_model.md</code>,&#x5BF9;&#x5E94;&#x7684;&#x7684;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x5939;&#x4E3A;<code>_post/note_model/</code></p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">asset_path</span> test.gif %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">asset_img</span> test.gif &#x56FE;&#x7247;&#x6807;&#x9898; %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">asset_link</span> test.gif &#x94FE;&#x63A5;&#x6807;&#x9898; %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">img</span> test.gif 100 %}</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">{% <span class="name">img</span> {% asset_path test.gif %}</span><span class="language-xml"> 100 %}</span></span><br><span class="line"><span class="language-xml"></span></span><br></pre></td></tr></tbody></table></figure>
 /posts/7835/test.gif
-<img src="/posts/7835/test.gif" class="" title="图片标题">
-<a href="/posts/7835/test.gif" title="链接标题">链接标题</a>
+<img src="/posts/7835/test.gif" class title="&#x56FE;&#x7247;&#x6807;&#x9898;">
+<a href="/posts/7835/test.gif" title="&#x94FE;&#x63A5;&#x6807;&#x9898;">&#x94FE;&#x63A5;&#x6807;&#x9898;</a>
 
 <img class="test.gif 100">
 
 <img class="{% asset_path test.gif"> 100 %}  
 
-<p>官方文档说asset_img方式可以解决首页显示图片不正常的问题。</p>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#x8BF4;asset_img&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x9996;&#x9875;&#x663E;&#x793A;&#x56FE;&#x7247;&#x4E0D;&#x6B63;&#x5E38;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
 <hr>
-<h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[测试]</span>(<span class="attribute">http</span>:<span class="comment">//noodlefighter.com)</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;"><a href="#&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;" class="headerlink" title="&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;"></a>&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</h3><figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[&#x6D4B;&#x8BD5;]</span>(<span class="attribute">http</span>:<span class="comment">//noodlefighter.com)</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p><a href="http://noodlefighter.com/">测试</a></p>
+<p><a href="http://noodlefighter.com/">&#x6D4B;&#x8BD5;</a></p>
 <hr>
-<h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><figure class="highlight clojure"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[测试](\hehe)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;"><a href="#&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;" class="headerlink" title="&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;"></a>&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;</h3><figure class="highlight scheme"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="name">&#x6D4B;&#x8BD5;</span>](\hehe)</span><br></pre></td></tr></tbody></table></figure>
 
-<p><a href="%5Chehe">测试</a></p>
+<p><a href="%5Chehe">&#x6D4B;&#x8BD5;</a></p>
 <hr>
-<h3 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h3><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% link 链到焦了家 http:<span class="regexp">//</span>loli.la/ 提示文本 %}</span><br></pre></td></tr></tbody></table></figure>
-<a href="http://loli.la/" title="提示文本" target="">链到焦了家</a>
+<h3 id="&#x5916;&#x90E8;&#x94FE;&#x63A5;"><a href="#&#x5916;&#x90E8;&#x94FE;&#x63A5;" class="headerlink" title="&#x5916;&#x90E8;&#x94FE;&#x63A5;"></a>&#x5916;&#x90E8;&#x94FE;&#x63A5;</h3><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% link &#x94FE;&#x5230;&#x7126;&#x4E86;&#x5BB6; http:<span class="regexp">//</span>loli.la/ &#x63D0;&#x793A;&#x6587;&#x672C; %}</span><br></pre></td></tr></tbody></table></figure>
+<a target="_blank" rel="noopener" href="http://loli.la/" title="&#x63D0;&#x793A;&#x6587;&#x672C;" target>&#x94FE;&#x5230;&#x7126;&#x4E86;&#x5BB6;</a>
 
 <hr>
-<h3 id="内部文章链接"><a href="#内部文章链接" class="headerlink" title="内部文章链接"></a>内部文章链接</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">post_link</span> model 自定的标题 %}</span></span><br></pre></td></tr></tbody></table></figure>
-<a href="#">Post not found: note_model 自定的标题</a>
+<h3 id="&#x5185;&#x90E8;&#x6587;&#x7AE0;&#x94FE;&#x63A5;"><a href="#&#x5185;&#x90E8;&#x6587;&#x7AE0;&#x94FE;&#x63A5;" class="headerlink" title="&#x5185;&#x90E8;&#x6587;&#x7AE0;&#x94FE;&#x63A5;"></a>&#x5185;&#x90E8;&#x6587;&#x7AE0;&#x94FE;&#x63A5;</h3><figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name">post_link</span> model &#x81EA;&#x5B9A;&#x7684;&#x6807;&#x9898; %}</span></span><br></pre></td></tr></tbody></table></figure>
+<a href="#">Post not found: note_model &#x81EA;&#x5B9A;&#x7684;&#x6807;&#x9898;</a>
 
 
 
@@ -365,7 +352,7 @@ p.spoiler {
   <footer class="article-footer">
     
   <div class="cc">
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="&#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528;">
       <img src="/images/cc/cc.png">
       
           <img src="/images/cc/by.png">
@@ -373,7 +360,7 @@ p.spoiler {
           <img src="/images/cc/nc.png">
         
       <span>
-        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+        &#x672C;&#x4F5C;&#x54C1;&#x91C7;&#x7528;&#x77E5;&#x8BC6;&#x5171;&#x4EAB; &#x7F72;&#x540D;-&#x975E;&#x5546;&#x4E1A;&#x6027;&#x4F7F;&#x7528; 4.0 &#x56FD;&#x9645;&#x8BB8;&#x53EF;&#x534F;&#x8BAE;&#x8FDB;&#x884C;&#x8BB8;&#x53EF;&#x3002;
       </span>
     </a>
   </div>
@@ -408,7 +395,7 @@ p.spoiler {
 
           <div class="main-footer">
   
-    © 2021 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    &#xA9; 2022 Noodlefighter&apos;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
   
 </div>
 
@@ -506,7 +493,7 @@ p.spoiler {
 
 
   
-<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&amp;web_id=5956290" language="JavaScript"></script></div>
 
 
 </body>
