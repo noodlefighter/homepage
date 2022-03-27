@@ -6,20 +6,20 @@
     "version": "5.4.0"
   },
   "dependencies": {
-    "hexo": "^5.4.0",
-    "hexo-abbrlink": "^2.2.1",
-    "hexo-filter-github-emojis": "^3.0.4",
-    "hexo-generator-archive": "^1.0.0",
-    "hexo-generator-category": "^1.0.0",
-    "hexo-generator-index": "^2.0.0",
-    "hexo-generator-tag": "^1.0.0",
-    "hexo-renderer-coffeescript": "^0.2.0",
-    "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-jade": "^0.5.0",
-    "hexo-renderer-marked": "^3.3.0",
-    "hexo-renderer-stylus": "^2.0.1",
-    "hexo-server": "^2.0.0",
-    "hexo-spoiler": "^1.4.4",
-    "hexo-tag-plantuml": "^1.0.0"
+    "hexo": "5.4.0",
+    "hexo-abbrlink": "2.2.1",
+    "hexo-filter-github-emojis": "3.0.4",
+    "hexo-generator-archive": "1.0.0",
+    "hexo-generator-category": "1.0.0",
+    "hexo-generator-index": "2.0.0",
+    "hexo-generator-tag": "1.0.0",
+    "hexo-renderer-coffeescript": "0.2.0",
+    "hexo-renderer-ejs": "1.0.0",
+    "hexo-renderer-jade": "0.5.0",
+    "hexo-renderer-marked": "3.3.0",
+    "hexo-renderer-stylus": "2.0.1",
+    "hexo-server": "2.0.0",
+    "hexo-spoiler": "1.4.4",
+    "hexo-tag-plantuml": "1.0.0"
   }
 }
