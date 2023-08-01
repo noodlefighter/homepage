@@ -27,14 +27,17 @@ Pro Micro是一块Atmega32u4的Arduino开发板。
 
 **用来烧bootloader的AVR的编程器**：
 
-- 编程器可以是另一块Ardunio，烧上Arduino ISP固件后，就可以用来烧bootloader了
-  - 参考：https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader#resources-and-going-further
+- 编程器可以是另一块Ardunio，烧上Arduino ISP固件后，就可以用来烧bootloader了，参考：
+  - https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader#resources-and-going-further
 - 我用的是一块USBasp
 
 **好不容易找到的bootloader**：
 
-- 编译好的hex：https://github.com/sparkfun/Arduino_Boards/blob/master/sparkfun/avr/bootloaders/caterina/Caterina-promicro8.hex
-- fuse配置： https://github.com/sparkfun/Arduino_Boards/blob/master/sparkfun/avr/bootloaders/caterina/program.txt
+- 编译好的hex
+  - https://github.com/sparkfun/Arduino_Boards/blob/master/sparkfun/avr/bootloaders/caterina/Caterina-promicro8.hex
+
+- fuse配置
+  -  https://github.com/sparkfun/Arduino_Boards/blob/master/sparkfun/avr/bootloaders/caterina/program.txt
 
 参考的烧录命令：
 
@@ -46,7 +49,11 @@ avrdude -p m32u4 -P usb -c avrispmkii -U flash:w:Caterina-promicro8.hex -U efuse
 
 **另外附上一些资料**：
 
-> TMK键盘固件的WIKI对Pro Micro的bootloader烧录的一些提示：https://github.com/tmk/tmk_keyboard/wiki/Pro-Micro#fuselock-bits-setting
+> TMK键盘固件的WIKI对Pro Micro的bootloader烧录的一些提示：
+>
+> https://github.com/tmk/tmk_keyboard/wiki/Pro-Micro#fuselock-bits-setting
+>
+> 
 >
 > 板子的引脚定义：
 >
