@@ -16,7 +16,7 @@ Pro Micro是一块Atmega32u4的Arduino开发板。
 
 先看Pro Micro的资料：[Pro Micro & Fio V3 Hookup Guide](https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide#faq-reinstall)
 
-![image-20230801121022483](_assets/将Pro Micro 5v改为3.3v/image-20230801121022483.png)
+![image-20230801121022483](_assets/将Pro Micro 5v改为3v3版本/image-20230801121022483.png)
 
 看来不仅仅是换个LDO，晶振也需要换，意味还要重新烧bootloader..
 
@@ -50,7 +50,7 @@ avrdude -p m32u4 -P usb -c avrispmkii -U flash:w:Caterina-promicro8.hex -U efuse
 >
 > 板子的引脚定义：
 >
-> ![image-20230801123107212](_assets/将Pro Micro 5v改为3.3v/image-20230801123107212.png)
+> ![image-20230801123107212](_assets/将Pro Micro 5v改为3v3版本/image-20230801123107212.png)
 
 
 
@@ -62,7 +62,7 @@ avrdude -p m32u4 -P usb -c avrispmkii -U flash:w:Caterina-promicro8.hex -U efuse
 
 > 使用的器件，仅供参考：
 >
-> ![image-20230801211631585](_assets/将Pro Micro 5v改为3.3v/image-20230801211631585.png)
+> ![image-20230801211631585](_assets/将Pro Micro 5v改为3v3版本/image-20230801211631585.png)
 
 
 
@@ -94,7 +94,7 @@ avrdude -p m32u4 -P usb -c avrispmkii -U flash:w:Caterina-promicro8.hex -U efuse
 
 > 不知道为什么，我的USBasp得把电平设置为5v，才能正常烧进去
 
-![image-20230801212337868](_assets/将Pro Micro 5v改为3.3v/image-20230801212337868.png)
+![image-20230801212337868](_assets/将Pro Micro 5v改为3v3版本/image-20230801212337868.png)
 
 使用avrdude烧写，我这里是用USBasp，所以和Step0中的参考命令有些不一样：
 
@@ -186,6 +186,6 @@ avrdude done.  Thank you.
 
 把下载bootloader的线全拔了，重新把Pro Micro接USB连电脑，可以看到枚举成功，并显示为Pro Micro 3.3V：
 
-![image-20230801205318309](_assets/将Pro Micro 5v改为3.3v/image-20230801205318309.png)
+![image-20230801205318309](_assets/将Pro Micro 5v改为3v3版本/image-20230801205318309.png)
 
 再次烧上Blink，看到闪烁，验证结束，打完收工。
