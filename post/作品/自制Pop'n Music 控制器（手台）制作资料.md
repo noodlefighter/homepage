@@ -46,7 +46,7 @@ tags:
 ### 外壳制作
 这里的外壳方案为双层面板+木框+单层底板, 使用M4的预埋螺母+手拧螺丝, 其实可以把木框的底部封了, 可以省下底板的费用同时更省事.
 
-设计参考dwg: [下载](../i/log_popn_music_controller/shell_recover.zip)
+设计参考dwg: [下载](_assets/自制Pop'n Music 控制器（手台）制作资料/shell_recover.dwg)
 
 ![IMG_20170930_124903](_assets/自制Pop'n Music 控制器（手台）制作资料/IMG_20170930_124903.jpg)
 
@@ -87,4 +87,5 @@ Release里有编译好的HEX格式固件, 直接用烧录工具烧写进去即�
 
 ## 于是
 我也是有手台的人了(溜..)
-![IMG20170924000132.jpg](../../hexo/source/i/log_popn_music_controller/IMG20170924000132.jpg)
+
+![IMG20170924000132.jpg](_assets/自制Pop'n Music 控制器（手台）制作资料/IMG20170924000132.jpg)
