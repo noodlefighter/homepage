@@ -104,6 +104,11 @@ PersistentKeepalive = 25
 $ wg-quick up wg0
 ```
 
+设置自启动：
+
+```
+$ systemctl enable wg-quick@wg0 --now
+```
 
 
 ### NAS上配置
