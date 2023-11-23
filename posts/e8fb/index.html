@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    将VPS作为家庭NAS的IPv4入口
+  
+</title>
+
+<meta name="description" content="目前家庭网络接入，常有IPv6公网但无IPv4公网地址，在家庭以外的网络环境可能仅有IPv4，但又需要访问家中的NAS；本文演示，如何用便宜的NAT-VPS作为家庭NAS的IPv4入口。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将VPS作为家庭NAS的IPv4入口">
+<meta property="og:url" content="http://noodlefighter.com/posts/e8fb/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="目前家庭网络接入，常有IPv6公网但无IPv4公网地址，在家庭以外的网络环境可能仅有IPv4，但又需要访问家中的NAS；本文演示，如何用便宜的NAT-VPS作为家庭NAS的IPv4入口。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://noodlefighter.com/posts/e8fb/%E5%AE%B6%E5%BA%ADnas%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91.drawio.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/e8fb/image-20231123142904372.png">
+<meta property="article:published_time" content="2023-11-23T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-23T06:41:18.751Z">
+<meta property="article:author" content="Noodlefighter">
+<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/e8fb/%E5%AE%B6%E5%BA%ADnas%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91.drawio.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%BA%94%E7%94%A8/">应用</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%96%B9%E6%B3%95/">方法</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%9D%82%E8%B0%88/">杂谈</a><span class="category-list-count">7</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag">碎碎念</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6/" rel="tag">计算机软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="tag-list">
+                    
+                      <div class="tag-list-item">
+                        <a href="https://www.kozzzx.com/" title="kozzzx" target="_blank" rel="noopener">kozzzx</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://yukoamamiya.blogspot.com/" title="雨宮優子" target="_blank" rel="noopener">雨宮優子</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://stgapr.github.io/" title="核桃" target="_blank" rel="noopener">核桃</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://yinyisheng.github.io/" title="生活家" target="_blank" rel="noopener">生活家</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://bd4sur.com/" title="bd4sur" target="_blank" rel="noopener">bd4sur</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-应用-将VPS作为家庭NAS的IPv4入口" class="article article-type-post">
+  
+    <h1 class="article-header">
+      将VPS作为家庭NAS的IPv4入口
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2023-11-23
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>目前家庭网络接入，常有IPv6公网但无IPv4公网地址，在家庭以外的网络环境可能仅有IPv4，但又需要访问家中的NAS；本文演示，如何用便宜的NAT-VPS作为家庭NAS的IPv4入口。</p>
+<span id="more"></span>
+
+<h2 id="场景说明"><a href="#场景说明" class="headerlink" title="场景说明"></a>场景说明</h2><ul>
+<li>宽带入户，主路由器拿到了IPv4非公网地址、IPv6前缀</li>
+<li>NAS可以拿到IPv6公网地址，开放端口后配置防火墙即可在IPv6公网访问</li>
+<li>NAS缺少IPv4公网地址，所以租用VPS做端口转发，作为IPv4网络入口</li>
+<li>NAS与VPS间，透过IPv4互联网，用Wireguard组虚拟局域网</li>
+</ul>
+<p>拓扑图如下</p>
+<img src="/posts/e8fb/%E5%AE%B6%E5%BA%ADnas%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91.drawio.png" class="" title="家庭nas网络拓扑.drawio">
+
+
+
+<h2 id="Step0-购买VPS"><a href="#Step0-购买VPS" class="headerlink" title="Step0. 购买VPS"></a>Step0. 购买VPS</h2><p>本例使用了便宜的，共享入站IP的VPS，即常说的NAT-VPS；网上有很多选择，通常是野鸡VPS商，随时跑路，建议按月购买。</p>
+<p>我买的12元一月，50M下行，上行无保证（实测稳定15M），也就是说基本能实现15Mbps的转发。</p>
+<h2 id="Step1-组建Wireguard网络"><a href="#Step1-组建Wireguard网络" class="headerlink" title="Step1. 组建Wireguard网络"></a>Step1. 组建Wireguard网络</h2><p>将NAS与租用的NAT-VPS组进同一个网络，完成后可无障碍相互访问。</p>
+<p>具体方法请参考另一篇博文<a href="https://noodlefighter.com/posts/8610/">WireGuard配置实例</a>。</p>
+<p>本例的Wireguard网络中，NAS地址：10.10.10.2，VPS地址10.10.10.1：</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">MY-VPS$<span class="built_in"> ping </span>10.10.10.2<span class="built_in"></span></span><br><span class="line"><span class="built_in">PING </span>10.10.10.2 (10.10.10.2) 56(84) bytes of data.</span><br><span class="line">64 bytes <span class="keyword">from</span> 10.10.10.2: <span class="attribute">icmp_seq</span>=1 <span class="attribute">ttl</span>=64 <span class="attribute">time</span>=31.1 ms</span><br><span class="line">64 bytes <span class="keyword">from</span> 10.10.10.2: <span class="attribute">icmp_seq</span>=2 <span class="attribute">ttl</span>=64 <span class="attribute">time</span>=30.3 ms</span><br><span class="line"><span class="built_in">..</span>.</span><br><span class="line"></span><br><span class="line">MY-VPS$ sudo wg show</span><br><span class="line">interface: wg0</span><br><span class="line">  public key: <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">  private key: (hidden)</span><br><span class="line">  listening port: 5432</span><br><span class="line"></span><br><span class="line">peer: <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">  endpoint: <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>:50241</span><br><span class="line">  allowed ips: 10.10.10.2/32</span><br><span class="line">  latest handshake: 1 minute, 12 seconds ago</span><br><span class="line">  transfer: 1.15 GiB received, 48.07 MiB sent</span><br><span class="line">  persistent keepalive: every 25 seconds</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="Step2-NAS上开启需要公网访问服务"><a href="#Step2-NAS上开启需要公网访问服务" class="headerlink" title="Step2.  NAS上开启需要公网访问服务"></a>Step2.  NAS上开启需要公网访问服务</h2><p>此步骤仅举例，从docker容器中映射出IPv4端口8080（至于docker如何映射出IPv6端口，不在本文讨论范围）。</p>
+<figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ cat docker-compose.yml</span><br><span class="line">version: <span class="string">'3.5'</span></span><br><span class="line">services:</span><br><span class="line">  # https:<span class="comment">//github.com/noodlefighter/docker-webdav</span></span><br><span class="line">  webdav:</span><br><span class="line">    container_name: webdav</span><br><span class="line">    image: webdav</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"8080:80"</span></span><br><span class="line">    volumes:</span><br><span class="line">      - <span class="regexp">/srv/</span>data_dl<span class="regexp">/data_dl:/</span>var<span class="regexp">/lib/</span>dav<span class="regexp">/data/</span>data_dl</span><br><span class="line">      - <span class="regexp">/srv/</span>ssd0<span class="regexp">/data:/</span>var<span class="regexp">/lib/</span>dav<span class="regexp">/data/</span>data</span><br><span class="line">    environment:</span><br><span class="line">      AUTH_TYPE: Basic</span><br><span class="line">      USERNAME: ...</span><br><span class="line">      PASSWORD: ...</span><br><span class="line">      PUID: <span class="number">1000</span></span><br><span class="line">      PGID: <span class="number">100</span></span><br><span class="line">      LOCATION: /<span class="keyword">file</span></span><br><span class="line">$ docker-compose up -d</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="Step4-VPS上配置端口转发"><a href="#Step4-VPS上配置端口转发" class="headerlink" title="Step4. VPS上配置端口转发"></a>Step4. VPS上配置端口转发</h2><p>VPS建议使用debian系统，先测试是否能访问到NAT上需要转发的端口，以之前步骤起的webdav服务为例：</p>
+<figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ telnet <span class="number">10.10</span><span class="number">.10</span><span class="number">.2</span> <span class="number">8080</span></span><br><span class="line">Trying <span class="number">10.10</span><span class="number">.10</span><span class="number">.2</span>...</span><br><span class="line">Connected <span class="built_in">to</span> <span class="number">10.10</span><span class="number">.10</span><span class="number">.2</span>.</span><br><span class="line">Escape <span class="keyword">character</span> is <span class="string">'^]'</span>.</span><br><span class="line"><span class="number">333</span></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">400</span> Bad Request</span><br><span class="line">Content-Type: <span class="keyword">text</span>/plain; charset=utf<span class="number">-8</span></span><br><span class="line">Connection: <span class="built_in">close</span></span><br><span class="line"></span><br><span class="line"><span class="number">400</span> Bad RequestConnection closed <span class="keyword">by</span> foreign host.</span><br></pre></td></tr></tbody></table></figure>
+
+<p>安装gost：</p>
+<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo snap <span class="keyword">install</span> core</span><br><span class="line">$ sudo snap <span class="keyword">install</span> gost</span><br></pre></td></tr></tbody></table></figure>
+
+<p>配置转发：</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/systemd/system/forward-8080.service</span><br><span class="line">[Unit]</span><br><span class="line"><span class="attribute">Description</span>=forward</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="attribute">ExecStart</span>=/snap/bin/gost <span class="attribute">-L</span>=rtcp://:8080/10.10.10.2:8080</span><br><span class="line"><span class="attribute">Restart</span>=always</span><br><span class="line"><span class="attribute">KillMode</span>=process</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line"><span class="attribute">WantedBy</span>=multi-user.target</span><br><span class="line"></span><br><span class="line">$ sudo systemctl <span class="builtin-name">enable</span> forward-38888.service</span><br><span class="line">$ sudo systemctl start forward-38888.service</span><br></pre></td></tr></tbody></table></figure>
+
+<p>开放端口，本例是在VPS-NAT的后台web面板上配置端口转发，如果你的VPS有独立IP地址则可能需要配置防火墙入站规则：</p>
+<img src="/posts/e8fb/image-20231123142904372.png" class="" title="image-20231123142904372">
+
+
+
+<h2 id="Step5-为NAS配置域名解析"><a href="#Step5-为NAS配置域名解析" class="headerlink" title="Step5. 为NAS配置域名解析"></a>Step5. 为NAS配置域名解析</h2><p>本例中，IPv6地址和IPv4地址均可能发生变化，VPS商的IPv4地址不常变，而家庭网络IPv6前缀常变。</p>
+<p>所以域名的A记录直接指向VPS；而在NAS上，安装了DDNS服务更新域名的AAAA记录（IPv6解析），仅供参考：</p>
+<figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ cat docker-compose.yml</span><br><span class="line"><span class="symbol">version:</span> <span class="string">"3.5"</span></span><br><span class="line"><span class="symbol">services:</span></span><br><span class="line"><span class="symbol">  ddns:</span></span><br><span class="line"><span class="symbol">    image:</span> newfuture/ddns</span><br><span class="line"><span class="symbol">    container_name:</span> ddns</span><br><span class="line"><span class="symbol">    user:</span> <span class="number">0</span>:<span class="number">100</span></span><br><span class="line"><span class="symbol">    network_mode:</span> <span class="string">"host"</span></span><br><span class="line"><span class="symbol">    volumes:</span></span><br><span class="line">      - $PWD/config.json:/config.json</span><br><span class="line"><span class="symbol">    restart:</span> <span class="string">"unless-stopped"</span></span><br><span class="line"><span class="symbol">    environment:</span></span><br><span class="line">      - TZ=Asia/Shanghai</span><br><span class="line">$ cat config.<span class="class">json</span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">  <span class="string">"$schema"</span>: <span class="string">"https://ddns.newfuture.cc/schema/v2.8.json"</span>,</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"token"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"dns"</span>: <span class="string">"cloudflare"</span>,</span><br><span class="line">  <span class="string">"ipv4"</span>: [],</span><br><span class="line">  <span class="string">"ipv6"</span>: [<span class="string">"nas.xxxx.com"</span>,<span class="string">"play.xxxx.com"</span>],</span><br><span class="line">  <span class="string">"index4"</span>: <span class="string">"url:http://ip.3322.net/"</span>,</span><br><span class="line">  <span class="string">"index6"</span>: <span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"ttl"</span>: <span class="number">600</span>,</span><br><span class="line">  <span class="string">"proxy"</span>: <span class="string">"127.0.0.1:1080;DIRECT"</span>,</span><br><span class="line">  <span class="string">"debug"</span>: true</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>配置完成后，即可用域名访问双栈8080服务：<code>http://nas.xxx.com:8080</code></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2023 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>
