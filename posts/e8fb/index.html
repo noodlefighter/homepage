@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://noodlefighter.com/posts/e8fb/%E5%AE%B6%E5%BA%ADnas%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91.drawio.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/e8fb/image-20231123142904372.png">
 <meta property="article:published_time" content="2023-11-23T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-23T06:41:18.751Z">
+<meta property="article:modified_time" content="2023-11-24T06:09:24.259Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="笔记">
@@ -226,10 +226,9 @@
     <p>目前家庭网络接入，常有IPv6公网但无IPv4公网地址，在家庭以外的网络环境可能仅有IPv4，但又需要访问家中的NAS；本文演示，如何用便宜的NAT-VPS作为家庭NAS的IPv4入口。</p>
 <span id="more"></span>
 
-<h2 id="场景说明"><a href="#场景说明" class="headerlink" title="场景说明"></a>场景说明</h2><ul>
-<li>宽带入户，主路由器拿到了IPv4非公网地址、IPv6前缀</li>
-<li>NAS可以拿到IPv6公网地址，开放端口后配置防火墙即可在IPv6公网访问</li>
-<li>NAS缺少IPv4公网地址，所以租用VPS做端口转发，作为IPv4网络入口</li>
+<h2 id="拓扑说明"><a href="#拓扑说明" class="headerlink" title="拓扑说明"></a>拓扑说明</h2><ul>
+<li>宽带入户，主路由器通过IPv4访问互联网，但没有公网地址，所以租用VPS做端口转发，作为IPv4网络入口</li>
+<li>（可选）主路由拿到IPv6前缀，NAS可以拿到IPv6公网地址，开放端口后配置防火墙即可在IPv6公网访问</li>
 <li>NAS与VPS间，透过IPv4互联网，用Wireguard组虚拟局域网</li>
 </ul>
 <p>拓扑图如下</p>
@@ -246,11 +245,12 @@
 
 
 
-<h2 id="Step2-NAS上开启需要公网访问服务"><a href="#Step2-NAS上开启需要公网访问服务" class="headerlink" title="Step2.  NAS上开启需要公网访问服务"></a>Step2.  NAS上开启需要公网访问服务</h2><p>此步骤仅举例，从docker容器中映射出IPv4端口8080（至于docker如何映射出IPv6端口，不在本文讨论范围）。</p>
+<h2 id="Step2-NAS上开启需要公网访问服务"><a href="#Step2-NAS上开启需要公网访问服务" class="headerlink" title="Step2.  NAS上开启需要公网访问服务"></a>Step2.  NAS上开启需要公网访问服务</h2><p>此步骤仅举例，从docker容器中映射出IPv4端口8080。</p>
 <figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ cat docker-compose.yml</span><br><span class="line">version: <span class="string">'3.5'</span></span><br><span class="line">services:</span><br><span class="line">  # https:<span class="comment">//github.com/noodlefighter/docker-webdav</span></span><br><span class="line">  webdav:</span><br><span class="line">    container_name: webdav</span><br><span class="line">    image: webdav</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"8080:80"</span></span><br><span class="line">    volumes:</span><br><span class="line">      - <span class="regexp">/srv/</span>data_dl<span class="regexp">/data_dl:/</span>var<span class="regexp">/lib/</span>dav<span class="regexp">/data/</span>data_dl</span><br><span class="line">      - <span class="regexp">/srv/</span>ssd0<span class="regexp">/data:/</span>var<span class="regexp">/lib/</span>dav<span class="regexp">/data/</span>data</span><br><span class="line">    environment:</span><br><span class="line">      AUTH_TYPE: Basic</span><br><span class="line">      USERNAME: ...</span><br><span class="line">      PASSWORD: ...</span><br><span class="line">      PUID: <span class="number">1000</span></span><br><span class="line">      PGID: <span class="number">100</span></span><br><span class="line">      LOCATION: /<span class="keyword">file</span></span><br><span class="line">$ docker-compose up -d</span><br></pre></td></tr></tbody></table></figure>
 
-
-
+<blockquote>
+<p>另外，需要IPv6访问的话，还需要配置docker映射出IPv6端口，不在本文讨论范围</p>
+</blockquote>
 <h2 id="Step4-VPS上配置端口转发"><a href="#Step4-VPS上配置端口转发" class="headerlink" title="Step4. VPS上配置端口转发"></a>Step4. VPS上配置端口转发</h2><p>VPS建议使用debian系统，先测试是否能访问到NAT上需要转发的端口，以之前步骤起的webdav服务为例：</p>
 <figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ telnet <span class="number">10.10</span><span class="number">.10</span><span class="number">.2</span> <span class="number">8080</span></span><br><span class="line">Trying <span class="number">10.10</span><span class="number">.10</span><span class="number">.2</span>...</span><br><span class="line">Connected <span class="built_in">to</span> <span class="number">10.10</span><span class="number">.10</span><span class="number">.2</span>.</span><br><span class="line">Escape <span class="keyword">character</span> is <span class="string">'^]'</span>.</span><br><span class="line"><span class="number">333</span></span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">400</span> Bad Request</span><br><span class="line">Content-Type: <span class="keyword">text</span>/plain; charset=utf<span class="number">-8</span></span><br><span class="line">Connection: <span class="built_in">close</span></span><br><span class="line"></span><br><span class="line"><span class="number">400</span> Bad RequestConnection closed <span class="keyword">by</span> foreign host.</span><br></pre></td></tr></tbody></table></figure>
 
@@ -265,8 +265,11 @@
 
 
 
-<h2 id="Step5-为NAS配置域名解析"><a href="#Step5-为NAS配置域名解析" class="headerlink" title="Step5. 为NAS配置域名解析"></a>Step5. 为NAS配置域名解析</h2><p>本例中，IPv6地址和IPv4地址均可能发生变化，VPS商的IPv4地址不常变，而家庭网络IPv6前缀常变。</p>
-<p>所以域名的A记录直接指向VPS；而在NAS上，安装了DDNS服务更新域名的AAAA记录（IPv6解析），仅供参考：</p>
+<h2 id="Step5-为NAS配置域名解析"><a href="#Step5-为NAS配置域名解析" class="headerlink" title="Step5. 为NAS配置域名解析"></a>Step5. 为NAS配置域名解析</h2><p>本例中，IPv6地址和IPv4地址均可能发生变化</p>
+<p><strong>IPv4</strong></p>
+<p>VPS商的IPv4地址不常变，域名的A记录直接指向VPS即可。</p>
+<p><strong>IPv6（可选）</strong></p>
+<p>家庭网络IPv6前缀常变，所以在NAS上安装了DDNS服务更新域名的AAAA记录（IPv6解析），仅供参考：</p>
 <figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ cat docker-compose.yml</span><br><span class="line"><span class="symbol">version:</span> <span class="string">"3.5"</span></span><br><span class="line"><span class="symbol">services:</span></span><br><span class="line"><span class="symbol">  ddns:</span></span><br><span class="line"><span class="symbol">    image:</span> newfuture/ddns</span><br><span class="line"><span class="symbol">    container_name:</span> ddns</span><br><span class="line"><span class="symbol">    user:</span> <span class="number">0</span>:<span class="number">100</span></span><br><span class="line"><span class="symbol">    network_mode:</span> <span class="string">"host"</span></span><br><span class="line"><span class="symbol">    volumes:</span></span><br><span class="line">      - $PWD/config.json:/config.json</span><br><span class="line"><span class="symbol">    restart:</span> <span class="string">"unless-stopped"</span></span><br><span class="line"><span class="symbol">    environment:</span></span><br><span class="line">      - TZ=Asia/Shanghai</span><br><span class="line">$ cat config.<span class="class">json</span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">  <span class="string">"$schema"</span>: <span class="string">"https://ddns.newfuture.cc/schema/v2.8.json"</span>,</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"token"</span>: <span class="string">"xxxxxxxxxxxxx"</span>,</span><br><span class="line">  <span class="string">"dns"</span>: <span class="string">"cloudflare"</span>,</span><br><span class="line">  <span class="string">"ipv4"</span>: [],</span><br><span class="line">  <span class="string">"ipv6"</span>: [<span class="string">"nas.xxxx.com"</span>,<span class="string">"play.xxxx.com"</span>],</span><br><span class="line">  <span class="string">"index4"</span>: <span class="string">"url:http://ip.3322.net/"</span>,</span><br><span class="line">  <span class="string">"index6"</span>: <span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"ttl"</span>: <span class="number">600</span>,</span><br><span class="line">  <span class="string">"proxy"</span>: <span class="string">"127.0.0.1:1080;DIRECT"</span>,</span><br><span class="line">  <span class="string">"debug"</span>: true</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>配置完成后，即可用域名访问双栈8080服务：<code>http://nas.xxx.com:8080</code></p>
