@@ -12,11 +12,10 @@ tags:
 
 <!-- more -->
 
-## 场景说明
+## 拓扑说明
 
-- 宽带入户，主路由器拿到了IPv4非公网地址、IPv6前缀
-- NAS可以拿到IPv6公网地址，开放端口后配置防火墙即可在IPv6公网访问
-- NAS缺少IPv4公网地址，所以租用VPS做端口转发，作为IPv4网络入口
+- 宽带入户，主路由器通过IPv4访问互联网，但没有公网地址，所以租用VPS做端口转发，作为IPv4网络入口
+- （可选）主路由拿到IPv6前缀，NAS可以拿到IPv6公网地址，开放端口后配置防火墙即可在IPv6公网访问
 - NAS与VPS间，透过IPv4互联网，用Wireguard组虚拟局域网
 
 拓扑图如下
@@ -66,7 +65,7 @@ peer: ......
 
 ## Step2.  NAS上开启需要公网访问服务
 
-此步骤仅举例，从docker容器中映射出IPv4端口8080（至于docker如何映射出IPv6端口，不在本文讨论范围）。
+此步骤仅举例，从docker容器中映射出IPv4端口8080。
 
 ```
 $ cat docker-compose.yml
@@ -92,7 +91,7 @@ services:
 $ docker-compose up -d
 ```
 
-
+> 另外，需要IPv6访问的话，还需要配置docker映射出IPv6端口，不在本文讨论范围
 
 ## Step4. VPS上配置端口转发
 
@@ -145,9 +144,15 @@ $ sudo systemctl start forward-38888.service
 
 ## Step5. 为NAS配置域名解析
 
-本例中，IPv6地址和IPv4地址均可能发生变化，VPS商的IPv4地址不常变，而家庭网络IPv6前缀常变。
+本例中，IPv6地址和IPv4地址均可能发生变化
 
-所以域名的A记录直接指向VPS；而在NAS上，安装了DDNS服务更新域名的AAAA记录（IPv6解析），仅供参考：
+**IPv4**
+
+VPS商的IPv4地址不常变，域名的A记录直接指向VPS即可。
+
+**IPv6（可选）**
+
+家庭网络IPv6前缀常变，所以在NAS上安装了DDNS服务更新域名的AAAA记录（IPv6解析），仅供参考：
 
 ```
 $ cat docker-compose.yml
