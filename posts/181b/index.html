@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://noodlefighter.com/posts/181b/2.png">
 <meta property="og:image" content="http://noodlefighter.com/posts/181b/3.png">
 <meta property="article:published_time" content="2017-12-06T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-24T06:09:24.251Z">
+<meta property="article:modified_time" content="2024-05-05T15:41:23.141Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="嵌入式软件">
 <meta property="article:tag" content="windows">
@@ -126,7 +126,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -256,7 +256,7 @@
 <hr>
 <h2 id="Jlink调试"><a href="#Jlink调试" class="headerlink" title="Jlink调试"></a>Jlink调试</h2><h3 id="1-安装jlink软件包"><a href="#1-安装jlink软件包" class="headerlink" title="1. 安装jlink软件包"></a>1. 安装jlink软件包</h3><p><a target="_blank" rel="noopener" href="https://www.segger.com/jlink-software.html">https://www.segger.com/jlink-software.html</a><br><code>J-Link Software and Documentation Pack</code>中下载新版驱动<br>有时候新版本驱动无法很好地和eclipse中调试插件共同工作, 可以尝试使用稍旧的版本.</p>
 <h3 id="2-Debug设置"><a href="#2-Debug设置" class="headerlink" title="2. Debug设置"></a>2. Debug设置</h3><p>进入Debug Configurations 双击”GDB SEGGER J-Link Debugging”创建新的debug设置<br>这里检查下<code>C/C++ Application</code>、<code>Device name</code>是否都填上:</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C/C++ Application: 编译好的ELF文件</span><br><span class="line">Device name: 目标器件名字 可以去这里查找 https:<span class="regexp">//</span>www.segger.com<span class="regexp">/downloads/</span>supported-devices.php</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight mathematica"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">C</span><span class="operator">/</span><span class="built_in">C</span><span class="operator">++</span> <span class="built_in">Application</span><span class="operator">:</span> 编译好的<span class="variable">ELF</span>文件</span><br><span class="line"><span class="variable">Device</span> <span class="variable">name</span><span class="operator">:</span> 目标器件名字 可以去这里查找 <span class="variable">https</span><span class="operator">://</span><span class="variable">www</span><span class="operator">.</span><span class="variable">segger</span><span class="operator">.</span><span class="variable">com</span><span class="operator">/</span><span class="variable">downloads</span><span class="operator">/</span><span class="variable">supported</span><span class="operator">-</span><span class="variable">devices</span><span class="operator">.</span><span class="variable">php</span></span><br></pre></td></tr></tbody></table></figure>
 <p>如果你不关心semihosting和swo的用途 建议先把相关选项关掉 比如Debugger中<code>Allocate console for semihosting and SWO</code> Startup中<code>Enable SWO</code> <code>Enable semihosting</code></p>
 <h3 id="3-尝试调试"><a href="#3-尝试调试" class="headerlink" title="3. 尝试调试"></a>3. 尝试调试</h3><p>配置完成后尝试运行调试, 如果配置正确, eclipse会帮你启动一个jlink gdb server以及gdb client, 如果能进行单步调试等操作, 说明配置成功.</p>
 <p>P.S. 使用OpenSDA等其他调试器的环境搭建 可以参考<a href="http://noodlefighter.com/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/em_cmsis_dap_eclipse">这篇文章</a></p>
@@ -308,7 +308,7 @@
 
           <div class="main-footer">
   
-    © 2023 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    © 2024 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
   
 </div>
 
