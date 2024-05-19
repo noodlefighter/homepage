@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    垃圾佬家庭10G光纤网络升级记录
+  
+</title>
+
+<meta name="description" content="家中NAS使用固态硬盘后，千兆网络就显得不够用了，经过一些前期调研，决定升级10G光纤网络。 目标是尽可能地减少开销&#x2F;替换原来预埋的网线&#x2F;仅使用冷接工艺，第一次自己部署光通讯的网络，知识不一定准确，简单记录仅供参考，欢迎在评论里指正。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="垃圾佬家庭10G光纤网络升级记录">
+<meta property="og:url" content="http://noodlefighter.com/posts/4e2/index.html">
+<meta property="og:site_name" content="Noodlefighter&#39;s HP">
+<meta property="og:description" content="家中NAS使用固态硬盘后，千兆网络就显得不够用了，经过一些前期调研，决定升级10G光纤网络。 目标是尽可能地减少开销&#x2F;替换原来预埋的网线&#x2F;仅使用冷接工艺，第一次自己部署光通讯的网络，知识不一定准确，简单记录仅供参考，欢迎在评论里指正。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503181638529.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503181607540.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503182100365.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503185743834.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503190021935.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503190209239.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503190647062.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503231437725.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503231244281.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519213450199.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519213417384.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519213625223.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240503235032384.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240504000011487.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240504000508304.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240504000532757.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240504000608915.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519214829066.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519214858349.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519210907787.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519210951132.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519211316501.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519214943488.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519215218839.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519215424670.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519220613928.png">
+<meta property="og:image" content="http://noodlefighter.com/posts/4e2/image-20240519221530934.png">
+<meta property="article:published_time" content="2024-05-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-19T14:22:07.104Z">
+<meta property="article:author" content="Noodlefighter">
+<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://noodlefighter.com/posts/4e2/image-20240503181638529.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="Noodlefighter&#39;s HP" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Noodlefighter&#39;s HP</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Noodlefighter&#39;s HP</a></h1>
+    
+      <p class="subtitle">
+        ——蠢战士
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">开坑不填是生活中一大乐趣.</div>
+        
+        
+          <div class="author">Noodlefighter</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about_me"><img src="/favicon.png"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://wiki.noodlefighter.com/" title="个人知识库Wiki" target="_blank" rel="noopener">个人知识库Wiki</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">文章分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/%E4%BD%9C%E5%93%81/">作品</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/%E5%BA%94%E7%94%A8/">应用</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%96%B9%E6%B3%95/">方法</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/%E6%9D%82%E8%B0%88/">杂谈</a><span class="category-list-count">7</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D%E6%89%93%E5%8D%B0/" rel="tag">3D打印</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/" rel="tag">web</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%BD%AF%E4%BB%B6/" rel="tag">嵌入式软件</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E5%9E%8B/" rel="tag">模型</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%8C%E8%AF%8D/" rel="tag">歌词</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90/" rel="tag">电子</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag">碎碎念</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6/" rel="tag">计算机软件</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1/" rel="tag">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/" rel="tag">输入法</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%AE%E7%9B%98/" rel="tag">键盘</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%BA%BB%E5%B0%86/" rel="tag">麻将</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/">2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/">2014</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/about_me" title="关于我" external="false">关于我</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/noodlefighter" title="My Weibo" target="_blank" rel="noopener">My Weibo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/noodlefighter" title="My Github" target="_blank" rel="noopener">My Github</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">友情链接</a>
+                
+                  <ul class="tag-list">
+                    
+                      <div class="tag-list-item">
+                        <a href="https://www.kozzzx.com/" title="kozzzx" target="_blank" rel="noopener">kozzzx</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://yukoamamiya.blogspot.com/" title="雨宮優子" target="_blank" rel="noopener">雨宮優子</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://yihuishou.github.io/" title="挥手骑士" target="_blank" rel="noopener">挥手骑士</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://www.chenxublog.com/" title="晨旭的博客" target="_blank" rel="noopener">晨旭的博客</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://katyusha.net/" title="卡秋莎的小窝" target="_blank" rel="noopener">卡秋莎的小窝</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://stgapr.github.io/" title="核桃" target="_blank" rel="noopener">核桃</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://yinyisheng.github.io/" title="生活家" target="_blank" rel="noopener">生活家</a>
+                      </div>
+                    
+                      <div class="tag-list-item">
+                        <a href="https://bd4sur.com/" title="bd4sur" target="_blank" rel="noopener">bd4sur</a>
+                      </div>
+                    
+                  </ul>
+                
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-应用-垃圾佬家庭10G光纤网络升级记录" class="article article-type-post">
+  
+    <h1 class="article-header">
+      垃圾佬家庭10G光纤网络升级记录
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2024-05-19
+</span>
+
+  </div>
+  <div class="article-entry">
+    <p>家中NAS使用固态硬盘后，千兆网络就显得不够用了，经过一些前期调研，决定升级10G光纤网络。</p>
+<p>目标是尽可能地减少开销/替换原来预埋的网线/仅使用冷接工艺，第一次自己部署光通讯的网络，知识不一定准确，简单记录仅供参考，欢迎在评论里指正。</p>
+<span id="more"></span>
+
+
+
+<h2 id="关于光纤网络的一些前置知识"><a href="#关于光纤网络的一些前置知识" class="headerlink" title="关于光纤网络的一些前置知识"></a>关于光纤网络的一些前置知识</h2><p><strong>光纤类型</strong></p>
+<p>光纤分为单模光纤、多模光纤，不能混用。</p>
+<p><strong>光纤接头</strong></p>
+<ul>
+<li>SC，常用在入户光纤接光猫：<img src="/posts/4e2/image-20240503181638529.png" class="" title="SC接头"></li>
+<li>LC，路由器交换机的光模块上最常见：<img src="/posts/4e2/image-20240503181607540.png" class="" title="LC接头"></li>
+<li>更多请参考<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%89%E7%BA%A4%E6%8E%A5%E5%A4%B4">百度百科</a>、<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Optical_fiber_connector">维基百科</a></li>
+</ul>
+<p><strong>光模块</strong></p>
+<img src="/posts/4e2/image-20240503182100365.png" class="" title="image-20240503182100365">
+
+<ul>
+<li>用于光电转换，最常见的封装是SFP+，最常见的接头是LC</li>
+<li>由光纤的类型、光模块收发是否用同一根纤，分为几种类型<ul>
+<li>单模单纤：最贵，但只用一根光纤</li>
+<li>单模双纤：便宜，量大</li>
+<li>多模双纤：最便宜，量最大，发热较低，条件允许的话是首选</li>
+</ul>
+</li>
+<li>更多概念和封装类型可以参考华为的这篇《<a target="_blank" rel="noopener" href="https://support.huawei.com/enterprise/zh/doc/EDOC1100130745">什么是光模块以及光模块的常见问题</a>》</li>
+</ul>
+<p><strong>光缆的形态</strong></p>
+<p><strong>皮线</strong>——生活中最常见</p>
+<img src="/posts/4e2/image-20240503185743834.png" class="" title="image-20240503185743834">
+
+<p><strong>跳线、尾纤</strong>——跳线就是做好头的成品线，常用作设备间连接线；尾纤就是只做了一端成品头的线：</p>
+<img src="/posts/4e2/image-20240503190021935.png" class="" title="image-20240503190021935">
+
+<img src="/posts/4e2/image-20240503190209239.png" class="" title="image-20240503190209239">
+
+<p><strong>集束光缆</strong>——多芯，形态很多，有室内也有户外用的，一般都能抗大拉力</p>
+<img src="/posts/4e2/image-20240503190647062.png" class="" title="image-20240503190647062">
+
+
+
+
+
+<p><strong>总结一下</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>单模</th>
+<th>多模</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>光源</td>
+<td>激光器</td>
+<td>LED</td>
+</tr>
+<tr>
+<td>距离</td>
+<td>至少数公里</td>
+<td>一般几百米</td>
+</tr>
+<tr>
+<td>光纤标准</td>
+<td>G.652-G.657</td>
+<td>OM1-OM5</td>
+</tr>
+<tr>
+<td>包皮颜色</td>
+<td>一般是黄色</td>
+<td>橘、水蓝、紫、蓝、鲜绿…</td>
+</tr>
+<tr>
+<td>能否冷接</td>
+<td>能</td>
+<td>不能</td>
+</tr>
+<tr>
+<td>10G单纤光模块</td>
+<td>贵，80-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>10G双纤光模块</td>
+<td>便宜，海鲜市场15元一只</td>
+<td>便宜，海鲜市场10元一只</td>
+</tr>
+</tbody></table>
+<h3 id="冷接工艺"><a href="#冷接工艺" class="headerlink" title="冷接工艺"></a>冷接工艺</h3><p>冷接工艺自己弄还是比较折腾的，要备齐百来块钱的工具，还要做好做坏、工作不稳定的心理准备，比较稳妥避免折腾的方案还是请师傅来熔接。</p>
+<p>冷接子，用于把两根纤接在一起，实际操作还是比较考验技巧：</p>
+<img src="/posts/4e2/image-20240503231437725.png" class="" title="image-20240503231437725">
+
+<p>冷接头，SC头很便宜，两三块钱，下图这种LC头的就贵，某宝8元一个，接的成功率比较高，很友好：</p>
+<img src="/posts/4e2/image-20240503231244281.png" class="" title="image-20240503231244281">
+
+<p>米勒钳，最大的孔用来剥外层的皮，中间的孔用来剥中层的皮，最小的孔用来刮除裸纤上的涂覆层：</p>
+<img src="/posts/4e2/image-20240519213450199.png" class="" title="image-20240519213450199">
+
+<p>光纤切割器，能切出好的端面减少损耗，自带配的定长工具是用于熔接的（图左），冷接要用专门的定长器（图右）：</p>
+<img src="/posts/4e2/image-20240519213417384.png" class="" title="image-20240519213417384">
+
+<p>红光笔，能发出红色激光，方便观察光纤状态（光纤受伤了的位置会“红肿”）、损耗（接上光功率计测量），记得购买转接头，图里是FC公转LC母。</p>
+<p>光功率计，用于验证光纤的传输效果，记得购买转接头，图里是SC公转LC母。</p>
+<img src="/posts/4e2/image-20240519213625223.png" class="" title="image-20240519213625223">
+
+
+
+
+
+<h2 id="改造方案设计"><a href="#改造方案设计" class="headerlink" title="改造方案设计"></a>改造方案设计</h2><p>家中原先的网络拓扑如图</p>
+<img src="/posts/4e2/image-20240503235032384.png" class="" title="image-20240503235032384">
+
+<p>原本仅是打算在NAS上安装双光口网卡，走两根光纤，和书房的两台电脑直连，后面发现10G的光交换机价格已经低到几百块也能买到了，最终方案定为：</p>
+<img src="/posts/4e2/image-20240504000011487.png" class="" title="image-20240504000011487">
+
+<ul>
+<li>客厅的2.5G交换机作为光转电设备，同时替换原先的千兆交换机，将电口设备简单升级到2.5G</li>
+<li>10G光口交换机到2.5G交换机间，选用多模双纤光模块+成品跳线</li>
+<li>房间间互通的光纤需要穿管，而我需要自己冷接只能用单模，而单模单纤光模块太贵，所以选择了单模双纤方案</li>
+<li>2.5G交换机（2光+4电）是个便宜好用的光电互转设备，后续需要</li>
+</ul>
+<p>关键线材和设备是：</p>
+<ul>
+<li>JT-COM 全万兆8光口网管型交换机（JT-FG6700-8TFM），海鲜市场500收的全新<ul>
+<li><img src="/posts/4e2/image-20240504000508304.png" class="" title="image-20240504000508304"></li>
+</ul>
+</li>
+<li>洪亚威视2.5G电口x4+10G光口x2 交换机（HYWS-SGT0204S），140元<ul>
+<li><img src="/posts/4e2/image-20240504000532757.png" class="" title="image-20240504000532757"></li>
+</ul>
+</li>
+<li>4芯光缆，20米的60多元，12米的40元<ul>
+<li><img src="/posts/4e2/image-20240504000608915.png" class="" title="image-20240504000608915"></li>
+</ul>
+</li>
+<li>冷接工具，米勒钳+光纤切割器+红光笔，140+元</li>
+<li>LC冷接头8支，60+元（做废了两支，心疼）</li>
+<li>10G单模双纤光模块x6，100元，用完了</li>
+<li>10G单模双纤光模块x8，80元，用了两只；一些多模光纤跳线，十几块钱；用来做网络设备间的连接，便宜就多备点了（其实是一开始买错了，设备间连接直接买DAC线就可以了）</li>
+<li>2台桌面机+1台NAS用的网卡：Mellanox ConnectX-3两块（单10G光口）共70元，华为SP310一块（两个10G光口）60元</li>
+</ul>
+<p>这次改造一共花了1200元左右</p>
+<img src="/posts/4e2/image-20240519214829066.png" class="" title="image-20240519214829066">
+
+<img src="/posts/4e2/image-20240519214858349.png" class="" title="image-20240519214858349">
+
+
+
+<h2 id="实操-拉线"><a href="#实操-拉线" class="headerlink" title="实操-拉线"></a>实操-拉线</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>要拉两根光缆，使用旧线带新线的方式，就是用电工胶带把旧线和新线接在一起，然后大力出奇迹</p>
+<p>由于购买的是成品缆，两端都做好LC头的，所以剪断一段后拉线，成功拉了一条：</p>
+<img src="/posts/4e2/image-20240519210907787.png" class="" title="image-20240519210907787">
+
+<img src="/posts/4e2/image-20240519210951132.png" class="" title="image-20240519210951132">
+
+<p>然而在拉第二条的时候翻车，仔细数数拐了6个弯，可能阻力太大，接线除断开了，只好买了穿线神器（一根有弹性的金属丝）解决，这种穿线器可以灵活地在线管里拐弯：</p>
+<img src="/posts/4e2/image-20240519211316501.png" class="" title="image-20240519211316501">
+
+
+
+<h2 id="实操-冷接"><a href="#实操-冷接" class="headerlink" title="实操-冷接"></a>实操-冷接</h2><p>根据冷接头的要求，用米勒钳剥出足够长的裸纤，再用光纤切割器做出好的端面，无尘纸蘸酒精擦擦，装上冷接子，测光功率，一套打完。接LC冷接头还是很容易的，该买的工具一个都别落，严格按照商家提供的教程就成。</p>
+<p>最后接出来的头，接得好的可以接近2db，不好的有到-9dbm，手艺不佳但不影响用。</p>
+<blockquote>
+<p>有一根接好后用了两天断掉的，应该是工艺不到位，重新接之后稳定用了一个月，目前工作得很好</p>
+<p>有条件建议还是让师傅来熔接，我只是自己想折腾所以选的这个路线（。）</p>
+</blockquote>
+<img src="/posts/4e2/image-20240519214943488.png" class="" title="image-20240519214943488">
+
+<img src="/posts/4e2/image-20240519215218839.png" class="" title="image-20240519215218839">
+
+<img src="/posts/4e2/image-20240519215424670.png" class="" title="image-20240519215424670">
+
+
+
+<h3 id="完工"><a href="#完工" class="headerlink" title="完工"></a>完工</h3><img src="/posts/4e2/image-20240519220613928.png" class="" title="image-20240519220613928">
+
+<p>在NAS和一桌面机上打流的效果，速度稳定：</p>
+<img src="/posts/4e2/image-20240519221530934.png" class="" title="image-20240519221530934">
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-nc/4.0/deed.z" target="_blank" title="署名-非商业性使用">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/nc.png">
+        
+      <span>
+        本作品采用知识共享 署名-非商业性使用 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'noodlefighter'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+          <div class="main-footer">
+  
+    © 2024 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+
+
+  
+<div style="display:none"><script src="https://s4.cnzz.com/z_stat.php?id=5956290&web_id=5956290" language="JavaScript"></script></div>
+
+
+</body>
+</html>
