@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://noodlefighter.com/posts/33df/edit.jpg">
 <meta property="article:published_time" content="2015-07-28T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-19T14:22:07.100Z">
+<meta property="article:modified_time" content="2026-07-23T15:06:41.818Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -235,7 +235,7 @@
 <hr>
 <h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><p>Hexo是台湾人写的，所以官网hexo.io的文档也是中文的，照着步骤安装和配置就行。</p>
 <p>这里还是列一下命令吧。</p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum <span class="keyword">install</span> git-core</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> yum install git-core</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><p>nvm = nodejs version manager<br>npm = nodejs package manager<br>前者用于切换版本，后者用于模块安装和管理</p>
 <p>nvm的其他使用方法参照: <a target="_blank" rel="noopener" href="https://github.com/cnpm/nvm">https://github.com/cnpm/nvm</a></p>
@@ -264,7 +264,7 @@
 <figure class="highlight verilog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source /root/nvm/nvm<span class="variable">.sh</span></span><br><span class="line">nvm <span class="keyword">use</span> <span class="number">0</span><span class="variable">.10</span></span><br><span class="line">cd /home/hexo</span><br><span class="line">nohup hexo <span class="keyword">generate</span> -w &gt; /dev/<span class="literal">null</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></tbody></table></figure>
 <p>-w参数会一直监视hexo源文件夹中的变更，nohup会将这个命令挂在后台。（你可以<code>ps -aux |more</code>找到它的存在）</p>
 <h3 id="用户登入后自动加载nvm"><a href="#用户登入后自动加载nvm" class="headerlink" title="用户登入后自动加载nvm"></a>用户登入后自动加载nvm</h3><p>~/.bash_profile 中添加</p>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">source</span> /root/nvm/nvm.sh</span><br><span class="line"><span class="attribute">nvm</span> use <span class="number">0</span>.<span class="number">10</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">source</span> /root/nvm/nvm<span class="selector-class">.sh</span></span><br><span class="line">nvm <span class="selector-tag">use</span> <span class="number">0.10</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="选择一种上传文件的方式"><a href="#选择一种上传文件的方式" class="headerlink" title="选择一种上传文件的方式"></a>选择一种上传文件的方式</h3><h4 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h4><p>懒得配置的话，可以使用，在win下可以用WinSCP方便地传文件</p>
 <h4 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h4><p>如果平时只用一台机子的话，部署一个SVN是不错的选择，用海龟SVN之类的还是挺方便的。</p>
@@ -320,7 +320,7 @@
 
           <div class="main-footer">
   
-    © 2024 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    © 2026 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
   
 </div>
 

@@ -20,7 +20,7 @@
 <meta property="og:description" content="当前MCU上与外部交互的应用层协议，一般都是开发者手动编、解的简单二进制协议；用到序列化格式来做协议的需求，是IoT快速发展后才开始的，比如一些设备会用到JSON。 手头维护的硬件产品，应用协议已经很复杂了，一个二进制协议，实现、写文档都是麻烦事。所以我一直在探索一个快速、适合嵌入式应用的序列化格式方案，试图减轻开发负担。 Cap’n Proto是种快速数据交换格式，目标是数据快速交换、做RPC，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-27T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-19T14:22:07.100Z">
+<meta property="article:modified_time" content="2026-07-23T15:06:41.816Z">
 <meta property="article:author" content="Noodlefighter">
 <meta property="article:tag" content="嵌入式软件">
 <meta name="twitter:card" content="summary">
@@ -45,7 +45,7 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 <body
@@ -292,7 +292,7 @@
 <p>capn_getp()函数会返回list的内部指针</p>
 </blockquote>
 <p>动态内存使用评估，<code>capn-malloc.c: create()</code>：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="keyword">struct</span> <span class="title class_">capn_segment</span> *<span class="built_in">create</span>(<span class="type">void</span> *u, <span class="type">uint32_t</span> id, <span class="type">int</span> sz) {</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">capn_segment</span> *s;</span><br><span class="line">	sz += <span class="built_in">sizeof</span>(*s);</span><br><span class="line">	<span class="keyword">if</span> (sz &lt; <span class="number">4096</span>) {</span><br><span class="line">		sz = <span class="number">4096</span>;</span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		sz = (sz + <span class="number">4095</span>) &amp; ~<span class="number">4095</span>;</span><br><span class="line">	}</span><br><span class="line">	s = (<span class="keyword">struct</span> capn_segment*) <span class="built_in">calloc</span>(<span class="number">1</span>, sz);</span><br><span class="line">	s-&gt;data = (<span class="type">char</span>*) (s+<span class="number">1</span>);</span><br><span class="line">	s-&gt;cap = sz - <span class="built_in">sizeof</span>(*s);</span><br><span class="line">	s-&gt;user = s;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"create()\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="keyword">struct</span> <span class="title class_">capn_segment</span> *<span class="built_in">create</span>(<span class="type">void</span> *u, <span class="type">uint32_t</span> id, <span class="type">int</span> sz) {</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">capn_segment</span> *s;</span><br><span class="line">	sz += <span class="built_in">sizeof</span>(*s);</span><br><span class="line">	<span class="keyword">if</span> (sz &lt; <span class="number">4096</span>) {</span><br><span class="line">		sz = <span class="number">4096</span>;</span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		sz = (sz + <span class="number">4095</span>) &amp; ~<span class="number">4095</span>;</span><br><span class="line">	}</span><br><span class="line">	s = (<span class="keyword">struct</span> capn_segment*) <span class="built_in">calloc</span>(<span class="number">1</span>, sz);</span><br><span class="line">	s-&gt;data = (<span class="type">char</span>*) (s<span class="number">+1</span>);</span><br><span class="line">	s-&gt;cap = sz - <span class="built_in">sizeof</span>(*s);</span><br><span class="line">	s-&gt;user = s;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"create()\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>结合create函数和segment结构体的注释，可以看出：需要用到动态内存时，每次会申请4KiB内存，不够用时再次申请，这样的机制不会造成我们最担心的堆内存碎片问题；这个4096也可以简单地修改为8字节对齐的数，小内存设备也是可以用的。</p>
 </details>
@@ -377,7 +377,7 @@
 
           <div class="main-footer">
   
-    © 2024 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    © 2026 Noodlefighter&#39;s HP - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
   
 </div>
 
