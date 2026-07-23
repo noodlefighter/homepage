@@ -6,10 +6,20 @@ layout: page
 
 ---
 
+
 标号器+ 漫画翻译辅助工具. 减少翻译工作交接成本. 导出文本至ps.
 A Easy tool for comic translation. Reduce communication costs of translator. Export text to Photoshop..
 
-[Github Organization](https://github.com/LabelPlus) / [WEB在线协作版:萌翻](http://moeflow.com/)
+> ⚠️: 
+>
+>    本项目已经进入开发停滞阶段，请关注我们的新项目 [猫译员](https://nekonekone.com/translator)
+> 
+>    Development of this project has stalled. Please check out our new project, [Neko Translator](https://nekonekone.com/translator)
+相关项目
+
+- [LabelPlus Github Organization](https://github.com/LabelPlus)
+- [WEB在线协作版:萌翻(已下线)](https://github.com/moeflow-com)
+
 
 <!--more-->
 
